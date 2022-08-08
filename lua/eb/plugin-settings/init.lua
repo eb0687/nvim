@@ -8,6 +8,7 @@ require("eb.plugin-settings.nvim-tree")
 require("eb.plugin-settings.treesitter")
 require("eb.plugin-settings.cmp")
 require("eb.plugin-settings.gitsigns")
+require("eb.plugin-settings.nvim-surround")
 
 -- vim plugin settings
 require("eb.plugin-settings.vim-lastplace")
