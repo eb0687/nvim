@@ -145,10 +145,10 @@ keymap("v", "<leader>hl", "<cmd>HopLine<CR>", opts)
 -- ]]]
 -- [[[ True-Zen
 
-keymap("n", "<leader>zn", ":TZNarrow<CR>", {})
-keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", {})
-keymap("n", "<leader>zf", ":TZFocus<CR>", {})
-keymap("n", "<leader>zm", ":TZMinimalist<CR>", {})
-keymap("n", "<leader>za", ":TZAtaraxis<CR>", {})
+keymap("n", "<leader>zn", ":TZNarrow<CR>", opts)
+keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", opts)
+keymap("n", "<leader>zf", ":TZFocus<CR>", opts)
+keymap("n", "<leader>zm", ":TZMinimalist<CR>", opts)
+keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
 
 -- ]]]
