@@ -10,6 +10,7 @@ require("eb.plugin-settings.cmp")
 require("eb.plugin-settings.gitsigns")
 require("eb.plugin-settings.nvim-surround")
 require("eb.plugin-settings.hop")
+require("eb.plugin-settings.true-zen")
 
 -- vim plugin settings
 require("eb.plugin-settings.vim-lastplace")

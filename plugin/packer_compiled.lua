@@ -224,6 +224,11 @@ _G.packer_plugins = {
     path = "/home/vagrant/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["true-zen.nvim"] = {
+    loaded = true,
+    path = "/home/vagrant/.local/share/nvim/site/pack/packer/start/true-zen.nvim",
+    url = "https://github.com/Pocco81/true-zen.nvim"
+  },
   ["vim-commentary"] = {
     loaded = true,
     path = "/home/vagrant/.local/share/nvim/site/pack/packer/start/vim-commentary",
