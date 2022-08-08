@@ -9,7 +9,8 @@ require("eb.plugin-settings.treesitter")
 require("eb.plugin-settings.cmp")
 require("eb.plugin-settings.gitsigns")
 require("eb.plugin-settings.nvim-surround")
+require("eb.plugin-settings.hop")
 
 -- vim plugin settings
 require("eb.plugin-settings.vim-lastplace")
--- require("eb.plugin-settings.quick-scope") -- using hop.nvim
+-- require("eb.plugin-settings.quick-scope") -- using hop.nvom
