@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "/home/vagrant/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "/home/vagrant/.local/share/nvim/site/pack/packer/start/hop.nvim",
+    url = "https://github.com/phaazon/hop.nvim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/vagrant/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -208,11 +213,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/vagrant/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
-  },
-  ["quick-scope"] = {
-    loaded = true,
-    path = "/home/vagrant/.local/share/nvim/site/pack/packer/start/quick-scope",
-    url = "https://github.com/unblevable/quick-scope"
   },
   ["telescope-github.nvim"] = {
     loaded = true,

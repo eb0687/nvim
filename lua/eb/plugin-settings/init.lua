@@ -12,4 +12,4 @@ require("eb.plugin-settings.nvim-surround")
 
 -- vim plugin settings
 require("eb.plugin-settings.vim-lastplace")
-require("eb.plugin-settings.quick-scope")
+-- require("eb.plugin-settings.quick-scope") -- using hop.nvim

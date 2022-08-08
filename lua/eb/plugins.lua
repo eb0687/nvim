@@ -69,8 +69,9 @@ return packer.startup(function(use)
     use 'kyazdani42/nvim-tree.lua'                      -- https://github.com/kyazdani42/nvim-tree.lua
     use 'farmergreg/vim-lastplace'                      -- https://github.com/farmergreg/vim-lastplace
     use 'tpope/vim-commentary'                          -- https://github.com/tpope/vim-commentary
-    use 'unblevable/quick-scope'                        -- https://github.com/unblevable/quick-scope
+    -- use 'unblevable/quick-scope'                        -- https://github.com/unblevable/quick-scope
     use 'kylechui/nvim-surround'                        -- https://github.com/kylechui/nvim-surround
+    use {'phaazon/hop.nvim', branch = 'v2'}             -- https://github.com/phaazon/hop.nvim
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'

@@ -126,3 +126,20 @@ keymap("n", "<C-q>", ":Commentary<CR>", opts)
 keymap("v", "<C-q>", ":Commentary<CR>", opts)
 
 -- ]]]
+-- [[[ Hop
+
+-- vim-motions
+keymap('', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
+keymap('', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
+keymap('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
+keymap('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
+-- normal mode
+keymap("n", "<leader>hw", ":HopWord<CR>", opts)
+keymap("n", "<leader>hl", ":HopLine<CR>", opts)
+keymap("n", "<leader>hp", ":HopPattern<CR>", opts)
+-- visual mode
+keymap("v", "<leader>hw", "<cmd>HopWord<CR>", opts)
+keymap("v", "<leader>hl", "<cmd>HopLine<CR>", opts)
+
+
+-- ]]]
