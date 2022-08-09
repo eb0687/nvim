@@ -11,7 +11,8 @@ require("eb.plugin-settings.gitsigns")
 require("eb.plugin-settings.nvim-surround")
 require("eb.plugin-settings.hop")
 require("eb.plugin-settings.true-zen")
+require("eb.plugin-settings.fzf-lua")
 
 -- vim plugin settings
 require("eb.plugin-settings.vim-lastplace")
--- require("eb.plugin-settings.quick-scope") -- using hop.nvom
+-- require("eb.plugin-settings.quick-scope") -- using hop.nvim

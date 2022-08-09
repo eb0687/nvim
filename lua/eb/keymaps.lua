@@ -152,3 +152,9 @@ keymap("n", "<leader>zm", ":TZMinimalist<CR>", opts)
 keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
 
 -- ]]]
+-- [[[ FZF-Lua
+
+keymap("n", "<leader>ff", ":FzfLua files cwd=~/<CR>", opts)
+keymap("n", "<leader>fcu", ":FzfLua files<CR>", opts2)
+
+-- ]]]
