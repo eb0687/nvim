@@ -54,16 +54,20 @@ for k, v in pairs(options) do
 end
 
 --
-
 vim.opt.iskeyword:append "-"        -- uses "-" to connect words when using vim motions
 
 --
-
 local cmd = vim.cmd
 cmd([[
     "let g:python3_host_prog = '/usr/bin/python3'",
 ]])
 
+-- clean healthcheck output
+local g = vim.g
+
+g.loaded_ruby_provider = 0
+g.loaded_node_provider = 0
+g.loaded_perl_provider = 0
 
 
 
