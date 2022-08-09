@@ -87,7 +87,7 @@ nvim_tree.setup({
         dotfiles = true,
     },
     log = {
-        enable = true,
+        enable = false,
         truncate = true,
         types = {
           all = true,
