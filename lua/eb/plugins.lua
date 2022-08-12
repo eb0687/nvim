@@ -73,6 +73,7 @@ return packer.startup(function(use)
     -- use 'unblevable/quick-scope'                        -- https://github.com/unblevable/quick-scope
     use {'phaazon/hop.nvim', branch = 'v2'}             -- https://github.com/phaazon/hop.nvim
     use 'Pocco81/true-zen.nvim'                         -- https://github.com/Pocco81/true-zen.nvim
+    -- use 'christoomey/vim-tmux-navigator'                -- better navigation between nvim splits and tmux panes -- https://github.com/christoomey/vim-tmux-navigator
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'

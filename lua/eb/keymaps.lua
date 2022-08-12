@@ -158,3 +158,13 @@ keymap("n", "<leader>ff", ":FzfLua files cwd=~/<CR>", opts)
 keymap("n", "<leader>fcu", ":FzfLua files<CR>", opts2)
 
 -- ]]]
+-- [[[ Tmux Navigator (WIP)
+
+-- vim.g.tmux_navigator_no_mappings = 1
+
+-- keymap("n", "<C-h>", ":TmuxNavigateLeft", opts)
+-- keymap("n", "<C-l>", ":TmuxNavigateRight", opts)
+-- keymap("n", "<C-k>", ":TmuxNavigateUp", opts)
+-- keymap("n", "<C-j>", ":TmuxNavigateDown", opts)
+
+-- ]]]
