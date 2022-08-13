@@ -28,8 +28,8 @@ local on_attach  = function(client, bufnr)
     keymaps('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 
     -- Disable Autoformat
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
+    client.server_capabilities.document_formatting = false
+    client.server_capabilities.document_range_formatting = false
 
     -- Diagnostic Sigs
     local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
