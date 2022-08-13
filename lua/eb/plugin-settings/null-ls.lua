@@ -11,7 +11,11 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
     debug = false,
     sources = {
+        -- formatter for python
         formatting.black,
+        -- prettier install: npm install -g prettier
+        formatting.prettier,
+        -- diagnostics for python
         diagnostics.flake8
     }
 })
