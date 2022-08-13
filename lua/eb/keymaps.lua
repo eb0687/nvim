@@ -169,3 +169,8 @@ keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
 -- keymap("n", "<C-j>", ":TmuxNavigateDown", opts)
 
 -- ]]]
+-- [[[ Null-ls 
+
+keymap("n", "<leader>lf", ":lua vim.lsp.buf.format({ async = true })<CR>", opts)
+
+-- ]]]

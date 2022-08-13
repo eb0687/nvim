@@ -73,7 +73,7 @@ return packer.startup(function(use)
     -- use 'unblevable/quick-scope'                        -- https://github.com/unblevable/quick-scope
     use {'phaazon/hop.nvim', branch = 'v2'}             -- https://github.com/phaazon/hop.nvim
     use 'Pocco81/true-zen.nvim'                         -- https://github.com/Pocco81/true-zen.nvim
-    -- use 'christoomey/vim-tmux-navigator'                -- better navigation between nvim splits and tmux panes -- https://github.com/christoomey/vim-tmux-navigator
+    use 'christoomey/vim-tmux-navigator'                -- better navigation between nvim splits and tmux panes -- https://github.com/christoomey/vim-tmux-navigator
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
@@ -106,6 +106,9 @@ return packer.startup(function(use)
     use 'neovim/nvim-lspconfig'                         -- plugin to enable LSP - https://github.com/neovim/nvim-lspconfig
     use 'williamboman/mason.nvim'                       -- plugin to auto download language servers - https://github.com/williamboman/mason.nvim
     use 'williamboman/mason-lspconfig.nvim'             -- plugin required for mason - https://github.com/williamboman/mason-lspconfig.nvim
+
+    -- Null-Ls
+    use 'jose-elias-alvarez/null-ls.nvim'               -- syntax formatter - https://github.com/jose-elias-alvarez/null-ls.nvim
 
     -- Git
     use 'lewis6991/gitsigns.nvim'                       -- plugin for git integration
