@@ -96,6 +96,7 @@ keymap("n", "<leader>bd", "<Cmd>BufferClose<CR>", opts)
 -- [[[ Telescope
 
 keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope man_pages<CR>", opts)
 keymap("n", "<leader>fm", ":Telescope marks<CR>", opts)
@@ -154,8 +155,8 @@ keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
 -- ]]]
 -- [[[ FZF-Lua
 
-keymap("n", "<leader>ff", ":FzfLua files cwd=~/<CR>", opts)
-keymap("n", "<leader>fcu", ":FzfLua files<CR>", opts2)
+-- keymap("n", "<leader>ff", ":FzfLua files cwd=~/<CR>", opts)
+-- keymap("n", "<leader>fcu", ":FzfLua files<CR>", opts2)
 
 -- ]]]
 -- [[[ Tmux Navigator (WIP)
