@@ -13,6 +13,8 @@ null_ls.setup({
     sources = {
         -- formatter for python
         formatting.black,
+        -- formatter for bash, zsh & sh
+        formatting.beautysh,
         -- prettier install: npm install -g prettier
         formatting.prettier,
         -- diagnostics for python
