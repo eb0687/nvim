@@ -69,6 +69,13 @@ cmd([[
 
     " automatically rebalance windows on vim resize when in a TMUX session.
     autocmd VimResized * :wincmd =
+
+    " highlight on yank
+    augroup highlight_yank
+        autocmd!
+        au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}
+    augroup END
+
 ]])
 
 -- clean healthcheck output
