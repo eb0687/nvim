@@ -56,10 +56,19 @@ end
 --
 vim.opt.iskeyword:append "-"        -- uses "-" to connect words when using vim motions
 
---
+-- vim syntax
 local cmd = vim.cmd
 cmd([[
     "let g:python3_host_prog = '/usr/bin/python3'",
+
+    " center documents when in INSERT mode
+    autocmd InsertEnter * norm zz,
+
+    " disables automatic commenting on new line
+    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o,
+
+    " automatically rebalance windows on vim resize when in a TMUX session.
+    autocmd VimResized * :wincmd =
 ]])
 
 -- clean healthcheck output
