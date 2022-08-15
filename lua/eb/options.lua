@@ -76,6 +76,9 @@ cmd([[
         au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=100}
     augroup END
 
+    " healthcheck
+    command! Health checkhealth
+
 ]])
 
 -- clean healthcheck output
