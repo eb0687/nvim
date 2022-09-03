@@ -79,6 +79,11 @@ cmd([[
     " healthcheck
     command! Health checkhealth
 
+    " execute python script
+    augroup run_file
+        autocmd BufEnter *.py let @g=":w\<CR>:vsp | terminal python %\<CR>i"
+    augroup end
+
 ]])
 
 -- clean healthcheck output
