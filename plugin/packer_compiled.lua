@@ -244,6 +244,11 @@ _G.packer_plugins = {
     path = "/home/ebuntu/.local/share/nvim/site/pack/packer/start/vim-commentary",
     url = "https://github.com/tpope/vim-commentary"
   },
+  ["vim-hcl"] = {
+    loaded = true,
+    path = "/home/ebuntu/.local/share/nvim/site/pack/packer/start/vim-hcl",
+    url = "https://github.com/jvirtanen/vim-hcl"
+  },
   ["vim-lastplace"] = {
     loaded = true,
     path = "/home/ebuntu/.local/share/nvim/site/pack/packer/start/vim-lastplace",
