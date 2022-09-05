@@ -18,6 +18,8 @@ null_ls.setup({
         -- prettier install: npm install -g prettier
         formatting.prettier,
         -- diagnostics for python
-        diagnostics.flake8
+        diagnostics.flake8,
+        -- formatter for markdown
+        formatting.mdformat
     }
 })
