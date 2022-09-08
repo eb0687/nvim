@@ -35,7 +35,7 @@ keymap("n", "<leader>q", ":q!<CR>", opts)
 -- Source Nvim
 keymap("n", "<leader>xo", ":luafile %<CR>", opts2)
 -- Yank from current position to end of line
-keymap("n", "Y", "y$", opts)
+keymap("n", "Y", "yg$", opts)
 -- Create splits
 keymap("n", "<leader>h", ":split<CR>", opts)
 keymap("n", "<leader>v", ":vsplit<CR>", opts)
@@ -51,11 +51,20 @@ keymap("n", "<leader>=", ":wincmd =<CR>", opts)
 keymap("n", "<leader>ho", ":noh<CR>", opts)
 -- Search & Replace
 keymap("n", "<C-s>", ":%s/", opts)
+keymap("n", "n", "nzzzv", opts)
+keymap("n", "N", "Nzzzv", opts)
 -- Automatically create the file if it does not exist
 keymap("n", "gf", ":edit <cfile><CR>", opts)
 -- Motions
 keymap("n", "^", "0", opts) -- o to the beginning of the line
 keymap("n", "0", "^", opts) -- go to first non blank character on a line
+keymap("n", "<C-u>", "<C-u>zz", opts) -- navigate upwards vertically while keeping cursor centered
+keymap("n", "<C-d>", "<C-d>zz", opts) -- navigate downwardsv ertically while keeping cursor centered
+-- Quickfix list
+keymap("n", "<leader>j", "<cmd>cnext<CR>zz", opts)
+keymap("n", "<leader>k", "<cmd>cprev<CR>zz", opts)
+-- Utils
+keymap("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
 
 -- INSERT MODE --
 -- Escape remap
@@ -99,6 +108,9 @@ keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope man_pages<CR>", opts)
+keymap("n", "<leader>fs", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep for > ')}) <CR>", opts)
+keymap("n", "<leader>fd", "<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< VIMRC >', cwd = vim.env.dotfiles }) <CR>", opts)
+keymap("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') }) <CR>", opts)
 keymap("n", "<leader>fm", ":Telescope marks<CR>", opts)
 keymap("n", "<leader>fb", "<cmd>lua require('eb.plugin-settings.telescope').telescope_buffers() <CR>", opts)
 keymap("n", "<leader>fsh", "<cmd>lua require('eb.plugin-settings.telescope').telescope_search_history() <CR>", opts)

@@ -91,7 +91,7 @@ MyFunc.telescope_search_history = function()
     require('telescope.builtin').search_history(opt)
 end
 
--- search history
+-- command history
 MyFunc.telescope_command_history = function()
     local opt = require('telescope.themes').get_dropdown({
         previewer=false,
