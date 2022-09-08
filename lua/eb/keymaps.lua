@@ -63,8 +63,9 @@ keymap("n", "<C-d>", "<C-d>zz", opts) -- navigate downwardsv ertically while kee
 -- Quickfix list
 keymap("n", "<leader>j", "<cmd>cnext<CR>zz", opts)
 keymap("n", "<leader>k", "<cmd>cprev<CR>zz", opts)
--- Utils
+-- Various
 keymap("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
+keymap("n", "<leader>w", ":set wrap!<CR>", opts)
 
 -- INSERT MODE --
 -- Escape remap
