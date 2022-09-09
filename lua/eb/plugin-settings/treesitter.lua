@@ -15,7 +15,7 @@ configs.setup({
         disable = { " " }
     },
     -- treesitter tries and makes indentation consistent with this option enabled
-    indent = { enable = true, disable = { "yaml"} },
+    indent = { enable = true, disable = {"yaml", "python"} },
     rainbow = {
         enable = true,
         -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
