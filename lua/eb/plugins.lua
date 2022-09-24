@@ -75,6 +75,7 @@ return packer.startup(function(use)
     use 'Pocco81/true-zen.nvim'                         -- https://github.com/Pocco81/true-zen.nvim
     use 'christoomey/vim-tmux-navigator'                -- better navigation between nvim splits and tmux panes -- https://github.com/christoomey/vim-tmux-navigator
     use 'jvirtanen/vim-hcl'
+    use 'mboughaba/i3config.vim'
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'

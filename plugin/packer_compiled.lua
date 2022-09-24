@@ -149,6 +149,11 @@ _G.packer_plugins = {
     path = "/home/eb/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
   },
+  ["i3config.vim"] = {
+    loaded = true,
+    path = "/home/eb/.local/share/nvim/site/pack/packer/start/i3config.vim",
+    url = "https://github.com/mboughaba/i3config.vim"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/eb/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
