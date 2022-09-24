@@ -106,7 +106,7 @@ keymap("n", "<leader>bd", "<Cmd>BufferClose<CR>", opts)
 -- [[[ Telescope
 
 keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
-keymap("n", "<leader>ff", ":Telescope find_files hidden=true<CR>", opts)
+keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope man_pages<CR>", opts)
 keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
