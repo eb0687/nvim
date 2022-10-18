@@ -1,1 +1,1 @@
-Personal configs for nvim mostly in LUA.
+Personal configs for NEOVIM mostly in LUA.
