@@ -88,8 +88,8 @@ keymap("v", "p", '"_dP', opts)
 -- Inspired by: https://www.youtube.com/shorts/kkcHypEr5y8
 keymap("v", "+", 'g<C-a>', opts)
 keymap("v", "-", 'g<C-x>', opts)
-keymap("v", "<leader>+", '<C-x>', opts)
-keymap("v", "<leader>=", '<C-a>', opts)
+keymap("v", "<leader>-", '<C-x>', opts)
+keymap("v", "<leader>+", '<C-a>', opts)
 
 -- ]]]
 -- [[[ Barbar
