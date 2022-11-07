@@ -85,6 +85,7 @@ keymap("v", "<leader>,", "<C-v><S-i>", opts)
 -- Put sane
 keymap("v", "p", '"_dP', opts)
 -- Increment and Decrement numbers
+-- Inspired by: https://www.youtube.com/shorts/kkcHypEr5y8
 keymap("v", "+", 'g<C-a>', opts)
 keymap("v", "-", 'g<C-x>', opts)
 keymap("v", "<leader>+", '<C-x>', opts)
