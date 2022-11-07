@@ -1,11 +1,12 @@
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
-local on_attach  = function(client, bufnr)
+local on_attach = function(client, bufnr)
 
     -- Mappings
     local function keymaps(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-    local opts = { noremap=true, silent=true }
+
+    local opts = { noremap = true, silent = true }
 
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     keymaps('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -35,8 +36,8 @@ local on_attach  = function(client, bufnr)
     local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
     for type, icon in pairs(signs) do
-      local hl = "DiagnosticSign" .. type
-      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 end
 
@@ -50,7 +51,7 @@ for _, lsp in ipairs(servers) do
             Lua = {
                 diagnostics = {
                     -- Get the language server to recognize the `vim` global
-                    globals = {'vim'},
+                    globals = { 'vim' },
                 },
             },
         },
@@ -60,14 +61,14 @@ end
 -- capabilities
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-require'lspconfig'.bashls.setup {
+require 'lspconfig'.bashls.setup {
     capabilities = capabilities
 }
 
-require'lspconfig'.vimls.setup {
+require 'lspconfig'.vimls.setup {
     capabilities = capabilities
 }
 
-require'lspconfig'.pylsp.setup {
+require 'lspconfig'.pylsp.setup {
     capabilities = capabilities
 }
