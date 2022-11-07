@@ -186,6 +186,6 @@ keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
 -- [[[ Null-ls 
 
 -- keymap("n", "<leader>lf", ":lua vim.lsp.buf.format({ async = true })<CR>", opts)
-keymap("n", "<leader>lf", ":lua vim.lsp.buf.formatting()<CR>", opts)
+keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", opts)
 
 -- ]]]
