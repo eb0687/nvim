@@ -84,6 +84,11 @@ keymap("v", "<", "<gv", opts)
 keymap("v", "<leader>,", "<C-v><S-i>", opts)
 -- Put sane
 keymap("v", "p", '"_dP', opts)
+-- Increment and Decrement numbers
+keymap("v", "+", 'g<C-a>', opts)
+keymap("v", "-", 'g<C-x>', opts)
+keymap("v", "<leader>+", '<C-x>', opts)
+keymap("v", "<leader>=", '<C-a>', opts)
 
 -- ]]]
 -- [[[ Barbar
