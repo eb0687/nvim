@@ -18,5 +18,5 @@ require("mason").setup({
 
 require("mason-lspconfig").setup({
     -- makes sure the below languages are available during first install when running :LSPInstall
-    ensure_installed = { 'vimls', 'bashls', 'pyright', 'sumneko_lua' }
+    ensure_installed = { 'vimls', 'bashls', 'pyright', 'sumneko_lua', 'ansiblels'}
 })
