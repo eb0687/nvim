@@ -42,7 +42,7 @@ local on_attach = function(client, bufnr)
 end
 
 -- language servers go here
-local servers = { 'vimls', 'bashls', 'pyright', 'sumneko_lua' }
+local servers = { 'vimls', 'bashls', 'pyright', 'sumneko_lua', 'ansiblels' }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         -- capabilities = capabilities,
@@ -70,5 +70,9 @@ require 'lspconfig'.vimls.setup {
 }
 
 require 'lspconfig'.pylsp.setup {
+    capabilities = capabilities
+}
+
+require 'lspconfig'.ansiblels.setup {
     capabilities = capabilities
 }
