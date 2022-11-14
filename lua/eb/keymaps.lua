@@ -60,6 +60,7 @@ keymap("n", "^", "0", opts) -- o to the beginning of the line
 keymap("n", "0", "^", opts) -- go to first non blank character on a line
 keymap("n", "<C-u>", "<C-u>zz", opts) -- navigate upwards vertically while keeping cursor centered
 keymap("n", "<C-d>", "<C-d>zz", opts) -- navigate downwardsv ertically while keeping cursor centered
+keymap("n", "n", "nzz", opts) -- navigate downwardsv ertically while keeping cursor centered
 -- Quickfix list
 keymap("n", "<leader>j", "<cmd>cnext<CR>zz", opts)
 keymap("n", "<leader>k", "<cmd>cprev<CR>zz", opts)
