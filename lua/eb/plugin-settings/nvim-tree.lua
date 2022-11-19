@@ -7,7 +7,7 @@
 -- protective call so nothing breaks if nvim-tree is missing
 local status_ok, nvim_tree = pcall(require, "nvim-tree")
 if not status_ok then
-  return
+    return
 end
 
 -- setup
@@ -33,11 +33,11 @@ nvim_tree.setup({
         signcolumn = "yes",
     },
     renderer = {
-        add_trailing = false,
+        add_trailing = true,
         group_empty = false,
-        highlight_git = false,
+        highlight_git = true,
         full_name = false,
-        highlight_opened_files = "none",
+        highlight_opened_files = "name",
         root_folder_modifier = ":~",
         indent_markers = {
             enable = true,
@@ -94,14 +94,14 @@ nvim_tree.setup({
         enable = false,
         truncate = true,
         types = {
-          all = true,
-          config = false,
-          copy_paste = false,
-          dev = false,
-          diagnostics = false,
-          git = false,
-          profile = false,
-          watcher = false,
+            all = true,
+            config = false,
+            copy_paste = false,
+            dev = false,
+            diagnostics = false,
+            git = false,
+            profile = false,
+            watcher = false,
         },
     },
 })

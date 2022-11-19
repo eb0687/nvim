@@ -67,6 +67,8 @@ keymap("n", "<leader>k", "<cmd>cprev<CR>zz", opts)
 -- Various
 keymap("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
 keymap("n", "<leader>w", ":set wrap!<CR>", opts)
+-- CD into current file directory
+keymap("n", "<leader>cd", ":cd %:h<CR>", opts)
 
 -- INSERT MODE --
 -- Escape remap
@@ -139,7 +141,7 @@ keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
 -- ]]]
 -- [[[ Nvim-tree
 
-keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>", opts)
+keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>zz", opts)
 
 -- ]]]
 -- [[[ Vim-commentary
