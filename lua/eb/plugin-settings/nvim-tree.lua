@@ -15,6 +15,10 @@ nvim_tree.setup({
 
     disable_netrw = true,
     create_in_closed_folder = true,
+    update_focused_file = {
+        enable = true,
+        update_root = true,
+    },
 
     view = {
         adaptive_size = false,
