@@ -199,3 +199,8 @@ keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
 keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", opts)
 
 -- ]]]
+-- [[[ Markdown
+
+keymap("n", "<leader>ml", ":MkdnCreateLink<CR>", opts)
+
+-- ]]]
