@@ -126,7 +126,6 @@ return packer.startup(function(use)
         end
     }) -- https://github.com/jakewvincent/mkdnflow.nvim
     use 'ekickx/clipboard-image.nvim' -- https://github.com/ekickx/clipboard-image.nvim
-    use {"ellisonleao/glow.nvim"}
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
