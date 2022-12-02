@@ -119,10 +119,15 @@ keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope man_pages<CR>", opts)
 keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
-keymap("n", "<leader>fs", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep for > ')}) <CR>", opts)
-keymap("n", "<leader>fd", "<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< VIMRC >', cwd = '~/.config/nvim/' }) <CR>", opts)
-keymap("n", "<leader>fF", "<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< Search $HOME >', cwd = '~/' }) <CR>", opts)
-keymap("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') }) <CR>", opts)
+keymap("n", "<leader>fs",
+    "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep for > ')}) <CR>", opts)
+keymap("n", "<leader>fd",
+    "<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< VIMRC >', cwd = '~/.config/nvim/' }) <CR>",
+    opts)
+keymap("n", "<leader>fF",
+    "<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< Search $HOME >', cwd = '~/' }) <CR>", opts)
+keymap("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') }) <CR>"
+    , opts)
 keymap("n", "<leader>fm", ":Telescope marks<CR>", opts)
 keymap("n", "<leader>fb", "<cmd>lua require('eb.plugin-settings.telescope').telescope_buffers() <CR>", opts)
 keymap("n", "<leader>fsh", "<cmd>lua require('eb.plugin-settings.telescope').telescope_search_history() <CR>", opts)
@@ -154,10 +159,18 @@ keymap("v", "<C-q>", ":Commentary<CR>", opts)
 -- [[[ Hop
 
 -- vim-motions
-keymap('', 'f', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>", {})
-keymap('', 'F', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>", {})
-keymap('', 't', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>", {})
-keymap('', 'T', "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>", {})
+keymap('', 'f',
+    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
+    , {})
+keymap('', 'F',
+    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>"
+    , {})
+keymap('', 't',
+    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>"
+    , {})
+keymap('', 'T',
+    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>"
+    , {})
 -- normal mode
 keymap("n", "<leader>hw", ":HopWord<CR>", opts)
 keymap("n", "<leader>hl", ":HopLine<CR>", opts)
@@ -193,7 +206,7 @@ keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
 -- keymap("n", "<C-j>", ":TmuxNavigateDown", opts)
 
 -- ]]]
--- [[[ Null-ls 
+-- [[[ Null-ls
 
 -- keymap("n", "<leader>lf", ":lua vim.lsp.buf.format({ async = true })<CR>", opts)
 keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", opts)
