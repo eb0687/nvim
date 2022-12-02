@@ -217,3 +217,10 @@ keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", opts)
 keymap("n", "<leader>ml", ":MkdnCreateLink<CR>", opts)
 
 -- ]]]
+-- [[[
+
+vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
+vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
+vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
+
+-- ]]]

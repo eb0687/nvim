@@ -76,6 +76,7 @@ return packer.startup(function(use)
     use 'christoomey/vim-tmux-navigator' -- better navigation between nvim splits and tmux panes -- https://github.com/christoomey/vim-tmux-navigator
     use 'jvirtanen/vim-hcl'
     use 'mboughaba/i3config.vim'
+    use {'ojroques/nvim-osc52'} -- copy text to the system clipboard using the ANSI OSC52 sequence -- https://github.com/ojroques/nvim-osc52
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
