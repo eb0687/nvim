@@ -42,8 +42,8 @@ keymap("n", "<leader>v", ":vsplit<CR>", opts)
 -- Resize buffer splits
 keymap("n", "<C-A-Left>", ":vertical resize +3<CR>", opts)
 keymap("n", "<C-A-Right>", ":vertical resize -3<CR>", opts)
-keymap ("n", "<C-A-Up>", ":resize +3<CR>", opts)
-keymap ("n", "<C-A-Down>", ":resize -3<CR>", opts)
+keymap("n", "<C-A-Up>", ":resize +3<CR>", opts)
+keymap("n", "<C-A-Down>", ":resize -3<CR>", opts)
 -- Zoom in/out pane
 keymap("n", "<leader>-", ":wincmd _<CR>:wincmd |<CR>", opts)
 keymap("n", "<leader>=", ":wincmd =<CR>", opts)
