@@ -205,6 +205,11 @@ _G.packer_plugins = {
     path = "/home/eb/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-osc52"] = {
+    loaded = true,
+    path = "/home/eb/.local/share/nvim/site/pack/packer/start/nvim-osc52",
+    url = "https://github.com/ojroques/nvim-osc52"
+  },
   ["nvim-surround"] = {
     loaded = true,
     path = "/home/eb/.local/share/nvim/site/pack/packer/start/nvim-surround",
