@@ -30,6 +30,7 @@ vim.g.mapleader = " "
 -- NORMAL MODE --
 -- Save file
 keymap("n", "<leader>s", ":w<CR>", opts2)
+keymap("n", "<leader>s", ":update<CR>", opts2)
 -- Quit Nvim
 keymap("n", "<leader>q", ":q!<CR>", opts)
 -- Source Nvim
