@@ -16,10 +16,10 @@ local options = {
     signcolumn = "yes", -- always show the sign column
     laststatus = 2, -- :help laststatus
     swapfile = false, -- creates a swapfile
-    incsearch = true, -- :help incsearch
     scrolloff = 8, -- :help scrolloff
     sidescrolloff = 8, -- :help sidescrolloff
-    hlsearch = true, -- :highlight all matches on search pattern
+    hlsearch = false, -- :highlight all matches on search pattern
+    incsearch = true, -- :help incsearch
     ignorecase = true, -- ignore case in search patterns
     smartcase = true, -- :help smartcase
     list = true, -- enables visual indicators of spaces/tabs/trails/eol
@@ -47,6 +47,7 @@ local options = {
     shiftwidth = 4, -- number of spaces inserted for each indentation
     tabstop = 4, -- number of steps for each tab
     termguicolors = true, -- :help termguicolors
+    updatetime = 50
 }
 
 for k, v in pairs(options) do

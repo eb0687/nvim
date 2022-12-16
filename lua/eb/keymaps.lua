@@ -68,8 +68,12 @@ keymap("n", "<leader>k", "<cmd>cprev<CR>zz", opts)
 -- Various
 keymap("n", "<leader>xx", "<cmd>!chmod +x %<CR>", { silent = true })
 keymap("n", "<leader>w", ":set wrap!<CR>", opts)
+keymap("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", opts)
+keymap("n", "<leader>tmss", "<cmd>silent !tmux neww tmss<CR>", opts)
 -- CD into current file directory
 keymap("n", "<leader>cd", ":cd %:h<CR>", opts)
+-- Append line
+keymap("n", "J", "mzJ`z", opts)
 
 -- INSERT MODE --
 -- Escape remap
@@ -88,6 +92,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", "<leader>,", "<C-v><S-i>", opts)
 -- Put sane
 keymap("v", "p", '"_dP', opts)
+-- keymap("v", "<leader>p", "\"_dP", opts)
 -- Increment and Decrement numbers
 -- Inspired by: https://www.youtube.com/shorts/kkcHypEr5y8
 keymap("v", "+", 'g<C-a>', opts)
