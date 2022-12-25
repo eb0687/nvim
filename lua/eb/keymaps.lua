@@ -223,10 +223,21 @@ keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", opts)
 keymap("n", "<leader>ml", ":MkdnCreateLink<CR>", opts)
 
 -- ]]]
--- [[[
+-- [[[ Todo-Comments
 
-vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, {expr = true})
-vim.keymap.set('n', '<leader>cc', '<leader>c_', {remap = true})
+vim.keymap.set("n", "]t", function()
+      require("todo-comments").jump_next()
+    end, { desc = "Next todo comment" })
+    
+    vim.keymap.set("n", "[t", function()
+      require("todo-comments").jump_prev()
+    end, { desc = "Previous todo comment" })
+
+-- ]]]
+-- [[[ OSC52
+
+vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })
+vim.keymap.set('n', '<leader>cc', '<leader>c_', { remap = true })
 vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
 
 -- ]]]

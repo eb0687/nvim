@@ -4,8 +4,8 @@ if not status_ok then
   return
 end
 
--- require
--- NOTE: make sure mason-lspconfig is setup before lsp servers are setup
 -- Source: https://github.com/williamboman/mason.nvim/issues/124#issuecomment-1203211832
+-- NOTE: make sure mason-lspconfig is setup before lsp servers are setup
+
 require('eb.lsp.mason-lspconfig')
 require('eb.lsp.configs')
