@@ -1,5 +1,6 @@
 -- SOURCE: https://github.com/romgrk/barbar.nvim#lua-1
 -- Barbar options
+-- TODO: create a pcall for this plugin
 
 require'bufferline'.setup{
     autohide = true,

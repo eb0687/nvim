@@ -1,4 +1,5 @@
 -- there is a lua version of this here: https://github.com/ethanholz/nvim-lastplace
+-- TODO: check out the lua version
 
 local global_var = vim.g
 

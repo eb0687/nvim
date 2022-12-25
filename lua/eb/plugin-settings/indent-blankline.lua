@@ -1,3 +1,5 @@
+-- TODO: create a pcall for this plugin
+
 vim.opt.list = true
 vim.opt.list = true
 -- vim.opt.listchars:append("eol:↴")

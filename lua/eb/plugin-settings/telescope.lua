@@ -5,6 +5,8 @@
 --  \__\___|_|\___||___/\___\___/| .__/ \___|
 --                               |_|
 
+-- TODO: create a pcall for this plugin
+
 require('telescope').setup{
     defaults = {
         prompt_prefix = " ",

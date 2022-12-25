@@ -1,3 +1,5 @@
+-- TODO: create a pcall for this plugin
+
 require('nvim-autopairs').setup{}
 
 require('nvim-autopairs').setup({
