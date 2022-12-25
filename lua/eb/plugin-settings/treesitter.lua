@@ -7,7 +7,7 @@ end
 -- setup
 configs.setup({
     -- add more languages that you would like tree sitter syntax highlighting for
-    ensure_installed = { "bash", "lua", "python", "vim", "yaml", "markdown" },
+    ensure_installed = { "bash", "lua", "python", "vim", "yaml", "markdown", "help" },
     hightlight = {
         enable = true,
         additional_vim_regex_highlighting = true,
