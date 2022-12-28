@@ -122,19 +122,15 @@ keymap("n", "<leader>bd", "<Cmd>BufferClose<CR>", opts)
 
 keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
 keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
+keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts)
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
 keymap("n", "<leader>fp", ":Telescope man_pages<CR>", opts)
 keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
-keymap("n", "<leader>fs",
-    "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep for > ')}) <CR>", opts)
-keymap("n", "<leader>fd",
-    "<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< VIMRC >', cwd = '~/.config/nvim/' }) <CR>",
-    opts)
-keymap("n", "<leader>fF",
-    "<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< Search $HOME >', cwd = '~/' }) <CR>", opts)
-keymap("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') }) <CR>"
-    , opts)
 keymap("n", "<leader>fm", ":Telescope marks<CR>", opts)
+keymap("n", "<leader>fs","<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep for > ')}) <CR>", opts)
+keymap("n", "<leader>fd","<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< VIMRC >', cwd = '~/.config/nvim/' }) <CR>", opts)
+keymap("n", "<leader>fF","<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< Search $HOME >', cwd = '~/' }) <CR>", opts)
+keymap("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') }) <CR>", opts)
 keymap("n", "<leader>fb", "<cmd>lua require('eb.plugin-settings.telescope').telescope_buffers() <CR>", opts)
 keymap("n", "<leader>fsh", "<cmd>lua require('eb.plugin-settings.telescope').telescope_search_history() <CR>", opts)
 keymap("n", "<leader>fch", "<cmd>lua require('eb.plugin-settings.telescope').telescope_command_history() <CR>", opts)
