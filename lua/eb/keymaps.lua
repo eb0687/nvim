@@ -16,12 +16,12 @@ vim.g.mapleader = " "
 
 -- NOTE:
 -- Modes
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
---   visual_block_mode = "x",
---   term_mode = "t",
---   command_mode = "c",
+-- normal_mode = "n",
+-- insert_mode = "i",
+-- visual_mode = "v",
+-- visual_block_mode = "x",
+-- term_mode = "t",
+-- command_mode = "c",
 
 -- [[[ General Keymaps
 
@@ -97,12 +97,6 @@ keymap("v", "+", 'g<C-a>', opts)
 keymap("v", "-", 'g<C-x>', opts)
 keymap("v", "<leader>-", '<C-x>', opts)
 keymap("v", "<leader>+", '<C-a>', opts)
-
--- ]]]
--- [[[ Vim-commentary
-
-keymap("n", "<C-q>", ":Commentary<CR>", { desc = 'Add a comment in normal mode' })
-keymap("v", "<C-q>", ":Commentary<CR>", { desc = 'Add a comment in visual mode' })
 
 -- ]]]
 -- [[[ Hop
