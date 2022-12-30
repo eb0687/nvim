@@ -13,4 +13,6 @@
 -- require("eb.lsp")
 
 require("eb")
+
+-- TEST:
 print("Hello from ROOT")
