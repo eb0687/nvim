@@ -8,7 +8,7 @@
 -- local variables
 local opts = { noremap = true, silent = true }
 local opts2 = { noremap = true }
-local keymap = vim.api.nvim_set_keymap
+local keymap = vim.keymap.set
 
 -- leader remap
 keymap("", "<Space>", "<Nop>", opts)
@@ -105,57 +105,74 @@ keymap("v", "<leader>+", '<C-a>', opts)
 -- SOURCE: https://github.com/romgrk/barbar.nvim
 
 -- Navigate between buffers
-keymap("n", "<S-tab>", "<Cmd>BufferPrevious<CR>", opts)
-keymap("n", "<tab>", "<Cmd>BufferNext<CR>", opts)
+keymap("n", "<S-tab>", "<Cmd>BufferPrevious<CR>", {desc = 'Previous buffer'})
+keymap("n", "<tab>", "<Cmd>BufferNext<CR>", {desc = 'Next buffer'})
 
 -- Re-order buffers
-keymap("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
-keymap("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
+keymap("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", {desc = 'Move buffer to the left'})
+keymap("n", "<A->>", "<Cmd>BufferMoveNext<CR>", {desc = 'Move buffer to the right'})
 
 -- Pin/Unpin buffer
-keymap("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
+keymap("n", "<A-p>", "<Cmd>BufferPin<CR>", {desc = 'Pin buffer'})
 
 -- Close buffer
-keymap("n", "<leader>bd", "<Cmd>BufferClose<CR>", opts)
+keymap("n", "<leader>bd", "<Cmd>BufferClose<CR>", {desc = 'Close current buffer'})
 -- ]]]
 -- [[[ Telescope
 
-keymap("n", "<leader>fk", ":Telescope keymaps<CR>", opts)
-keymap("n", "<leader>ff", ":Telescope find_files<CR>", opts)
-keymap("n", "<leader>fg", ":Telescope git_files<CR>", opts)
-keymap("n", "<leader>fh", ":Telescope help_tags<CR>", opts)
-keymap("n", "<leader>fp", ":Telescope man_pages<CR>", opts)
-keymap("n", "<leader>fr", ":Telescope oldfiles<CR>", opts)
-keymap("n", "<leader>fm", ":Telescope marks<CR>", opts)
-keymap("n", "<leader>fs","<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep for > ')}) <CR>", opts)
-keymap("n", "<leader>fd","<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< VIMRC >', cwd = '~/.config/nvim/' }) <CR>", opts)
-keymap("n", "<leader>fF","<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< Search $HOME >', cwd = '~/' }) <CR>", opts)
-keymap("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') }) <CR>", opts)
-keymap("n", "<leader>fb", "<cmd>lua require('eb.plugin-settings.telescope').telescope_buffers() <CR>", opts)
-keymap("n", "<leader>fsh", "<cmd>lua require('eb.plugin-settings.telescope').telescope_search_history() <CR>", opts)
-keymap("n", "<leader>fch", "<cmd>lua require('eb.plugin-settings.telescope').telescope_command_history() <CR>", opts)
-keymap("n", "<C-_>", "<cmd>lua require('eb.plugin-settings.telescope').telescope_curr_buff() <CR>", opts)
+keymap("n", "<leader>?", require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+keymap("n", "<leader>fk", ":Telescope keymaps<CR>", { desc = '[F]ind [K]eymaps' })
+keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = '[F]ind in [H]elp tags' })
+keymap("n", "<leader>fp", ":Telescope man_pages<CR>", { desc = '[F]ind in man [P]ages' })
+keymap("n", "<leader>fm", ":Telescope marks<CR>", { desc = '[F]ind in vim marks' })
+
+keymap("n", "<leader>fs",
+    "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep for > ')}) <CR>",
+    { desc = '[F]ind using [G]rep' })
+
+keymap("n", "<leader>fn",
+    "<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< VIMRC >', cwd = '~/.config/nvim/' }) <CR>",
+    { desc = '[F]ind in [N]vim configs' })
+
+keymap("n", "<leader>fF",
+    "<cmd>lua require('telescope.builtin').find_files({ prompt_title = '< Search $HOME >', cwd = '~/' }) <CR>",
+    { desc = '[F]ind [F]iles in home directory' })
+
+keymap("n", "<leader>fw", "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.expand('<cword>') }) <CR>"
+    , { desc = '[F]ind [W]ord under cursor' })
+
+keymap("n", "<leader>fb", "<cmd>lua require('eb.plugin-settings.telescope').telescope_buffers() <CR>",
+    { desc = '[F]ind in existing [B]uffers' })
+
+keymap("n", "<leader>fsh", "<cmd>lua require('eb.plugin-settings.telescope').telescope_search_history() <CR>",
+    { desc = '[F]ind [S]earch [H]istory' })
+
+keymap("n", "<leader>fch", "<cmd>lua require('eb.plugin-settings.telescope').telescope_command_history() <CR>",
+    { desc = '[fch] [F]ind [C]ommand [H]istory' })
+
+keymap("n", "<leader>fcb", "<cmd>lua require('eb.plugin-settings.telescope').telescope_curr_buff() <CR>",
+    { desc = '[F]ind [C]urrent [B]uffer' })
 
 -- ]]]
 -- [[[ Harpoon
 
-keymap("n", "<leader>hm", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
-keymap("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", opts)
-keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", opts)
-keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", opts)
-keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", opts)
-keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", opts)
+keymap("n", "<leader>hm", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = '[H]arpoon [M]enu' })
+keymap("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", { desc = '[H]arpoon [M]ark' })
+keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", { desc = 'Add to harpoon key [1]' })
+keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", { desc = 'Add to harpoon key [2]' })
+keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", { desc = 'Add to harpoon key [3]' })
+keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", { desc = 'Add to harpoon key [4]' })
 
 -- ]]]
 -- [[[ Nvim-tree
 
-keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>zz", opts)
+keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>zz", {desc = 'NvimTree toggle'})
 
 -- ]]]
 -- [[[ Vim-commentary
 
-keymap("n", "<C-q>", ":Commentary<CR>", opts)
-keymap("v", "<C-q>", ":Commentary<CR>", opts)
+keymap("n", "<C-q>", ":Commentary<CR>", {desc = 'Add a comment in normal mode'})
+keymap("v", "<C-q>", ":Commentary<CR>", {desc = 'Add a comment in visual mode'})
 
 -- ]]]
 -- [[[ Hop
@@ -163,23 +180,23 @@ keymap("v", "<C-q>", ":Commentary<CR>", opts)
 -- vim-motions
 keymap('', 'f',
     "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
-    , {})
+    , { desc = 'Hop forward to character' })
 keymap('', 'F',
     "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>"
-    , {})
+    , { desc = 'Hop backward to character' })
 keymap('', 't',
     "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>"
-    , {})
+    , { desc = 'Hop forward to character but place cursor behind character' })
 keymap('', 'T',
     "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>"
-    , {})
+    , { desc = 'Hop backward to character but place cursor infront of character' })
 -- normal mode
-keymap("n", "<leader>hw", ":HopWord<CR>", opts)
-keymap("n", "<leader>hl", ":HopLine<CR>", opts)
-keymap("n", "<leader>hp", ":HopPattern<CR>", opts)
+keymap("n", "<leader>hw", ":HopWord<CR>", { desc = '[H]op [W]ord' })
+keymap("n", "<leader>hl", ":HopLine<CR>", { desc = '[H]op [L]ine' })
+keymap("n", "<leader>hp", ":HopPattern<CR>", { desc = '[H]op [P]attern' })
 -- visual mode
-keymap("v", "<leader>hw", "<cmd>HopWord<CR>", opts)
-keymap("v", "<leader>hl", "<cmd>HopLine<CR>", opts)
+keymap("v", "<leader>hw", "<cmd>HopWord<CR>", { desc = '[H]op [W]ord' })
+keymap("v", "<leader>hl", "<cmd>HopLine<CR>", { desc = '[H]op [L]ine' })
 
 
 -- ]]]
@@ -211,28 +228,28 @@ keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
 -- [[[ Null-ls
 
 -- keymap("n", "<leader>lf", ":lua vim.lsp.buf.format({ async = true })<CR>", opts)
-keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", opts)
+keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", { desc = '[L]SP [F]ormat' })
 
 -- ]]]
 -- [[[ Markdown
 
-keymap("n", "<leader>ml", ":MkdnCreateLink<CR>", opts)
+keymap("n", "<leader>ml", ":MkdnCreateLink<CR>", { desc = 'Create a [M]arkdown [L]ink' })
 
 -- ]]]
 -- [[[ Todo-Comments
 
 vim.keymap.set("n", "]t", function()
-      require("todo-comments").jump_next()
-    end, { desc = "Next todo comment" })
-    
-    vim.keymap.set("n", "[t", function()
-      require("todo-comments").jump_prev()
-    end, { desc = "Previous todo comment" })
+    require("todo-comments").jump_next()
+end, { desc = "Next todo comment" })
+
+vim.keymap.set("n", "[t", function()
+    require("todo-comments").jump_prev()
+end, { desc = "Previous todo comment" })
 
 -- ]]]
 -- [[[ Undotree
 
-keymap("n", "<F5>", ":UndotreeToggle<CR>", opts)
+keymap("n", "<F5>", ":UndotreeToggle<CR>", { desc = 'Undotree toggle' })
 
 -- ]]]
 -- [[[ OSC52
