@@ -102,19 +102,19 @@ keymap("v", "<leader>+", '<C-a>', opts)
 -- [[[ Barbar
 -- SOURCE: https://github.com/romgrk/barbar.nvim
 
--- Navigate between buffers
-keymap("n", "<S-tab>", "<Cmd>BufferPrevious<CR>", { desc = 'Previous buffer' })
-keymap("n", "<tab>", "<Cmd>BufferNext<CR>", { desc = 'Next buffer' })
+-- -- Navigate between buffers
+-- keymap("n", "<S-tab>", "<Cmd>BufferPrevious<CR>", { desc = 'Previous buffer' })
+-- keymap("n", "<tab>", "<Cmd>BufferNext<CR>", { desc = 'Next buffer' })
 
--- Re-order buffers
-keymap("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", { desc = 'Move buffer to the left' })
-keymap("n", "<A->>", "<Cmd>BufferMoveNext<CR>", { desc = 'Move buffer to the right' })
+-- -- Re-order buffers
+-- keymap("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", { desc = 'Move buffer to the left' })
+-- keymap("n", "<A->>", "<Cmd>BufferMoveNext<CR>", { desc = 'Move buffer to the right' })
 
--- Pin/Unpin buffer
-keymap("n", "<A-p>", "<Cmd>BufferPin<CR>", { desc = 'Pin buffer' })
+-- -- Pin/Unpin buffer
+-- keymap("n", "<A-p>", "<Cmd>BufferPin<CR>", { desc = 'Pin buffer' })
 
--- Close buffer
-keymap("n", "<leader>bd", "<Cmd>BufferClose<CR>", { desc = 'Close current buffer' })
+-- -- Close buffer
+-- keymap("n", "<leader>bd", "<Cmd>BufferClose<CR>", { desc = 'Close current buffer' })
 -- ]]]
 -- [[[ Harpoon
 

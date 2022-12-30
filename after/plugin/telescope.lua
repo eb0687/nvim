@@ -125,4 +125,4 @@ end, '[fch] [F]ind [C]ommand [H]istory')
 -- ]]]
 
 -- TEST:
-print('Hello from AFTER TELESCOPE')
+print('Hello from AFTER/TELESCOPE')
