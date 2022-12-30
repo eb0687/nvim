@@ -105,26 +105,32 @@ keymap("v", "<leader>+", '<C-a>', opts)
 -- SOURCE: https://github.com/romgrk/barbar.nvim
 
 -- Navigate between buffers
-keymap("n", "<S-tab>", "<Cmd>BufferPrevious<CR>", {desc = 'Previous buffer'})
-keymap("n", "<tab>", "<Cmd>BufferNext<CR>", {desc = 'Next buffer'})
+keymap("n", "<S-tab>", "<Cmd>BufferPrevious<CR>", { desc = 'Previous buffer' })
+keymap("n", "<tab>", "<Cmd>BufferNext<CR>", { desc = 'Next buffer' })
 
 -- Re-order buffers
-keymap("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", {desc = 'Move buffer to the left'})
-keymap("n", "<A->>", "<Cmd>BufferMoveNext<CR>", {desc = 'Move buffer to the right'})
+keymap("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", { desc = 'Move buffer to the left' })
+keymap("n", "<A->>", "<Cmd>BufferMoveNext<CR>", { desc = 'Move buffer to the right' })
 
 -- Pin/Unpin buffer
-keymap("n", "<A-p>", "<Cmd>BufferPin<CR>", {desc = 'Pin buffer'})
+keymap("n", "<A-p>", "<Cmd>BufferPin<CR>", { desc = 'Pin buffer' })
 
 -- Close buffer
-keymap("n", "<leader>bd", "<Cmd>BufferClose<CR>", {desc = 'Close current buffer'})
+keymap("n", "<leader>bd", "<Cmd>BufferClose<CR>", { desc = 'Close current buffer' })
 -- ]]]
 -- [[[ Telescope
 
-keymap("n", "<leader>?", require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+keymap("n", "<leader>fo", require('telescope.builtin').oldfiles, { desc = '[F]ind recently [O]pened files' })
 keymap("n", "<leader>fk", ":Telescope keymaps<CR>", { desc = '[F]ind [K]eymaps' })
 keymap("n", "<leader>fh", ":Telescope help_tags<CR>", { desc = '[F]ind in [H]elp tags' })
 keymap("n", "<leader>fp", ":Telescope man_pages<CR>", { desc = '[F]ind in man [P]ages' })
 keymap("n", "<leader>fm", ":Telescope marks<CR>", { desc = '[F]ind in vim marks' })
+
+keymap("n", "<leader>ff", require('telescope.builtin').find_files,
+    { desc = '[F]ind [F]iles in local folder only recursively' })
+
+keymap("n", "<leader>fg", require('telescope.builtin').git_files,
+    { desc = '[F]ind files in [G]it repository' })
 
 keymap("n", "<leader>fs",
     "<cmd>lua require('telescope.builtin').grep_string({ search = vim.fn.input('Grep for > ')}) <CR>",
@@ -166,13 +172,13 @@ keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", { desc = 
 -- ]]]
 -- [[[ Nvim-tree
 
-keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>zz", {desc = 'NvimTree toggle'})
+keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>zz", { desc = 'NvimTree toggle' })
 
 -- ]]]
 -- [[[ Vim-commentary
 
-keymap("n", "<C-q>", ":Commentary<CR>", {desc = 'Add a comment in normal mode'})
-keymap("v", "<C-q>", ":Commentary<CR>", {desc = 'Add a comment in visual mode'})
+keymap("n", "<C-q>", ":Commentary<CR>", { desc = 'Add a comment in normal mode' })
+keymap("v", "<C-q>", ":Commentary<CR>", { desc = 'Add a comment in visual mode' })
 
 -- ]]]
 -- [[[ Hop
