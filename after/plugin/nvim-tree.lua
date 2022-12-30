@@ -10,7 +10,8 @@ if not status_ok then
     return
 end
 
--- setup
+-- SETUP [[[
+
 nvim_tree.setup({
 
     disable_netrw = true,
@@ -105,3 +106,25 @@ nvim_tree.setup({
         },
     },
 })
+
+-- ]]]
+-- KEYMAPS [[[
+
+-- Variables
+local keymap = function(keys, func, desc)
+    if desc then
+        desc = 'Nvim Tree: ' .. desc
+    end
+
+    vim.keymap.set('n', keys, func, { desc = desc })
+end
+
+-- Bindings
+
+keymap("<leader>e", function()
+    local api = require('nvim-tree.api')
+    api.tree.toggle()
+end,
+    'NvimTree toggle')
+
+-- ]]]

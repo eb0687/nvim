@@ -101,7 +101,7 @@ keymap("v", "<leader>+", '<C-a>', opts)
 -- ]]]
 -- [[[ Nvim-tree
 
-keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>zz", { desc = 'NvimTree toggle' })
+-- keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>zz", { desc = 'NvimTree toggle' })
 
 -- ]]]
 -- [[[ Vim-commentary

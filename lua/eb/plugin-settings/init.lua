@@ -2,7 +2,6 @@
 require("eb.plugin-settings.indent-blankline")
 require("eb.plugin-settings.lualine")
 require("eb.plugin-settings.autopair")
-require("eb.plugin-settings.nvim-tree")
 require("eb.plugin-settings.treesitter")
 require("eb.plugin-settings.cmp")
 require("eb.plugin-settings.gitsigns")
