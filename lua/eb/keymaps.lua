@@ -14,8 +14,7 @@ local keymap = vim.keymap.set
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
 
--- [[[ Help
-
+-- NOTE:
 -- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
@@ -24,7 +23,6 @@ vim.g.mapleader = " "
 --   term_mode = "t",
 --   command_mode = "c",
 
--- ]]]
 -- [[[ General Keymaps
 
 -- NORMAL MODE --
@@ -213,22 +211,6 @@ keymap("v", "<leader>zn", ":'<,'>TZNarrow<CR>", opts)
 keymap("n", "<leader>zf", ":TZFocus<CR>", opts)
 keymap("n", "<leader>zm", ":TZMinimalist<CR>", opts)
 keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
-
--- ]]]
--- [[[ FZF-Lua
-
--- keymap("n", "<leader>ff", ":FzfLua files cwd=~/<CR>", opts)
--- keymap("n", "<leader>fcu", ":FzfLua files<CR>", opts2)
-
--- ]]]
--- [[[ Tmux Navigator (WIP)
-
--- vim.g.tmux_navigator_no_mappings = 1
-
--- keymap("n", "<C-h>", ":TmuxNavigateLeft", opts)
--- keymap("n", "<C-l>", ":TmuxNavigateRight", opts)
--- keymap("n", "<C-k>", ":TmuxNavigateUp", opts)
--- keymap("n", "<C-j>", ":TmuxNavigateDown", opts)
 
 -- ]]]
 -- [[[ Null-ls
