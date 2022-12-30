@@ -1,5 +1,5 @@
 --  _       _
--- | |_ ___| | ___  ___  ___ ___  _ __   ___ 
+-- | |_ ___| | ___  ___  ___ ___  _ __   ___
 -- | __/ _ \ |/ _ \/ __|/ __/ _ \| '_ \ / _ \
 -- | ||  __/ |  __/\__ \ (_| (_) | |_) |  __/
 --  \__\___|_|\___||___/\___\___/| .__/ \___|
@@ -7,11 +7,11 @@
 
 -- TODO: create a pcall for this plugin
 
-require('telescope').setup{
+require('telescope').setup {
     defaults = {
         prompt_prefix = " ",
         selection_caret = " ",
-        path_display = {"truncate"},
+        path_display = { "truncate" },
         sorting_strategy = "ascending",
         layout_strategy = "horizontal",
         layout_config = {
@@ -61,7 +61,7 @@ local MyFunc = {
 -- search current buffer only
 MyFunc.telescope_curr_buff = function()
     local opt = require('telescope.themes').get_dropdown({
-        previewer=false,
+        previewer = false,
     })
     require('telescope.builtin').current_buffer_fuzzy_find(opt)
 end
@@ -69,7 +69,7 @@ end
 -- search keymaps
 MyFunc.telescope_keymap = function()
     local opt = require('telescope.themes').get_dropdown({
-        previewer=false,
+        previewer = false,
     })
     require('telescope.builtin').keymaps(opt)
 end
@@ -92,7 +92,7 @@ end
 -- search history
 MyFunc.telescope_search_history = function()
     local opt = require('telescope.themes').get_dropdown({
-        previewer=false,
+        previewer = false,
     })
     require('telescope.builtin').search_history(opt)
 end
@@ -100,7 +100,7 @@ end
 -- command history
 MyFunc.telescope_command_history = function()
     local opt = require('telescope.themes').get_dropdown({
-        previewer=false,
+        previewer = false,
     })
     require('telescope.builtin').command_history(opt)
 end
