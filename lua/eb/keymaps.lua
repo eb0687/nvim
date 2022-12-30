@@ -99,33 +99,6 @@ keymap("v", "<leader>-", '<C-x>', opts)
 keymap("v", "<leader>+", '<C-a>', opts)
 
 -- ]]]
--- [[[ Barbar
--- SOURCE: https://github.com/romgrk/barbar.nvim
-
--- -- Navigate between buffers
--- keymap("n", "<S-tab>", "<Cmd>BufferPrevious<CR>", { desc = 'Previous buffer' })
--- keymap("n", "<tab>", "<Cmd>BufferNext<CR>", { desc = 'Next buffer' })
-
--- -- Re-order buffers
--- keymap("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", { desc = 'Move buffer to the left' })
--- keymap("n", "<A->>", "<Cmd>BufferMoveNext<CR>", { desc = 'Move buffer to the right' })
-
--- -- Pin/Unpin buffer
--- keymap("n", "<A-p>", "<Cmd>BufferPin<CR>", { desc = 'Pin buffer' })
-
--- -- Close buffer
--- keymap("n", "<leader>bd", "<Cmd>BufferClose<CR>", { desc = 'Close current buffer' })
--- ]]]
--- [[[ Harpoon
-
-keymap("n", "<leader>hm", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", { desc = '[H]arpoon [M]enu' })
-keymap("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>", { desc = '[H]arpoon [M]ark' })
-keymap("n", "<leader>1", ":lua require('harpoon.ui').nav_file(1)<CR>", { desc = 'Add to harpoon key [1]' })
-keymap("n", "<leader>2", ":lua require('harpoon.ui').nav_file(2)<CR>", { desc = 'Add to harpoon key [2]' })
-keymap("n", "<leader>3", ":lua require('harpoon.ui').nav_file(3)<CR>", { desc = 'Add to harpoon key [3]' })
-keymap("n", "<leader>4", ":lua require('harpoon.ui').nav_file(4)<CR>", { desc = 'Add to harpoon key [4]' })
-
--- ]]]
 -- [[[ Nvim-tree
 
 keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>zz", { desc = 'NvimTree toggle' })
