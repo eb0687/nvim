@@ -17,7 +17,7 @@ configs.setup({
     -- NOTE: treesitter tries and makes indentation consistent with this option enabled
     indent = { enable = true, disable = { "yaml", "python" } },
 
-    -- NOTE: using treesitter to improve visual selection
+    -- NOTE: using treesitter to improve visual selection within a code base.
     -- source: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
     incremental_selection = {
         enable = true,
