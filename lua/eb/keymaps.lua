@@ -99,11 +99,6 @@ keymap("v", "<leader>-", '<C-x>', opts)
 keymap("v", "<leader>+", '<C-a>', opts)
 
 -- ]]]
--- [[[ Nvim-tree
-
--- keymap("n", "<leader>e", ":NvimTreeFindFileToggle<CR>zz", { desc = 'NvimTree toggle' })
-
--- ]]]
 -- [[[ Vim-commentary
 
 keymap("n", "<C-q>", ":Commentary<CR>", { desc = 'Add a comment in normal mode' })

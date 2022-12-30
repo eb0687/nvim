@@ -128,3 +128,6 @@ end,
     'NvimTree toggle')
 
 -- ]]]
+
+-- TEST:
+-- print("Hello from AFTER/NVIM-TREE")
