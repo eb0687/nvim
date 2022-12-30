@@ -1,3 +1,5 @@
+-- TODO: migrate the below configs to the ../../../after/plugin/ directory
+
 -- nvim plugin settings
 require("eb.plugin-settings.indent-blankline")
 require("eb.plugin-settings.lualine")

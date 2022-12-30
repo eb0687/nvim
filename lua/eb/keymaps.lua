@@ -99,6 +99,9 @@ keymap("v", "<leader>-", '<C-x>', opts)
 keymap("v", "<leader>+", '<C-a>', opts)
 
 -- ]]]
+
+-- TODO: migrate the below keybinds to the ../../after/plugin/ folder
+
 -- [[[ Hop
 
 -- vim-motions
