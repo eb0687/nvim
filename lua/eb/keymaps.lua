@@ -139,11 +139,6 @@ keymap("n", "<leader>za", ":TZAtaraxis<CR>", opts)
 keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", { desc = '[L]SP [F]ormat' })
 
 -- ]]]
--- [[[ Markdown
-
-keymap("n", "<leader>ml", ":MkdnCreateLink<CR>", { desc = 'Create a [M]arkdown [L]ink' })
-
--- ]]]
 -- [[[ Todo-Comments
 
 vim.keymap.set("n", "]t", function()
