@@ -6,16 +6,61 @@ end
 
 -- setup
 configs.setup({
-    -- add more languages that you would like tree sitter syntax highlighting for
+    -- NOTE: add more languages that you would like tree sitter syntax highlighting for
     ensure_installed = { "bash", "lua", "python", "vim", "yaml", "markdown", "help" },
     hightlight = {
         enable = true,
         additional_vim_regex_highlighting = true,
-        -- list of languages that will be excluded from treesitter syntax highlighting
+        -- NOTE: list of languages that will be excluded from treesitter syntax highlighting
         disable = { " " }
     },
-    -- treesitter tries and makes indentation consistent with this option enabled
-    indent = { enable = true, disable = {"yaml", "python"} },
+    -- NOTE: treesitter tries and makes indentation consistent with this option enabled
+    indent = { enable = true, disable = { "yaml", "python" } },
+
+    -- NOTE: using treesitter to improve visual selection
+    -- source: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+    incremental_selection = {
+        enable = true,
+        keymaps = {
+            init_selection = '<c-space>',
+            node_incremental = '<c-space>',
+            node_decremental = '<c-backspace>',
+        },
+    },
+    text_objects = {
+        select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+                ['aa'] = '@paramter.outer',
+                ['ia'] = '@paramter.inner',
+                ['af'] = '@function.outer',
+                ['if'] = '@function.inner',
+                ['ac'] = '@class.outer',
+                ['ic'] = '@class.outer',
+            },
+        },
+        move = {
+            enable = true,
+            set_jumps = true,
+            goto_next_start = {
+                [']m'] = '@function.outer',
+                [']]'] = '@class.outer',
+            },
+            goto_next_end = {
+                [']M'] = '@function.outer',
+                [']['] = '@class.outer',
+            },
+            goto_previous_start = {
+                ['[m'] = '@function.outer',
+                ['[['] = '@class.outer',
+            },
+            goto_previous_end = {
+                ['[M'] = '@function.outer',
+                ['[]'] = '@class.outer',
+            },
+        },
+    },
     rainbow = {
         enable = true,
         -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
