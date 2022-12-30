@@ -31,7 +31,7 @@ require('true-zen').setup({
             ignored_buf_types = { "nofile" }, -- save current options from any window except ones displaying these kinds of buffers
             options = { -- options to be disabled when entering Minimalist mode
                 number = true,
-                relativenumber = false,
+                relativenumber = true,
                 showtabline = 0,
                 signcolumn = "no",
                 statusline = "",
