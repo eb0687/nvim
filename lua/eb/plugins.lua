@@ -79,6 +79,7 @@ return packer.startup(function(use)
     use {'ojroques/nvim-osc52'} -- copy text to the system clipboard using the ANSI OSC52 sequence -- https://github.com/ojroques/nvim-osc52
     use {'norcalli/nvim-colorizer.lua'} -- https://github.com/norcalli/nvim-colorizer.lua
     use {'folke/todo-comments.nvim'}
+    use {'mbbill/undotree'} -- https://github.com/mbbill/undotree
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'

@@ -230,6 +230,11 @@ vim.keymap.set("n", "]t", function()
     end, { desc = "Previous todo comment" })
 
 -- ]]]
+-- [[[ Undotree
+
+keymap("n", "<F5>", ":UndotreeToggle<CR>", opts)
+
+-- ]]]
 -- [[[ OSC52
 
 vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })
