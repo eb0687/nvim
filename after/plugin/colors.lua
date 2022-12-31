@@ -24,3 +24,21 @@ if not status_ok then
     vim.notify("colorscheme " .. colorscheme .. " not found!")
     return
 end
+
+local keymap = function(keys, func, desc)
+    if desc then
+        desc = 'COLORSCHEME: ' .. desc
+    end
+
+    vim.keymap.set('n', keys, func, { desc = desc })
+end
+
+-- FUNCS
+function ColorTest()
+    vim.o.termguicolors = true
+    vim.api.nvim_set_hl(0, "Normal", { bg = "#1d2021" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1d2021" })
+end
+
+-- Bindings
+keymap('<leader>cs', ColorTest, 'Hide Background')
