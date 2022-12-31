@@ -62,16 +62,15 @@ cmp.setup({
     -- KEYMAPPING [[[
 
     mapping = {
-        ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+
+        ['<A-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+        ['<A-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { 'i' }),
         ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { 'i' }),
         ['<C-n>'] = cmp.mapping({
             c = function()
                 if cmp.visible() then
                     cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-                    -- else
-                    --     vim.api.nvim_feedkeys(('<Down>'), 'n', true)
                 end
             end,
             i = function(fallback)
@@ -86,8 +85,6 @@ cmp.setup({
             c = function()
                 if cmp.visible() then
                     cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-                    -- else
-                    --     vim.api.nvim_feedkeys(('<Up>'), 'n', true)
                 end
             end,
             i = function(fallback)
