@@ -104,26 +104,26 @@ keymap("v", "<leader>+", '<C-a>', opts)
 
 -- [[[ Hop
 
--- vim-motions
-keymap('', 'f',
-    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
-    , { desc = 'Hop forward to character' })
-keymap('', 'F',
-    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>"
-    , { desc = 'Hop backward to character' })
-keymap('', 't',
-    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>"
-    , { desc = 'Hop forward to character but place cursor behind character' })
-keymap('', 'T',
-    "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>"
-    , { desc = 'Hop backward to character but place cursor infront of character' })
--- normal mode
-keymap("n", "<leader>hw", ":HopWord<CR>", { desc = '[H]op [W]ord' })
-keymap("n", "<leader>hl", ":HopLine<CR>", { desc = '[H]op [L]ine' })
-keymap("n", "<leader>hp", ":HopPattern<CR>", { desc = '[H]op [P]attern' })
--- visual mode
-keymap("v", "<leader>hw", "<cmd>HopWord<CR>", { desc = '[H]op [W]ord' })
-keymap("v", "<leader>hl", "<cmd>HopLine<CR>", { desc = '[H]op [L]ine' })
+-- -- vim-motions
+-- keymap('', 'f',
+--     "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>"
+--     , { desc = 'Hop forward to character' })
+-- keymap('', 'F',
+--     "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>"
+--     , { desc = 'Hop backward to character' })
+-- keymap('', 't',
+--     "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>"
+--     , { desc = 'Hop forward to character but place cursor behind character' })
+-- keymap('', 'T',
+--     "<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>"
+--     , { desc = 'Hop backward to character but place cursor infront of character' })
+-- -- normal mode
+-- keymap("n", "<leader>hw", ":HopWord<CR>", { desc = '[H]op [W]ord' })
+-- keymap("n", "<leader>hl", ":HopLine<CR>", { desc = '[H]op [L]ine' })
+-- keymap("n", "<leader>hp", ":HopPattern<CR>", { desc = '[H]op [P]attern' })
+-- -- visual mode
+-- keymap("v", "<leader>hw", "<cmd>HopWord<CR>", { desc = '[H]op [W]ord' })
+-- keymap("v", "<leader>hl", "<cmd>HopLine<CR>", { desc = '[H]op [L]ine' })
 
 
 -- ]]]
