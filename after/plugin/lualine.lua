@@ -1,3 +1,7 @@
+-- LUALINE
+
+-- SETUP [[[
+
 require('lualine').setup{
     -- https://dev.to/arunanshub/making-a-proper-initlua-for-real-this-time-4k44
     sections = {
@@ -12,3 +16,8 @@ require('lualine').setup{
         section_separators = { left = '', right = ''},
     }
 }
+
+-- ]]]
+
+-- TEST:
+-- print("Hello from AFTER/LUALINE")
