@@ -86,3 +86,6 @@ keymap('T', function()
 end, 'Hop backward to character but place cursor infront of character')
 
 -- ]]]
+
+-- TEST:
+-- print('Hello from AFTER/HOP')

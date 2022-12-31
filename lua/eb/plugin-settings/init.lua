@@ -10,7 +10,3 @@ require("eb.plugin-settings.gitsigns")
 require("eb.plugin-settings.nvim-surround")
 require("eb.plugin-settings.colorizer")
 -- require("eb.plugin-settings.fzf-lua") -- disabled temporarily and currently using :telescope find_files
-
--- vim plugin settings
-require("eb.plugin-settings.vim-lastplace")
--- require("eb.plugin-settings.quick-scope") -- using hop.nvim
