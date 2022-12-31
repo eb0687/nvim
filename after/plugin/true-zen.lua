@@ -1,7 +1,7 @@
 -- TRUE-ZEN
 
 -- protective call so nothing breaks if true-zen is missing
-local status_ok, _ = pcall(require, "true-zen")
+local status_ok, true_zen = pcall(require, "true-zen")
 if not status_ok then
     return
 end
@@ -107,11 +107,19 @@ local keymap_v = function(keys, func, desc)
     vim.keymap.set('v', keys, func, { desc = desc })
 end
 
+-- TODO: refactor the keymaps with functions
+
+-- function True_Zen_Minimal()
+--     require('true-zen').minimalist()
+--     vim.cmd('! tmux set-option -g status')
+-- end
+
 keymap_v("<leader>zn", ":'<,'>TZNarrow<CR>", 'TZ Narrow')
 keymap_n("<leader>zn", ":TZNarrow<CR>", 'TZ Narrow')
 keymap_n("<leader>zf", ":TZFocus<CR>", 'TZ Focus')
 keymap_n("<leader>zm", ":TZMinimalist<CR>", 'TZ Minimalist')
 keymap_n("<leader>za", ":TZAtaraxis<CR>", 'TZ Ataraxis')
+-- keymap_n("<leader>zt", True_Zen_Minimal, 'TZ Minimalist')
 
 -- ]]]
 
