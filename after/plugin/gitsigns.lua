@@ -8,8 +8,10 @@
 -- protective call so nothing breaks if gitsigns is missing
 local status_ok, gitsigns = pcall(require, "gitsigns")
 if not status_ok then
-  return
+    return
 end
+
+-- SETUP [[[
 
 gitsigns.setup {
     signs = {
@@ -55,3 +57,7 @@ gitsigns.setup {
     },
 }
 
+-- ]]]
+
+-- TEST:
+-- print("Hello from AFTER/GITSIGNS")
