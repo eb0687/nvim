@@ -1,10 +1,13 @@
+-- TREESITTER
+
 -- protective call so nothing breaks if treesitter is missing
 local status_ok, configs = pcall(require, "nvim-treesitter.configs")
 if not status_ok then
     return
 end
 
--- setup
+-- SETUP [[[
+
 configs.setup({
     -- NOTE: add more languages that you would like tree sitter syntax highlighting for
     ensure_installed = { "bash", "lua", "python", "vim", "yaml", "markdown", "help" },
@@ -70,3 +73,8 @@ configs.setup({
         -- termcolors = {} -- table of colour name strings
     }
 })
+
+-- ]]]
+
+-- TEST:
+-- print("Hello from AFTER/TREESITTER")
