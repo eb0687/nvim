@@ -34,11 +34,28 @@ local keymap = function(keys, func, desc)
 end
 
 -- FUNCS
-function ColorTest()
+function Background_On()
     vim.o.termguicolors = true
     vim.api.nvim_set_hl(0, "Normal", { bg = "#1d2021" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1d2021" })
 end
 
+function Background_Off()
+    vim.o.termguicolors = true
+    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
+
+local toggle = true
+function Background_Toogle()
+    if toggle then
+        Background_Off()
+        toggle = false
+    else
+        Background_On()
+        toggle = true
+    end
+end
+
 -- Bindings
-keymap('<leader>cs', ColorTest, 'Hide Background')
+keymap('<leader>cs', Background_Toogle, 'Hide Background')
