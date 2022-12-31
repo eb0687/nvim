@@ -5,7 +5,7 @@
 -- |_|\_\___|\__, |_| |_| |_|\__,_| .__/|___/
 --           |___/                |_|
 
--- local variables
+-- Variables
 local opts = { noremap = true, silent = true }
 local opts2 = { noremap = true }
 local keymap = vim.keymap.set
@@ -23,9 +23,10 @@ vim.g.mapleader = " "
 -- term_mode = "t",
 -- command_mode = "c",
 
--- [[[ General Keymaps
+-- KEYMAPS
 
--- NORMAL MODE --
+-- NORMAL MODE [[[
+-- ]]]
 -- Save file
 keymap("n", "<leader>s", ":w<CR>", opts2)
 keymap("n", "<leader>s", ":update<CR>", opts2)
@@ -73,13 +74,15 @@ keymap("n", "<leader>cd", ":cd %:h<CR>", opts)
 -- Append line
 keymap("n", "J", "mzJ`z", opts)
 
--- INSERT MODE --
+-- INSERT MODE [[[
+-- ]]]
 -- Escape remap
 keymap("i", "jk", "<Esc>", opts)
 keymap("i", "kj", "<Esc>", opts)
 keymap("i", "jj", "<Esc>", opts)
 
--- VISUAL MODE --
+-- VISUAL MODE [[[
+-- ]]]
 -- Move highlighted text around using J / K
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts)
@@ -97,21 +100,3 @@ keymap("v", "+", 'g<C-a>', opts)
 keymap("v", "-", 'g<C-x>', opts)
 keymap("v", "<leader>-", '<C-x>', opts)
 keymap("v", "<leader>+", '<C-a>', opts)
-
--- ]]]
-
--- TODO: migrate the below keybinds to the ../../after/plugin/ folder
-
--- [[[ Null-ls
-
--- keymap("n", "<leader>lf", ":lua vim.lsp.buf.format({ async = true })<CR>", opts)
-keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", { desc = '[L]SP [F]ormat' })
-
--- ]]]
--- [[[ OSC52
-
--- vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })
--- vim.keymap.set('n', '<leader>cc', '<leader>c_', { remap = true })
--- vim.keymap.set('x', '<leader>c', require('osc52').copy_visual)
-
--- ]]]

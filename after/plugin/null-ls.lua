@@ -28,4 +28,22 @@ null_ls.setup({
 })
 
 -- ]]]
+-- KEYMAPS [[[
 
+-- Variable
+local keymap = function(keys, func, desc)
+    if desc then
+        desc = 'NULL-LS: ' .. desc
+    end
+
+    vim.keymap.set('n', keys, func, { desc = desc })
+end
+
+local format = function()
+    vim.lsp.buf.format({ async = true })
+end
+
+-- Bindings
+keymap("<leader>lf", format, '[L]SP [F]ormat')
+
+-- ]]]
