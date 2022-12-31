@@ -2,6 +2,8 @@
 
 -- TODO: create a pcall for this plugin
 
+-- SETUP [[[
+
 require('nvim-autopairs').setup({
     fast_wrap = {
         map = "<M-e>",
@@ -13,7 +15,10 @@ require('nvim-autopairs').setup({
         check_comma = true,
         highlight = "PmenuSel",
         highlight_grey = "LineNr",
-  },
+    },
 })
 
+-- ]]]
 
+-- TEST:
+-- print('Hello from AFTER/AUTOPAIR')
