@@ -108,22 +108,6 @@ keymap("v", "<leader>+", '<C-a>', opts)
 keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", { desc = '[L]SP [F]ormat' })
 
 -- ]]]
--- [[[ Todo-Comments
-
--- vim.keymap.set("n", "]t", function()
---     require("todo-comments").jump_next()
--- end, { desc = "Next todo comment" })
-
--- vim.keymap.set("n", "[t", function()
---     require("todo-comments").jump_prev()
--- end, { desc = "Previous todo comment" })
-
--- ]]]
--- [[[ Undotree
-
-keymap("n", "<F5>", ":UndotreeToggle<CR>", { desc = 'Undotree toggle' })
-
--- ]]]
 -- [[[ OSC52
 
 vim.keymap.set('n', '<leader>c', require('osc52').copy_operator, { expr = true })

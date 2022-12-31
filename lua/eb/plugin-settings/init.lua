@@ -11,7 +11,7 @@ require("eb.plugin-settings.nvim-surround")
 require("eb.plugin-settings.null-ls")
 require("eb.plugin-settings.osc52")
 require("eb.plugin-settings.colorizer")
-require("eb.plugin-settings.todo-comments")
+-- require("eb.plugin-settings.todo-comments")
 -- require("eb.plugin-settings.fzf-lua") -- disabled temporarily and currently using :telescope find_files
 
 -- vim plugin settings
