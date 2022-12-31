@@ -46,16 +46,22 @@ function Background_Off()
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
+function True_Zen_Minimal()
+    require('true-zen').minimalist()
+    vim.cmd('! tmux set-option -g status')
+end
+
 local toggle = true
-function Background_Toogle()
+function Background_Toggle()
     if toggle then
         Background_Off()
         toggle = false
     else
         Background_On()
+        True_Zen_Minimal()
         toggle = true
     end
 end
 
 -- Bindings
-keymap('<leader>cs', Background_Toogle, 'Hide Background')
+keymap('<leader>cs', Background_Toggle, 'Hide Background')
