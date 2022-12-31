@@ -1,4 +1,8 @@
+-- INDENT-BLANKLINE
+
 -- TODO: create a pcall for this plugin
+
+-- SETUP [[[
 
 vim.opt.list = true
 vim.opt.list = true
@@ -17,3 +21,8 @@ require("indent_blankline").setup {
         "man",
     },
 }
+
+-- ]]]
+
+-- TEST:
+-- print("Hello from AFTER/INDENT-BLANKLINE")
