@@ -1,17 +1,15 @@
 -- LSP
 
--- protective call so nothing breaks if lspconfig is missing
-local lsp = { 'lspconfig', 'mason-lspconfig' }
-
-local status_ok, _ = pcall(require, lsp)
-if not status_ok then
-    return
-end
-
 -- NOTE: make sure mason-lspconfig is setup before lsp server configs are setup
 -- Source: https://github.com/williamboman/mason.nvim/issues/124#issuecomment-1203211832
 
 -- MASON CONFIG [[[
+
+-- protective call so nothing breaks if lspconfig is missing
+local status_ok, _ = pcall(require, 'mason-lspconfig')
+if not status_ok then
+    return
+end
 
 -- VARIABLES
 local mason_setup = require("mason").setup
