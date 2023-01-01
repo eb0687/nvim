@@ -65,4 +65,4 @@ function Background_Toggle()
 end
 
 -- Bindings
-keymap('<leader>cs', Background_Toggle, 'Hide Background')
+keymap('<leader>zz', Background_Toggle, 'Toggle Zen mode / Background')
