@@ -56,16 +56,16 @@ local on_attach = function(client, bufnr)
         vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
     end
 
-    keymap('rn', vim.lsp.buf.rename, '[R]e[N]ame')
-    keymap('ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+    keymap('rn', vim.lsp.buf.rename, 'ReName')
+    keymap('ca', vim.lsp.buf.code_action, 'Code Action')
 
-    keymap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
-    keymap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
-    keymap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
-    keymap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
-    keymap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
-    keymap('<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', '[F]ormat code')
-    keymap('df', vim.diagnostic.open_float, 'Open [D]iagnostic [F]loat')
+    keymap('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
+    keymap('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
+    keymap('gr', require('telescope.builtin').lsp_references, 'Goto References')
+    keymap('gI', vim.lsp.buf.implementation, 'Goto Implementation')
+    keymap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
+    keymap('<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', 'Format code')
+    keymap('df', vim.diagnostic.open_float, 'Open Diagnostic Float')
 
     -- NOTE: `:help K` for why this keymap
     keymap('K', vim.lsp.buf.hover, 'Hover Documentation')
