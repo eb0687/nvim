@@ -38,7 +38,6 @@ function Background_On()
     vim.o.termguicolors = true
     vim.api.nvim_set_hl(0, "Normal", { bg = "#1d2021" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1d2021" })
-        True_Zen_Minimal()
 end
 
 function Background_Off()
@@ -48,16 +47,16 @@ function Background_Off()
 end
 
 function True_Zen_Minimal()
-    require('true-zen').minimalist()
-    vim.cmd('silent! tmux set-option -g status')
+    require('true-zen.minimalist').toggle()
+    vim.cmd('silent !tmux set-option -g status')
 end
 
+-- TODO: this toggle function needs more work
 local toggle = true
 function Background_Toggle()
-    -- vim.cmd('luafile %')
     if toggle then
+        True_Zen_Minimal()
         Background_Off()
-        -- True_Zen_Minimal()
         toggle = false
     else
         Background_On()
