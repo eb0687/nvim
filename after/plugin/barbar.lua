@@ -21,7 +21,7 @@ require 'bufferline'.setup {
 -- Variables
 local keymap = function(keys, func, desc)
     if desc then
-        desc = 'Barbar: ' .. desc
+        desc = 'BARBAR: ' .. desc
     end
 
     vim.keymap.set('n', keys, func, { desc = desc })
