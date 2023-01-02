@@ -54,13 +54,16 @@ require('telescope').setup {
     },
 }
 
+-- Enable telescope fzf native, if installed
+pcall(require('telescope').load_extension, 'fzf')
+
 -- ]]]
--- KEYMAPS [[[
+-- KEYMAPS [[
 
 -- Variables
 local keymap = function(keys, func, desc)
     if desc then
-        desc = 'Telescope: ' .. desc
+        desc = 'TELESCOPE: ' .. desc
     end
 
     vim.keymap.set('n', keys, func, { desc = desc })
@@ -70,59 +73,61 @@ local custom_theme = require('telescope.themes').get_dropdown({
     previewer = false,
 })
 
+local telescope_builtin = require('telescope.builtin')
+
 -- Mappings
-keymap("<leader>fo", require('telescope.builtin').oldfiles, '[F]ind recently [O]pened files')
-keymap("<leader>fk", require('telescope.builtin').keymaps, '[F]ind [K]eymaps')
-keymap("<leader>fh", require('telescope.builtin').help_tags, '[F]ind in [H]elp tags')
-keymap("<leader>fp", require('telescope.builtin').man_pages, '[F]ind in man [P]ages')
-keymap("<leader>fm", require('telescope.builtin').marks, '[F]ind in vim marks')
-keymap("<leader>ff", require('telescope.builtin').find_files, '[F]ind [F]iles in local folder only recursively')
-keymap("<leader>fg", require('telescope.builtin').git_files, '[F]ind files in [G]it repository')
-keymap("<leader>fg", require('telescope.builtin').git_files, '[F]ind files in [G]it repository')
+keymap("<leader>fo", telescope_builtin.oldfiles, 'Find recently Opened files')
+keymap("<leader>fk", telescope_builtin.keymaps, 'Find Keymaps')
+keymap("<leader>fh", telescope_builtin.help_tags, 'Find in Help tags')
+keymap("<leader>fp", telescope_builtin.man_pages, 'Find in man Pages')
+keymap("<leader>fm", telescope_builtin.marks, 'Find in vim marks')
+keymap("<leader>ff", telescope_builtin.find_files, 'Find Files in local folder only recursively')
+keymap("<leader>fg", telescope_builtin.git_files, 'Find files in Git repository')
 
 keymap("<leader>fs", function()
-    require('telescope.builtin').grep_string({
+    telescope_builtin.grep_string({
         search = vim.fn.input('Grep for > ')
     })
-end, '[F]ind using [G]rep')
+end, 'Find using Grep')
 
 keymap("<leader>fn", function()
-    require('telescope.builtin').find_files({
+    telescope_builtin.find_files({
         prompt_title = '[ VIMRC ]',
         cwd = '~/.config/nvim/'
     })
-end, '[F]ind in [N]vim configs')
+end, 'Find in Nvim configs')
 
 keymap("<leader>fF", function()
-    require('telescope.builtin').find_files({
+    telescope_builtin.find_files({
         prompt_title = '[ Search HOME ]',
         cwd = '~/'
     })
-end, '[F]ind [F]iles in home directory')
+end, 'Find Files in home directory')
 
 keymap("<leader>fw", function()
-    require('telescope.builtin').grep_string({
-        search = vim.fn.expand('<cword>')
+    telescope_builtin.grep_string({
+        search = vim.fn.expand('<cword>'),
+        grep_open_files = true
     })
-end, '[F]ind [W]ord under cursor')
+end, 'Find Word under cursor')
 
 keymap("<leader>fb", function()
-    require('telescope.builtin').buffers(custom_theme)
-end, '[F]ind in existing [B]uffers')
+    telescope_builtin.buffers(custom_theme)
+end, 'Find in existing Buffers')
 
 keymap("<leader>fsh", function()
-    require('telescope.builtin').search_history(custom_theme)
-end, '[F]ind [S]earch [H]istory')
+    telescope_builtin.search_history(custom_theme)
+end, 'Find Search History')
 
 keymap('<leader>fcb', function()
-    require('telescope.builtin').current_buffer_fuzzy_find(custom_theme)
-end, '[F]ind [C]urrent [B]uffer')
+    telescope_builtin.current_buffer_fuzzy_find(custom_theme)
+end, 'Find Current Buffer')
 
 keymap("<leader>fch", function()
-    require('telescope.builtin').command_history(custom_theme)
-end, '[fch] [F]ind [C]ommand [H]istory')
+    telescope_builtin.command_history(custom_theme)
+end, 'Find Command History')
 
--- ]]]
+--]]
 
 -- TEST:
 -- print('Hello from AFTER/TELESCOPE')
