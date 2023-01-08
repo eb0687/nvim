@@ -14,6 +14,7 @@ if not cmp_status_ok then
 end
 
 require("luasnip/loaders/from_vscode").lazy_load()
+local luasnip = require("luasnip")
 
 -- ICONS [[[
 local kind_icons = {
@@ -54,7 +55,7 @@ cmp.setup({
 
     snippet = {
         expand = function(args)
-            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
+            luasnip.lsp_expand(args.body) -- For `luasnip` users.
         end,
     },
 
@@ -142,11 +143,11 @@ cmp.setup({
     -- SOURCES [[[
 
     sources = cmp.config.sources {
+        { name = 'luasnip' },
         { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
         { name = 'nvim_lsp_signature_help' },
         { name = 'path' },
-        { name = 'luasnip' },
         { name = 'buffer' },
     },
 

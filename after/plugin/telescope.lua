@@ -58,7 +58,7 @@ require('telescope').setup {
 pcall(require('telescope').load_extension, 'fzf')
 
 -- ]]]
--- KEYMAPS [[
+-- KEYMAPS [[[
 
 -- Variables
 local keymap = function(keys, func, desc)
