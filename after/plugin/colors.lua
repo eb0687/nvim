@@ -51,15 +51,21 @@ function True_Zen_Minimal()
     vim.cmd('silent !tmux set-option -g status')
 end
 
+function Toggle_Alacritty_Opacity()
+    vim.cmd('silent !toggle_alacritty_opacity')
+end
+
 -- TODO: this toggle function needs more work
 local toggle = true
 function Background_Toggle()
     if toggle then
         True_Zen_Minimal()
-        Background_Off()
+        -- Background_Off()
+        Toggle_Alacritty_Opacity()
         toggle = false
     else
-        Background_On()
+        -- Background_On()
+        Toggle_Alacritty_Opacity()
         toggle = true
     end
 end
