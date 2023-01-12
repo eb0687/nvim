@@ -124,9 +124,6 @@ return packer.startup(function(use)
     -- Markdown
     use({ 'jakewvincent/mkdnflow.nvim',
         rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
-        config = function()
-            require('mkdnflow').setup({})
-        end
     }) -- https://github.com/jakewvincent/mkdnflow.nvim
     use 'ekickx/clipboard-image.nvim' -- https://github.com/ekickx/clipboard-image.nvim
 
