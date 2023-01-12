@@ -33,7 +33,8 @@ local keymap = function(keys, func, desc)
     vim.keymap.set('n', keys, func, { desc = desc })
 end
 
--- FUNCS
+-- CUSTOM FUNCS
+-- TODO: Maybe move this to the keymaps file or somewhere else which makes sense
 function Background_On()
     vim.o.termguicolors = true
     vim.api.nvim_set_hl(0, "Normal", { bg = "#1d2021" })
@@ -48,20 +49,18 @@ end
 
 function True_Zen_Minimal()
     require('true-zen.minimalist').toggle()
-    vim.cmd('silent !tmux set-option -g status')
+    cmd('silent !tmux set-option -g status')
 end
 
 function Toggle_Alacritty_Opacity()
-    vim.cmd('silent !toggle_alacritty_opacity')
+    cmd('silent !toggle_alacritty_opacity')
 end
 
--- TODO: this toggle function needs more work
 local toggle = true
 function Background_Toggle()
     if toggle then
         True_Zen_Minimal()
         -- Background_Off()
-        Toggle_Alacritty_Opacity()
         toggle = false
     else
         -- Background_On()
