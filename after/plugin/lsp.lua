@@ -36,6 +36,7 @@ mason_lsp({
         'pyright',
         'sumneko_lua',
         'ansiblels',
+        'jsonls'
     }
 })
 
@@ -99,7 +100,8 @@ local servers = {
     'bashls',
     'pyright',
     'sumneko_lua',
-    'ansiblels'
+    'ansiblels',
+    'jsonls'
 }
 
 for _, lsp in ipairs(servers) do
@@ -133,6 +135,10 @@ require 'lspconfig'.pylsp.setup {
 }
 
 require 'lspconfig'.ansiblels.setup {
+    capabilities = capabilities
+}
+
+require 'lspconfig'.jsonls.setup {
     capabilities = capabilities
 }
 
