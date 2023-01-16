@@ -21,14 +21,28 @@ local snippets, autosnippets = {}, {}
 
 -- Start Refactoring -- [[[
 
+-- FUNCS
+
+-- NOTE: refer to this video on a explanation of how this function works: https://youtu.be/KtQZRAkgLqo?t=436
+local mirror = function(index)
+    return f(function(arg)
+        return arg[1]
+    end, { index })
+end
+
+-- SNIPS
 local quick_snip = s("qs", fmt([[
 local {} = s("{}", {})
 table.insert(snippets, {})
 ]], {
     i(1, ""),
     i(2, ""),
-    i(3, ""),
-    i(4, ""),
+    c(3, {
+        t(''),
+        t('fmt([[]],{})'),
+    }),
+    mirror(1),
+    -- i(4, ""),
 }))
 table.insert(snippets, quick_snip)
 
@@ -39,12 +53,6 @@ fmt({}, {})
     i(2, ""),
 }))
 table.insert(snippets, fmt_snip)
-
-local hello_world_luasnip = s("hello_world_luasnip", {
-    t("-- Hello World"),
-    i(1, " placeholder_text"),
-})
-table.insert(snippets, hello_world_luasnip)
 
 local func = s("func", fmt([[
 local {} = function({})
@@ -57,14 +65,55 @@ end
 }))
 table.insert(snippets, func)
 
-local todo = s("todo", fmt([[
--- TODO: {}
-]], {
-    i(1, "add a todo item here...")
-}))
-table.insert(snippets, todo)
+local shebang = s("shebang_lua", {
+    t { "#!/bin/lua", "" },
+    i(0)
+})
+table.insert(snippets, shebang)
 
--- TODO: create more useful snippets using https://youtu.be/ub0REXjhpmk as a guide.
+local info = s("info", fmt([[
+-- ----------------------------------------------------------------------------
+-- Author:           {}
+-- Project name:     {}
+
+-- Version:          {}
+
+-- Description:
+-- {}
+
+-- Dependencies:
+-- {}
+
+-- Date created:     {}
+-- Last updated:     {}
+-- ----------------------------------------------------------------------------
+
+{}
+]], {
+    c(1, {
+        t('Eb'),
+        t(''),
+    }),
+    i(2, 'enter project name here..'),
+    c(3, {
+        t('0.1'),
+        t(''),
+    }),
+    i(4, 'enter a description for the project here..'),
+    c(5, {
+        i(1, 'are there any dependencies?'),
+        t('none'),
+        t(''),
+    }),
+    f(function()
+        return os.date('%d/%m/%Y')
+    end),
+    f(function()
+        return os.date('%d/%m/%Y')
+    end),
+    i(0)
+}))
+table.insert(snippets, info)
 
 -- End Refactoring -- ]]]
 

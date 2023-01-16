@@ -3,6 +3,7 @@
 -- VARIABLES [[[
 
 local ls = require("luasnip")
+-- local types = require("luasnip.util.types")
 
 local keymap = function(keys, func, desc)
     if desc then
@@ -45,18 +46,27 @@ end
 -- ]]]
 -- SETUP [[[
 
+-- NOTE: path to my custom snippets
 require("luasnip.loaders.from_lua").load({
     paths = "~/.config/nvim/snippets"
 })
+
+-- NOTE: refer to this for more info: https://github.com/L3MON4D3/LuaSnip#add-snippets
+require("luasnip.loaders.from_vscode").lazy_load()
 
 ls.config.set_config({
     history = true,
     updateevents = "TextChanged,TextChangedI",
     enable_autosnippets = true,
     -- ext_opts = {
-    --     [require("luasnip.util.types").choiceNode] = {
+    --     [types.choiceNode] = {
     --         active = {
-    --             virt_text = { { "●", "GruvboxOrange " } },
+    --             virt_text = { { "●", "GruvboxOrange" } }
+    --         },
+    --     },
+    --     [types.insertNode] = {
+    --         active = {
+    --             virt_text = { { "●", "GruvboxBlue" } }
     --         },
     --     },
     -- },
