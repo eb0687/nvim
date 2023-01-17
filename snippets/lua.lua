@@ -15,23 +15,16 @@ local sn = ls.snippet_node
 local fmt = require("luasnip.extras.fmt").fmt
 local rep = require("luasnip.extras").rep
 
+local helper = require("eb.luasnip-helper-funcs")
+local get_mirror = helper.get_mirror
+
 -- ]]]
 
 local snippets, autosnippets = {}, {}
 
--- Start Refactoring -- [[[
+-- Start Refactoring (DEFINE SNIPPETS HERE) -- [[[
 
--- FUNCS
-
--- NOTE: refer to this video on a explanation of how this function works: https://youtu.be/KtQZRAkgLqo?t=436
-local mirror = function(index)
-    return f(function(arg)
-        return arg[1]
-    end, { index })
-end
-
--- SNIPS
-local quick_snip = s("qs", fmt([[
+local quick_snip_1 = s("qs-1", fmt([[
 local {} = s("{}", {})
 table.insert(snippets, {})
 ]], {
@@ -41,8 +34,27 @@ table.insert(snippets, {})
         t(''),
         t('fmt([[]],{})'),
     }),
-    mirror(1),
+    get_mirror(1),
     -- i(4, ""),
+}))
+table.insert(snippets, quick_snip_1)
+
+local quick_snip = s("qs", fmt([[
+local {} = s({{
+    trig="{}",
+    dscr="{}",
+}},
+    {})
+table.insert(snippets, {})
+]], {
+    i(1, ""),
+    i(2, ""),
+    i(3, ""),
+    c(4, {
+        t(''),
+        t('fmt([[]],{})'),
+    }),
+    get_mirror(1),
 }))
 table.insert(snippets, quick_snip)
 

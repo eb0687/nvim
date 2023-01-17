@@ -19,7 +19,7 @@ local rep = require("luasnip.extras").rep
 
 local snippets, autosnippets = {}, {}
 
--- Start Refactoring -- [[[
+-- Start Refactoring (DEFINE SNIPPETS HERE) -- [[[
 
 -- todo snippet with a choice node for various todos...
 
