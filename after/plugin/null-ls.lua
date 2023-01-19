@@ -23,7 +23,9 @@ null_ls.setup({
         -- diagnostics for python
         diagnostics.flake8,
         -- formatter for markdown
-        formatting.mdformat
+        formatting.mdformat,
+        -- formatter for terraform
+        formatting.terraform_fmt
     }
 })
 
