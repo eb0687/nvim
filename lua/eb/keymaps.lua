@@ -88,6 +88,13 @@ keymap_silent("n", "<leader>xx", "<cmd>silent !chmod +x %<CR>", 'Make executable
 keymap_silent("n", "<leader>w", ":set wrap!<CR>", 'Toggle wrap')
 keymap_silent("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", 'Tmux sessionizer')
 keymap_silent("n", "<leader>tmss", "<cmd>silent !tmux neww tmss<CR>", 'Switch Tmux session')
+
+-- TODO: needs more work
+keymap_silent("n","@P",function ()
+    vim.cmd('term bash %')
+end,"Execute bash script")
+-- keymap_silent("n","@P",":w<CR>:!bash %<CR>","Execute bash script")
+
 -- CD into current file directory
 keymap_loud("n", "<leader>cd", function ()
     vim.cmd('cd %:h')
