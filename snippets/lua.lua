@@ -127,6 +127,25 @@ local info = s("info", fmt([[
 }))
 table.insert(snippets, info)
 
+local nvim_keymap = s({
+    trig="keymap",
+    dscr="Snippet to quickly define nvim keymaps",
+},
+    fmt([[
+    {}("{}","{}","{}","{}") {}
+    ]],{
+            c(1, {
+                t("keymap_silent"),
+                t("keymap_loud")
+            }),
+            i(2, "mode"),
+            i(3, "keymap"),
+            i(4, "command to execute"),
+            i(5, "keymap description"),
+            i(0)
+        }))
+table.insert(snippets, nvim_keymap)
+
 -- End Refactoring -- ]]]
 
 return snippets, autosnippets
