@@ -101,7 +101,8 @@ local servers = {
     'pyright',
     'sumneko_lua',
     'ansiblels',
-    'jsonls'
+    'jsonls',
+    'terraformls'
 }
 
 for _, lsp in ipairs(servers) do
@@ -140,6 +141,10 @@ require 'lspconfig'.ansiblels.setup {
 
 require 'lspconfig'.jsonls.setup {
     capabilities = capabilities
+}
+
+require 'lspconfig'.terraformls.setup {
+    capabilities = capabilities,
 }
 
 vim.diagnostic.config({
