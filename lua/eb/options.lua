@@ -82,7 +82,7 @@ cmd([[
 
     " execute python script
     augroup run_file
-        autocmd BufEnter *.py let @g=":silent w\<CR>:vsp | terminal python %\<CR>i"
+        autocmd BufEnter *.py let @p=":silent w\<CR>:vsp | terminal python %\<CR>i"
     augroup end
 ]])
 
