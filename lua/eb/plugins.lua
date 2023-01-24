@@ -79,6 +79,11 @@ return packer.startup(function(use)
     use { 'norcalli/nvim-colorizer.lua' } -- https://github.com/norcalli/nvim-colorizer.lua
     use { 'folke/todo-comments.nvim' }
     use { 'mbbill/undotree' } -- https://github.com/mbbill/undotree
+    -- use {
+    --     'klesh/nvim-runscript',
+    --     config = function() require("nvim-runscript").setup{} end
+    -- } -- https://github.com/klesh/nvim-runscript
+    use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'

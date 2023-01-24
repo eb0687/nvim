@@ -80,11 +80,12 @@ cmd([[
     " healthcheck
     command! Health checkhealth
 
-    " execute python script
-    augroup run_file
-        autocmd BufEnter *.py let @p=":silent w\<CR>:vsp | terminal python %\<CR>i"
-    augroup end
 ]])
+-- NOTE: temporarily disabling this keybind and using CODE_RUNNER for script execution
+    -- " execute python script
+    -- "augroup run_file
+    --     "autocmd BufEnter *.py let @p=":silent w\<CR>:vsp | terminal python %\<CR>i"
+    -- "augroup end
 
 -- vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
 

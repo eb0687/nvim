@@ -90,9 +90,10 @@ keymap_silent("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", 'Tmux
 keymap_silent("n", "<leader>tmss", "<cmd>silent !tmux neww tmss<CR>", 'Switch Tmux session')
 
 -- TODO: needs more work
-keymap_silent("n","@P",function ()
-    vim.cmd('term bash %')
-end,"Execute bash script")
+-- NOTE: temporarily disabling the below keymap and using CODE_RUNNER for script execution
+-- keymap_silent("n","@P",function ()
+--     vim.cmd('term bash %')
+-- end,"Execute bash script")
 -- keymap_silent("n","@P",":w<CR>:!bash %<CR>","Execute bash script")
 
 -- CD into current file directory
