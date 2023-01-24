@@ -25,7 +25,7 @@ local snippets, autosnippets = {}, {}
 
 local info = s("info", fmt([[
 # ----------------------------------------------------------------------------
-# Author:           {}
+# Contributors:     {}
 # Project name:     {}
 
 # Version:          {}
