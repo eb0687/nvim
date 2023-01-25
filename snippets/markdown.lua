@@ -67,8 +67,8 @@ local markdown_link = s({
     fmt([[
     [{}]({}) {}
     ]], {
-        i(1, 'text'),
-        d(2, get_visual),
+        d(1, get_visual),
+        i(2, 'link'),
         i(0)
     }))
 table.insert(snippets, markdown_link)
