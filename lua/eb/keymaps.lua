@@ -71,7 +71,8 @@ keymap_silent("n", "<leader>ho", ":noh<CR>", 'Highlight off')
 keymap_loud("n", "<C-s>", ":%s/", 'Search and replace')
 keymap_silent("n", "n", "nzzzv", 'Go to next search')
 keymap_silent("n", "N", "Nzzzv", 'Go to previous search')
-keymap_loud("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], 'Search and replace word under cursor')
+keymap_loud("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+    'Search and replace word under cursor')
 -- Automatically create the file if it does not exist
 keymap_silent("n", "gf", ":edit <cfile><CR>", 'Go to file (creates file if missing)')
 -- Motions
@@ -88,6 +89,7 @@ keymap_silent("n", "<leader>xx", "<cmd>silent !chmod +x %<CR>", 'Make executable
 keymap_silent("n", "<leader>w", ":set wrap!<CR>", 'Toggle wrap')
 keymap_silent("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", 'Tmux sessionizer')
 keymap_silent("n", "<leader>tmss", "<cmd>silent !tmux neww tmss<CR>", 'Switch Tmux session')
+keymap_silent("n", "gx", "<CMD>execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<CR>", "Open in web browser")
 
 -- TODO: needs more work
 -- NOTE: temporarily disabling the below keymap and using CODE_RUNNER for script execution
@@ -97,7 +99,7 @@ keymap_silent("n", "<leader>tmss", "<cmd>silent !tmux neww tmss<CR>", 'Switch Tm
 -- keymap_silent("n","@P",":w<CR>:!bash %<CR>","Execute bash script")
 
 -- CD into current file directory
-keymap_loud("n", "<leader>cd", function ()
+keymap_loud("n", "<leader>cd", function()
     vim.cmd('cd %:h')
     vim.cmd('pwd')
 end, 'Change directory to current file working directory')
