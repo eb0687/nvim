@@ -10,6 +10,9 @@ require("code_runner").setup({
     focus = true,
     -- startinsert (see ':h inserting-ex')
     startinsert = true,
+    filetype = {
+        python = "python3 -u"
+    }
 })
 
 -- ]]]
