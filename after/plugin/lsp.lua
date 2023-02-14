@@ -103,7 +103,8 @@ local servers = {
     'lua_ls',
     'ansiblels',
     'jsonls',
-    'terraformls'
+    'terraformls',
+    'html'
 }
 
 for _, lsp in ipairs(servers) do
@@ -145,6 +146,10 @@ require 'lspconfig'.jsonls.setup {
 }
 
 require 'lspconfig'.terraformls.setup {
+    capabilities = capabilities,
+}
+
+require 'lspconfig'.html.setup {
     capabilities = capabilities,
 }
 
