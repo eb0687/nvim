@@ -6,7 +6,7 @@ if not status_ok then
 end
 
 live_server.setup({
-  port = 8080,
+  port = 3500,
   browser_command = "", -- Empty string starts up with default browser
   quiet = false,
   no_css_inject = false, -- Disables css injection if true, might be useful when testing out tailwindcss
