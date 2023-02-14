@@ -50,7 +50,6 @@ end
 
 -- [[[ Install plugins here
 return packer.startup(function(use)
-
     -- Required plugins
     use "wbthomason/packer.nvim" -- Have packer manage itself
     use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
@@ -127,10 +126,20 @@ return packer.startup(function(use)
     use 'ibhagwan/fzf-lua' -- https://github.com/ibhagwan/fzf-lua
 
     -- Markdown
-    use({ 'jakewvincent/mkdnflow.nvim',
+    use({
+        'jakewvincent/mkdnflow.nvim',
         rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
     }) -- https://github.com/jakewvincent/mkdnflow.nvim
     use 'ekickx/clipboard-image.nvim' -- https://github.com/ekickx/clipboard-image.nvim
+
+    -- HTML & CSS
+    use({
+        "aurum77/live-server.nvim",
+        run = function()
+            require "live_server.util".install()
+        end,
+        cmd = { "LiveServer", "LiveServerStart", "LiveServerStop" },
+    })
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins
