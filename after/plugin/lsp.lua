@@ -34,7 +34,7 @@ mason_lsp({
         'vimls',
         'bashls',
         'pyright',
-        'sumneko_lua',
+        'lua_ls',
         'ansiblels',
         'jsonls'
     }
@@ -99,7 +99,7 @@ local servers = {
     'vimls',
     'bashls',
     'pyright',
-    'sumneko_lua',
+    'lua_ls',
     'ansiblels',
     'jsonls',
     'terraformls'
