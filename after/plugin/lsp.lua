@@ -36,7 +36,8 @@ mason_lsp({
         'pyright',
         'lua_ls',
         'ansiblels',
-        'jsonls'
+        'jsonls',
+        'html'
     }
 })
 
