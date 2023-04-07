@@ -6,13 +6,21 @@
 -- SETUP [[[
 
 require 'bufferline'.setup {
-    autohide = true,
-    animation = false,
-    closable = false,
-    icon_separator_active = '',
-    icon_separator_inactive = '',
-    icon_pinned = '',
-    insert_at_end = true
+    auto_hide = true,
+    animation = true,
+    -- closable = false,
+    icons = {
+        pinned = {
+            button = '',
+        },
+        button = false,
+        current = {
+            button = ''
+        },
+    },
+    insert_at_end = true,
+    minimum_padding = 2,
+    maximum_padding = 2,
 }
 
 -- ]]]
