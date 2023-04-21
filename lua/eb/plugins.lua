@@ -83,6 +83,7 @@ return packer.startup(function(use)
     --     config = function() require("nvim-runscript").setup{} end
     -- } -- https://github.com/klesh/nvim-runscript
     use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use { 'epwalsh/obsidian.nvim' }
 
     -- Telescope
     use 'nvim-telescope/telescope.nvim'
@@ -130,7 +131,9 @@ return packer.startup(function(use)
         'jakewvincent/mkdnflow.nvim',
         rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
     }) -- https://github.com/jakewvincent/mkdnflow.nvim
-    use 'ekickx/clipboard-image.nvim' -- https://github.com/ekickx/clipboard-image.nvim
+
+    -- NOTE:: throws an error, disabling for now
+    -- use 'ekickx/clipboard-image.nvim' -- https://github.com/ekickx/clipboard-image.nvim 
 
     -- HTML & CSS
     use({
