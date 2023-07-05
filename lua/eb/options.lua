@@ -23,7 +23,7 @@ local options = {
     ignorecase = true, -- ignore case in search patterns
     smartcase = true, -- :help smartcase
     list = true, -- enables visual indicators of spaces/tabs/trails/eol
-    listchars = { trail = "." }, -- enables trail and represents it with a "."
+    listchars = { trail = "." , tab = ">."}, -- enables trail and represents it with a "."
     cmdheight = 1, -- number of screen lines to use for the command-line
     pumheight = 10, -- pop up menu height
     ttimeoutlen = 50, -- delay when changing from insert to normal mode
