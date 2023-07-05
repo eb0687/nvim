@@ -33,6 +33,7 @@ local options = {
     hidden = true, -- :help hidden
     showtabline = 2, -- specifies when the line with tab page labels will be displayed
     mouse = "a", -- enables mouse in neovim
+    colorcolumn = "80",
     -- mouse = "niv",                  -- :help mouse
     clipboard = "unnamedplus", -- :help clipboard
     splitbelow = true, -- sane splits
