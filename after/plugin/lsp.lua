@@ -49,7 +49,6 @@ local nvim_lsp = require('lspconfig')
 
 -- NOTE: Use an on_attach function to only map the following keys after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-
     local keymap = function(keys, func, desc)
         if desc then
             desc = 'LSP: ' .. desc
@@ -62,10 +61,10 @@ local on_attach = function(client, bufnr)
     keymap('ca', vim.lsp.buf.code_action, 'Code Action')
 
     keymap('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
-    keymap('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
-    keymap('gr', require('telescope.builtin').lsp_references, 'Goto References')
+    -- keymap('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
+    -- keymap('gr', require('telescope.builtin').lsp_references, 'Goto References')
     keymap('gI', vim.lsp.buf.implementation, 'Goto Implementation')
-    keymap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
+    -- keymap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
     keymap('<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', 'Format code')
     keymap('df', vim.diagnostic.open_float, 'Open Diagnostic Float')
 
@@ -113,9 +112,15 @@ for _, lsp in ipairs(servers) do
         on_attach = on_attach,
         settings = {
             Lua = {
+                runtime = {
+                    version = 'LuaJIT',
+                },
                 diagnostics = {
                     -- NOTE: Get the language server to recognize the `vim` global
                     globals = { 'vim' },
+                },
+                telemetry = {
+                    enable = false,
                 },
             },
         },
