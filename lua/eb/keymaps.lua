@@ -71,7 +71,7 @@ keymap_silent("n", "<leader>ho", ":noh<CR>", 'Highlight off')
 keymap_loud("n", "<C-s>", ":%s/", 'Search and replace')
 keymap_silent("n", "n", "nzzzv", 'Go to next search')
 keymap_silent("n", "N", "Nzzzv", 'Go to previous search')
-keymap_loud("n", "<leader>S", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+keymap_loud("n", "<C-S>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     'Search and replace word under cursor')
 -- Automatically create the file if it does not exist
 keymap_silent("n", "gf", ":edit <cfile><CR>", 'Go to file (creates file if missing)')
