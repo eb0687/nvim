@@ -272,6 +272,16 @@ _G.packer_plugins = {
     path = "/home/eb/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  sniprun = {
+    loaded = true,
+    path = "/home/eb/.local/share/nvim/site/pack/packer/start/sniprun",
+    url = "https://github.com/michaelb/sniprun"
+  },
+  ["tabs-vs-spaces.nvim"] = {
+    loaded = true,
+    path = "/home/eb/.local/share/nvim/site/pack/packer/start/tabs-vs-spaces.nvim",
+    url = "https://github.com/tenxsoydev/tabs-vs-spaces.nvim"
+  },
   ["telescope-github.nvim"] = {
     loaded = true,
     path = "/home/eb/.local/share/nvim/site/pack/packer/start/telescope-github.nvim",
@@ -323,13 +333,6 @@ time([[Defining packer_plugins]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'LiveServerStop', function(cmdargs)
-          require('packer.load')({'live-server.nvim'}, { cmd = 'LiveServerStop', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'live-server.nvim'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('LiveServerStop ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'LiveServer', function(cmdargs)
           require('packer.load')({'live-server.nvim'}, { cmd = 'LiveServer', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
@@ -343,6 +346,13 @@ pcall(vim.api.nvim_create_user_command, 'LiveServerStart', function(cmdargs)
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'live-server.nvim'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('LiveServerStart ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'LiveServerStop', function(cmdargs)
+          require('packer.load')({'live-server.nvim'}, { cmd = 'LiveServerStop', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'live-server.nvim'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('LiveServerStop ', 'cmdline')
       end})
 time([[Defining lazy-load commands]], false)
 
