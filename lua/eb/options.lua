@@ -81,6 +81,11 @@ cmd([[
     " healthcheck
     command! Health checkhealth
 
+    " https://gist.github.com/sideshowcoder/ba5faad45300737c66e9
+    function ClearQuickfixList()
+      call setqflist([])
+    endfunction
+    command! ClearQuickfixList call ClearQuickfixList()
 ]])
 -- NOTE: temporarily disabling this keybind and using CODE_RUNNER for script execution
     -- " execute python script
