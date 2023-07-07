@@ -87,6 +87,7 @@ keymap("gr", telescope_builtin.lsp_references, 'Find files in Git repository')
 keymap("gd", telescope_builtin.lsp_definitions, 'Find files in Git repository')
 keymap("gD", telescope_builtin.lsp_type_definitions, 'Find files in Git repository')
 keymap("<leader>ds", telescope_builtin.lsp_document_symbols, 'Find files in Git repository')
+keymap("<leader>co", telescope_builtin.quickfix, 'View all items in the quickfix list')
 
 keymap("<leader>fs", function()
     telescope_builtin.grep_string({
