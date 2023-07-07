@@ -83,6 +83,7 @@ return packer.startup(function(use)
     --     config = function() require("nvim-runscript").setup{} end
     -- } -- https://github.com/klesh/nvim-runscript
     use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use { 'michaelb/sniprun', run = 'sh ./install.sh'} -- NOTE: testing https://github.com/michaelb/sniprun
     use { 'epwalsh/obsidian.nvim' }
 
     -- Telescope
