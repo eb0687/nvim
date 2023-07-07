@@ -63,6 +63,7 @@ return packer.startup(function(use)
 
     -- Utilities
     use 'lukas-reineke/indent-blankline.nvim'
+    use "tenxsoydev/tabs-vs-spaces.nvim" -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
     use 'windwp/nvim-autopairs'
     use 'ThePrimeagen/harpoon' -- https://github.com/ThePrimeagen/harpoon
     use 'kyazdani42/nvim-tree.lua' -- https://github.com/kyazdani42/nvim-tree.lua

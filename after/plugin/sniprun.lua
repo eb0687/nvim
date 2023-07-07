@@ -44,7 +44,7 @@ local keymap_visual = function(keys, func, desc)
 end
 
 -- Bindings
-keymap_visual('<leader>lr', ':SnipRun<CR>', 'Run script')
+keymap_visual('<leader>lr', ':SnipRun<CR>', 'Run highlighted command')
 
 
 -- ]]]
