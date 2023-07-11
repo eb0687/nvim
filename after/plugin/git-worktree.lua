@@ -32,7 +32,7 @@ local keymap = function(keys, func, desc)
 end
 
 -- Bindings
-keymap('<leader>gs', ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", 'Switch & Delete worktree')
+keymap('<leader>gw', ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", 'Switch & Delete worktree')
 keymap('<leader>gc', ":lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", 'Create a worktree')
 
 -- ]]]

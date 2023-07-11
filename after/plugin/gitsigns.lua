@@ -58,6 +58,24 @@ gitsigns.setup {
 }
 
 -- ]]]
+-- KEYMAPS [[[
+
+local keymap = function(keys, func, desc)
+    if desc then
+        desc = 'GitSigns: ' .. desc
+    end
+
+    vim.keymap.set('n', keys, func, { desc = desc })
+end
+
+keymap("<leader>gp",":Gitsigns preview_hunk<CR>","preview hunk")
+keymap("<leader>gs",":Gitsigns stage_hunk<CR>","stage hunk")
+keymap("<leader>gu",":Gitsigns undo_stage_hunk<CR>","undo stage hunk")
+
+keymap("<leader>gS",":Gitsigns stage_buffer<CR>","stage buffer")
+keymap("<leader>gU",":Gitsigns reset_buffer<CR>","reset buffer")
+
+-- ]]]
 
 -- TEST:
 -- print("Hello from AFTER/GITSIGNS")
