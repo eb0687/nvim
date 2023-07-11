@@ -1,7 +1,7 @@
 -- sniprun (https://github.com/michaelb/sniprun)
 -- https://michaelb.github.io/sniprun/sources/README.html#
 
--- protective call so nothing breaks if nvim-tree is missing
+-- protective call so nothing breaks if sniprun is missing
 local status_ok, sniprun = pcall(require, "sniprun")
 if not status_ok then
     return
