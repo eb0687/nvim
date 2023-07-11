@@ -124,6 +124,7 @@ return packer.startup(function(use)
 
     -- Git
     use 'lewis6991/gitsigns.nvim' -- plugin for git integration
+    use 'ThePrimeagen/git-worktree.nvim'
 
     -- FZF
     use 'ibhagwan/fzf-lua' -- https://github.com/ibhagwan/fzf-lua
