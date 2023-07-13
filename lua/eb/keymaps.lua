@@ -45,13 +45,13 @@ vim.g.mapleader = " "
 -- NORMAL MODE [[[
 -- ]]]
 
+-- Source Nvim
+keymap_loud("n", "<leader>xo", ":luafile %<CR>", 'Source NVIM')
 -- Save file
 -- keymap("n", "<leader>s", ":w<CR>", 'Save file')
 keymap_loud("n", "<leader>s", ":update<CR>", 'Save file')
 -- Quit Nvim
 keymap_silent("n", "<leader>q", ":q!<CR>", 'Quit Vim')
--- Source Nvim
-keymap_loud("n", "<leader>xo", ":luafile %<CR>", 'Source NVIM')
 -- Yank from current position to end of line
 keymap_silent("n", "Y", "yg$", 'Yank to end of line')
 -- Create splits
