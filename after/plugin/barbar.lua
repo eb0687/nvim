@@ -22,13 +22,16 @@ require 'bufferline'.setup {
             changed = {enabled = false, icon = '~'},
             deleted = {enabled = false, icon = '-'}
         },
-        preset = 'default'
+        preset = 'default',
+        separator = {left = '|', right = ''},
+        separator_at_end = false,
     },
     insert_at_end = true,
     minimum_padding = 2,
     maximum_padding = 2,
     sidebar_filetypes = {
-        NvimTree = true
+        NvimTree = 'enabled',
+        undotree = {text = 'undotree'},
     }
 }
 
