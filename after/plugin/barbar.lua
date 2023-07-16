@@ -17,6 +17,12 @@ require 'bufferline'.setup {
         current = {
             button = ''
         },
+        gitsigns = {
+            added = {enabled = false, icon = '+'},
+            changed = {enabled = false, icon = '~'},
+            deleted = {enabled = false, icon = '-'}
+        },
+        preset = 'default'
     },
     insert_at_end = true,
     minimum_padding = 2,
