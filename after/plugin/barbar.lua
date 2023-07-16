@@ -29,6 +29,20 @@ require 'bufferline'.setup {
     maximum_padding = 2,
 }
 
+-- This function saves all buffers to a session file located in:
+-- $HOME/.nvim-sessions
+-- The function is called using a keymap defined in the keymap section below.
+vim.opt.sessionoptions:append 'globals'
+vim.api.nvim_create_user_command(
+  'Mksession',
+  function(attr)
+    vim.api.nvim_exec_autocmds('User', {pattern = 'SessionSavePre'})
+    -- Neovim 0.8+
+    vim.cmd.mksession {bang = attr.bang, args = attr.fargs}
+  end,
+  {bang = true, complete = 'file', desc = 'Save barbar with :mksession', nargs = '?'}
+)
+
 -- ]]]
 -- KEYMAPS [[[
 
