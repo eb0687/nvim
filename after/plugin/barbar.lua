@@ -69,6 +69,17 @@ keymap("<A-p>", "<Cmd>BufferPin<CR>", 'Pin buffer')
 -- Close buffer
 keymap("<leader>bd", "<Cmd>BufferClose<CR>", 'Close current buffer')
 
+-- Goto buffer position
+keymap("<A-1>","<Cmd>BufferGoto 1<CR>","Go to buffer tab 1")
+keymap("<A-2>","<Cmd>BufferGoto 2<CR>","Go to buffer tab 2")
+keymap("<A-3>","<Cmd>BufferGoto 3<CR>","Go to buffer tab 3")
+keymap("<A-4>","<Cmd>BufferGoto 4<CR>","Go to buffer tab 4")
+keymap("<A-5>","<Cmd>BufferGoto 5<CR>","Go to buffer tab 5")
+keymap("<A-6>","<Cmd>BufferGoto 6<CR>","Go to buffer tab 6")
+
+keymap("<leader>bs",":Mksession ~/.nvim-sessions/","Save session")
+
+
 -- ]]]
 
 -- TEST:
