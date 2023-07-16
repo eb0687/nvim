@@ -27,6 +27,9 @@ require 'bufferline'.setup {
     insert_at_end = true,
     minimum_padding = 2,
     maximum_padding = 2,
+    sidebar_filetypes = {
+        NvimTree = true
+    }
 }
 
 -- This function saves all buffers to a session file located in:
