@@ -84,7 +84,7 @@ keymap("<A-4>","<Cmd>BufferGoto 4<CR>","Go to buffer tab 4")
 keymap("<A-5>","<Cmd>BufferGoto 5<CR>","Go to buffer tab 5")
 keymap("<A-6>","<Cmd>BufferGoto 6<CR>","Go to buffer tab 6")
 
-keymap("<leader>bs",":Mksession ~/.nvim-sessions/","Save session")
+keymap("<leader>bs",":Mksession! ~/.nvim-sessions/","Save session")
 
 
 -- ]]]
