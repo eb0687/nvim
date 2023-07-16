@@ -91,6 +91,8 @@ keymap_silent("n", "<leader>w", ":set wrap!<CR>", 'Toggle wrap')
 keymap_silent("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", 'Tmux sessionizer')
 keymap_silent("n", "<leader>tmss", "<cmd>silent !tmux neww tmss<CR>", 'Switch Tmux session')
 keymap_silent("n", "gx", "<cmd>execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<CR>", "Open in web browser")
+-- Git fugitive
+keymap_silent("n", "<leader>go", ":Git commit<CR>", "Git commit current file in a vim split")
 
 -- TODO: needs more work
 -- NOTE: temporarily disabling the below keymap and using CODE_RUNNER for script execution
