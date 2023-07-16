@@ -38,6 +38,7 @@ require 'bufferline'.setup {
 -- This function saves all buffers to a session file located in:
 -- $HOME/.nvim-sessions
 -- The function is called using a keymap defined in the keymap section below.
+-- SOURCE: https://github.com/romgrk/barbar.nvim#custom
 vim.opt.sessionoptions:append 'globals'
 vim.api.nvim_create_user_command(
   'Mksession',
