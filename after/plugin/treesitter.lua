@@ -80,6 +80,24 @@ configs.setup({
 })
 
 -- ]]]
+-- KEYMAPS [[[
+
+local keymap = function(mode, keys, func, desc)
+    if desc then
+        desc = 'KEYBIND: ' .. desc
+    end
+    vim.keymap.set(mode, keys, func, {
+        noremap = true,
+        silent = false,
+        desc = desc
+    })
+end
+
+keymap('n', '[d', vim.diagnostic.goto_prev, 'Go to previous diagnostic message')
+keymap('n', ']d', vim.diagnostic.goto_next, 'Go to next diagnostic message')
+keymap('n', '<leader>dl', vim.diagnostic.setloclist, 'Open diagnostics list')
+
+-- ]]]
 
 -- TEST:
 -- print("Hello from AFTER/TREESITTER")
