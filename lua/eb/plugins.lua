@@ -98,7 +98,6 @@ return packer.startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
-    use 'p00f/nvim-ts-rainbow' -- https://github.com/p00f/nvim-ts-rainbow
 
     -- Completions (cmp)
     use 'hrsh7th/nvim-cmp' -- main completion plugin
