@@ -11,6 +11,7 @@ end
 configs.setup({
     -- NOTE: add more languages that you would like tree sitter syntax highlighting for
     ensure_installed = { "bash", "lua", "python", "vim", "yaml", "markdown", "markdown_inline", "json", "html" },
+    auto_install = false,
     hightlight = {
         enable = true,
         additional_vim_regex_highlighting = { "markdown" },
@@ -18,7 +19,10 @@ configs.setup({
         disable = { " " }
     },
     -- NOTE: treesitter tries and makes indentation consistent with this option enabled
-    indent = { enable = true, disable = { "yaml", "python" } },
+    indent = {
+        enable = true,
+        disable = { "yaml", "python" }
+    },
 
     -- NOTE: using treesitter to improve visual selection within a code base.
     -- source: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
@@ -31,6 +35,7 @@ configs.setup({
         },
     },
     text_objects = {
+        -- BUG: this section is not working, not sure why...
         select = {
             enable = true,
             lookahead = true,
