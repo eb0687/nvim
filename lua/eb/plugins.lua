@@ -52,8 +52,8 @@ end
 return packer.startup(function(use)
     -- Required plugins
     use "wbthomason/packer.nvim" -- Have packer manage itself
-    use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-    use "nvim-lua/plenary.nvim" -- Useful lua functions used by lots of plugins
+    use "nvim-lua/popup.nvim"    -- An implementation of the Popup API from vim in Neovim
+    use "nvim-lua/plenary.nvim"  -- Useful lua functions used by lots of plugins
 
     -- Colorscheme & Aesthetics
     use "sainnhe/gruvbox-material" -- gruvbox material colorscheme
@@ -63,28 +63,28 @@ return packer.startup(function(use)
 
     -- Utilities
     use 'lukas-reineke/indent-blankline.nvim'
-    use "tenxsoydev/tabs-vs-spaces.nvim" -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
+    use "tenxsoydev/tabs-vs-spaces.nvim"      -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
     use 'windwp/nvim-autopairs'
-    use 'ThePrimeagen/harpoon' -- https://github.com/ThePrimeagen/harpoon
-    use 'kyazdani42/nvim-tree.lua' -- https://github.com/kyazdani42/nvim-tree.lua
-    use 'farmergreg/vim-lastplace' -- https://github.com/farmergreg/vim-lastplace
-    use 'tpope/vim-commentary' -- https://github.com/tpope/vim-commentary
-    use 'kylechui/nvim-surround' -- https://github.com/kylechui/nvim-surround
+    use 'ThePrimeagen/harpoon'                -- https://github.com/ThePrimeagen/harpoon
+    use 'kyazdani42/nvim-tree.lua'            -- https://github.com/kyazdani42/nvim-tree.lua
+    use 'farmergreg/vim-lastplace'            -- https://github.com/farmergreg/vim-lastplace
+    use 'tpope/vim-commentary'                -- https://github.com/tpope/vim-commentary
+    use 'kylechui/nvim-surround'              -- https://github.com/kylechui/nvim-surround
     use { 'phaazon/hop.nvim', branch = 'v2' } -- https://github.com/phaazon/hop.nvim
-    use 'Pocco81/true-zen.nvim' -- https://github.com/Pocco81/true-zen.nvim
-    use 'christoomey/vim-tmux-navigator' -- better navigation between nvim splits and tmux panes -- https://github.com/christoomey/vim-tmux-navigator
+    use 'Pocco81/true-zen.nvim'               -- https://github.com/Pocco81/true-zen.nvim
+    use 'christoomey/vim-tmux-navigator'      -- better navigation between nvim splits and tmux panes -- https://github.com/christoomey/vim-tmux-navigator
     use 'jvirtanen/vim-hcl'
     use 'mboughaba/i3config.vim'
-    use { 'ojroques/nvim-osc52' } -- copy text to the system clipboard using the ANSI OSC52 sequence -- https://github.com/ojroques/nvim-osc52
+    use { 'ojroques/nvim-osc52' }         -- copy text to the system clipboard using the ANSI OSC52 sequence -- https://github.com/ojroques/nvim-osc52
     use { 'norcalli/nvim-colorizer.lua' } -- https://github.com/norcalli/nvim-colorizer.lua
     use { 'folke/todo-comments.nvim' }
-    use { 'mbbill/undotree' } -- https://github.com/mbbill/undotree
+    use { 'mbbill/undotree' }             -- https://github.com/mbbill/undotree
     -- use {
     --     'klesh/nvim-runscript',
     --     config = function() require("nvim-runscript").setup{} end
     -- } -- https://github.com/klesh/nvim-runscript
     use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
-    use { 'michaelb/sniprun', run = 'sh ./install.sh'} -- NOTE: testing https://github.com/michaelb/sniprun
+    use { 'michaelb/sniprun', run = 'sh ./install.sh' } -- NOTE: testing https://github.com/michaelb/sniprun
     use { 'epwalsh/obsidian.nvim' }
 
     -- Telescope
@@ -98,24 +98,30 @@ return packer.startup(function(use)
         'nvim-treesitter/nvim-treesitter',
         run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     }
+    use({
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+        requires = "nvim-treesitter/nvim-treesitter",
+    })
+    use 'HiPhish/rainbow-delimiters.nvim'
 
     -- Completions (cmp)
-    use 'hrsh7th/nvim-cmp' -- main completion plugin
-    use 'hrsh7th/cmp-buffer' -- plugin for buffer completion
-    use 'hrsh7th/cmp-path' -- plugin for path completion
-    use 'saadparwaiz1/cmp_luasnip' -- plugin for snippet completion
-    use 'hrsh7th/cmp-cmdline' -- plugin for command line completion
-    use 'hrsh7th/cmp-nvim-lsp' -- plugin for lsp completion
-    use 'hrsh7th/cmp-nvim-lua' -- plugin for nvim-lua completion
+    use 'hrsh7th/nvim-cmp'                    -- main completion plugin
+    use 'hrsh7th/cmp-buffer'                  -- plugin for buffer completion
+    use 'hrsh7th/cmp-path'                    -- plugin for path completion
+    use 'saadparwaiz1/cmp_luasnip'            -- plugin for snippet completion
+    use 'hrsh7th/cmp-cmdline'                 -- plugin for command line completion
+    use 'hrsh7th/cmp-nvim-lsp'                -- plugin for lsp completion
+    use 'hrsh7th/cmp-nvim-lua'                -- plugin for nvim-lua completion
     use 'hrsh7th/cmp-nvim-lsp-signature-help' -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
 
     -- Snippets
-    use 'L3MON4D3/LuaSnip' -- https://github.com/L3MON4D3/LuaSnip
+    use 'L3MON4D3/LuaSnip'             -- https://github.com/L3MON4D3/LuaSnip
     use 'rafamadriz/friendly-snippets' -- https://github.com/rafamadriz/friendly-snippets
 
     -- LSP
-    use 'neovim/nvim-lspconfig' -- plugin to enable LSP - https://github.com/neovim/nvim-lspconfig
-    use 'williamboman/mason.nvim' -- plugin to auto download language servers - https://github.com/williamboman/mason.nvim
+    use 'neovim/nvim-lspconfig'             -- plugin to enable LSP - https://github.com/neovim/nvim-lspconfig
+    use 'williamboman/mason.nvim'           -- plugin to auto download language servers - https://github.com/williamboman/mason.nvim
     use 'williamboman/mason-lspconfig.nvim' -- plugin required for mason - https://github.com/williamboman/mason-lspconfig.nvim
 
     -- Null-Ls
@@ -133,10 +139,10 @@ return packer.startup(function(use)
     use({
         'jakewvincent/mkdnflow.nvim',
         rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
-    }) -- https://github.com/jakewvincent/mkdnflow.nvim
+    })                     -- https://github.com/jakewvincent/mkdnflow.nvim
 
     -- NOTE:: throws an error, disabling for now
-    -- use 'ekickx/clipboard-image.nvim' -- https://github.com/ekickx/clipboard-image.nvim 
+    -- use 'ekickx/clipboard-image.nvim' -- https://github.com/ekickx/clipboard-image.nvim
 
     -- HTML & CSS
     use({
