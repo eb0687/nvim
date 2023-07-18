@@ -112,7 +112,7 @@ configs.setup {
 
 local keymap = function(mode, keys, func, desc)
     if desc then
-        desc = 'KEYBIND: ' .. desc
+        desc = 'DIAGNOSTIC: ' .. desc
     end
     vim.keymap.set(mode, keys, func, {
         noremap = true,
