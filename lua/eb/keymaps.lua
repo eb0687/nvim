@@ -81,6 +81,10 @@ keymap_silent("n", "0", "^", 'Go to first non blank character on a line')
 keymap_silent("n", "<C-u>", "<C-u>zz", 'Navigate upwards while keeping cursor centered')
 keymap_silent("n", "<C-d>", "<C-d>zz", 'Navigate downwards while keeping cursor centered')
 keymap_silent("n", "n", "nzz", 'Keep cursor centered while searching') -- navigate downwardsv ertically while keeping cursor centered
+-- Remap for dealing with word wrap 
+-- NOTE: SOURCE: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 -- Quickfix list
 keymap_silent("n", "<leader>j", "<cmd>cnext<CR>zz", 'Quickfix next')
 keymap_silent("n", "<leader>k", "<cmd>cprev<CR>zz", 'Quickfix prev')
