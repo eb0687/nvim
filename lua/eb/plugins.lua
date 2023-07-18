@@ -103,7 +103,7 @@ return packer.startup(function(use)
         after = "nvim-treesitter",
         requires = "nvim-treesitter/nvim-treesitter",
     })
-    use 'HiPhish/rainbow-delimiters.nvim'
+    use 'HiPhish/rainbow-delimiters.nvim' -- https://gitlab.com/HiPhish/rainbow-delimiters.nvim
 
     -- Completions (cmp)
     use 'hrsh7th/nvim-cmp'                    -- main completion plugin
