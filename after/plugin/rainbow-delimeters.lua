@@ -1,7 +1,4 @@
 -- Rainbow delimeters
--- TODO:
--- Fix the highlight groups to match the gruvbox material theme colors
-
 
 -- This module contains a number of default definitions
 local rainbow_delimiters = require 'rainbow-delimiters'
