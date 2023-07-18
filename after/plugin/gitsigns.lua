@@ -68,6 +68,9 @@ local keymap = function(keys, func, desc)
     vim.keymap.set('n', keys, func, { desc = desc })
 end
 
+keymap("]g",":Gitsigns next_hunk<CR>","next hunk")
+keymap("[g",":Gitsigns prev_hunk<CR>","previous hunk")
+
 keymap("<leader>gp",":Gitsigns preview_hunk<CR>","preview hunk")
 keymap("<leader>gs",":Gitsigns stage_hunk<CR>","stage hunk")
 keymap("<leader>gu",":Gitsigns undo_stage_hunk<CR>","undo stage hunk")
