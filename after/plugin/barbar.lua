@@ -23,8 +23,8 @@ require 'bufferline'.setup {
             deleted = {enabled = false, icon = '-'}
         },
         preset = 'default',
-        separator = {left = '|', right = ''},
-        separator_at_end = false,
+        separator = {left = '▎', right = ''},
+        separator_at_end = true,
     },
     insert_at_end = true,
     minimum_padding = 2,
