@@ -39,6 +39,8 @@ con = mysql.connector.connect(
 # create a client cursor
 cur = con.cursor()
 
+# commit the changes to the database
+con.commit()
 # close cursor connection
 cur.close()
 # close database connection
