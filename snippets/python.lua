@@ -25,16 +25,20 @@ local snippets, autosnippets = {}, {}
 -- Start Refactoring (DEFINE SNIPPETS HERE) -- [[[
 
 local mysql_con = s("mysql_con", fmt([[
-import mysql.connector
+from mysql.connector import connect, Error
+from getpass import getpass
 
 # establish a database connection
-con = mysql.connector.connect(
-    host = "{}",
-    user = "{}",
-    password = "{}",
-    database = "{}",
-    port = "{}"
-)
+try:
+    con = mysql.connector.connect(
+        host = "{}",
+        user = "{}",
+        password = "{}",
+        database = "{}",
+        port = "{}"
+    )
+except Error as e:
+    print(e)
 
 # create a client cursor
 cur = con.cursor()
@@ -46,9 +50,9 @@ cur.close()
 # close database connection
 con.close()
 ]], {
-        i(1, "ipaddress,localhost or hostname"),
-        i(2, "username"),
-        i(3, "supersecurepasswordhere"),
+        i(1, "localhost"),
+        i(2, "input('Enter username: ')"),
+        i(3, "getpass('Enter password: )"),
         i(4, "database name"),
         i(5, "port number (optional)"),
     }))
