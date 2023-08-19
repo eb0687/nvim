@@ -53,7 +53,7 @@ function True_Zen_Minimal()
 end
 
 function Toggle_Alacritty_Opacity()
-    cmd('silent !toggle_alacritty_opacity')
+    cmd('silent !toggle-alacritty-opacity')
 end
 
 local toggle = true
