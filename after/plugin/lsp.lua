@@ -107,6 +107,11 @@ local servers = {
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         -- capabilities = capabilities,
+        sqlls = {
+            cmd = { "sql-language-server", "up", "--method", "stdio" },
+            filetypes = { "sql", "mysql" },
+            root_dir = function() return vim.loop.cwd() end,
+        },
         on_attach = on_attach,
         settings = {
             Lua = {
