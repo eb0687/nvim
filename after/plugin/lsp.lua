@@ -37,7 +37,8 @@ mason_lsp({
         'lua_ls',
         'ansiblels',
         'jsonls',
-        'html'
+        'html',
+        'sqlls'
     }
 })
 
