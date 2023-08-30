@@ -37,7 +37,8 @@ mason_lsp({
         'lua_ls',
         'ansiblels',
         'jsonls',
-        'html'
+        'html',
+        'sqlls'
     }
 })
 
@@ -99,12 +100,18 @@ local servers = {
     'ansiblels',
     'jsonls',
     'terraformls',
-    'html'
+    'html',
+    'sqlls'
 }
 
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         -- capabilities = capabilities,
+        sqlls = {
+            cmd = { "sql-language-server", "up", "--method", "stdio" },
+            filetypes = { "sql", "mysql" },
+            root_dir = function() return vim.loop.cwd() end,
+        },
         on_attach = on_attach,
         settings = {
             Lua = {
@@ -151,6 +158,10 @@ require 'lspconfig'.terraformls.setup {
 }
 
 require 'lspconfig'.html.setup {
+    capabilities = capabilities,
+}
+
+require 'lspconfig'.sqlls.setup {
     capabilities = capabilities,
 }
 
