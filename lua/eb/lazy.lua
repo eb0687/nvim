@@ -22,7 +22,6 @@ local plugins = {
     'nvim-lua/plenary.nvim',  -- Useful lua functions used by lots of plugins
 
     'romgrk/barbar.nvim',
-    -- 'kyazdani42/nvim-web-devicons',
     'nvim-lualine/lualine.nvim',
 
     -- Utilities
@@ -30,7 +29,6 @@ local plugins = {
     'tenxsoydev/tabs-vs-spaces.nvim', -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
     'windwp/nvim-autopairs',
     'ThePrimeagen/harpoon',           -- https://github.com/ThePrimeagen/harpoon
-    -- 'kyazdani42/nvim-tree.lua',       -- https://github.com/kyazdani42/nvim-tree.lua
     'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
     'tpope/vim-commentary',           -- https://github.com/tpope/vim-commentary
     'kylechui/nvim-surround',         -- https://github.com/kylechui/nvim-surround
@@ -39,7 +37,6 @@ local plugins = {
         branch = 'v2'
     },
     'Pocco81/true-zen.nvim',          -- https://github.com/Pocco81/true-zen.nvim
-    'christoomey/vim-tmux-navigator', -- better navigation between nvim splits and tmux panes -- https://github.com/christoomey/vim-tmux-navigator
     'jvirtanen/vim-hcl',
     'mboughaba/i3config.vim',
     'ojroques/nvim-osc52',         -- copy text to the system clipboard using the ANSI OSC52 sequence -- https://github.com/ojroques/nvim-osc52
@@ -72,14 +69,14 @@ local plugins = {
     'HiPhish/rainbow-delimiters.nvim', -- https://gitlab.com/HiPhish/rainbow-delimiters.nvim
 
     -- Completions (cmp)
-    'hrsh7th/nvim-cmp',                    -- main completion plugin
-    'hrsh7th/cmp-buffer',                  -- plugin for buffer completion
-    'hrsh7th/cmp-path',                    -- plugin for path completion
-    'saadparwaiz1/cmp_luasnip',            -- plugin for snippet completion
-    'hrsh7th/cmp-cmdline',                 -- plugin for command line completion
-    'hrsh7th/cmp-nvim-lsp',                -- plugin for lsp completion
-    'hrsh7th/cmp-nvim-lua',                -- plugin for nvim-lua completion
-    'hrsh7th/cmp-nvim-lsp-signature-help', -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
+    -- 'hrsh7th/nvim-cmp',                    -- main completion plugin
+    -- 'hrsh7th/cmp-buffer',                  -- plugin for buffer completion
+    -- 'hrsh7th/cmp-path',                    -- plugin for path completion
+    -- 'saadparwaiz1/cmp_luasnip',            -- plugin for snippet completion
+    -- 'hrsh7th/cmp-cmdline',                 -- plugin for command line completion
+    -- 'hrsh7th/cmp-nvim-lsp',                -- plugin for lsp completion
+    -- 'hrsh7th/cmp-nvim-lua',                -- plugin for nvim-lua completion
+    -- 'hrsh7th/cmp-nvim-lsp-signature-help', -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
 
     -- Snippets
     'L3MON4D3/LuaSnip',             -- https://github.com/L3MON4D3/LuaSnip
