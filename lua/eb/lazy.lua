@@ -22,7 +22,7 @@ local plugins = {
     'nvim-lua/plenary.nvim',  -- Useful lua functions used by lots of plugins
 
     'romgrk/barbar.nvim',
-    'kyazdani42/nvim-web-devicons',
+    -- 'kyazdani42/nvim-web-devicons',
     'nvim-lualine/lualine.nvim',
 
     -- Utilities
@@ -30,7 +30,7 @@ local plugins = {
     'tenxsoydev/tabs-vs-spaces.nvim', -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
     'windwp/nvim-autopairs',
     'ThePrimeagen/harpoon',           -- https://github.com/ThePrimeagen/harpoon
-    'kyazdani42/nvim-tree.lua',       -- https://github.com/kyazdani42/nvim-tree.lua
+    -- 'kyazdani42/nvim-tree.lua',       -- https://github.com/kyazdani42/nvim-tree.lua
     'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
     'tpope/vim-commentary',           -- https://github.com/tpope/vim-commentary
     'kylechui/nvim-surround',         -- https://github.com/kylechui/nvim-surround
