@@ -40,6 +40,6 @@ return {
         keymap("<leader>ds", godot.debugger.step, 'Godot Debug Step')
 
         -- TEST:
-        print("Hello from lazy godot")
+        -- print("Hello from lazy godot")
     end
 }
