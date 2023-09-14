@@ -53,6 +53,7 @@ return {
         -- $HOME/.nvim-sessions
         -- The function is called using a keymap defined in the keymap section below.
         -- SOURCE: https://github.com/romgrk/barbar.nvim#custom
+        -- to open session type - :source ~/.nvim-sessions/<session name>
         vim.opt.sessionoptions:append 'globals'
         vim.api.nvim_create_user_command(
             'Mksession',
