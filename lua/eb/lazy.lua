@@ -109,7 +109,19 @@ local plugins = {
     'lommix/godot.nvim',
 }
 
-local opts = {}
+-- these options are passed into the lazy setup function below
+local opts = {
+    install = {
+        colorscheme = {"gruvbox-material"}
+    },
+    checker = {
+        enabled = true,
+        notify = false,
+    },
+    change_detection = {
+        notify = false,
+    },
+}
 
 require("lazy").setup({
     {import = "eb.plugins"}, -- plugins configs managed by lazy
