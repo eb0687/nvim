@@ -19,7 +19,9 @@ return {
         'hrsh7th/cmp-nvim-lsp',                -- plugin for lsp completion
         'hrsh7th/cmp-nvim-lua',                -- plugin for nvim-lua completion
         'hrsh7th/cmp-nvim-lsp-signature-help', -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
-        'onsails/lspkind.nvim'                 -- https://github.com/onsails/lspkind.nvim
+        'onsails/lspkind.nvim',                -- https://github.com/onsails/lspkind.nvim
+        'L3MON4D3/LuaSnip',                    -- https://github.com/L3MON4D3/LuaSnip
+        'rafamadriz/friendly-snippets',        -- https://github.com/rafamadriz/friendly-snippets
     },
 
     config = function()
@@ -27,9 +29,13 @@ return {
         local luasnip = require('luasnip')
         local lspkind = require('lspkind')
 
-        require("luasnip/loaders/from_vscode").lazy_load()
+        require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
+
+            completion = {
+                completeopt = "menu,menuone,preview,noselect"
+            },
 
             -- SNIPPETS
             snippet = {
