@@ -94,6 +94,6 @@ return {
         keymap("<leader>gU", ":Gitsigns reset_buffer<CR>", "reset buffer")
 
         -- TEST:
-        print("Hello from lazy gitsigns")
+        -- print("Hello from lazy gitsigns")
     end
 }

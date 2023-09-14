@@ -85,9 +85,6 @@ local plugins = {
             'LiveServerStart',
             'LiveServerStop' },
     },
-
-    -- Godot
-    'lommix/godot.nvim',
 }
 
 -- these options are passed into the lazy setup function below
