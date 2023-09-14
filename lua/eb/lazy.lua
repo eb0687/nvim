@@ -63,7 +63,6 @@ local plugins = {
     'jose-elias-alvarez/null-ls.nvim', -- syntax formatter - https://github.com/jose-elias-alvarez/null-ls.nvim
 
     -- Git
-    'lewis6991/gitsigns.nvim', -- plugin for git integration
     'tpope/vim-fugitive',
 
     -- FZF
