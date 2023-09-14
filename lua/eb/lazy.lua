@@ -44,10 +44,6 @@ local plugins = {
     'folke/todo-comments.nvim',
     'mbbill/undotree',             -- https://github.com/mbbill/undotree
     {
-        'CRAG666/code_runner.nvim',
-        dependencies = 'nvim-lua/plenary.nvim'
-    },
-    {
         'michaelb/sniprun',
         build = 'sh ./install.sh'
     },
