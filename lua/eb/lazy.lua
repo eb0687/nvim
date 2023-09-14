@@ -30,7 +30,6 @@ local plugins = {
     'windwp/nvim-autopairs',
     'ThePrimeagen/harpoon',           -- https://github.com/ThePrimeagen/harpoon
     'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
-    -- 'tpope/vim-commentary',           -- https://github.com/tpope/vim-commentary
     'kylechui/nvim-surround',         -- https://github.com/kylechui/nvim-surround
     {
         'phaazon/hop.nvim',
