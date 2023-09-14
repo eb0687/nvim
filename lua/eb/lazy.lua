@@ -24,7 +24,6 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 
     'nvim-lua/popup.nvim', -- An implementation of the Popup API from vim in Neovim
-    'romgrk/barbar.nvim',
     'nvim-lualine/lualine.nvim',
 
     -- Utilities

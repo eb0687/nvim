@@ -28,6 +28,6 @@ return {
         })
 
         -- TEST:
-        print('Hello from lazy autopairs')
+        -- print('Hello from lazy autopairs')
     end
 }
