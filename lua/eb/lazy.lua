@@ -21,8 +21,6 @@ local plugins = {
     'nvim-lua/popup.nvim',    -- An implementation of the Popup API from vim in Neovim
     'nvim-lua/plenary.nvim',  -- Useful lua functions used by lots of plugins
 
-    -- Colorscheme & Aesthetics
-    'sainnhe/gruvbox-material', -- gruvbox material colorscheme
     'romgrk/barbar.nvim',
     'kyazdani42/nvim-web-devicons',
     'nvim-lualine/lualine.nvim',
@@ -127,4 +125,7 @@ local plugins = {
 
 local opts = {}
 
-require("lazy").setup(plugins,opts)
+require("lazy").setup({
+    {import = "eb.plugins"}, -- plugins configs managed by lazy
+    plugins
+},opts)
