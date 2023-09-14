@@ -64,7 +64,6 @@ local plugins = {
 
     -- Git
     'lewis6991/gitsigns.nvim', -- plugin for git integration
-    'ThePrimeagen/git-worktree.nvim',
     'tpope/vim-fugitive',
 
     -- FZF
