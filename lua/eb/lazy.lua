@@ -30,7 +30,6 @@ local plugins = {
     -- Utilities
     'lukas-reineke/indent-blankline.nvim',
     'tenxsoydev/tabs-vs-spaces.nvim', -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
-    'windwp/nvim-autopairs',
     'ThePrimeagen/harpoon',           -- https://github.com/ThePrimeagen/harpoon
     'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
     'kylechui/nvim-surround',         -- https://github.com/kylechui/nvim-surround
