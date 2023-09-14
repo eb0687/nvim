@@ -18,8 +18,6 @@ vim.opt.rtp:prepend(lazypath)
 -- Install plugins here
 local plugins = {
 
-    -- Required plugins
-    -- 'wbthomason/packer.nvim', -- Have packer manage itself
     'nvim-lua/popup.nvim',    -- An implementation of the Popup API from vim in Neovim
     'nvim-lua/plenary.nvim',  -- Useful lua functions used by lots of plugins
 
