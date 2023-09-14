@@ -62,10 +62,6 @@ local plugins = {
     },
     'HiPhish/rainbow-delimiters.nvim', -- https://gitlab.com/HiPhish/rainbow-delimiters.nvim
 
-    -- Snippets
-    'L3MON4D3/LuaSnip',             -- https://github.com/L3MON4D3/LuaSnip
-    'rafamadriz/friendly-snippets', -- https://github.com/rafamadriz/friendly-snippets
-
     -- LSP
     'neovim/nvim-lspconfig',             -- plugin to enable LSP - https://github.com/neovim/nvim-lspconfig
     'williamboman/mason.nvim',           -- plugin to auto download language servers - https://github.com/williamboman/mason.nvim
