@@ -16,7 +16,6 @@ return {
         'hrsh7th/cmp-path',                    -- plugin for path completion
         'saadparwaiz1/cmp_luasnip',            -- plugin for snippet completion
         'hrsh7th/cmp-cmdline',                 -- plugin for command line completion
-        'hrsh7th/cmp-nvim-lsp',                -- plugin for lsp completion
         'hrsh7th/cmp-nvim-lua',                -- plugin for nvim-lua completion
         'hrsh7th/cmp-nvim-lsp-signature-help', -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
         'onsails/lspkind.nvim',                -- https://github.com/onsails/lspkind.nvim

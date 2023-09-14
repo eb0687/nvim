@@ -144,6 +144,6 @@ return {
         end, 'Find Command History')
 
         -- TEST:
-        print("Hello from lazy cmp")
+        -- print("Hello from lazy telescope")
     end
 }

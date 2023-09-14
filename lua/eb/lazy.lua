@@ -1,4 +1,9 @@
--- lazy.nvim
+--   _                              _
+--  | | __ _ _____   _   _ ____   _(_)_ __ ___
+--  | |/ _` |_  / | | | | '_ \ \ / / | '_ ` _ \
+--  | | (_| |/ /| |_| |_| | | \ V /| | | | | | |
+--  |_|\__,_/___|\__, (_)_| |_|\_/ |_|_| |_| |_|
+--               |___/
 -- https://github.com/folke/lazy.nvim
 
 -- Bootstrap. This will install lazy.nvim if not available
@@ -18,8 +23,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Install plugins here
 local plugins = {
 
-    'nvim-lua/popup.nvim',    -- An implementation of the Popup API from vim in Neovim
-
+    'nvim-lua/popup.nvim', -- An implementation of the Popup API from vim in Neovim
     'romgrk/barbar.nvim',
     'nvim-lualine/lualine.nvim',
 
@@ -34,7 +38,7 @@ local plugins = {
         'phaazon/hop.nvim',
         branch = 'v2'
     },
-    'Pocco81/true-zen.nvim',          -- https://github.com/Pocco81/true-zen.nvim
+    'Pocco81/true-zen.nvim', -- https://github.com/Pocco81/true-zen.nvim
     'jvirtanen/vim-hcl',
     'mboughaba/i3config.vim',
     'ojroques/nvim-osc52',         -- copy text to the system clipboard using the ANSI OSC52 sequence -- https://github.com/ojroques/nvim-osc52
@@ -61,11 +65,6 @@ local plugins = {
         dependencies = 'nvim-treesitter/nvim-treesitter',
     },
     'HiPhish/rainbow-delimiters.nvim', -- https://gitlab.com/HiPhish/rainbow-delimiters.nvim
-
-    -- LSP
-    'neovim/nvim-lspconfig',             -- plugin to enable LSP - https://github.com/neovim/nvim-lspconfig
-    'williamboman/mason.nvim',           -- plugin to auto download language servers - https://github.com/williamboman/mason.nvim
-    'williamboman/mason-lspconfig.nvim', -- plugin required for mason - https://github.com/williamboman/mason-lspconfig.nvim
 
     -- Null-Ls
     'jose-elias-alvarez/null-ls.nvim', -- syntax formatter - https://github.com/jose-elias-alvarez/null-ls.nvim
@@ -103,7 +102,7 @@ local plugins = {
 -- these options are passed into the lazy setup function below
 local opts = {
     install = {
-        colorscheme = {"gruvbox-material"}
+        colorscheme = { "gruvbox-material" }
     },
     checker = {
         enabled = true,
@@ -115,6 +114,7 @@ local opts = {
 }
 
 require("lazy").setup({
-    {import = "eb.plugins"}, -- plugins configs managed by lazy
+    { import = "eb.plugins" },   -- plugins configs managed by lazy
+    { import = "eb.plugins.lsp" }, -- lsp configs managed by lazy
     plugins
-},opts)
+}, opts)
