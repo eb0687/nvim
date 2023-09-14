@@ -31,10 +31,10 @@ local plugins = {
     'tenxsoydev/tabs-vs-spaces.nvim', -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
     'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
     'kylechui/nvim-surround',         -- https://github.com/kylechui/nvim-surround
-    {
-        'phaazon/hop.nvim',
-        branch = 'v2'
-    },
+    -- {
+    --     'phaazon/hop.nvim',
+    --     branch = 'v2'
+    -- },
     'Pocco81/true-zen.nvim', -- https://github.com/Pocco81/true-zen.nvim
     'jvirtanen/vim-hcl',
     'mboughaba/i3config.vim',
