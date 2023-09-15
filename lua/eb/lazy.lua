@@ -27,7 +27,6 @@ local plugins = {
     'nvim-lualine/lualine.nvim',
 
     -- Utilities
-    'lukas-reineke/indent-blankline.nvim',
     'tenxsoydev/tabs-vs-spaces.nvim', -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
     'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
     'kylechui/nvim-surround',         -- https://github.com/kylechui/nvim-surround

@@ -84,6 +84,6 @@ return {
         end, 'Hop backward to character but place cursor infront of character')
 
         -- TEST:
-        print('Hello from lazy hop')
+        -- print('Hello from lazy hop')
     end
 }
