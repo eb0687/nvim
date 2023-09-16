@@ -26,6 +26,6 @@ return {
             }
         }
         -- TEST:
-        print("Hello from lazy lualine")
+        -- print("Hello from lazy lualine")
     end
 }

@@ -88,6 +88,6 @@ return {
         keymap("<a-4>", choice_next, "Cycle through choices in choice node")
 
         -- TEST:
-        print("Hello from lazy luasnip")
+        -- print("Hello from lazy luasnip")
     end
 }
