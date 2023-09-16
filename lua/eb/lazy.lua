@@ -20,40 +20,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Install plugins here
-local plugins = {
-
-    'nvim-lua/popup.nvim', -- An implementation of the Popup API from vim in Neovim
-
-    -- Utilities
-    'jvirtanen/vim-hcl',
-    'mboughaba/i3config.vim',
-
-    {
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        dependencies = 'nvim-treesitter/nvim-treesitter',
-    },
-    'HiPhish/rainbow-delimiters.nvim', -- https://gitlab.com/HiPhish/rainbow-delimiters.nvim
-
-    -- Git
-    'tpope/vim-fugitive',
-
-    -- FZF
-    'ibhagwan/fzf-lua', -- https://github.com/ibhagwan/fzf-lua
-
-    -- HTML & CSS
-    {
-        'aurum77/live-server.nvim',
-        build = function()
-            require "live_server.util".install()
-        end,
-        cmd = {
-            'LiveServer',
-            'LiveServerStart',
-            'LiveServerStop' },
-    },
-}
-
 -- these options are passed into the lazy setup function below
 local opts = {
     install = {
@@ -71,5 +37,4 @@ local opts = {
 require("lazy").setup({
     { import = "eb.plugins" },   -- plugins configs managed by lazy
     { import = "eb.plugins.lsp" }, -- lsp configs managed by lazy
-    plugins
 }, opts)
