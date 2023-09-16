@@ -61,12 +61,6 @@ local plugins = {
     -- FZF
     'ibhagwan/fzf-lua', -- https://github.com/ibhagwan/fzf-lua
 
-    -- Markdown
-    {
-        'jakewvincent/mkdnflow.nvim',
-        -- rocks = 'luautf8', -- Ensures optional luautf8 dependency is installed
-    },
-
     -- HTML & CSS
     {
         'aurum77/live-server.nvim',
