@@ -26,7 +26,6 @@ local plugins = {
     'nvim-lua/popup.nvim', -- An implementation of the Popup API from vim in Neovim
 
     -- Utilities
-    'tenxsoydev/tabs-vs-spaces.nvim', -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
     'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
     'Pocco81/true-zen.nvim', -- https://github.com/Pocco81/true-zen.nvim
     'jvirtanen/vim-hcl',
