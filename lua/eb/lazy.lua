@@ -29,7 +29,6 @@ local plugins = {
     'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
     'jvirtanen/vim-hcl',
     'mboughaba/i3config.vim',
-    'mbbill/undotree',             -- https://github.com/mbbill/undotree
 
     {
         'nvim-treesitter/nvim-treesitter-textobjects',
