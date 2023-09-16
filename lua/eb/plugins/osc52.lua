@@ -24,6 +24,6 @@ return {
         keymap('x', '<leader>c', require('osc52').copy_visual)
 
         -- TEST:
-        print('Hello from lazy osc52')
+        -- print('Hello from lazy osc52')
     end
 }
