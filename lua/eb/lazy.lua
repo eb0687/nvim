@@ -28,7 +28,6 @@ local plugins = {
     -- Utilities
     'tenxsoydev/tabs-vs-spaces.nvim', -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
     'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
-    'kylechui/nvim-surround',         -- https://github.com/kylechui/nvim-surround
     'Pocco81/true-zen.nvim', -- https://github.com/Pocco81/true-zen.nvim
     'jvirtanen/vim-hcl',
     'mboughaba/i3config.vim',
