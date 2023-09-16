@@ -48,6 +48,6 @@ return {
         keymap("<leader>lf", format, '[L]SP [F]ormat')
 
         -- TEST:
-        print("Hello from lazy null-ls")
+        -- print("Hello from lazy null-ls")
     end
 }
