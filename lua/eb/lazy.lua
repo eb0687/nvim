@@ -38,7 +38,7 @@ local plugins = {
         'michaelb/sniprun',
         build = 'sh ./install.sh'
     },
-    'epwalsh/obsidian.nvim',
+    -- 'epwalsh/obsidian.nvim',
 
     -- Treesitter
     {

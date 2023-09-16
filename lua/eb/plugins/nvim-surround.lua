@@ -15,6 +15,6 @@ return {
         })
 
         -- TEST:
-        print("Hello from lazy nvim-surround")
+        -- print("Hello from lazy nvim-surround")
     end
 }
