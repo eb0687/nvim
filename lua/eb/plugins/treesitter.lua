@@ -135,6 +135,6 @@ return {
 
 
         -- TEST:
-        print("Hello from lazy treesitter")
+        -- print("Hello from lazy treesitter")
     end
 }
