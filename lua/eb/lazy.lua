@@ -31,7 +31,6 @@ local plugins = {
     'Pocco81/true-zen.nvim', -- https://github.com/Pocco81/true-zen.nvim
     'jvirtanen/vim-hcl',
     'mboughaba/i3config.vim',
-    'ojroques/nvim-osc52',         -- copy text to the system clipboard using the ANSI OSC52 sequence -- https://github.com/ojroques/nvim-osc52
     'folke/todo-comments.nvim',
     'mbbill/undotree',             -- https://github.com/mbbill/undotree
     {
