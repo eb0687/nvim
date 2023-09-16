@@ -6,7 +6,17 @@
 -- https://github.com/nvim-tree/nvim-tree.lua
 
 return {
+
     'nvim-tree/nvim-tree.lua',
+
+    keys = {
+        { "<leader>e", function()
+            local api = require('nvim-tree.api')
+            api.tree.toggle()
+        end,
+            'NvimTree toggle' }
+    },
+
     dependencies = {
         'nvim-tree/nvim-web-devicons'
     },
@@ -14,7 +24,7 @@ return {
     config = function()
         local nvimtree = require('nvim-tree')
 
--- SETUP
+        -- SETUP
         nvimtree.setup({
 
             disable_netrw = true,
@@ -110,23 +120,23 @@ return {
             },
         })
 
--- KEYMAPS
+        -- KEYMAPS
 
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = 'Nvim Tree: ' .. desc
-            end
+        -- local keymap = function(keys, func, desc)
+        --     if desc then
+        --         desc = 'Nvim Tree: ' .. desc
+        --     end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
-        end
+        --     vim.keymap.set('n', keys, func, { desc = desc })
+        -- end
 
-        -- Bindings
+        -- -- Bindings
 
-        keymap("<leader>e", function()
-                local api = require('nvim-tree.api')
-                api.tree.toggle()
-            end,
-            'NvimTree toggle')
+        -- keymap("<leader>e", function()
+        --         local api = require('nvim-tree.api')
+        --         api.tree.toggle()
+        --     end,
+        --     'NvimTree toggle')
 
         -- TEST:
         -- print("Hello from lazy nvim-tree")
