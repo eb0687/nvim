@@ -26,7 +26,6 @@ local plugins = {
     'nvim-lua/popup.nvim', -- An implementation of the Popup API from vim in Neovim
 
     -- Utilities
-    'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
     'jvirtanen/vim-hcl',
     'mboughaba/i3config.vim',
 
