@@ -49,4 +49,7 @@ return {
             'LiveServerStop' },
     },
 
+    -- https://github.com/Bekaboo/deadcolumn.nvim
+    { 'Bekaboo/deadcolumn.nvim' }
+
 }
