@@ -30,14 +30,8 @@ local plugins = {
     'Pocco81/true-zen.nvim', -- https://github.com/Pocco81/true-zen.nvim
     'jvirtanen/vim-hcl',
     'mboughaba/i3config.vim',
-    -- 'folke/todo-comments.nvim',
     'mbbill/undotree',             -- https://github.com/mbbill/undotree
 
-    -- Treesitter
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-    },
     {
         'nvim-treesitter/nvim-treesitter-textobjects',
         dependencies = 'nvim-treesitter/nvim-treesitter',
