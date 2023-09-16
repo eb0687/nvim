@@ -33,11 +33,6 @@ local plugins = {
     'mboughaba/i3config.vim',
     'folke/todo-comments.nvim',
     'mbbill/undotree',             -- https://github.com/mbbill/undotree
-    {
-        'michaelb/sniprun',
-        build = 'sh ./install.sh'
-    },
-    -- 'epwalsh/obsidian.nvim',
 
     -- Treesitter
     {
