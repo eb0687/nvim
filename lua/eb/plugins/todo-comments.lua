@@ -96,6 +96,6 @@ return {
             "Previous todo comment")
 
         -- TEST:
-        print("Hello from lazy todo-comments")
+        -- print("Hello from lazy todo-comments")
     end
 }
