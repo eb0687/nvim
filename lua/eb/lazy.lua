@@ -52,9 +52,6 @@ local plugins = {
     },
     'HiPhish/rainbow-delimiters.nvim', -- https://gitlab.com/HiPhish/rainbow-delimiters.nvim
 
-    -- Null-Ls
-    'jose-elias-alvarez/null-ls.nvim', -- syntax formatter - https://github.com/jose-elias-alvarez/null-ls.nvim
-
     -- Git
     'tpope/vim-fugitive',
 
