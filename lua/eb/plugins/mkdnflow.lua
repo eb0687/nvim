@@ -24,7 +24,7 @@ return {
             },
         })
 
-        -- KEYMAPS [[[
+        -- KEYMAPS
         local keymap = function(keys, func, desc)
             if desc then
                 desc = 'MKDNFlow: ' .. desc
@@ -36,7 +36,7 @@ return {
         keymap("<leader>ml", ":MkdnCreateLink<CR>", 'Create a [M]arkdown [L]ink')
 
         -- TEST:
-        print("Hello from lazy mkdnflow")
+        -- print("Hello from lazy mkdnflow")
     end
 
 }
