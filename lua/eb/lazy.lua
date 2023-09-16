@@ -27,7 +27,6 @@ local plugins = {
 
     -- Utilities
     'farmergreg/vim-lastplace',       -- https://github.com/farmergreg/vim-lastplace
-    'Pocco81/true-zen.nvim', -- https://github.com/Pocco81/true-zen.nvim
     'jvirtanen/vim-hcl',
     'mboughaba/i3config.vim',
     'mbbill/undotree',             -- https://github.com/mbbill/undotree
