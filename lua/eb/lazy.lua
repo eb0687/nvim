@@ -30,7 +30,7 @@ local plugins = {
     'Pocco81/true-zen.nvim', -- https://github.com/Pocco81/true-zen.nvim
     'jvirtanen/vim-hcl',
     'mboughaba/i3config.vim',
-    'folke/todo-comments.nvim',
+    -- 'folke/todo-comments.nvim',
     'mbbill/undotree',             -- https://github.com/mbbill/undotree
 
     -- Treesitter
