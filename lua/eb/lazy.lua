@@ -24,7 +24,6 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 
     'nvim-lua/popup.nvim', -- An implementation of the Popup API from vim in Neovim
-    'nvim-lualine/lualine.nvim',
 
     -- Utilities
     'tenxsoydev/tabs-vs-spaces.nvim', -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
