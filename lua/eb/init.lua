@@ -1,6 +1,6 @@
 require("eb.options")
 require("eb.keymaps")
-require("eb.plugins")
+require("eb.lazy")
 
 -- TEST:
 -- print("hello from EB")
