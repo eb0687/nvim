@@ -19,7 +19,6 @@ return {
         'hrsh7th/cmp-nvim-lua',                -- plugin for nvim-lua completion
         'hrsh7th/cmp-nvim-lsp-signature-help', -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
         'onsails/lspkind.nvim',                -- https://github.com/onsails/lspkind.nvim
-        'L3MON4D3/LuaSnip',                    -- https://github.com/L3MON4D3/LuaSnip
         'rafamadriz/friendly-snippets',        -- https://github.com/rafamadriz/friendly-snippets
     },
 
