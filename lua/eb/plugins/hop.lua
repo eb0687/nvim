@@ -9,6 +9,7 @@
 return {
     'smoka7/hop.nvim',
     version = "*",
+    enabled = false,
 
     config = function()
         local hop = require('hop')
