@@ -122,6 +122,7 @@ return {
 
             -- SOURCES
             sources = cmp.config.sources {
+                { name = 'vim-dadbod-completion' },
                 { name = 'luasnip' },
                 { name = 'nvim_lua' },
                 { name = 'nvim_lsp' },

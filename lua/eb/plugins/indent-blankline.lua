@@ -7,6 +7,7 @@
 
 return {
     'lukas-reineke/indent-blankline.nvim',
+    main = "ibl",
 
     config = function()
         vim.opt.list = true
@@ -14,19 +15,17 @@ return {
         -- vim.opt.listchars:append "space:⋅"
         -- vim.opt.listchars:append("eol:↴")
 
-        require("indent_blankline").setup {
-            space_char_blankline = " ",
-            show_current_context = true,
-            show_current_context_start = true,
-            show_end_of_line = true,
-            filetype_exclude = {
-                "startify",
-                "help",
-                "lspinfo",
-                "checkhealth",
-                "man",
+        require("ibl").setup {
+            enabled = true,
+            indent = {
+                char = '│',
+                priority = 2,
             },
-
+            scope = {
+                enabled = true,
+                show_start = true,
+                show_end = true,
+            }
         }
         -- TEST:
         -- print("Hello from lazy indent-blankline")
