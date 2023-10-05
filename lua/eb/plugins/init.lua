@@ -52,6 +52,7 @@ return {
     -- https://github.com/Bekaboo/deadcolumn.nvim
     { 'Bekaboo/deadcolumn.nvim' },
 
-    { 'tpope/vim-obsession' }
+    -- https://github.com/tpope/vim-obsession
+    { 'tpope/vim-obsession' },
 
 }
