@@ -5,6 +5,8 @@
 --  \__|_|  \___|\___||___/_|\__|\__\___|_|
 -- https://github.com/nvim-treesitter/nvim-treesitter
 -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+-- https://youtu.be/CEMPq_r8UYQ
+-- https://www.josean.com/posts/nvim-treesitter-and-textobjects
 
 return {
 
@@ -83,8 +85,10 @@ return {
                         ["ls"] = { query = "@assignment.lhs", desc = "TS-goto: Select left hand side of an assignment" },
                         ["rs"] = { query = "@assignment.rhs", desc = "TS-goto: Select right hand side of an assignment" },
 
-                        ["aa"] = { query = "@parmater.outer", desc = "TS-goto: Select outer part of an argument/parameter" },
-                        ["ia"] = { query = "@parmater.inner", desc = "TS-goto: Select inner part of an argument/parameter" },
+                        ["aa"] = { query = "@parmater.outer", desc =
+                        "TS-goto: Select outer part of an argument/parameter" },
+                        ["ia"] = { query = "@parmater.inner", desc =
+                        "TS-goto: Select inner part of an argument/parameter" },
 
                         ["ai"] = { query = "@conditional.outer", desc = "TS-goto: Select outer part of a conditional" },
                         ["ii"] = { query = "@conditional.inner", desc = "TS-goto: Select inner part of a conditional" },
@@ -155,6 +159,19 @@ return {
                 },
             },
         }
+
+        local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
+
+        -- vim way: ; goes to the direction you were moving.
+        vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+        vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+
+        -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
+        -- NOTE: this does not seem to work, maybe interferance from flash.nvim plugin
+        vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
+        vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
+        vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
+        vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 
         --  KEYMAPS
         local keymap = function(mode, keys, func, desc)
