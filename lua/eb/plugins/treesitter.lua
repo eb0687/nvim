@@ -4,24 +4,22 @@
 -- | |_| | |  __/  __/\__ \ | |_| ||  __/ |
 --  \__|_|  \___|\___||___/_|\__|\__\___|_|
 -- https://github.com/nvim-treesitter/nvim-treesitter
+-- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 
 return {
 
     'nvim-treesitter/nvim-treesitter',
-
-    build = function()
-        require('nvim-treesitter.install').update({ with_sync = true })
-    end,
-
+    build = ':TSUpdate',
+    event = { 'BufReadPre', 'BufNewFile' },
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter-textobjects'
+    },
     config = function()
-        local configs = require('nvim-treesitter.configs')
+        local treesitter = require('nvim-treesitter.configs')
 
         -- SETUP
-        configs.setup({
+        treesitter.setup({
             -- NOTE: add more languages that you would like tree sitter syntax highlighting for
-            ensure_installed = { "bash", "lua", "python", "vim", "yaml", "markdown", "markdown_inline", "json",
-                "html", "sql" },
-            auto_install = false,
             hightlight = {
                 enable = true,
                 additional_vim_regex_highlighting = { "markdown" },
@@ -33,39 +31,33 @@ return {
                 enable = true,
                 disable = { "yaml", "python" }
             },
+            ensure_installed = {
+                "bash",
+                "lua",
+                "python",
+                "vim",
+                "yaml",
+                "markdown",
+                "markdown_inline",
+                "json",
+                "html",
+                "sql",
+                "gitignore",
+            },
+            auto_install = false,
 
             -- NOTE: using treesitter to improve visual selection within a code base.
             -- source: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
             incremental_selection = {
                 enable = true,
                 keymaps = {
-                    init_selection = '<c-space>',
-                    node_incremental = '<c-space>',
-                    node_decremental = '<c-backspace>',
+                    init_selection = '<C-space>',
+                    node_incremental = '<C-space>',
+                    scope_incremental = false,
+                    node_decremental = '<bs>',
                 },
             },
-            text_objects = {
-                move = {
-                    enable = true,
-                    set_jumps = true,
-                    goto_next_start = {
-                        [']m'] = '@function.outer',
-                        [']]'] = '@class.outer',
-                    },
-                    goto_next_end = {
-                        [']M'] = '@function.outer',
-                        [']['] = '@class.outer',
-                    },
-                    goto_previous_start = {
-                        ['[m'] = '@function.outer',
-                        ['[['] = '@class.outer',
-                    },
-                    goto_previous_end = {
-                        ['[M'] = '@function.outer',
-                        ['[]'] = '@class.outer',
-                    },
-                },
-            },
+
             rainbow = {
                 enable = true,
                 -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
@@ -76,7 +68,7 @@ return {
             }
         })
 
-        configs.setup {
+        treesitter.setup {
             textobjects = {
                 select = {
                     enable = true,
@@ -86,10 +78,25 @@ return {
 
                     keymaps = {
                         -- You can use the capture groups defined in textobjects.scm
-                        ["af"] = { query = "@function.outer", desc = "Select around function" },
-                        ["if"] = { query = "@function.inner", desc = "Select inner function" },
-                        ["ac"] = { query = "@class.outer", desc = "Select around class" },
-                        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+                        ["as"] = { query = "@assignment.outer", desc = "TS-goto: Select outer part of an assignment" },
+                        ["is"] = { query = "@assignment.inner", desc = "TS-goto: Select inner part of an assignment" },
+                        ["ls"] = { query = "@assignment.lhs", desc = "TS-goto: Select left hand side of an assignment" },
+                        ["rs"] = { query = "@assignment.rhs", desc = "TS-goto: Select right hand side of an assignment" },
+
+                        ["aa"] = { query = "@parmater.outer", desc = "TS-goto: Select outer part of an argument/parameter" },
+                        ["ia"] = { query = "@parmater.inner", desc = "TS-goto: Select inner part of an argument/parameter" },
+
+                        ["ai"] = { query = "@conditional.outer", desc = "TS-goto: Select outer part of a conditional" },
+                        ["ii"] = { query = "@conditional.inner", desc = "TS-goto: Select inner part of a conditional" },
+
+                        ["al"] = { query = "@loop.outer", desc = "TS-goto: Select outer part of a loop" },
+                        ["il"] = { query = "@loop.inner", desc = "TS-goto: Select inner part of a loop" },
+
+                        ["af"] = { query = "@function.outer", desc = "TS-goto: Select outer part of a function call" },
+                        ["if"] = { query = "@function.inner", desc = "TS-goto: Select inner part of a function call" },
+
+                        ["ac"] = { query = "@class.outer", desc = "TS-goto: Select outer part of a class" },
+                        ["ic"] = { query = "@class.inner", desc = "TS-goto: Select inner part of a class" },
                     },
                     -- You can choose the select mode (default is charwise 'v')
                     --
@@ -112,7 +119,39 @@ return {
                     -- * query_string: eg '@function.inner'
                     -- * selection_mode: eg 'v'
                     -- and should return true of false
-                    include_surrounding_whitespace = true,
+                    -- include_surrounding_whitespace = true,
+                },
+                move = {
+                    enable = true,
+                    set_jumps = true,
+                    goto_next_start = {
+                        ["]f"] = { query = '@call.outer', desc = 'TS-move: Next function call start' },
+                        ["]m"] = { query = '@function.outer', desc = 'TS-move: Next method/function def start' },
+                        ["]c"] = { query = '@class.outer', desc = 'TS-move: Next class start' },
+                        ["]i"] = { query = '@conditional.outer', desc = 'TS-move: Next conditional start' },
+                        ["]l"] = { query = '@loop.outer', desc = 'TS-move: Next loop start' },
+                    },
+                    goto_next_end = {
+                        ["]F"] = { query = '@call.outer', desc = 'TS-move: Next function call end' },
+                        ["]M"] = { query = '@function.outer', desc = 'TS-move: Next method/function def end' },
+                        ["]C"] = { query = '@class.outer', desc = 'TS-move: Next class end' },
+                        ["]I"] = { query = '@conditional.outer', desc = 'TS-move: Next conditional end' },
+                        ["]L"] = { query = '@loop.outer', desc = 'TS-move: Next loop end' },
+                    },
+                    goto_previous_start = {
+                        ["[f"] = { query = '@call.outer', desc = 'TS-move: Prev function call start' },
+                        ["[m"] = { query = '@function.outer', desc = 'TS-move: Prev method/function def start' },
+                        ["[c"] = { query = '@class.outer', desc = 'TS-move: Prev class start' },
+                        ["[i"] = { query = '@conditional.outer', desc = 'TS-move: Prev conditional start' },
+                        ["[l"] = { query = '@loop.outer', desc = 'TS-move: Prev loop start' },
+                    },
+                    goto_previous_end = {
+                        ["[F"] = { query = '@call.outer', desc = 'TS-move: Prev function call end' },
+                        ["[M"] = { query = '@function.outer', desc = 'TS-move: Prev method/function def end' },
+                        ["[C"] = { query = '@class.outer', desc = 'TS-move: Prev class end' },
+                        ["[I"] = { query = '@conditional.outer', desc = 'TS-move: Prev conditional end' },
+                        ["[L"] = { query = '@loop.outer', desc = 'TS-move: Prev loop end' },
+                    },
                 },
             },
         }
