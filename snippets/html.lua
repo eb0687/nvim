@@ -54,6 +54,11 @@ local html_boilerplate = s({
     }))
 table.insert(snippets, html_boilerplate)
 
+-- TODO:
+-- [ ] create a custom element wrapper
+-- <em>text</em>
+-- <strong>text</strong>
+
 -- End Refactoring -- ]]]
 
 return snippets, autosnippets
