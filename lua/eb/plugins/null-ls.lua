@@ -27,7 +27,7 @@ return {
                 -- formatter for markdown
                 formatting.mdformat,
                 -- formatter for terraform
-                formatting.terraform_fmt
+                formatting.terraform_fmt,
             }
         })
 
