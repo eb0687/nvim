@@ -26,9 +26,9 @@ local snippets, autosnippets = {}, {}
 -- Start Refactoring (DEFINE SNIPPETS HERE) -- [[[
 
 local html_boilerplate = s({
-    trig = "html_boilerplate",
-    dscr = "Snippet to create an HTML boilerplate",
-},
+        trig = "html_boilerplate",
+        dscr = "Snippet to create an HTML boilerplate",
+    },
     fmt([[
     <!DOCTYPE html>
     <html lang="{}">
