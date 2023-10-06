@@ -71,7 +71,10 @@ return {
             'jsonls',
             'terraformls',
             'html',
-            'sqlls'
+            'sqlls',
+            -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#emmet_language_server
+            -- https://github.com/olrtg/emmet-language-server
+            'emmet_language_server'
         }
 
         for _, lsp in ipairs(servers) do
@@ -131,6 +134,10 @@ return {
         }
 
         require 'lspconfig'.sqlls.setup {
+            capabilities = capabilities,
+        }
+
+        require 'lspconfig'.emmet_language_server.setup {
             capabilities = capabilities,
         }
 

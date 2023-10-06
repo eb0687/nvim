@@ -38,7 +38,9 @@ return {
                 'ansiblels',
                 'jsonls',
                 'html',
-                'sqlls'
+                'sqlls',
+                -- https://github.com/olrtg/emmet-language-server
+                'emmet_language_server'
             },
             automatic_installation = true
         })
