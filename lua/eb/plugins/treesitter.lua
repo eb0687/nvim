@@ -45,8 +45,9 @@ return {
                 "html",
                 "sql",
                 "gitignore",
+                "javascript",
             },
-            auto_install = false,
+            auto_install = true,
 
             -- NOTE: using treesitter to improve visual selection within a code base.
             -- source: https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua

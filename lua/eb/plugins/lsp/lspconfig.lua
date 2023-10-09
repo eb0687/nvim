@@ -74,7 +74,10 @@ return {
             'sqlls',
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#emmet_language_server
             -- https://github.com/olrtg/emmet-language-server
-            'emmet_language_server'
+            'emmet_language_server',
+            -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
+            -- https://github.com/hrsh7th/vscode-langservers-extracted
+            'eslint',
         }
 
         for _, lsp in ipairs(servers) do
@@ -143,6 +146,10 @@ return {
             init_options = {
                 showSuggestionsAsSnippets = true,
             }
+        }
+
+        require 'lspconfig'.eslint.setup {
+            capabilities = capabilities,
         }
 
         vim.diagnostic.config({
