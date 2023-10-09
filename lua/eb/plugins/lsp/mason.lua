@@ -42,6 +42,7 @@ return {
                 -- https://github.com/olrtg/emmet-language-server
                 'emmet_language_server',
                 'eslint',
+                'tsserver',
             },
             automatic_installation = true
         })

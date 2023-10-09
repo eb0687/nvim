@@ -78,6 +78,9 @@ return {
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
             -- https://github.com/hrsh7th/vscode-langservers-extracted
             'eslint',
+            -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+            -- https://github.com/typescript-language-server/typescript-language-server
+            'tsserver',
         }
 
         for _, lsp in ipairs(servers) do
@@ -149,6 +152,10 @@ return {
         }
 
         require 'lspconfig'.eslint.setup {
+            capabilities = capabilities,
+        }
+
+        require 'lspconfig'.tsserver.setup {
             capabilities = capabilities,
         }
 
