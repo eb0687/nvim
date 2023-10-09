@@ -38,6 +38,7 @@ return {
                     filter = {
                         event = "msg_show",
                         kind = "search_count",
+                        find = "written",
                     },
                     opts = { skip = true },
                 },
