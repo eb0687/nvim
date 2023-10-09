@@ -139,6 +139,10 @@ return {
 
         require 'lspconfig'.emmet_language_server.setup {
             capabilities = capabilities,
+            -- https://github.com/olrtg/emmet-language-server#neovim
+            init_options = {
+                showSuggestionsAsSnippets = true,
+            }
         }
 
         vim.diagnostic.config({
