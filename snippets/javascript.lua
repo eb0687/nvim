@@ -43,6 +43,24 @@ local javascript_variable = s({
     }))
 table.insert(snippets, javascript_variable)
 
+local javascript_function_es6 = s({
+        trig = 'function_es6',
+        dscr = 'Snippet to create a primitive javascript variable',
+    },
+    fmt([[
+    {}{} = ({}) => {}
+    ]], {
+        c(1, {
+            t('const '),
+            t('let '),
+            t('')
+        }),
+        i(2, "'function name'"),
+        i(3, "'arguments'"),
+        i(4, "'returned value'")
+    }))
+table.insert(snippets, javascript_function_es6)
+
 local javascript_constant = s({
         trig = 'constant',
         dscr = 'Snippet to create a javascript constant',
