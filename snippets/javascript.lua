@@ -25,24 +25,6 @@ local snippets, autosnippets = {}, {}
 
 -- Start Refactoring (DEFINE SNIPPETS HERE) -- [[[
 
-local javascript_variable = s({
-        trig = 'variable',
-        dscr = 'Snippet to create a primitive javascript variable',
-    },
-    fmt([[
-    let {} = {};
-    ]], {
-        i(1, "variable name"),
-        c(2, {
-            t("'String Literal'"),
-            t('// Number Literal'),
-            t('// Boolean Literal'),
-            t('undefined'),
-            t('null'),
-        }),
-    }))
-table.insert(snippets, javascript_variable)
-
 local javascript_function_es6 = s({
         trig = 'function_es6',
         dscr = 'Snippet to create a primitive javascript variable',
@@ -61,24 +43,48 @@ local javascript_function_es6 = s({
     }))
 table.insert(snippets, javascript_function_es6)
 
-local javascript_constant = s({
-        trig = 'constant',
-        dscr = 'Snippet to create a javascript constant',
+local javascript_variable = s({
+        trig = 'variable',
+        dscr = 'Snippet to create a primitive javascript variable.',
     },
     fmt([[
-    const {} = {};
+    {}{} = {};
     ]], {
-        i(1, 'constant name'),
-        c(2, {
+        c(1, {
+            t('let '),
+            t('const '),
             t(''),
+        }),
+        i(2, "'variable name'"),
+        c(3, {
             t("'String Literal'"),
-            t('// Number Literal'),
-            t('// Boolean Literal'),
+            t(""),
+            t("true"),
+            t("false"),
             t('undefined'),
             t('null'),
         }),
     }))
-table.insert(snippets, javascript_constant)
+table.insert(snippets, javascript_variable)
+
+-- local javascript_constant = s({
+--         trig = 'constant',
+--         dscr = 'Snippet to create a javascript constant',
+--     },
+--     fmt([[
+--     const {} = {};
+--     ]], {
+--         i(1, 'constant name'),
+--         c(2, {
+--             t(''),
+--             t("'String Literal'"),
+--             t('// Number Literal'),
+--             t('// Boolean Literal'),
+--             t('undefined'),
+--             t('null'),
+--         }),
+--     }))
+-- table.insert(snippets, javascript_constant)
 
 local javascript_console = s({
         trig = 'console.log',
