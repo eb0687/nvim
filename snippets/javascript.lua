@@ -93,7 +93,7 @@ local javascript_console = s({
     fmt([[
     console.log({});
     ]], {
-        i(1, '<thing to print to console goes here>'),
+        i(1, "'thing to print to console goes here'"),
     }))
 table.insert(snippets, javascript_console)
 
