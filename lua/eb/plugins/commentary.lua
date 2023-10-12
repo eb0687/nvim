@@ -6,8 +6,12 @@
 --                                                          |___/
 -- https://github.com/tpope/vim-commentary
 
+-- NOTE: temporarily replaceing with comment.nvim
+-- lua/eb/plugins/comment.lua
+
 return {
     'tpope/vim-commentary',
+    enabled = false,
 
     -- refer to this video for exaplanation on the below events:
     -- https://youtu.be/6mxWayq-s9I
