@@ -31,16 +31,27 @@ local javascript_function_es6 = s({
         dscr = 'Snippet to create a primitive javascript variable',
     },
     fmt([[
-    {}{} = ({}) => {}
+    {}{} = ({}) => {{
+        {}
+    }}
     ]], {
         c(1, {
             t('const '),
             t('let '),
-            t('')
+            t(''),
         }),
-        i(2, "'function name'"),
-        i(3, "'arguments'"),
-        i(4, "'returned value'"),
+        c(2, {
+            t("'function_name'"),
+            t(""),
+        }),
+        c(3, {
+            t("'arguments'"),
+            t(""),
+        }),
+        c(4, {
+            t("// function stuff goes here..."),
+            t("console.log()"),
+        }),
     }))
 table.insert(snippets, javascript_function_es6)
 
@@ -49,7 +60,7 @@ local javascript_for_loop_es6 = s({
         dscr = 'The recommended way of creating for loops using ES6',
     },
     fmt([[
-    for (const {} of {}) {{
+    for (const {} {} {}) {{
         console.log({})
     }}
     ]], {
@@ -58,6 +69,10 @@ local javascript_for_loop_es6 = s({
             t('')
         }),
         c(2, {
+            t('of'),
+            t('in')
+        }),
+        c(3, {
             t("'variable'"),
             t('')
         }),
@@ -77,9 +92,12 @@ local javascript_variable = s({
             t('const '),
             t(''),
         }),
-        i(2, "'variable name'"),
+        c(2, {
+            t("'variable_name'"),
+            t('')
+        }),
         c(3, {
-            t("'String Literal'"),
+            t("'string_literal'"),
             t(""),
             t("true"),
             t("false"),
@@ -127,15 +145,27 @@ local javascript_object = s({
         dscr = 'Snippet to create a javascript object',
     },
     fmt([[
-    {} {} = {}
+    {} {} = {{
+        {}: {}
+    }}
     ]], {
         c(1, {
             t('let'),
             t('const'),
             t(''),
         }),
-        i(2, 'variable name'),
-        i(3, '{}'),
+        c(2, {
+            t("'variable_name'"),
+            t(''),
+        }),
+        c(3, {
+                t("'key'"),
+                t(""),
+            }),
+        c(4, {
+                t("'value'"),
+                t(""),
+            }),
     }))
 table.insert(snippets, javascript_object)
 
@@ -148,7 +178,7 @@ local javascript_array = s({
         '{}',
         '{}',
         '{}',
-        {}
+        '{}',
     ];
     ]], {
         c(1, {
@@ -156,11 +186,23 @@ local javascript_array = s({
             t('const'),
             t(''),
         }),
-        i(2, 'array name'),
-        i(3, 'value 1'),
-        i(4, 'value 2'),
-        i(5, 'value 3'),
-        i(6, "''"),
+        c(2, {
+                t("'array_name'"),
+                t('')
+            }),
+        c(3, {
+                t('value_1'),
+                t(''),
+            }),
+        c(4, {
+                t('value_2'),
+                t(''),
+            }),
+        c(5, {
+                t('value_3'),
+                t(''),
+            }),
+        i(6, ''),
     }))
 table.insert(snippets, javascript_array)
 
