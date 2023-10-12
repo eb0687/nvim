@@ -135,7 +135,8 @@ local javascript_console = s({
     ]], {
         c(1, {
             t("'thing to print to console goes here'"),
-            t("")
+            t("'Hello World'"),
+            t(""),
         }),
     }))
 table.insert(snippets, javascript_console)
