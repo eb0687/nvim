@@ -66,18 +66,6 @@ return {
             updateevents = "TextChanged,TextChangedI",
             enable_autosnippets = true,
             store_selection_keys = "<Tab>",
-            -- ext_opts = {
-            --     [types.choiceNode] = {
-            --         active = {
-            --             virt_text = { { "●", "GruvboxOrange" } }
-            --         },
-            --     },
-            --     [types.insertNode] = {
-            --         active = {
-            --             virt_text = { { "●", "GruvboxBlue" } }
-            --         },
-            --     },
-            -- },
         })
 
         -- KEYMPS
