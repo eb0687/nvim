@@ -31,7 +31,7 @@ return {
             -- NOTE: treesitter tries and makes indentation consistent with this option enabled
             indent = {
                 enable = true,
-                disable = { "yaml", "python", "javascript" }
+                disable = { "yaml", "python"}
             },
             ensure_installed = {
                 "bash",
