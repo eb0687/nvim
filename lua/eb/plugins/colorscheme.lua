@@ -11,6 +11,7 @@ return {
     priority = 1000,
     config = function()
         local cmd = vim.cmd
+        local nvim_set_hl = vim.api.nvim_set_hl
 
         -- These configs must exist before running color scheme
         cmd([[
@@ -29,6 +30,7 @@ return {
         ]])
 
         cmd([[colorscheme gruvbox-material]])
+        nvim_set_hl(0, 'NormalFloat', {bg='#424445'})
 
         -- TEST:
         -- print('Hello from colorscheme lazy')
