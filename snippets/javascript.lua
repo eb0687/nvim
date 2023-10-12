@@ -18,6 +18,7 @@ local rep = require("luasnip.extras").rep
 local helper = require("eb.luasnip-helper-funcs")
 local get_bash = helper.get_bash
 local get_filename = helper.get_filename
+local get_mirror = helper.get_mirror
 
 -- ]]]
 
@@ -39,9 +40,30 @@ local javascript_function_es6 = s({
         }),
         i(2, "'function name'"),
         i(3, "'arguments'"),
-        i(4, "'returned value'")
+        i(4, "'returned value'"),
     }))
 table.insert(snippets, javascript_function_es6)
+
+local javascript_for_loop_es6 = s({
+        trig = 'for_es6',
+        dscr = 'The recommended way of creating for loops using ES6',
+    },
+    fmt([[
+    for (const {} of {}) {{
+        console.log({})
+    }}
+    ]], {
+        c(1, {
+            t('i'),
+            t('')
+        }),
+        c(2, {
+            t("'variable'"),
+            t('')
+        }),
+        get_mirror(1)
+    }))
+table.insert(snippets, javascript_for_loop_es6)
 
 local javascript_variable = s({
         trig = 'variable',
@@ -93,7 +115,10 @@ local javascript_console = s({
     fmt([[
     console.log({});
     ]], {
-        i(1, "'thing to print to console goes here'"),
+        c(1, {
+            t("'thing to print to console goes here'"),
+            t("")
+        }),
     }))
 table.insert(snippets, javascript_console)
 
