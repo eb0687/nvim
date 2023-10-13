@@ -13,6 +13,8 @@ return {
         'nvim-lua/plenary.nvim',
         'nvim-tree/nvim-web-devicons',
         'nvim-telescope/telescope-github.nvim',
+        'ThePrimeagen/harpoon',
+        'natecraddock/telescope-zf-native.nvim',
         {
             'nvim-telescope/telescope-fzf-native.nvim',
             build = "make",
@@ -68,7 +70,10 @@ return {
                 },
             },
 
-            telescope.load_extension('fzf')
+            telescope.load_extension('fzf'),
+            telescope.load_extension('notify'),
+            telescope.load_extension('harpoon'),
+            telescope.load_extension('zf-native'),
         })
 
         -- KEYMAPS
@@ -109,6 +114,7 @@ return {
         keymap("<leader>fn", function()
             telescope_builtin.find_files({
                 prompt_title = '[ VIMRC ]',
+                file_ignore_patterns = { "^.git/" },
                 cwd = '~/.config/nvim/'
             })
         end, 'Find in Nvim configs')
@@ -116,6 +122,7 @@ return {
         keymap("<leader>fF", function()
             telescope_builtin.find_files({
                 prompt_title = '[ Search HOME ]',
+                file_ignore_patterns = { "^.git/" },
                 cwd = '~/'
             })
         end, 'Find Files in home directory')
