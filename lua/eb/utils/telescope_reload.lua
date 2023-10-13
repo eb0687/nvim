@@ -1,4 +1,6 @@
 -- https://joseustra.com/blog/reloading-neovim-config-with-telescope/?source=ustrajunior.com
+-- BUG: this does not reload modules but does show the notification
+
 local M = {}
 
 function M.reload()
@@ -35,7 +37,6 @@ function M.reload()
                 -- and give some feedback
                 R(name)
                 P(name .. " RELOADED!!!")
-
             end)
 
             return true

@@ -105,6 +105,7 @@ return {
         keymap("gD", telescope_builtin.lsp_type_definitions, 'Find type definitions [LSP]')
         keymap("<leader>ds", telescope_builtin.lsp_document_symbols, 'Find document symbols [LSP]')
         keymap("<leader>co", telescope_builtin.quickfix, 'View all items in the quickfix list')
+        -- BUG: this does not reload modules but does show the notification
         keymap("<leader>fr", "<cmd>:lua require('eb.utils.telescope_reload').reload()<CR>", 'Reload nvim plugin using telescope')
 
         keymap("<leader>fs", function()
