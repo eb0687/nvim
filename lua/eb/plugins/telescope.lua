@@ -15,6 +15,7 @@ return {
         'nvim-telescope/telescope-github.nvim',
         'ThePrimeagen/harpoon',
         'natecraddock/telescope-zf-native.nvim',
+        'nvim-telescope/telescope-symbols.nvim',
         {
             'nvim-telescope/telescope-fzf-native.nvim',
             build = "make",
