@@ -10,9 +10,12 @@ return {
     'rcarriga/nvim-notify',
     config = function()
         require("notify").setup {
-            stages = 'fade_in_slide_out',
+            stages = 'slide',
             background_colour = 'FloatShadow',
-            timeout = 2000,
+            timeout = 1000,
+            render = 'wrapped-compact',
+            fps = 60,
+            top_down = true
         }
         vim.notify = require('notify')
     end
