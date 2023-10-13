@@ -128,24 +128,50 @@ local info = s("info", fmt([[
 table.insert(snippets, info)
 
 local nvim_keymap = s({
-    trig="keymap",
-    dscr="Snippet to quickly define nvim keymaps",
-},
+        trig = "keymap",
+        dscr = "Snippet to quickly define nvim keymaps",
+    },
     fmt([[
     {}("{}","{}","{}","{}") {}
-    ]],{
-            c(1, {
-                t("keymap_silent"),
-                t("keymap_loud")
-            }),
-            i(2, "mode"),
-            i(3, "keymap"),
-            i(4, "command to execute"),
-            i(5, "keymap description"),
-            i(0)
-        }))
+    ]], {
+        c(1, {
+            t("keymap_silent"),
+            t("keymap_loud")
+        }),
+        i(2, "mode"),
+        i(3, "keymap"),
+        i(4, "command to execute"),
+        i(5, "keymap description"),
+        i(0)
+    }))
 table.insert(snippets, nvim_keymap)
 
+local user_command = s({
+        trig = "user_command",
+        dscr = "Snippet to quickly user commands",
+    },
+    fmt([[
+    local {} = vim.api.nvim_create_user_command
+
+    {}('{}', "{}", {{}})
+    {}
+    ]], {
+        c(1, {
+            t("'variable_name'"),
+            t("")
+        }),
+        get_mirror(1),
+        c(2, {
+            t("user_command_name"),
+            t("")
+        }),
+        c(3, {
+            t("command"),
+            t("")
+        }),
+        i(0)
+    }))
+table.insert(snippets, user_command)
 -- End Refactoring -- ]]]
 
 return snippets, autosnippets
