@@ -42,6 +42,9 @@ return {
         nvim_set_hl(0, 'FlashPromptIcon', { bg = '#EA6962', fg = '#191919' })
         nvim_set_hl(0, 'FlashCurrent', { bg = '#EA6962' })
 
+        -- Hydra
+        nvim_set_hl(0, 'HydraPink', { bg = '#EA6962', fg = '#191919', bold = true})
+
         -- TEST:
         -- print('Hello from colorscheme lazy')
     end
