@@ -17,6 +17,10 @@ return {
         'natecraddock/telescope-zf-native.nvim',
         'nvim-telescope/telescope-symbols.nvim',
         {
+            'piersolenski/telescope-import.nvim',
+            ft = { 'python', 'javascript', 'lua' },
+        },
+        {
             'nvim-telescope/telescope-fzf-native.nvim',
             build = "make",
         },
@@ -69,12 +73,17 @@ return {
                     override_generic_sorter = false,
                     override_file_sorter = true,
                 },
+                import = {
+                    -- Add imports to the top of the file keeping the cursor in place
+                    insert_at_top = true,
+                },
             },
 
             telescope.load_extension('fzf'),
             telescope.load_extension('notify'),
             telescope.load_extension('harpoon'),
             telescope.load_extension('zf-native'),
+            telescope.load_extension('import'),
         })
 
         -- KEYMAPS
@@ -106,7 +115,8 @@ return {
         keymap("<leader>ds", telescope_builtin.lsp_document_symbols, 'Find document symbols [LSP]')
         keymap("<leader>co", telescope_builtin.quickfix, 'View all items in the quickfix list')
         -- BUG: this does not reload modules but does show the notification
-        keymap("<leader>fr", "<cmd>:lua require('eb.utils.telescope_reload').reload()<CR>", 'Reload nvim plugin using telescope')
+        keymap("<leader>fr", "<cmd>:lua require('eb.utils.telescope_reload').reload()<CR>",
+            'Reload nvim plugin using telescope')
 
         keymap("<leader>fs", function()
             telescope_builtin.grep_string({
