@@ -15,7 +15,6 @@ return {
         'nvim-telescope/telescope-github.nvim',
         'ThePrimeagen/harpoon',
         'natecraddock/telescope-zf-native.nvim',
-        'nvim-telescope/telescope-symbols.nvim',
         {
             'piersolenski/telescope-import.nvim',
             ft = { 'python', 'javascript', 'lua' },
