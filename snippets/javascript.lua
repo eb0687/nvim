@@ -207,6 +207,29 @@ local javascript_array = s({
     }))
 table.insert(snippets, javascript_array)
 
+local arrayFilterMethod = s({
+    trig="filter_custom",
+    dscr="Snippet to autogenerate a filter method that returns an array",
+},
+    fmt([[
+    {}.filter({} => {})
+    ]], {
+            c(1,{
+                t("'iterable'"),
+                t(""),
+            }),
+            c(2, {
+                t("'item'"),
+                t(''),
+                t('()'),
+            }),
+            c(3, {
+                t('{}'),
+                t(''),
+            }),
+        }))
+table.insert(snippets, arrayFilterMethod)
+
 -- End Refactoring -- ]]]
 
 return snippets, autosnippets
