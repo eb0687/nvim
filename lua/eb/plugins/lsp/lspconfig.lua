@@ -145,6 +145,9 @@ return {
 
         require 'lspconfig'.emmet_language_server.setup {
             capabilities = capabilities,
+            filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte",
+                "pug", "typescriptreact", "vue" },
+
             -- https://github.com/olrtg/emmet-language-server#neovim
             init_options = {
                 showSuggestionsAsSnippets = true,
