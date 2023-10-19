@@ -89,7 +89,10 @@ return {
             -- https://github.com/typescript-language-server/typescript-language-server
             'tsserver',
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
-            'cssls',
+            -- 'cssls',
+            -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss
+            -- https://github.com/tailwindlabs/tailwindcss-intellisense
+            'tailwindcss'
         }
 
         for _, lsp in ipairs(servers) do
@@ -118,7 +121,8 @@ return {
         end
 
         -- Capabilities
-        local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        -- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        local capabilities = cmp_nvim_lsp.default_capabilities()
 
         -- NOTE: required for cssls to work
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
@@ -175,7 +179,11 @@ return {
             capabilities = capabilities,
         }
 
-        require 'lspconfig'.cssls.setup {
+        -- require 'lspconfig'.cssls.setup {
+        --     capabilities = capabilities,
+        -- }
+
+        require 'lspconfig'.tailwindcss.setup {
             capabilities = capabilities,
         }
 
