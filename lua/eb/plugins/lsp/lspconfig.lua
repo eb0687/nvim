@@ -59,6 +59,13 @@ return {
                 local hl = "DiagnosticSign" .. type
                 vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
             end
+
+            -- NOTE: hover config, using noice for now
+            -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+            --     vim.lsp.handlers.hover, {
+            --         border = "none",
+            --     }
+            -- )
         end
 
         -- NOTE: Language servers go here
