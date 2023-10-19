@@ -34,6 +34,7 @@ return {
         -- Custom highlights
         -- nvim_set_hl(0, 'NormalFloat', {bg='#424445'})
         nvim_set_hl(0, 'NormalFloat', { bg = '#32302f' })
+        nvim_set_hl(0, 'FloatBorder', { bg = '#32302f', fg = '#000000' })
 
         -- Flash.nvim
         nvim_set_hl(0, 'FlashBackdrop', { bg = '#191919', fg = '#665C54' })
@@ -43,7 +44,7 @@ return {
         nvim_set_hl(0, 'FlashCurrent', { bg = '#EA6962' })
 
         -- Hydra
-        nvim_set_hl(0, 'HydraPink', { bg = '#EA6962', fg = '#191919', bold = true})
+        nvim_set_hl(0, 'HydraPink', { bg = '#EA6962', fg = '#191919', bold = true })
 
         -- TEST:
         -- print('Hello from colorscheme lazy')
