@@ -43,7 +43,8 @@ return {
                 'emmet_language_server',
                 'eslint',
                 'tsserver',
-                'cssls',
+                -- 'cssls',
+                'tailwindcss'
             },
             automatic_installation = true
         })
