@@ -97,10 +97,13 @@ return {
             },
             -- FORMATTING
             window = {
-                completion = {
-                    col_offset = -3,
-                    side_padding = 1,
-                },
+                -- completion = {
+                --     col_offset = -3,
+                --     side_padding = 1,
+                --     winhighlight = 'Normal:#32302F',
+                -- },
+                documentation = cmp.config.window.bordered(),
+                completion = cmp.config.window.bordered(),
             },
             formatting = {
                 -- fields = { "kind", "abbr", "menu" },
