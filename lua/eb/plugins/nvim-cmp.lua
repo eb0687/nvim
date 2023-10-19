@@ -108,19 +108,17 @@ return {
             formatting = {
                 -- fields = { "kind", "abbr", "menu" },
                 format = lspkind.cmp_format({
-                    mode = 'symbol',       -- show only symbol annotations
-                    maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                    mode = 'symbol_text', -- show only symbol annotations
+                    maxwidth = 50,   -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
                     ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
-                    before = function(entry, vim_item)
-                        vim_item.menu = ({
-                            nvim_lsp = "[LSP]",
-                            nvim_lua = "[NVIM_LUA]",
-                            luasnip = "[LUASNIP]",
-                            buffer = "[BUFFER]",
-                            path = "[PATH]",
-                        })[entry.source.name]
-                        return vim_item
-                    end
+                    menu = {
+                        nvim_lsp = '[LSP]',
+                        nvim_lua = '[NVIM_LUA]',
+                        luasnip = '[LUASNIP]',
+                        buffer = '[BUFFER]',
+                        path = '[PATH]'
+                    },
+                    before = require('tailwindcss-colorizer-cmp').formatter,
                 }),
             },
 
@@ -152,6 +150,13 @@ return {
                 })
             })
         })
+
+        -- https://github.com/roobert/tailwindcss-colorizer-cmp.nvim#hammer_and_wrench-usage
+        -- NOTE: https://github.com/roobert/tailwindcss-colorizer-cmp.nvim/issues/5#issuecomment-1493050036
+        -- integrated this with lspkind refer to the formatting section above
+        -- require("cmp").setup {
+        --     formatting = { format = require("tailwindcss-colorizer-cmp").formatter },
+        -- }
 
         -- TEST:
         -- print("Hello from lazy cmp")
