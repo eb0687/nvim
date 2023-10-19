@@ -14,6 +14,7 @@ return {
     dependencies = {
         'hrsh7th/cmp-buffer',                  -- plugin for buffer completion
         'hrsh7th/cmp-path',                    -- plugin for path completion
+        'hrsh7th/cmp-nvim-lsp',
         'saadparwaiz1/cmp_luasnip',            -- plugin for snippet completion
         'hrsh7th/cmp-cmdline',                 -- plugin for command line completion
         'hrsh7th/cmp-nvim-lua',                -- plugin for nvim-lua completion
