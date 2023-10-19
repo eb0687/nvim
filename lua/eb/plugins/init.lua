@@ -7,7 +7,21 @@ return {
 
     -- https://github.com/norcalli/nvim-colorizer.lua
     -- TODO: lookup the lua api in :h colorizer.lua
-    'norcalli/nvim-colorizer.lua',
+    -- NOTE: replacing with a fork by NVChad
+    -- 'norcalli/nvim-colorizer.lua',
+
+    -- https://github.com/NvChad/nvim-colorizer.lua
+    -- Defaults: https://github.com/NvChad/nvim-colorizer.lua#customization
+    {
+        'NvChad/nvim-colorizer.lua',
+        config = function()
+            require('colorizer').setup {
+                user_default_options = {
+                    tailwind = true,
+                }
+            }
+        end
+    },
 
     -- https://github.com/nvim-lua/popup.nvim
     'nvim-lua/popup.nvim',
