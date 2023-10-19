@@ -131,10 +131,24 @@ return {
             if toggle then
                 require('true-zen.minimalist').toggle()
                 cmd('silent !tmux set -g status off')
+                -- cmd('BarbarDisable')
+                require('barbar').setup {
+                    hide = {
+                        current = true,
+                        inactive = true,
+                    }
+                }
                 toggle = false
             else
                 require('true-zen.minimalist').toggle()
                 cmd('silent !tmux set -g status on')
+                -- cmd('BarbarEnable')
+                require('barbar').setup {
+                    hide = {
+                        current = false,
+                        inactive = false,
+                    }
+                }
                 toggle = true
             end
         end
