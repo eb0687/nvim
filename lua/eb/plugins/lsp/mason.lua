@@ -43,6 +43,7 @@ return {
                 'emmet_language_server',
                 'eslint',
                 'tsserver',
+                'cssls',
             },
             automatic_installation = true
         })
