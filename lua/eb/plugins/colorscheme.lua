@@ -46,6 +46,24 @@ return {
         -- Hydra
         nvim_set_hl(0, 'HydraPink', { bg = '#EA6962', fg = '#191919', bold = true })
 
+        -- CMP
+        -- gray
+        nvim_set_hl(0, 'CmpItemAbbrDeprecated', { bg = 'NONE', strikethrough = true, fg = '#808080' })
+        -- blue
+        nvim_set_hl(0, 'CmpItemAbbrMatch', { bg = 'NONE', fg = '#E78A4E' })
+        nvim_set_hl(0, 'CmpItemAbbrMatchFuzzy', { link = 'CmpIntemAbbrMatch' })
+        -- light blue
+        nvim_set_hl(0, 'CmpItemKindVariable', { bg = 'NONE', fg = '#EA6962' })
+        nvim_set_hl(0, 'CmpItemKindInterface', { link = 'CmpItemKindVariable' })
+        nvim_set_hl(0, 'CmpItemKindText', { link = 'CmpItemKindVariable' })
+        -- pink
+        nvim_set_hl(0, 'CmpItemKindFunction', { bg = 'NONE', fg = '#89B482' })
+        nvim_set_hl(0, 'CmpItemKindMethod', { link = 'CmpItemKindFunction' })
+        -- front
+        nvim_set_hl(0, 'CmpItemKindKeyword', { bg = 'NONE', fg = '#7DAEA3' })
+        nvim_set_hl(0, 'CmpItemKindProperty', { link = 'CmpItemKindKeyword' })
+        nvim_set_hl(0, 'CmpItemKindUnit', { link = 'CmpItemKindKeyword' })
+
         -- TEST:
         -- print('Hello from colorscheme lazy')
     end
