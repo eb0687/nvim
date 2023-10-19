@@ -32,7 +32,6 @@ return {
         cmd([[colorscheme gruvbox-material]])
 
         -- Custom highlights
-        -- nvim_set_hl(0, 'NormalFloat', {bg='#424445'})
         nvim_set_hl(0, 'NormalFloat', { bg = '#32302f' })
         nvim_set_hl(0, 'FloatBorder', { bg = '#32302f', fg = '#000000' })
 
