@@ -106,6 +106,24 @@ return {
             'nvim-lua/plenary.nvim'
         },
         build = 'cd formatter && npm i && npm run build',
-        config = true,
+        config = function()
+            require('tailwind-sorter').setup({
+                -- If `true`, automatically enables on save sorting.
+                on_save_enabled = true,
+                -- The file patterns to watch and sort.
+                on_save_pattern = {
+                    '*.html',
+                    '*.js',
+                    '*.jsx',
+                    '*.tsx',
+                    '*.twig',
+                    '*.hbs',
+                    '*.php',
+                    '*.heex',
+                    '*.astro'
+                },
+                node_path = 'node',
+            })
+        end,
     },
 }
