@@ -28,19 +28,19 @@ return {
                 vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
             end
 
-            keymap('rn', vim.lsp.buf.rename, 'ReName')
-            keymap('ca', vim.lsp.buf.code_action, 'Code Action')
+            -- keymap('ca', vim.lsp.buf.code_action, 'Code Action')
 
             keymap('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
+            -- keymap('rn', vim.lsp.buf.rename, 'ReName')
             -- keymap('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
             -- keymap('gr', require('telescope.builtin').lsp_references, 'Goto References')
-            keymap('gI', vim.lsp.buf.implementation, 'Goto Implementation')
             -- keymap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
-            keymap('<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', 'Format code')
+            keymap('gI', vim.lsp.buf.implementation, 'Goto Implementation')
+            -- keymap('<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', 'Format code')
             keymap('df', vim.diagnostic.open_float, 'Open Diagnostic Float')
 
             -- NOTE: `:help K` for why this keymap
-            keymap('K', vim.lsp.buf.hover, 'Hover Documentation')
+            -- keymap('K', vim.lsp.buf.hover, 'Hover Documentation')
             keymap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
             -- Create a command `:Format` local to the LSP buffer
