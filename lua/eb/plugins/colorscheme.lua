@@ -62,6 +62,9 @@ return {
         nvim_set_hl(0, 'CmpItemKindKeyword', { bg = 'NONE', fg = '#7DAEA3' })
         nvim_set_hl(0, 'CmpItemKindProperty', { link = 'CmpItemKindKeyword' })
         nvim_set_hl(0, 'CmpItemKindUnit', { link = 'CmpItemKindKeyword' })
+        -- lspsaga
+        nvim_set_hl(0, 'ActionPreviewTitle', { bg = '#32302f', fg = '#89B482' })
+        nvim_set_hl(0, 'SagaText', { bg = '#32302f', fg = '#EA6962' })
 
         -- TEST:
         -- print('Hello from colorscheme lazy')
