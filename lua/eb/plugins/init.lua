@@ -94,5 +94,18 @@ return {
                 color_square_width = 2,
             })
         end
-    }
+    },
+
+    -- https://github.com/laytan/tailwind-sorter.nvim
+    -- NOTE: could not get the prettier-plugin-tailwindcss to work,
+    -- using the below module instead.
+    {
+        'laytan/tailwind-sorter.nvim',
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter',
+            'nvim-lua/plenary.nvim'
+        },
+        build = 'cd formatter && npm i && npm run build',
+        config = true,
+    },
 }
