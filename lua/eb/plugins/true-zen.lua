@@ -129,26 +129,26 @@ return {
         local toggle = true
         function Background_Toggle()
             if toggle then
+                cmd('BarbarDisable')
                 require('true-zen.minimalist').toggle()
                 cmd('silent !tmux set -g status off')
-                -- cmd('BarbarDisable')
-                require('barbar').setup {
-                    hide = {
-                        current = true,
-                        inactive = true,
-                    }
-                }
+                -- require('barbar').setup {
+                --     hide = {
+                --         current = true,
+                --         inactive = true,
+                --     }
+                -- }
                 toggle = false
             else
+                cmd('BarbarEnable')
                 require('true-zen.minimalist').toggle()
                 cmd('silent !tmux set -g status on')
-                -- cmd('BarbarEnable')
-                require('barbar').setup {
-                    hide = {
-                        current = false,
-                        inactive = false,
-                    }
-                }
+                -- require('barbar').setup {
+                --     hide = {
+                --         current = false,
+                --         inactive = false,
+                --     }
+                -- }
                 toggle = true
             end
         end
