@@ -32,8 +32,8 @@ return {
         cmd([[colorscheme gruvbox-material]])
 
         -- Custom highlights
-        nvim_set_hl(0, 'NormalFloat', { bg = '#32302f' })
-        nvim_set_hl(0, 'FloatBorder', { bg = '#32302f', fg = '#000000' })
+        nvim_set_hl(0, 'NormalFloat', { bg = '#32302F' })
+        nvim_set_hl(0, 'FloatBorder', { bg = '#32302F', fg = '#000000' })
 
         -- Flash.nvim
         nvim_set_hl(0, 'FlashBackdrop', { bg = '#191919', fg = '#665C54' })
@@ -64,7 +64,10 @@ return {
         nvim_set_hl(0, 'CmpItemKindUnit', { link = 'CmpItemKindKeyword' })
         -- lspsaga
         nvim_set_hl(0, 'ActionPreviewTitle', { bg = '#32302f', fg = '#89B482' })
-        nvim_set_hl(0, 'SagaText', { bg = '#32302f', fg = '#EA6962' })
+        nvim_set_hl(0, 'SagaText', { bg = '#32302F', fg = '#EA6962' })
+        -- muticursors
+        nvim_set_hl(0, 'Multicursor', { bg = '#32302F', fg = '#EA6962', default = true })
+        nvim_set_hl(0, 'MulticursorMain', { bg = '#32302F', fg = '#EA6962', bold = true, default = true })
 
         -- TEST:
         -- print('Hello from colorscheme lazy')
