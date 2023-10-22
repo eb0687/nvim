@@ -99,6 +99,8 @@ return {
     -- https://github.com/laytan/tailwind-sorter.nvim
     -- NOTE: could not get the prettier-plugin-tailwindcss to work,
     -- using the below module instead.
+    -- BUG: the below plugin is not consistent, need to restart nvim for sorting
+    -- to apply
     {
         'laytan/tailwind-sorter.nvim',
         dependencies = {
