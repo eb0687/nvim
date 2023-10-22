@@ -76,8 +76,6 @@ return {
             'lua_ls',
             'ansiblels',
             'jsonls',
-            'terraformls',
-            'html',
             'sqlls',
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#emmet_language_server
             -- https://github.com/olrtg/emmet-language-server
@@ -149,10 +147,6 @@ return {
         }
 
         require 'lspconfig'.terraformls.setup {
-            capabilities = capabilities,
-        }
-
-        require 'lspconfig'.html.setup {
             capabilities = capabilities,
         }
 
