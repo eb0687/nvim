@@ -32,7 +32,7 @@ return {
                 -- NOTE: default keymaps and config explanation
                 -- https://nvimdev.github.io/lspsaga/codeaction/
                 show_server_name = true,
-                extend_gitsigns = false,
+                extend_gitsigns = true,
                 num_shortcut = true,
                 keys = {
                     quit = '<esc>'
