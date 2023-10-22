@@ -37,7 +37,6 @@ return {
                 'lua_ls',
                 'ansiblels',
                 'jsonls',
-                'html',
                 'sqlls',
                 -- https://github.com/olrtg/emmet-language-server
                 'emmet_language_server',
