@@ -4,31 +4,33 @@
 -- this project has been archive and no longer being maintained, need to look
 -- for an alternative solution. This project still does work for the time being
 
+-- NOTE: using a fork of the null-ls project maintained by the community
+-- https://github.com/nvimtools/none-ls.nvim
+
 return {
-    'jose-elias-alvarez/null-ls.nvim',
+    'nvimtools/none-ls.nvim',
 
     config = function()
         local null_ls = require("null-ls")
         local formatting = null_ls.builtins.formatting
         local diagnostics = null_ls.builtins.diagnostics
+        -- local hover = null_ls.builtins.hover
+        -- local code_actions = null_ls.builtins.code_actions
+        -- local completion = null_ls.builtins.completion
+
+        local sources = {
+            formatting.black,
+            formatting.beautysh,
+            formatting.prettier,
+            formatting.mdformat,
+            diagnostics.flake8,
+            -- completion.luasnip,
+        }
 
         -- SETUP
         null_ls.setup({
             debug = false,
-            sources = {
-                -- formatter for python
-                formatting.black,
-                -- formatter for bash, zsh & sh
-                formatting.beautysh,
-                -- prettier install: npm install -g prettier
-                formatting.prettier,
-                -- diagnostics for python
-                diagnostics.flake8,
-                -- formatter for markdown
-                formatting.mdformat,
-                -- formatter for terraform
-                formatting.terraform_fmt,
-            }
+            sources = sources,
         })
 
         -- KEYMAPS
