@@ -67,20 +67,20 @@ return {
         }
 
         -- KEYMAPS
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = 'LSPSAGA: ' .. desc
-            end
+        -- local keymap = function(keys, func, desc)
+        --     if desc then
+        --         desc = 'LSPSAGA: ' .. desc
+        --     end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
-        end
+        --     vim.keymap.set('n', keys, func, { desc = desc })
+        -- end
 
-        keymap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "Go to previous diagnostic message")
-        keymap("]d", ":Lspsaga diagnostic_jump_next<CR>", "Go to next diagnostic message")
-        keymap("gp", ":Lspsaga peek_definition<CR>", "Go to next diagnostic message")
-        keymap("rn", ":Lspsaga rename<CR>", "Rename")
-        keymap("K", ":Lspsaga hover_doc<CR>", "Hover documentation")
-        keymap("<leader>ca", ":Lspsaga code_action<CR>", "Code action")
-        keymap("fi", ":Lspsaga finder<CR>", "Finder saga window")
+        -- keymap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "Go to previous diagnostic message")
+        -- keymap("]d", ":Lspsaga diagnostic_jump_next<CR>", "Go to next diagnostic message")
+        -- keymap("gp", ":Lspsaga peek_definition<CR>", "Go to next diagnostic message")
+        -- keymap("rn", ":Lspsaga rename<CR>", "Rename")
+        -- keymap("K", ":Lspsaga hover_doc<CR>", "Hover documentation")
+        -- keymap("<leader>ca", ":Lspsaga code_action<CR>", "Code action")
+        -- keymap("fi", ":Lspsaga finder<CR>", "Finder saga window")
     end,
 }
