@@ -16,6 +16,8 @@ return {
 
     config = function()
         local noice = require('noice')
+
+        -- NOTE: :h noice.nvim.txt for setup options
         noice.setup {
             lsp = {
                 -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
@@ -26,6 +28,11 @@ return {
                 },
                 hover = {
                     enabled = true
+                },
+                progress = {
+                    -- NOTE: disabling this as it causes alot of visual clutter
+                    -- check docs for other options and usage
+                    enabled = false,
                 }
             },
             -- you can enable a preset for easier configuration
