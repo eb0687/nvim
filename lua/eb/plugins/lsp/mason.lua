@@ -40,7 +40,7 @@ return {
                 'sqlls',
                 -- https://github.com/olrtg/emmet-language-server
                 'emmet_language_server',
-                'eslint',
+                -- 'eslint',
                 'tsserver',
                 -- 'cssls',
                 'tailwindcss'
