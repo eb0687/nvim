@@ -83,6 +83,7 @@ return {
             telescope.load_extension('harpoon'),
             telescope.load_extension('zf-native'),
             telescope.load_extension('import'),
+            telescope.load_extension('refactoring'),
         })
 
         -- KEYMAPS
@@ -161,6 +162,12 @@ return {
         keymap("<leader>fch", function()
             telescope_builtin.command_history(custom_theme)
         end, 'Find Command History')
+
+        vim.keymap.set(
+            { "n", "x" },
+            "<leader>re",
+            function() require('telescope').extensions.refactoring.refactors() end
+        )
 
         -- TEST:
         -- print("Hello from lazy telescope")
