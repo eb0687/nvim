@@ -28,19 +28,25 @@ return {
                 vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
             end
 
-            -- keymap('ca', vim.lsp.buf.code_action, 'Code Action')
-
+            keymap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "Go to previous diagnostic message")
+            keymap("]d", ":Lspsaga diagnostic_jump_next<CR>", "Go to next diagnostic message")
+            keymap("gp", ":Lspsaga peek_definition<CR>", "Go to next diagnostic message")
+            keymap("rn", ":Lspsaga rename<CR>", "Rename")
+            keymap("K", ":Lspsaga hover_doc<CR>", "Hover documentation")
+            keymap("<leader>ca", ":Lspsaga code_action<CR>", "Code action")
+            keymap("fi", ":Lspsaga finder<CR>", "Finder saga window")
             keymap('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
+            keymap('gD', ":Lspsaga goto_definition<CR>", 'Goto Definition')
+
+            keymap('gI', vim.lsp.buf.implementation, 'Goto Implementation')
+            keymap('df', vim.diagnostic.open_float, 'Open Diagnostic Float')
             -- keymap('rn', vim.lsp.buf.rename, 'ReName')
             -- keymap('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
             -- keymap('gr', require('telescope.builtin').lsp_references, 'Goto References')
             -- keymap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
-            keymap('gI', vim.lsp.buf.implementation, 'Goto Implementation')
             -- keymap('<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', 'Format code')
-            keymap('df', vim.diagnostic.open_float, 'Open Diagnostic Float')
 
             -- NOTE: `:help K` for why this keymap
-            -- keymap('K', vim.lsp.buf.hover, 'Hover Documentation')
             keymap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
             -- Create a command `:Format` local to the LSP buffer
@@ -48,9 +54,12 @@ return {
                 vim.lsp.buf.format()
             end, { desc = 'Format current buffer with LSP' })
 
-            -- Disable Autoformat
-            client.server_capabilities.document_formatting = false
-            client.server_capabilities.document_range_formatting = false
+            -- Disable tsserver autoformat
+            if client.name == "tsserver" then
+                client.server_capabilities.documentFormattingProvider = false
+            end
+            -- client.server_capabilities.document_formatting = false
+            -- client.server_capabilities.document_range_formatting = false
 
             -- Diagnostic Signs
             local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -82,7 +91,7 @@ return {
             'emmet_language_server',
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
             -- https://github.com/hrsh7th/vscode-langservers-extracted
-            'eslint',
+            -- 'eslint',
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
             -- https://github.com/typescript-language-server/typescript-language-server
             'tsserver',
@@ -93,9 +102,19 @@ return {
             'tailwindcss'
         }
 
+        -- Capabilities
+        -- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+        local capabilities = cmp_nvim_lsp.default_capabilities()
+
+        -- NOTE:
+        -- Capabilities required for the visualstudio lsps (css, html, etc)
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+
         for _, lsp in ipairs(servers) do
             lspconfig[lsp].setup {
                 on_attach = on_attach,
+                capabilities = capabilities,
                 sqlls = {
                     cmd = { "sql-language-server", "up", "--method", "stdio" },
                     filetypes = { "sql", "mysql" },
@@ -118,42 +137,6 @@ return {
             }
         end
 
-        -- Capabilities
-        -- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-        local capabilities = cmp_nvim_lsp.default_capabilities()
-
-        -- NOTE: required for cssls to work
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-        require 'lspconfig'.bashls.setup {
-            capabilities = capabilities
-        }
-
-        require 'lspconfig'.vimls.setup {
-            capabilities = capabilities
-        }
-
-        require 'lspconfig'.pylsp.setup {
-            capabilities = capabilities
-        }
-
-        require 'lspconfig'.ansiblels.setup {
-            capabilities = capabilities
-        }
-
-        require 'lspconfig'.jsonls.setup {
-            capabilities = capabilities
-        }
-
-        require 'lspconfig'.terraformls.setup {
-            capabilities = capabilities,
-        }
-
-        require 'lspconfig'.sqlls.setup {
-            capabilities = capabilities,
-        }
-
         require 'lspconfig'.emmet_language_server.setup {
             capabilities = capabilities,
             filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte",
@@ -165,21 +148,49 @@ return {
             }
         }
 
-        require 'lspconfig'.eslint.setup {
-            capabilities = capabilities,
-        }
+        -- require 'lspconfig'.bashls.setup {
+        --     capabilities = capabilities
+        -- }
 
-        require 'lspconfig'.tsserver.setup {
-            capabilities = capabilities,
-        }
+        -- require 'lspconfig'.vimls.setup {
+        --     capabilities = capabilities
+        -- }
+
+        -- require 'lspconfig'.pylsp.setup {
+        --     capabilities = capabilities
+        -- }
+
+        -- require 'lspconfig'.ansiblels.setup {
+        --     capabilities = capabilities
+        -- }
+
+        -- require 'lspconfig'.jsonls.setup {
+        --     capabilities = capabilities
+        -- }
+
+        -- require 'lspconfig'.terraformls.setup {
+        --     capabilities = capabilities,
+        -- }
+
+        -- require 'lspconfig'.sqlls.setup {
+        --     capabilities = capabilities,
+        -- }
+
+        -- require 'lspconfig'.eslint.setup {
+        --     capabilities = capabilities,
+        -- }
+
+        -- require 'lspconfig'.tsserver.setup {
+        --     capabilities = capabilities,
+        -- }
 
         -- require 'lspconfig'.cssls.setup {
         --     capabilities = capabilities,
         -- }
 
-        require 'lspconfig'.tailwindcss.setup {
-            capabilities = capabilities,
-        }
+        -- require 'lspconfig'.tailwindcss.setup {
+        --     capabilities = capabilities,
+        -- }
 
         vim.diagnostic.config({
             virtual_text = false
