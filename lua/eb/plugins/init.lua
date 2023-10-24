@@ -14,6 +14,7 @@ return {
     -- Defaults: https://github.com/NvChad/nvim-colorizer.lua#customization
     {
         'NvChad/nvim-colorizer.lua',
+        cmd = 'ColorizerToggle',
         config = function()
             require('colorizer').setup {
                 user_default_options = {
