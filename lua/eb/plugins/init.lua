@@ -89,6 +89,10 @@ return {
     -- https://github.com/roobert/tailwindcss-colorizer-cmp.nvim
     {
         "roobert/tailwindcss-colorizer-cmp.nvim",
+        ft = {
+            'javascript',
+            'html'
+        },
         -- optionally, override the default options:
         config = function()
             require("tailwindcss-colorizer-cmp").setup({
@@ -104,6 +108,10 @@ return {
     -- to apply
     {
         'laytan/tailwind-sorter.nvim',
+        ft = {
+            'javascript',
+            'html'
+        },
         dependencies = {
             'nvim-treesitter/nvim-treesitter',
             'nvim-lua/plenary.nvim'
