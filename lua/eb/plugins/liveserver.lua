@@ -10,7 +10,11 @@
 
 return {
     "aurum77/live-server.nvim",
-    event = "VeryLazy",
+    cmd = {
+        "LiveServer",
+        "LiveServerStart",
+        "LiveServerStop"
+    },
     config = function()
         require('live_server').setup {
             port = 8080,
@@ -19,11 +23,6 @@ return {
             no_css_inject = false, -- Disables css injection if true, might be useful when testing out tailwindcss
         }
     end,
-    cmd = {
-        "LiveServer",
-        "LiveServerStart",
-        "LiveServerStop"
-    },
     build = function()
         require('live_server.util').install()
     end
