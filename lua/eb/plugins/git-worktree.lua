@@ -11,6 +11,14 @@
 
 return {
     'ThePrimeagen/git-worktree.nvim',
+    -- lazy = true,
+    -- events = 'VeryLazy',
+    keys = {
+        { '<leader>gw', ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>",
+        'Switch & Delete worktree' },
+        { '<leader>gc', ":lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>",
+        'Create a worktree' }
+    },
 
     -- load plugin only when git directory available
     -- https://github.com/folke/lazy.nvim/discussions/994
