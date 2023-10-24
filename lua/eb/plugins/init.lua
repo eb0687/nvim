@@ -32,7 +32,12 @@ return {
 
     -- https://github.com/mboughaba/i3config.vim
     -- TODO: kinda buggy, need to look for an alternative to this
-    'mboughaba/i3config.vim',
+    {
+        'mboughaba/i3config.vim',
+        ft = {
+            'i3config',
+        }
+    },
 
 
     -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
