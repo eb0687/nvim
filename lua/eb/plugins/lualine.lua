@@ -78,7 +78,7 @@ return {
                     {
                         lsp_servers,
                         padding = 1,
-                        cond = min_window_width(90)
+                        cond = min_window_width(100)
                     }
                 },
                 lualine_z = {
