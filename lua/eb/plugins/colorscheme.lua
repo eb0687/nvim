@@ -9,6 +9,7 @@
 return {
     'sainnhe/gruvbox-material', -- gruvbox material colorscheme
     priority = 1000,
+    lazy = false,
     config = function()
         local cmd = vim.cmd
         local nvim_set_hl = vim.api.nvim_set_hl

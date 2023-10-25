@@ -8,10 +8,16 @@
 
 return {
     'nvim-telescope/telescope.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    cmd = 'Telescope',
     branch = '0.1.x',
     dependencies = {
+        {
+            'nvim-tree/nvim-web-devicons',
+            lazy = true,
+        },
         'nvim-lua/plenary.nvim',
-        'nvim-tree/nvim-web-devicons',
+        { 'nvim-tree/nvim-web-devicons', lazy = true },
         'nvim-telescope/telescope-github.nvim',
         'ThePrimeagen/harpoon',
         'natecraddock/telescope-zf-native.nvim',
@@ -83,6 +89,7 @@ return {
             telescope.load_extension('harpoon'),
             telescope.load_extension('zf-native'),
             telescope.load_extension('import'),
+            telescope.load_extension('refactoring'),
         })
 
         -- KEYMAPS
@@ -161,6 +168,12 @@ return {
         keymap("<leader>fch", function()
             telescope_builtin.command_history(custom_theme)
         end, 'Find Command History')
+
+        vim.keymap.set(
+            { "n", "x" },
+            "<leader>re",
+            function() require('telescope').extensions.refactoring.refactors() end
+        )
 
         -- TEST:
         -- print("Hello from lazy telescope")

@@ -14,6 +14,7 @@ return {
     -- Defaults: https://github.com/NvChad/nvim-colorizer.lua#customization
     {
         'NvChad/nvim-colorizer.lua',
+        cmd = 'ColorizerToggle',
         config = function()
             require('colorizer').setup {
                 user_default_options = {
@@ -27,11 +28,24 @@ return {
     'nvim-lua/popup.nvim',
 
     -- https://github.com/jvirtanen/vim-hcl
-    'jvirtanen/vim-hcl',
+    {
+        'jvirtanen/vim-hcl',
+        ft = {
+            'hcl',
+            'nomad',
+            'tf',
+            'tfvars',
+        }
+    },
 
     -- https://github.com/mboughaba/i3config.vim
     -- TODO: kinda buggy, need to look for an alternative to this
-    'mboughaba/i3config.vim',
+    {
+        'mboughaba/i3config.vim',
+        ft = {
+            'i3config',
+        }
+    },
 
 
     -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
@@ -47,31 +61,25 @@ return {
 
     },
 
-    -- https://github.com/ibhagwan/fzf-lua
-    -- NOTE: this is a wip, have not really implemented the features in my config
-    'ibhagwan/fzf-lua',
-
-    -- https://github.com/aurum77/live-server.nvim
+    -- https://github.com/Bekaboo/deadcolumn.nvim
     {
-        'aurum77/live-server.nvim',
-        build = function()
-            require "live_server.util".install()
-        end,
-        cmd = {
-            'LiveServer',
-            'LiveServerStart',
-            'LiveServerStop' },
+        'Bekaboo/deadcolumn.nvim',
+        event = 'VeryLazy',
     },
 
-    -- https://github.com/Bekaboo/deadcolumn.nvim
-    { 'Bekaboo/deadcolumn.nvim' },
-
     -- https://github.com/tpope/vim-obsession
-    { 'tpope/vim-obsession' },
+    {
+        'tpope/vim-obsession',
+        event = { "BufReadPre", "BufNewFile" },
+    },
 
     -- https://github.com/olrtg/nvim-emmet
     {
         "olrtg/nvim-emmet",
+        ft = {
+            'javascript',
+            'html'
+        },
         config = function()
             vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
         end,
@@ -88,6 +96,10 @@ return {
     -- https://github.com/roobert/tailwindcss-colorizer-cmp.nvim
     {
         "roobert/tailwindcss-colorizer-cmp.nvim",
+        ft = {
+            'javascript',
+            'html'
+        },
         -- optionally, override the default options:
         config = function()
             require("tailwindcss-colorizer-cmp").setup({
@@ -103,6 +115,10 @@ return {
     -- to apply
     {
         'laytan/tailwind-sorter.nvim',
+        ft = {
+            'javascript',
+            'html'
+        },
         dependencies = {
             'nvim-treesitter/nvim-treesitter',
             'nvim-lua/plenary.nvim'
@@ -128,4 +144,21 @@ return {
             })
         end,
     },
+
+    {
+        'windwp/nvim-ts-autotag',
+        ft = {
+            'html',
+            'javascript',
+            'typescript',
+            'markdown'
+        },
+        dependencies = {
+            'nvim-treesitter/nvim-treesitter'
+        },
+        config = function ()
+            require('nvim-ts-autotag').setup()
+        end
+
+    }
 }

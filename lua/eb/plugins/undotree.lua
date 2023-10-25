@@ -7,8 +7,10 @@
 
 return {
     'mbbill/undotree',
+    keys = {
+        { "<F5>", ":UndotreeToggle<CR>", 'Undotree toggle' },
+    },
     config = function()
-
         -- KEYMAP
         local keymap = function(keys, func, desc)
             if desc then

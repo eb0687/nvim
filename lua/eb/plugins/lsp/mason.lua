@@ -6,7 +6,7 @@
 
 return {
     'williamboman/mason.nvim',
-
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         'williamboman/mason-lspconfig.nvim', -- https://github.com/williamboman/mason-lspconfig.nvim
     },
@@ -37,11 +37,10 @@ return {
                 'lua_ls',
                 'ansiblels',
                 'jsonls',
-                'html',
                 'sqlls',
                 -- https://github.com/olrtg/emmet-language-server
                 'emmet_language_server',
-                'eslint',
+                -- 'eslint',
                 'tsserver',
                 -- 'cssls',
                 'tailwindcss'

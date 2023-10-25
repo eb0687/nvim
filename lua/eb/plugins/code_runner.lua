@@ -11,18 +11,23 @@
 
 return {
     'CRAG666/code_runner.nvim',
+    keys = {
+        { "<leader>rr", ":RunCode<CR>", "Execute code" }
+    },
 
     config = function()
         local code_runner = require("code_runner")
 
         -- SETUP
         code_runner.setup({
+            -- https://github.com/CRAG666/code_runner.nvim#setup-global
+
             -- choose default mode (valid term, tab, float, toggle, buf)
             mode = 'term',
             -- Focus on runner window(only works on toggle, term and tab mode)
             focus = true,
             -- startinsert (see ':h inserting-ex')
-            startinsert = true,
+            startinsert = false,
             filetype = {
                 python = "python3 -u"
             }
