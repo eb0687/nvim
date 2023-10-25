@@ -5,9 +5,6 @@
 -- |_|\__,_|\__,_|_|_|_| |_|\___|
 -- https://github.com/nvim-lualine/lualine.nvim
 
--- TODO:
--- migrate the new configs for lualine from my feat branch (on t490)
-
 return {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
