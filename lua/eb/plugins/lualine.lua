@@ -10,7 +10,7 @@
 
 return {
     'nvim-lualine/lualine.nvim',
-
+    event = 'VeryLazy',
     config = function()
         local lsp_servers = require('eb.lualine-helpers.lsp-servers')
         local macro = require('eb.lualine-helpers.macro')

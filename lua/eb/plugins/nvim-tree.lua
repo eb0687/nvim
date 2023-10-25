@@ -8,6 +8,7 @@
 return {
 
     'nvim-tree/nvim-tree.lua',
+    events = 'VeryLazy',
 
     -- keys = {
     --     { "<leader>e", function()
@@ -18,7 +19,8 @@ return {
     -- },
 
     dependencies = {
-        'nvim-tree/nvim-web-devicons'
+        'nvim-tree/nvim-web-devicons',
+        lazy = true,
     },
 
     config = function()

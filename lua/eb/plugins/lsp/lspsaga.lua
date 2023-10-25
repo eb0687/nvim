@@ -7,9 +7,10 @@
 -- https://github.com/nvimdev/lspsaga.nvim
 return {
     'nvimdev/lspsaga.nvim',
+    event = 'LspAttach',
     dependencies = {
         'nvim-treesitter/nvim-treesitter',
-        'nvim-tree/nvim-web-devicons'
+        { 'nvim-tree/nvim-web-devicons', lazy = true }
     },
     config = function()
         local saga = require('lspsaga')

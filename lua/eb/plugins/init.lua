@@ -28,7 +28,15 @@ return {
     'nvim-lua/popup.nvim',
 
     -- https://github.com/jvirtanen/vim-hcl
-    'jvirtanen/vim-hcl',
+    {
+        'jvirtanen/vim-hcl',
+        ft = {
+            'hcl',
+            'nomad',
+            'tf',
+            'tfvars',
+        }
+    },
 
     -- https://github.com/mboughaba/i3config.vim
     -- TODO: kinda buggy, need to look for an alternative to this
@@ -53,31 +61,25 @@ return {
 
     },
 
-    -- https://github.com/ibhagwan/fzf-lua
-    -- NOTE: this is a wip, have not really implemented the features in my config
-    'ibhagwan/fzf-lua',
-
-    -- https://github.com/aurum77/live-server.nvim
+    -- https://github.com/Bekaboo/deadcolumn.nvim
     {
-        'aurum77/live-server.nvim',
-        build = function()
-            require "live_server.util".install()
-        end,
-        cmd = {
-            'LiveServer',
-            'LiveServerStart',
-            'LiveServerStop' },
+        'Bekaboo/deadcolumn.nvim',
+        event = 'VeryLazy',
     },
 
-    -- https://github.com/Bekaboo/deadcolumn.nvim
-    { 'Bekaboo/deadcolumn.nvim' },
-
     -- https://github.com/tpope/vim-obsession
-    { 'tpope/vim-obsession' },
+    {
+        'tpope/vim-obsession',
+        event = { "BufReadPre", "BufNewFile" },
+    },
 
     -- https://github.com/olrtg/nvim-emmet
     {
         "olrtg/nvim-emmet",
+        ft = {
+            'javascript',
+            'html'
+        },
         config = function()
             vim.keymap.set({ "n", "v" }, '<leader>xe', require('nvim-emmet').wrap_with_abbreviation)
         end,

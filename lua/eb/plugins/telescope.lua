@@ -8,10 +8,16 @@
 
 return {
     'nvim-telescope/telescope.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
+    cmd = 'Telescope',
     branch = '0.1.x',
     dependencies = {
+        {
+            'nvim-tree/nvim-web-devicons',
+            lazy = true,
+        },
         'nvim-lua/plenary.nvim',
-        'nvim-tree/nvim-web-devicons',
+        { 'nvim-tree/nvim-web-devicons', lazy = true },
         'nvim-telescope/telescope-github.nvim',
         'ThePrimeagen/harpoon',
         'natecraddock/telescope-zf-native.nvim',

@@ -8,6 +8,9 @@
 return {
 
     'Pocco81/true-zen.nvim',
+    keys = {
+        { '<leader>zz', Background_Toggle, 'Toggle Zen mode / Background' },
+    },
     config = function()
         local true_zen = require("true-zen")
         -- SETUP
