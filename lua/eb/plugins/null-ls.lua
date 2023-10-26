@@ -16,7 +16,7 @@ return {
         local formatting = null_ls.builtins.formatting
         local diagnostics = null_ls.builtins.diagnostics
         -- local hover = null_ls.builtins.hover
-        local code_actions = null_ls.builtins.code_actions
+        -- local code_actions = null_ls.builtins.code_actions
         -- local completion = null_ls.builtins.completion
 
         local sources = {
@@ -26,7 +26,6 @@ return {
             formatting.mdformat,
             diagnostics.flake8,
             diagnostics.markuplint,
-            code_actions.shellcheck,
             -- diagnostics.eslint,
             -- completion.luasnip,
         }
