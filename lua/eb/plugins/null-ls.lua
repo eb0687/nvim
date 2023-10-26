@@ -8,7 +8,7 @@
 -- https://github.com/nvimtools/none-ls.nvim
 
 return {
-    'nvimtools/none-ls.nvim',
+    "nvimtools/none-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
 
     config = function()
@@ -23,9 +23,11 @@ return {
             formatting.black,
             formatting.beautysh,
             formatting.prettier,
+            -- formatting.stylua,
             formatting.mdformat,
             diagnostics.flake8,
             diagnostics.markuplint,
+            -- diagnostics.luacheck,
             -- diagnostics.eslint,
             -- completion.luasnip,
         }
@@ -39,10 +41,10 @@ return {
         -- KEYMAPS
         local keymap = function(keys, func, desc)
             if desc then
-                desc = 'NULL-LS: ' .. desc
+                desc = "NULL-LS: " .. desc
             end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
+            vim.keymap.set("n", keys, func, { desc = desc })
         end
 
         local format = function()
@@ -50,9 +52,9 @@ return {
         end
 
         -- Bindings
-        keymap("<leader>lf", format, '[L]SP [F]ormat')
+        keymap("<leader>lf", format, "[L]SP [F]ormat")
 
         -- TEST:
         -- print("Hello from lazy null-ls")
-    end
+    end,
 }
