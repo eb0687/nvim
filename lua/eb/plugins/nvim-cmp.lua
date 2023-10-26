@@ -108,8 +108,8 @@ return {
             formatting = {
                 -- fields = { "kind", "abbr", "menu" },
                 format = lspkind.cmp_format({
-                    mode = 'symbol_text', -- show only symbol annotations
-                    maxwidth = 50,   -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+                    mode = 'symbol_text',  -- show only symbol annotations
+                    maxwidth = 50,         -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
                     ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
                     menu = {
                         nvim_lsp = '[LSP]',
@@ -126,8 +126,8 @@ return {
             sources = cmp.config.sources {
                 { name = 'vim-dadbod-completion' },
                 { name = 'luasnip' },
-                { name = 'nvim_lua' },
                 { name = 'nvim_lsp' },
+                { name = 'nvim_lua' },
                 { name = 'nvim_lsp_signature_help' },
                 { name = 'path' },
                 { name = 'buffer' },
