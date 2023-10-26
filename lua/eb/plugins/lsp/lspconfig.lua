@@ -7,21 +7,21 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 return {
-    'neovim/nvim-lspconfig',
-    event = { 'BufReadPre', 'BufNewFile' },
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
-        local lspconfig = require('lspconfig')
-        local cmp_nvim_lsp = require('cmp_nvim_lsp')
+        local lspconfig = require("lspconfig")
+        local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
         -- KEYMAPS
         -- NOTE: Use an on_attach function to only map the following keys after the language server attaches to the current buffer
         local on_attach = function(client, bufnr)
             local keymap = function(keys, func, desc)
                 if desc then
-                    desc = 'LSP: ' .. desc
+                    desc = "LSP: " .. desc
                 end
 
-                vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+                vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
             end
 
             keymap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "Go to previous diagnostic message")
@@ -31,11 +31,11 @@ return {
             keymap("K", ":Lspsaga hover_doc<CR>", "Hover documentation")
             keymap("<leader>ca", ":Lspsaga code_action<CR>", "Code action")
             keymap("fi", ":Lspsaga finder<CR>", "Finder saga window")
-            keymap('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition')
-            keymap('gD', ":Lspsaga goto_definition<CR>", 'Goto Definition')
+            keymap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
+            keymap("gD", ":Lspsaga goto_definition<CR>", "Goto Definition")
 
-            keymap('gI', vim.lsp.buf.implementation, 'Goto Implementation')
-            keymap('df', vim.diagnostic.open_float, 'Open Diagnostic Float')
+            keymap("gI", vim.lsp.buf.implementation, "Goto Implementation")
+            keymap("df", vim.diagnostic.open_float, "Open Diagnostic Float")
             -- keymap('rn', vim.lsp.buf.rename, 'ReName')
             -- keymap('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
             -- keymap('gr', require('telescope.builtin').lsp_references, 'Goto References')
@@ -43,12 +43,12 @@ return {
             -- keymap('<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', 'Format code')
 
             -- NOTE: `:help K` for why this keymap
-            keymap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+            keymap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
 
             -- Create a command `:Format` local to the LSP buffer
-            vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+            vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
                 vim.lsp.buf.format()
-            end, { desc = 'Format current buffer with LSP' })
+            end, { desc = "Format current buffer with LSP" })
 
             -- Disable tsserver autoformat
             if client.name == "tsserver" then
@@ -75,29 +75,29 @@ return {
 
         -- NOTE: Language servers go here
         local servers = {
-            'vimls',
+            "vimls",
             -- NOTE: bashls integrates shellcheck by default
             -- https://github.com/jose-elias-alvarez/null-ls.nvim/discussions/951
-            'bashls',
-            'pyright',
-            'lua_ls',
-            'ansiblels',
-            'jsonls',
-            'sqlls',
+            "bashls",
+            "pyright",
+            "lua_ls",
+            "ansiblels",
+            "jsonls",
+            "sqlls",
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#emmet_language_server
             -- https://github.com/olrtg/emmet-language-server
-            'emmet_language_server',
+            "emmet_language_server",
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#eslint
             -- https://github.com/hrsh7th/vscode-langservers-extracted
             -- 'eslint',
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
             -- https://github.com/typescript-language-server/typescript-language-server
-            'tsserver',
+            "tsserver",
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
             -- 'cssls',
             -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss
             -- https://github.com/tailwindlabs/tailwindcss-intellisense
-            'tailwindcss'
+            "tailwindcss",
         }
 
         -- Capabilities
@@ -110,41 +110,58 @@ return {
         capabilities.textDocument.completion.completionItem.snippetSupport = true
 
         for _, lsp in ipairs(servers) do
-            lspconfig[lsp].setup {
+            lspconfig[lsp].setup({
                 on_attach = on_attach,
                 capabilities = capabilities,
                 sqlls = {
                     cmd = { "sql-language-server", "up", "--method", "stdio" },
                     filetypes = { "sql", "mysql" },
-                    root_dir = function() return vim.loop.cwd() end,
+                    root_dir = function()
+                        return vim.loop.cwd()
+                    end,
                 },
                 settings = {
                     Lua = {
                         runtime = {
-                            version = 'LuaJIT',
+                            version = "LuaJIT",
                         },
                         diagnostics = {
                             -- NOTE: Get the language server to recognize the `vim` global
-                            globals = { 'vim' },
+                            globals = { "vim" },
                         },
                         telemetry = {
                             enable = false,
                         },
+                        completion = {
+                            callSnippet = "Replace",
+                        },
                     },
                 },
-            }
+            })
         end
 
-        require 'lspconfig'.emmet_language_server.setup {
+        require("lspconfig").emmet_language_server.setup({
             capabilities = capabilities,
-            filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte",
-                "pug", "typescriptreact", "vue" },
+            filetypes = {
+                "css",
+                "eruby",
+                "html",
+                "javascript",
+                "javascriptreact",
+                "less",
+                "sass",
+                "scss",
+                "svelte",
+                "pug",
+                "typescriptreact",
+                "vue",
+            },
 
             -- https://github.com/olrtg/emmet-language-server#neovim
             init_options = {
                 showSuggestionsAsSnippets = true,
-            }
-        }
+            },
+        })
 
         -- require 'lspconfig'.bashls.setup {
         --     capabilities = capabilities
@@ -191,7 +208,7 @@ return {
         -- }
 
         vim.diagnostic.config({
-            virtual_text = false
+            virtual_text = false,
         })
 
         vim.o.updatetime = 250
@@ -222,5 +239,5 @@ return {
 
         -- TEST:
         -- print("Hello from lazy lspconfig")
-    end
+    end,
 }

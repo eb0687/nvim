@@ -25,10 +25,6 @@ return {
             'piersolenski/telescope-import.nvim',
             ft = { 'python', 'javascript', 'lua' },
         },
-        {
-            'nvim-telescope/telescope-fzf-native.nvim',
-            build = "make",
-        },
     },
 
     config = function()
@@ -84,7 +80,6 @@ return {
                 },
             },
 
-            telescope.load_extension('fzf'),
             telescope.load_extension('notify'),
             telescope.load_extension('harpoon'),
             telescope.load_extension('zf-native'),
