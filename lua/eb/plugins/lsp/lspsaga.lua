@@ -60,9 +60,10 @@ return {
             },
             diagnostic = {
                 -- https://nvimdev.github.io/lspsaga/diagnostic/
-                show_code_action = true,
+                show_code_action = false,
                 border_follow = false,
-                diagnostic_only_current = true,
+                diagnostic_only_current = false,
+                extend_relatedInformation = true,
                 show_layout = 'float'
             }
         }
