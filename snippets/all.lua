@@ -15,7 +15,7 @@ local sn = ls.snippet_node
 local fmt = require("luasnip.extras.fmt").fmt
 local rep = require("luasnip.extras").rep
 
-local helper = require("eb.luasnip-helper-funcs")
+local helper = require("eb..utils.luasnip-helper-funcs")
 local get_bash = helper.get_bash
 local get_filename = helper.get_filename
 

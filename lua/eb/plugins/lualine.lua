@@ -9,15 +9,15 @@ return {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
     config = function()
-        local lsp_servers = require('eb.lualine-helpers.lsp-servers')
-        local macro = require('eb.lualine-helpers.macro')
-        local cwd = require('eb.lualine-helpers.cwd')
-        local diff = require('eb.lualine-helpers.git-diff')
-        local branch = require('eb.lualine-helpers.git-branch')
-        local mode = require('eb.lualine-helpers.mode')
-        local diagnostics = require('eb.lualine-helpers.diagnostics')
-        local location = require('eb.lualine-helpers.location')
-        local custom_theme = require('eb.lualine-helpers.themes.gruvbox-material-custom')
+        local lsp_servers = require('eb.utils.lualine-helpers.lsp-servers')
+        local macro = require('eb.utils.lualine-helpers.macro')
+        local cwd = require('eb.utils.lualine-helpers.cwd')
+        local diff = require('eb.utils.lualine-helpers.git-diff')
+        local branch = require('eb.utils.lualine-helpers.git-branch')
+        local mode = require('eb.utils.lualine-helpers.mode')
+        local diagnostics = require('eb.utils.lualine-helpers.diagnostics')
+        local location = require('eb.utils.lualine-helpers.location')
+        local custom_theme = require('eb.utils.lualine-helpers.themes.gruvbox-material-custom')
 
         -- NOTE: show modules based on the width of the window
         -- https://www.reddit.com/r/neovim/comments/u2uc4p/comment/i4myaxa/?utm_source=share&utm_medium=web2x&context=3
