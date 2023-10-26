@@ -76,6 +76,8 @@ return {
         -- NOTE: Language servers go here
         local servers = {
             'vimls',
+            -- NOTE: bashls integrates shellcheck by default
+            -- https://github.com/jose-elias-alvarez/null-ls.nvim/discussions/951
             'bashls',
             'pyright',
             'lua_ls',
