@@ -5,10 +5,10 @@
 -- https://github.com/williamboman/mason.nvim
 
 return {
-    'williamboman/mason.nvim',
+    "williamboman/mason.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        'williamboman/mason-lspconfig.nvim', -- https://github.com/williamboman/mason-lspconfig.nvim
+        "williamboman/mason-lspconfig.nvim", -- https://github.com/williamboman/mason-lspconfig.nvim
     },
 
     config = function()
@@ -23,29 +23,29 @@ return {
                 icons = {
                     package_installed = "✓",
                     package_pending = "➜",
-                    package_uninstalled = "✗"
-                }
-            }
+                    package_uninstalled = "✗",
+                },
+            },
         })
 
         mason_lspconfig.setup({
             -- NOTE: this section makes sure the below languages are available during first install when running :LSPInstall
             ensure_installed = {
-                'vimls',
-                'bashls',
-                'pyright',
-                'lua_ls',
-                'ansiblels',
-                'jsonls',
-                'sqlls',
+                "vimls",
+                "bashls",
+                "pyright",
+                "lua_ls",
+                "ansiblels",
+                "jsonls",
+                "sqlls",
                 -- https://github.com/olrtg/emmet-language-server
-                'emmet_language_server',
+                "emmet_language_server",
                 -- 'eslint',
-                'tsserver',
+                "tsserver",
                 -- 'cssls',
-                'tailwindcss'
+                "tailwindcss",
             },
-            automatic_installation = true
+            automatic_installation = true,
         })
-    end
+    end,
 }
