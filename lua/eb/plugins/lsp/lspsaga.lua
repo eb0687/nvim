@@ -6,25 +6,25 @@
 --       |_|                    |___/
 -- https://github.com/nvimdev/lspsaga.nvim
 return {
-    'nvimdev/lspsaga.nvim',
-    event = 'LspAttach',
+    "nvimdev/lspsaga.nvim",
+    event = "LspAttach",
     dependencies = {
-        'nvim-treesitter/nvim-treesitter',
-        { 'nvim-tree/nvim-web-devicons', lazy = true }
+        "nvim-treesitter/nvim-treesitter",
+        { "nvim-tree/nvim-web-devicons", lazy = true },
     },
     config = function()
-        local saga = require('lspsaga')
+        local saga = require("lspsaga")
 
         -- SETUP
-        saga.setup {
+        saga.setup({
             ui = {
                 code_action = "󰌶",
                 diagnostic = "",
-                border = "solid"
+                border = "solid",
             },
             symbol_in_winbar = {
                 enable = false,
-                show_file = false
+                show_file = false,
             },
             lightbulb = {
                 virtual_text = false,
@@ -36,8 +36,8 @@ return {
                 extend_gitsigns = true,
                 num_shortcut = true,
                 keys = {
-                    quit = '<esc>'
-                }
+                    quit = "<esc>",
+                },
             },
             definition = {
                 -- NOTE: for peek_definition keybinds look at the documentation
@@ -48,15 +48,15 @@ return {
             -- https://nvimdev.github.io/lspsaga/finder/
             finder = {
                 keys = {
-                    vsplit = 'v',
-                    split = 'h',
-                }
+                    vsplit = "v",
+                    split = "h",
+                },
             },
             -- https://nvimdev.github.io/lspsaga/rename/
             rename = {
                 keys = {
-                    quit = '<esc>',
-                }
+                    quit = "<esc>",
+                },
             },
             diagnostic = {
                 -- https://nvimdev.github.io/lspsaga/diagnostic/
@@ -64,9 +64,9 @@ return {
                 border_follow = false,
                 diagnostic_only_current = false,
                 extend_relatedInformation = true,
-                show_layout = 'float'
-            }
-        }
+                show_layout = "float",
+            },
+        })
 
         -- KEYMAPS
         -- local keymap = function(keys, func, desc)
