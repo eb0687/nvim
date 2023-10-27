@@ -69,6 +69,10 @@ return {
         -- muticursors
         nvim_set_hl(0, 'Multicursor', { bg = '#32302F', fg = '#EA6962', default = true })
         nvim_set_hl(0, 'MulticursorMain', { bg = '#32302F', fg = '#EA6962', bold = true, default = true })
+        -- barbar
+        nvim_set_hl(0, 'BufferCurrent', { bg = '#252423', fg = '#89B482'} )
+        nvim_set_hl(0, 'BufferVisible', { bg = '#252423', fg = '#84776A'} )
+        nvim_set_hl(0, 'BufferInactive', { bg = '#252423', fg = '#84776A'} )
 
         -- TEST:
         -- print('Hello from colorscheme lazy')
