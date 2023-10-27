@@ -35,8 +35,15 @@ return {
                     deleted = { enabled = false, icon = '-' }
                 },
                 preset = 'default',
-                separator = { left = '▎', right = '' },
-                separator_at_end = true,
+                -- separator = { left = '▎', right = '' },
+                separator = { left = '', right = '' },
+                separator_at_end = false,
+                inactive = {
+                    separator = {
+                        left = '',
+                        right = ''
+                    }
+                },
             },
             insert_at_end = true,
             minimum_padding = 2,
