@@ -15,6 +15,7 @@
   "flash.nvim": { "branch": "main", "commit": "48817af25f51c0590653bbc290866e4890fe1cbe" },
   "friendly-snippets": { "branch": "main", "commit": "43727c2ff84240e55d4069ec3e6158d74cb534b6" },
   "git-worktree.nvim": { "branch": "master", "commit": "d7f4e2584e81670154f07ca9fa5dd791d9c1b458" },
+  "gitmoji.nvim": { "branch": "main", "commit": "7e4174a15a8204794141f243324cd56d6d2bbea6" },
   "gitsigns.nvim": { "branch": "main", "commit": "af0f583cd35286dd6f0e3ed52622728703237e50" },
   "godot.nvim": { "branch": "main", "commit": "9a2d631c6a6313553dbd66f749ed3bc99bd4b4a9" },
   "gruvbox-material": { "branch": "master", "commit": "d13f4d4e75510e3d798f2ff7561d3c8991220375" },
