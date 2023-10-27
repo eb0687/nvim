@@ -21,6 +21,11 @@ return {
         'hrsh7th/cmp-nvim-lsp-signature-help', -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
         'onsails/lspkind.nvim',                -- https://github.com/onsails/lspkind.nvim
         'rafamadriz/friendly-snippets',        -- https://github.com/rafamadriz/friendly-snippets
+        {
+            'Dynge/gitmoji.nvim',              -- https://github.com/Dynge/gitmoji.nvim
+            opts = {},
+            ft = 'gitcommit'
+        },
     },
 
     config = function()
@@ -116,6 +121,7 @@ return {
                         nvim_lua = '[NVIM_LUA]',
                         luasnip = '[LUASNIP]',
                         buffer = '[BUFFER]',
+                        gitmoji = '[GITMOJI]',
                         path = '[PATH]'
                     },
                     before = require('tailwindcss-colorizer-cmp').formatter,
@@ -130,6 +136,7 @@ return {
                 { name = 'nvim_lua' },
                 { name = 'nvim_lsp_signature_help' },
                 { name = 'path' },
+                { name = 'gitmoji' },
                 { name = 'buffer' },
             },
 
