@@ -68,7 +68,7 @@ return {
             -- client.server_capabilities.document_range_formatting = false
 
             -- Diagnostic Signs
-            local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+            local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 
             for type, icon in pairs(signs) do
                 local hl = "DiagnosticSign" .. type
