@@ -11,7 +11,7 @@ return {
 
     -- load plugin only when git directory available
     -- https://github.com/folke/lazy.nvim/discussions/994
-    cond = vim.fn.isdirectory('.git') == 1,
+    -- cond = vim.fn.isdirectory('.git') == 1,
 
     config = function()
         local gitsigns = require('gitsigns')
