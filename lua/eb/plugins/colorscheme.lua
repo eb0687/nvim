@@ -32,6 +32,10 @@ return {
 
         cmd([[colorscheme gruvbox-material]])
 
+        -- TODO: is this the best way to customize for various plugins?
+        -- look up alternative solutions that allow for easier manipulation
+        -- of colors
+
         -- Custom highlights
         nvim_set_hl(0, 'NormalFloat', { bg = '#32302F' })
         nvim_set_hl(0, 'FloatBorder', { bg = '#32302F', fg = '#000000' })
@@ -70,6 +74,7 @@ return {
         nvim_set_hl(0, 'Multicursor', { bg = '#32302F', fg = '#EA6962', default = true })
         nvim_set_hl(0, 'MulticursorMain', { bg = '#32302F', fg = '#EA6962', bold = true, default = true })
         -- barbar
+        -- TODO: select colors to make the current buffer more visible
         nvim_set_hl(0, 'BufferCurrent', { bg = '#252423', fg = '#89B482'} )
         nvim_set_hl(0, 'BufferVisible', { bg = '#252423', fg = '#84776A'} )
         nvim_set_hl(0, 'BufferInactive', { bg = '#252423', fg = '#84776A'} )
