@@ -95,14 +95,20 @@ return {
             vim.keymap.set('n', keys, func, { desc = desc })
         end
 
+        -- jump to next todo
         keymap("]t", function()
                 require("todo-comments").jump_next()
             end,
             "Next todo comment")
 
+        -- jump to previous todo
         keymap("[t", function()
                 require("todo-comments").jump_prev()
             end,
+            "Previous todo comment")
+
+        -- list all todos in the current buffer's directory
+        keymap("<leader>tt", todo_current_buffer_dir,
             "Previous todo comment")
 
         -- TEST:
