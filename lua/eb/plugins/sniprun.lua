@@ -11,10 +11,6 @@ return {
 
     'michaelb/sniprun',
     build = 'sh ./install.sh',
-    keys = {
-        { '<leader>lr', mode = "v" },
-        ':SnipRun<CR>', 'Run highlighted command'
-    },
 
     config = function()
         local sniprun = require("sniprun")
