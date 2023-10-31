@@ -77,6 +77,15 @@ return {
             },
         }
 
+        local function todo_current_buffer_dir()
+            -- NOTE:
+            -- for more explanation on what the arguments passed to the expand
+            -- method mean, check the docs :help expand()
+            Command = "TodoTelescope cwd=" .. vim.fn.expand("%:p:h")
+            vim.api.nvim_command(Command)
+            print("TODO in: " .. vim.fn.expand("%:p:h"))
+        end
+
         -- KEYMAPS
         local keymap = function(keys, func, desc)
             if desc then
