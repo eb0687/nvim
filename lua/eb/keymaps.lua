@@ -92,7 +92,7 @@ keymap_silent("n", "<leader>cf", ":ClearQuickfixList<CR>", 'Clear the Quickfix')
 -- Various
 keymap_silent("n", "<leader>xx", "<cmd>silent !chmod +x %<CR>", 'Make executable')
 keymap_silent("n", "<leader>w", ":set wrap!<CR>", 'Toggle wrap')
-keymap_silent("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", 'Tmux sessionizer')
+-- keymap_silent("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", 'Tmux sessionizer')
 keymap_silent("n", "<leader>tmss", "<cmd>silent !tmux neww tmss<CR>", 'Switch Tmux session')
 keymap_silent("n", "gx", "<cmd>execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<CR>", "Open in web browser")
 -- Git fugitive
