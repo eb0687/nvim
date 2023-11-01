@@ -96,6 +96,7 @@ return {
         -- ansible
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ansiblels
         -- https://github.com/ansible/ansible-language-server
+        -- TODO: ansible lsp is not working, need to fix
         lspconfig.ansiblels.setup {
             on_attach = on_attach,
             capabilities = capabilities,
