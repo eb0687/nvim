@@ -13,12 +13,9 @@ return {
     'epwalsh/obsidian.nvim',
     lazy = true,
     event = {
-        -- BUG: this throws an errot disabling for now
-        -- 'BuffReadPre' .. vim.fn.expand '~' .. '/Documents/my-vault/**.md',
-        -- 'BuffNewFile' .. vim.fn.expand '~' .. '/Documents/my-vault/**.md',
-        -- 'BuffEnter' .. vim.fn.expand '~' .. "/Documents/my-vault/**.md",
-        -- "BuffReadPre /home/eb/Documents/the_vault/**.md",
-        -- "BuffNewFile /home/eb/Documents/the_vault/**.md",
+        "BufReadPre " .. vim.fn.expand "~" .. "Documents/the_vault/**.md",
+        "BufNewFile " .. vim.fn.expand "~" .. "Documents/the_vault/**.md",
+        "BufEnter " .. vim.fn.expand "~" .. "Documents/the_vault/**.md",
     },
     dependencies = {
         'nvim-lua/plenary.nvim',
