@@ -21,6 +21,15 @@ return {
         -- Capabilities required for the visualstudio lsps (css, html, etc)
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
         capabilities.textDocument.completion.completionItem.snippetSupport = true
+        capabilities.textDocument.completion.completionItem.preselectSupport = true
+        capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+        capabilities.textDocument.completion.completionItem.resolveSupport = {
+            properties = {
+                'documentation',
+                'detail',
+                'additionalTextEdits'
+            },
+        }
 
         -- NOTE: Use an on_attach function to only map the following keys after the language server attaches to the current buffer
         local on_attach = function(client, bufnr)
