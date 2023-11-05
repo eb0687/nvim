@@ -15,6 +15,9 @@ local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 -- local rep = require("luasnip.extras").rep
 
+local helper = require("eb.utils.luasnip-helper-funcs")
+local get_mirror = helper.get_mirror
+
 -- ]]]
 
 local snippets, autosnippets = {}, {}
@@ -74,6 +77,55 @@ local shebang = s("shebang_sh", {
     i(0)
 })
 table.insert(snippets, shebang)
+
+local ansi_colors = s("ansi_colors", fmt([[
+# Colors & Formatting
+declare -A {}
+{}[black]="\e[0;30m"
+{}[red]="\e[0;31m"
+{}[green]="\e[0;32m"
+{}[brown]="\e[0;33m"
+{}[blue]="\e[0;34m"
+{}[purple]="\e[0;35m"
+{}[Cyan]="\e[0;36m"
+{}[LightGray]="\e[0;37m"
+
+declare -A {}
+{}[black]="\e[0;40m"
+{}[red]="\e[0;41m"
+{}[green]="\e[0;42m"
+{}[brown]="\e[0;43m"
+{}[blue]="\e[0;44m"
+{}[purple]="\e[0;45m"
+{}[Cyan]="\e[0;46m"
+{}[LightGray]="\e[0;47m"
+
+{}="\e[0m"
+
+BOLD_TXT="\e[1m"
+BOLD_ULINE="\e[4m"
+]], {
+        i(1, "FG_COLORS"),
+        get_mirror(1),
+        get_mirror(1),
+        get_mirror(1),
+        get_mirror(1),
+        get_mirror(1),
+        get_mirror(1),
+        get_mirror(1),
+        get_mirror(1),
+        i(2, "BG_COLORS"),
+        get_mirror(2),
+        get_mirror(2),
+        get_mirror(2),
+        get_mirror(2),
+        get_mirror(2),
+        get_mirror(2),
+        get_mirror(2),
+        get_mirror(2),
+        i(3, "COLOR_RESET")
+    }))
+table.insert(snippets, ansi_colors)
 
 -- End Refactoring -- ]]]
 
