@@ -109,6 +109,10 @@ return {
         lspconfig.ansiblels.setup {
             on_attach = on_attach,
             capabilities = capabilities,
+            filetypes = { "yaml", "yml", "ansible" },
+            single_file_support = false,
+            root_dir = lspconfig.util.root_pattern("roles", "playbooks", "ansible"),
+
         }
 
         -- lua

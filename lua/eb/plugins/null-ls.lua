@@ -29,6 +29,10 @@ return {
             formatting.mdformat,
             diagnostics.flake8,
             diagnostics.markuplint,
+            diagnostics.ansiblelint.with({
+                args = { "-f", "codeclimate", "-q", "--nocolor", "$FILENAME" },
+            }),
+
             -- diagnostics.luacheck,
             -- diagnostics.eslint,
             -- completion.luasnip,
