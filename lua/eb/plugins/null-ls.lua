@@ -23,6 +23,7 @@ return {
         local sources = {
             formatting.black,
             formatting.beautysh,
+            formatting.shellharden,
             formatting.prettier,
             -- formatting.stylua,
             formatting.mdformat,

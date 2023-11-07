@@ -41,6 +41,7 @@ return {
                 "emmet_ls",
                 "tsserver",
                 "tailwindcss",
+                "shellharden",
             },
             automatic_installation = true,
         })
