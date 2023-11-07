@@ -62,7 +62,7 @@ return {
             -- keymap('<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', 'Format code')
 
             -- NOTE: `:help K` for why this keymap
-            keymap("<C-k>", vim.lsp.buf.signature_help, "Signature Documentation")
+            keymap("<C-K>", vim.lsp.buf.signature_help, "Signature Documentation")
 
             -- Create a command `:Format` local to the LSP buffer
             vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
