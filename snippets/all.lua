@@ -100,6 +100,9 @@ local todo = s({
     }))
 table.insert(snippets, todo)
 
+-- TODO: create a better todo snippet using this video as a guidline:
+-- https://www.youtube.com/watch?v=StPGwsWGK4Y
+
 -- End Refactoring -- ]]]
 
 return snippets, autosnippets
