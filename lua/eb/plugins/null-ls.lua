@@ -1,5 +1,6 @@
 -- null-ls
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main
+-- https://github.com/nvimtools/none-ls.nvim
 -- NOTE:
 -- this project has been archive and no longer being maintained, need to look
 -- for an alternative solution. This project still does work for the time being
