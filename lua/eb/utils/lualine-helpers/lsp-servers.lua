@@ -2,7 +2,8 @@ local M = require('lualine.component'):extend()
 
 function M:init(options)
     options.icon = options.icon or {
-        "󰌘",
+        -- "󰌘",
+        "",
         color = {
             fg = '#E78A4E',
         }
