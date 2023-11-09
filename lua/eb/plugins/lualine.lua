@@ -11,7 +11,7 @@ return {
     config = function()
         local lsp_servers = require('eb.utils.lualine-helpers.lsp-servers')
         local macro = require('eb.utils.lualine-helpers.macro')
-        local cwd = require('eb.utils.lualine-helpers.cwd')
+        -- local cwd = require('eb.utils.lualine-helpers.cwd')
         local diff = require('eb.utils.lualine-helpers.git-diff')
         local branch = require('eb.utils.lualine-helpers.git-branch')
         local mode = require('eb.utils.lualine-helpers.mode')
@@ -32,50 +32,87 @@ return {
                 lualine_a = {
                     {
                         mode,
-                        padding = 1
+                        padding = 1,
+                        cond = min_window_width(40)
                     }
                 },
                 lualine_b = {
-                    {
-                        branch,
-                        padding = 1,
-                        cond = min_window_width(30)
-                    },
-                    {
-                        diff,
-                        padding = 1,
-                        cond = min_window_width(90)
-                    }
+                    -- {
+                    --     branch,
+                    --     padding = 1,
+                    --     cond = min_window_width(30)
+                    -- },
+                    -- {
+                    --     diff,
+                    --     padding = 1,
+                    --     cond = min_window_width(90)
+                    -- }
                 },
+                -- lualine_c = {
+                --     {
+                --         cwd,
+                --         padding = 1,
+                --         cond = min_window_width(20)
+                --     }
+                -- },
                 lualine_c = {
                     {
-                        cwd,
-                        padding = 1,
-                        cond = min_window_width(20)
-                    }
-                },
-                lualine_x = {
-                    macro,
+                        'filename',
+                        icon = {
+                            "",
+                            align = 'left',
+                            color = {
+                                fg = "#7DAEA3",
+                            }
+                        },
+                        file_status = true,
+                        path = 3,
+                        shorting_target = 30,
+                        symbols = {
+                            modified = '󱇧', -- Text to show when the file is modified.
+                            readonly = '', -- Text to show when the file is non-modifiable or readonly.
+                            unnamed = 'Unammed', -- Text to show for unnamed buffers.
+                            newfile = 'New File', -- Text to show for newly created file before first write
+                        },
+                        cond = min_window_width(0)
+                    },
                     {
                         diagnostics,
                         cond = min_window_width(30)
                     },
+                    macro,
+                },
+                lualine_x = {
+                    {
+                        branch,
+                        padding = 1,
+                        cond = min_window_width(40)
+                    },
+                    {
+                        diff,
+                        padding = 1,
+                        cond = min_window_width(50)
+                    },
+                    -- {
+                    --     diagnostics,
+                    --     cond = min_window_width(30)
+                    -- },
                 },
                 lualine_y = {
                     {
                         'filetype',
                         padding = 1,
-                        cond = min_window_width(90)
+                        cond = min_window_width(40)
                     },
                     {
                         location,
                         padding = 1,
-                        cond = min_window_width(90)
+                        cond = min_window_width(40)
                     },
                     {
                         lsp_servers,
                         padding = 1,
-                        cond = min_window_width(100)
+                        cond = min_window_width(50)
                     }
                 },
                 lualine_z = {
