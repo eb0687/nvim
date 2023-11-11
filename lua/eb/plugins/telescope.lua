@@ -53,7 +53,18 @@ return {
                 scroll_strategy = "cycle",
                 border = {},
                 borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-                file_ignore_patterns = { "^.git/" },
+                file_ignore_patterns = {
+                    -- "^.git/"
+                    "node_modules\\",
+                    "__pycache__\\",
+                    ".git\\",
+                    "%.zip",
+                    "%.tar",
+                    "%.gz",
+                    "%.7zip",
+                    "%.exe",
+                    "%.pyc",
+                },
                 file_previewer = require("telescope.previewers").vim_buffer_cat.new,
                 grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
                 qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
@@ -128,7 +139,18 @@ return {
         keymap("<leader>fn", function()
             telescope_builtin.find_files({
                 prompt_title = '[ VIMRC ]',
-                file_ignore_patterns = { "^.git/" },
+                file_ignore_patterns = {
+                    -- "^.git/"
+                    "node_modules\\",
+                    "__pycache__\\",
+                    ".git\\",
+                    "%.zip",
+                    "%.tar",
+                    "%.gz",
+                    "%.7zip",
+                    "%.exe",
+                    "%.pyc",
+                },
                 cwd = '~/.config/nvim/'
             })
         end, 'Find in Nvim configs')
@@ -136,7 +158,18 @@ return {
         keymap("<leader>fF", function()
             telescope_builtin.find_files({
                 prompt_title = '[ Search HOME ]',
-                file_ignore_patterns = { "^.git/" },
+                file_ignore_patterns = {
+                    -- "^.git/"
+                    "node_modules\\",
+                    "__pycache__\\",
+                    ".git\\",
+                    "%.zip",
+                    "%.tar",
+                    "%.gz",
+                    "%.7zip",
+                    "%.exe",
+                    "%.pyc",
+                },
                 cwd = '~/'
             })
         end, 'Find Files in home directory')
