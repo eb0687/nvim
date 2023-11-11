@@ -11,6 +11,7 @@ return {
 
     'michaelb/sniprun',
     build = 'sh ./install.sh',
+    enabled = true,
 
     config = function()
         local sniprun = require("sniprun")

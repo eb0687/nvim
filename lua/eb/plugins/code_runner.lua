@@ -11,6 +11,7 @@
 
 return {
     'CRAG666/code_runner.nvim',
+    enabled = true,
     keys = {
         { "<leader>rr", ":RunCode<CR>", "Execute code" }
     },
