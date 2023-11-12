@@ -54,7 +54,7 @@ return {
                 border = {},
                 borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
                 file_ignore_patterns = {
-                    -- "^.git/"
+                    "^.git/",
                     "node_modules\\",
                     "__pycache__\\",
                     ".git\\",
@@ -140,7 +140,7 @@ return {
             telescope_builtin.find_files({
                 prompt_title = '[ VIMRC ]',
                 file_ignore_patterns = {
-                    -- "^.git/"
+                    "^.git/",
                     "node_modules\\",
                     "__pycache__\\",
                     ".git\\",
@@ -159,7 +159,7 @@ return {
             telescope_builtin.find_files({
                 prompt_title = '[ Search HOME ]',
                 file_ignore_patterns = {
-                    -- "^.git/"
+                    "^.git/",
                     "node_modules\\",
                     "__pycache__\\",
                     ".git\\",
