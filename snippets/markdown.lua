@@ -86,6 +86,28 @@ local task_custom = s({
     }))
 table.insert(snippets, task_custom)
 
+local project_status = s({
+    trig = "project_status",
+    dscr = "Snippet to quickly a template for project status in readme.md files",
+},
+    fmt([[
+    # {}
+
+    ## {}
+
+    ## {}
+
+    - [ ] Status:
+
+    {}
+    ]], {
+        i(1, "Project title"),
+        i(2, "Project description"),
+        i(3, "Project status"),
+        i(0)
+    }))
+table.insert(snippets, project_status)
+
 -- End Refactoring -- ]]]
 
 return snippets, autosnippets
