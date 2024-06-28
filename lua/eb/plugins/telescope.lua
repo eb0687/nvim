@@ -20,7 +20,6 @@ return {
         { 'nvim-tree/nvim-web-devicons', lazy = true },
         'nvim-telescope/telescope-github.nvim',
         'ThePrimeagen/harpoon',
-        'natecraddock/telescope-zf-native.nvim',
         {
             'piersolenski/telescope-import.nvim',
             ft = { 'python', 'javascript', 'lua' },
@@ -93,7 +92,6 @@ return {
 
             telescope.load_extension('notify'),
             telescope.load_extension('harpoon'),
-            telescope.load_extension('zf-native'),
             telescope.load_extension('import'),
             telescope.load_extension('refactoring'),
         })

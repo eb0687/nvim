@@ -22,12 +22,12 @@ return {
 
         local sources = {
             formatting.black,
-            formatting.beautysh,
+            -- formatting.beautysh,
             formatting.shellharden,
             formatting.prettier,
             -- formatting.stylua,
-            formatting.mdformat,
-            diagnostics.flake8,
+            -- formatting.mdformat,
+            -- diagnostics.flake8,
             diagnostics.markuplint,
             diagnostics.ansiblelint.with({
                 args = { "-f", "codeclimate", "-q", "--nocolor", "$FILENAME" },
