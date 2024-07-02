@@ -50,8 +50,32 @@ return {
 
             -- KEYMAPPING
             mapping = {
-                ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-3), { 'i', 'c' }),
-                ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+                -- ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-3), { 'i', 'c' }),
+                -- ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+                ['<C-p>'] = cmp.mapping({
+                    c = function()
+                        if cmp.visible() then
+                            cmp.mapping.scroll_docs(-3)
+                        end
+                    end,
+                    i = function(fallback)
+                        if cmp.visible() then
+                            cmp.mapping.scroll_docs(-3)
+                        end
+                    end
+                }),
+                ['<C-n>'] = cmp.mapping({
+                    c = function()
+                        if cmp.visible() then
+                            cmp.mapping.scroll_docs(4)
+                        end
+                    end,
+                    i = function(fallback)
+                        if cmp.visible() then
+                            cmp.mapping.scroll_docs(4)
+                        end
+                    end
+                }),
                 ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { 'i' }),
                 ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { 'i' }),
                 -- ['<C-n>'] = cmp.mapping.scroll_docs(),
