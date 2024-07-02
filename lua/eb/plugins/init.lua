@@ -66,10 +66,10 @@ return {
     },
 
     -- https://github.com/tpope/vim-obsession
-    {
-        "tpope/vim-obsession",
-        event = { "BufReadPre", "BufNewFile" },
-    },
+    -- {
+    --     "tpope/vim-obsession",
+    --     event = { "BufReadPre", "BufNewFile" },
+    -- },
 
     -- https://github.com/olrtg/nvim-emmet
     {

@@ -9,7 +9,7 @@
 
 return {
     'numToStr/Comment.nvim',
-    event = 'VeryLazy',
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         local comment = require('Comment')
 

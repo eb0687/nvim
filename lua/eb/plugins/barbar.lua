@@ -57,21 +57,22 @@ return {
 
         -- KEYMAPS
 
+        -- NOTE: replacing the below user command with a auto-sessions plugin
         -- This function saves all buffers to a session file located in:
         -- $HOME/.nvim-sessions
         -- The function is called using a keymap defined in the keymap section below.
         -- SOURCE: https://github.com/romgrk/barbar.nvim#custom
         -- to open session type - :source ~/.nvim-sessions/<session name>
-        vim.opt.sessionoptions:append 'globals'
-        vim.api.nvim_create_user_command(
-            'Mksession',
-            function(attr)
-                vim.api.nvim_exec_autocmds('User', { pattern = 'SessionSavePre' })
-                -- Neovim 0.8+
-                vim.cmd.mksession { bang = attr.bang, args = attr.fargs }
-            end,
-            { bang = true, complete = 'file', desc = 'Save barbar with :mksession', nargs = '?' }
-        )
+        -- vim.opt.sessionoptions:append 'globals'
+        -- vim.api.nvim_create_user_command(
+        --     'Mksession',
+        --     function(attr)
+        --         vim.api.nvim_exec_autocmds('User', { pattern = 'SessionSavePre' })
+        --         -- Neovim 0.8+
+        --         vim.cmd.mksession { bang = attr.bang, args = attr.fargs }
+        --     end,
+        --     { bang = true, complete = 'file', desc = 'Save barbar with :mksession', nargs = '?' }
+        -- )
 
         local keymap = function(keys, func, desc)
             if desc then
@@ -103,8 +104,8 @@ return {
         keymap('<A-5>', '<Cmd>BufferGoto 5<CR>', 'Go to buffer tab 5')
         keymap('<A-6>', '<Cmd>BufferGoto 6<CR>', 'Go to buffer tab 6')
 
-        keymap('<leader>bs', ':Mksession! ~/.nvim-sessions/', 'Save session')
-        keymap('<leader>bo', ':source ~/.nvim-sessions/', 'Open session')
+        -- keymap('<leader>bs', ':Mksession! ~/.nvim-sessions/', 'Save session')
+        -- keymap('<leader>bo', ':source ~/.nvim-sessions/', 'Open session')
 
         -- TEST:
         -- print('Hello from AFTER/BARBAR')
