@@ -111,37 +111,38 @@ return {
     -- using the below module instead.
     -- BUG: the below plugin is not consistent, need to restart nvim for sorting
     -- to apply
-    {
-        "laytan/tailwind-sorter.nvim",
-        ft = {
-            "javascript",
-            "html",
-        },
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-lua/plenary.nvim",
-        },
-        build = "cd formatter && npm i && npm run build",
-        config = function()
-            require("tailwind-sorter").setup({
-                -- If `true`, automatically enables on save sorting.
-                on_save_enabled = true,
-                -- The file patterns to watch and sort.
-                on_save_pattern = {
-                    "*.html",
-                    "*.js",
-                    "*.jsx",
-                    "*.tsx",
-                    "*.twig",
-                    "*.hbs",
-                    "*.php",
-                    "*.heex",
-                    "*.astro",
-                },
-                node_path = "node",
-            })
-        end,
-    },
+    -- throws an error in when running :Lazy, disabling this plugin for now
+    -- {
+    --     "laytan/tailwind-sorter.nvim",
+    --     ft = {
+    --         "javascript",
+    --         "html",
+    --     },
+    --     dependencies = {
+    --         "nvim-treesitter/nvim-treesitter",
+    --         "nvim-lua/plenary.nvim",
+    --     },
+    --     build = "cd formatter && npm i && npm run build",
+    --     config = function()
+    --         require("tailwind-sorter").setup({
+    --             -- If `true`, automatically enables on save sorting.
+    --             on_save_enabled = true,
+    --             -- The file patterns to watch and sort.
+    --             on_save_pattern = {
+    --                 "*.html",
+    --                 "*.js",
+    --                 "*.jsx",
+    --                 "*.tsx",
+    --                 "*.twig",
+    --                 "*.hbs",
+    --                 "*.php",
+    --                 "*.heex",
+    --                 "*.astro",
+    --             },
+    --             node_path = "node",
+    --         })
+    --     end,
+    -- },
 
     {
         "windwp/nvim-ts-autotag",
