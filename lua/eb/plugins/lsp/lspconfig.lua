@@ -6,7 +6,7 @@
 --       |_|                          |___/
 -- https://github.com/neovim/nvim-lspconfig
 
--- TODO: install trouble.nvim using this guide: https://youtu.be/6pAG3BHurdM?t=4307
+-- TODO: install trouble.nvim using this guide: https://youtu.be/6pAG3BHurdM?t=4307https://youtu.be/6pAG3BHurdM?t=4307
 
 return {
     "neovim/nvim-lspconfig",
