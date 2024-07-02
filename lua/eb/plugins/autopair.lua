@@ -8,11 +8,26 @@
 
 return {
     'windwp/nvim-autopairs',
-    event = 'VeryLazy',
+    event = 'InsertEnter',
+    dependencies = {
+        'hrsh7th/nvim-cmp'
+    },
 
     config = function()
         local nvim_autopairs = require("nvim-autopairs")
+        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+        local cmp = require("cmp")
+
         nvim_autopairs.setup({
+            check_ts = true,
+            ts_config ={
+                lua = {"string"}, -- dont add pairs in lua string treesitter nodes
+                javascript = {"template_string"},
+                java = false, -- dont check treesitter on java
+            },
+
+            cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done()),
+
             -- source: https://github.com/windwp/nvim-autopairs#fastwrap
             fast_wrap = {
                 map = '<M-e>',
