@@ -68,6 +68,15 @@ return {
                 grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
                 qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
                 buffer_previewer_maker = require("telescope.previewers").buffer_previewer_maker,
+                mappings = {
+                    i = {
+                        ["<C-j>"] = "move_selection_next",
+                        ["<C-k>"] = "move_selection_previous",
+                        ["<C-n>"] = "preview_scrolling_down",
+                        ["<C-p>"] = "preview_scrolling_up",
+                    }
+                }
+
             },
             pickers = {
                 find_files = {
@@ -88,6 +97,7 @@ return {
                     -- Add imports to the top of the file keeping the cursor in place
                     insert_at_top = true,
                 },
+
             },
 
             telescope.load_extension('notify'),
