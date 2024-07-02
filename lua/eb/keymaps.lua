@@ -62,7 +62,7 @@ keymap_silent("n", "<C-A-Left>", ":vertical resize +3<CR>", 'Vertical resize (+)
 keymap_silent("n", "<C-A-Right>", ":vertical resize -3<CR>", 'Vertical resize (-)')
 keymap_silent("n", "<C-A-Up>", ":resize +3<CR>", 'Vertical resize (+)')
 keymap_silent("n", "<C-A-Down>", ":resize -3<CR>", 'Vertical resize (-)')
--- Zoom in/out pane
+-- Zoom in/out split
 keymap_silent("n", "<leader>-", ":wincmd _<CR>:wincmd |<CR>", 'Zoom out')
 keymap_silent("n", "<leader>=", ":wincmd =<CR>", 'Zoom in')
 -- Highlight off
