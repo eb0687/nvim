@@ -18,6 +18,7 @@ return {
         local diagnostics = require('eb.utils.lualine-helpers.diagnostics')
         local location = require('eb.utils.lualine-helpers.location')
         local custom_theme = require('eb.utils.lualine-helpers.themes.gruvbox-material-custom')
+        local lazy_status = require("lazy.status")
 
         -- https://github.com/declancm/maximize.nvim?tab=readme-ov-file#-statusline--winbar
         local function maximize_status()
@@ -90,6 +91,13 @@ return {
                 },
                 lualine_x = {
                     {
+                        lazy_status.updates,
+                        cond = lazy_status.has_updates,
+                        color = { fg = '#ea6962' },
+
+                    },
+                    {
+
                         branch,
                         padding = 1,
                         cond = min_window_width(40)
@@ -103,8 +111,7 @@ return {
                     --     diagnostics,
                     --     cond = min_window_width(30)
                     -- },
-                },
-                lualine_y = {
+                }, lualine_y = {
                     {
                         'filetype',
                         padding = 1,
