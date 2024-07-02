@@ -51,38 +51,40 @@ return {
             -- KEYMAPPING
             mapping = {
 
-                ['<A-f>'] = cmp.mapping(cmp.mapping.scroll_docs(-3), { 'i', 'c' }),
-                ['<A-b>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+                ['<A-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-3), { 'i', 'c' }),
+                ['<A-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
                 ['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Select }), { 'i' }),
                 ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { 'i' }),
-                ['<C-n>'] = cmp.mapping({
-                    c = function()
-                        if cmp.visible() then
-                            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-                        end
-                    end,
-                    i = function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-                        else
-                            fallback()
-                        end
-                    end
-                }),
-                ['<C-p>'] = cmp.mapping({
-                    c = function()
-                        if cmp.visible() then
-                            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-                        end
-                    end,
-                    i = function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
-                        else
-                            fallback()
-                        end
-                    end
-                }),
+                ['<C-j>'] = cmp.mapping.select_next_item(),
+                ['<C-k>'] = cmp.mapping.select_prev_item(),
+                -- ['<C-j>'] = cmp.mapping({
+                --     c = function()
+                --         if cmp.visible() then
+                --             cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                --         end
+                --     end,
+                --     i = function(fallback)
+                --         if cmp.visible() then
+                --             cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                --         else
+                --             fallback()
+                --         end
+                --     end
+                -- }),
+                -- ['<C-k>'] = cmp.mapping({
+                --     c = function()
+                --         if cmp.visible() then
+                --             cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+                --         end
+                --     end,
+                --     i = function(fallback)
+                --         if cmp.visible() then
+                --             cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+                --         else
+                --             fallback()
+                --         end
+                --     end
+                -- }),
                 ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
                 ['<C-e>'] = cmp.mapping({
                     i = cmp.mapping.close(),
