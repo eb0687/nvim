@@ -36,9 +36,9 @@ return {
                 extend = 'e',
                 insert = 'i',
             }, -- set bindings to start these modes
-            normal_keys = normal_keys,
-            insert_keys = insert_keys,
-            extend_keys = extend_keys,
+            -- normal_keys = normal_keys,
+            -- insert_keys = insert_keys,
+            -- extend_keys = extend_keys,
             -- see :help hydra-config.hint
             hint_config = {
                 border = 'none',
