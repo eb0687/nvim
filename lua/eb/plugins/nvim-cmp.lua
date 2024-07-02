@@ -89,8 +89,8 @@ return {
                     i = cmp.mapping.close(),
                     c = cmp.mapping.close(),
                 }),
-                ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                ['<C-y>'] = cmp.mapping({
+                -- ['<CR>'] = cmp.mapping.confirm({ select = true }),
+                ['<CR>'] = cmp.mapping({
                     i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
                     c = function(fallback)
                         if cmp.visible() then
