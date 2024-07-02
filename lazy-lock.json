@@ -18,6 +18,7 @@
   "gitmoji.nvim": { "branch": "main", "commit": "326ddf01cbf3425566a089126ece7e8bd2560601" },
   "gitsigns.nvim": { "branch": "main", "commit": "6b1a14eabcebbcca1b9e9163a26b2f8371364cb7" },
   "godot.nvim": { "branch": "main", "commit": "9a2d631c6a6313553dbd66f749ed3bc99bd4b4a9" },
+  "gopher.nvim": { "branch": "main", "commit": "f55c15ada8e02398000c04a96ef44d986cd01051" },
   "gruvbox-material": { "branch": "master", "commit": "23371661bac2b7fdd9769c685e4224990c3b9ab8" },
   "harpoon": { "branch": "master", "commit": "ccae1b9bec717ae284906b0bf83d720e59d12b91" },
   "hydra.nvim": { "branch": "master", "commit": "55de54543d673824435930ecf533256eea2e565b" },
