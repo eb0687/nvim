@@ -19,6 +19,11 @@ return {
         local location = require('eb.utils.lualine-helpers.location')
         local custom_theme = require('eb.utils.lualine-helpers.themes.gruvbox-material-custom')
 
+        -- https://github.com/declancm/maximize.nvim?tab=readme-ov-file#-statusline--winbar
+        local function maximize_status()
+            return vim.t.maximized and '' or ''
+        end
+
         -- NOTE: show modules based on the width of the window
         -- https://www.reddit.com/r/neovim/comments/u2uc4p/comment/i4myaxa/?utm_source=share&utm_medium=web2x&context=3
         local function min_window_width(width)
@@ -36,18 +41,18 @@ return {
                         cond = min_window_width(40)
                     }
                 },
-                lualine_b = {
-                    -- {
-                    --     branch,
-                    --     padding = 1,
-                    --     cond = min_window_width(30)
-                    -- },
-                    -- {
-                    --     diff,
-                    --     padding = 1,
-                    --     cond = min_window_width(90)
-                    -- }
-                },
+                -- lualine_b = {
+                -- {
+                --     branch,
+                --     padding = 1,
+                --     cond = min_window_width(30)
+                -- },
+                -- {
+                --     diff,
+                --     padding = 1,
+                --     cond = min_window_width(90)
+                -- }
+                -- },
                 -- lualine_c = {
                 --     {
                 --         cwd,
@@ -80,6 +85,7 @@ return {
                         diagnostics,
                         cond = min_window_width(30)
                     },
+                    { maximize_status },
                     macro,
                 },
                 lualine_x = {
