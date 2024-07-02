@@ -30,7 +30,8 @@ return {
             -- startinsert (see ':h inserting-ex')
             startinsert = false,
             filetype = {
-                python = "python3 -u"
+                python = "python3 -u",
+                go = "go run ."
             }
         })
 
