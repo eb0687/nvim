@@ -58,7 +58,7 @@ return {
                             cmp.mapping.scroll_docs(-3)
                         end
                     end,
-                    i = function(fallback)
+                    i = function()
                         if cmp.visible() then
                             cmp.mapping.scroll_docs(-3)
                         end
@@ -70,7 +70,7 @@ return {
                             cmp.mapping.scroll_docs(4)
                         end
                     end,
-                    i = function(fallback)
+                    i = function()
                         if cmp.visible() then
                             cmp.mapping.scroll_docs(4)
                         end
