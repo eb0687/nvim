@@ -234,6 +234,20 @@ return {
             end,
         }
 
+        -- golang
+        -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md
+        lspconfig.gopls.setup {
+            settings = {
+                gopls = {
+                    analyses = {
+                        unusedparams = true,
+                    },
+                    staticcheck = true,
+                    gofumpt = true,
+                },
+            },
+        }
+
         -- TEST:
         -- print("Hello from lazy lspconfig")
     end,
