@@ -41,6 +41,7 @@ return {
                 "emmet_ls",
                 "tsserver",
                 "tailwindcss",
+                "gopls",
             },
             automatic_installation = true,
         })

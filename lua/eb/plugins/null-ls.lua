@@ -12,16 +12,20 @@ return {
     "nvimtools/none-ls.nvim",
     event = { "BufReadPre", "BufNewFile" },
 
-    config = function()
+    opts = function()
         local null_ls = require("null-ls")
         local formatting = null_ls.builtins.formatting
         local diagnostics = null_ls.builtins.diagnostics
+        local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
         -- local hover = null_ls.builtins.hover
         -- local code_actions = null_ls.builtins.code_actions
         -- local completion = null_ls.builtins.completion
 
         local sources = {
             formatting.black,
+            formatting.gofumpt,
+            formatting.goimports_reviser,
+            formatting.golines,
             -- formatting.beautysh,
             formatting.shellharden,
             formatting.prettier,
@@ -29,20 +33,19 @@ return {
             -- formatting.mdformat,
             -- diagnostics.flake8,
             diagnostics.markuplint,
-            diagnostics.ansiblelint.with({
+            diagnostics.ansiblelint.with {
                 args = { "-f", "codeclimate", "-q", "--nocolor", "$FILENAME" },
-            }),
-
+            },
             -- diagnostics.luacheck,
             -- diagnostics.eslint,
             -- completion.luasnip,
         }
 
         -- SETUP
-        null_ls.setup({
+        null_ls.setup {
             debug = false,
             sources = sources,
-        })
+        }
 
         -- KEYMAPS
         local keymap = function(keys, func, desc)

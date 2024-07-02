@@ -46,6 +46,7 @@ return {
                 "sql",
                 "gitignore",
                 "javascript",
+                "go",
             },
             auto_install = true,
 

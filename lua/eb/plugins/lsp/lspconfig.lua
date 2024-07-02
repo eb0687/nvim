@@ -11,6 +11,7 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
         local lspconfig = require("lspconfig")
+        local util = require("lspconfig/util")
         local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
         -- Capabilities
@@ -237,8 +238,14 @@ return {
         -- golang
         -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md
         lspconfig.gopls.setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            cmd = { "gopls" },
+            filetypes = { "go", "gomod", "gowork", "gotmpl" },
+            root_dir = util.root_pattern("go.work", "go.mod", ".git"),
             settings = {
                 gopls = {
+                    completeUninported = true,
                     analyses = {
                         unusedparams = true,
                     },
