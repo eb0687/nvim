@@ -28,6 +28,9 @@ return {
 
     config = function()
         local telescope = require("telescope")
+        local open_with_trouble = require("trouble.sources.telescope").open
+        -- Use this to add more results without clearing the trouble list
+        local add_to_trouble = require("trouble.sources.telescope").add
 
         -- SETUP
         telescope.setup({
@@ -74,7 +77,11 @@ return {
                         ["<C-k>"] = "move_selection_previous",
                         ["<C-n>"] = "preview_scrolling_down",
                         ["<C-p>"] = "preview_scrolling_up",
-                    }
+                        ["<C-t>"] = open_with_trouble,
+                    },
+                    n = {
+                        ["<C-t>"] = open_with_trouble
+                    },
                 }
 
             },
