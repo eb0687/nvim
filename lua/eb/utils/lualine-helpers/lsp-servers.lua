@@ -1,13 +1,14 @@
-local M = require('lualine.component'):extend()
+local M = require("lualine.component"):extend()
 
 function M:init(options)
-    options.icon = options.icon or {
-        -- "󰌘",
-        "",
-        color = {
-            fg = '#E78A4E',
+    options.icon = options.icon
+        or {
+            -- "󰌘",
+            "",
+            color = {
+                fg = "#E78A4E",
+            },
         }
-    }
     options.split = options.split or ","
     M.super.init(self, options)
 end
@@ -29,6 +30,5 @@ function M:update_status()
     end
     return table.concat(buf_client_names, self.options.split)
 end
-
 
 return M
