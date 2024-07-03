@@ -32,9 +32,9 @@ return {
         capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
         capabilities.textDocument.completion.completionItem.resolveSupport = {
             properties = {
-                'documentation',
-                'detail',
-                'additionalTextEdits'
+                "documentation",
+                "detail",
+                "additionalTextEdits",
             },
         }
 
@@ -104,28 +104,27 @@ return {
         -- vim
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#vimls
         -- https://github.com/iamcco/vim-language-server
-        lspconfig.vimls.setup {
+        lspconfig.vimls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
-        }
+        })
 
         -- ansible
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ansiblels
         -- https://github.com/ansible/ansible-language-server
         -- TODO: ansible lsp is not working, need to fix
-        lspconfig.ansiblels.setup {
+        lspconfig.ansiblels.setup({
             on_attach = on_attach,
             capabilities = capabilities,
             filetypes = { "yaml", "yml", "ansible" },
             single_file_support = false,
             root_dir = lspconfig.util.root_pattern("roles", "playbooks", "ansible"),
-
-        }
+        })
 
         -- lua
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
         -- https://github.com/luals/lua-language-server
-        lspconfig.lua_ls.setup {
+        lspconfig.lua_ls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
             settings = { -- custom settings for lua
@@ -140,14 +139,17 @@ return {
                     diagnostics = {
                         globals = { "vim" },
                     },
+                    format = {
+                        enable = false,
+                    },
                 },
             },
-        }
+        })
 
         -- pyright
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
         -- https://github.com/microsoft/pyright
-        lspconfig.pyright.setup {
+        lspconfig.pyright.setup({
             capabilities = capabilities,
             on_attach = on_attach,
             settings = {
@@ -161,12 +163,12 @@ return {
                     },
                 },
             },
-        }
+        })
 
         -- javascript, typescript
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
         -- https://github.com/typescript-language-server/typescript-language-server
-        lspconfig.tsserver.setup {
+        lspconfig.tsserver.setup({
             on_attach = on_attach,
             capabilities = capabilities,
             filetypes = {
@@ -175,26 +177,26 @@ return {
                 "javascript.jsx",
                 "typescript",
                 "typescriptreact",
-                "typescript.tsx"
+                "typescript.tsx",
             },
             root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
-        }
+        })
 
         -- bash
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
         -- https://github.com/bash-lsp/bash-language-server
         -- NOTE: bashls integrates shellcheck by default
 
-        lspconfig.bashls.setup {
+        lspconfig.bashls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
             filetypes = { "sh" },
-        }
+        })
 
         -- html, typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#emmet_ls
         -- https://github.com/aca/emmet-ls
-        lspconfig.emmet_ls.setup {
+        lspconfig.emmet_ls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = {
@@ -209,29 +211,28 @@ return {
                 "svelte",
                 "vue",
             },
-        }
+        })
 
         -- json
-        lspconfig.jsonls.setup {
+        lspconfig.jsonls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = { "json", "jsonc" },
-        }
+        })
 
         -- tailwindcss
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss
         -- https://github.com/tailwindlabs/tailwindcss-intellisense
         -- NOTE: this requires tailwind to be setup properly in the poject directory
-        lspconfig.tailwindcss.setup {
+        lspconfig.tailwindcss.setup({
             capabilities = capabilities,
             on_attach = on_attach,
-
-        }
+        })
 
         -- sql
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sqlls
         -- https://github.com/joe-re/sql-language-server
-        lspconfig.sqlls.setup {
+        lspconfig.sqlls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
             cmd = { "sql-language-server", "up", "--method", "stdio" },
@@ -239,11 +240,11 @@ return {
             root_dir = function()
                 return vim.loop.cwd()
             end,
-        }
+        })
 
         -- golang
         -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md
-        lspconfig.gopls.setup {
+        lspconfig.gopls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
             cmd = { "gopls" },
@@ -260,7 +261,7 @@ return {
                     gofumpt = true,
                 },
             },
-        }
+        })
 
         -- TEST:
         -- print("Hello from lazy lspconfig")
