@@ -8,62 +8,62 @@
 -- NOTE: using a fork of the null-ls project maintained by the community
 -- https://github.com/nvimtools/none-ls.nvim
 
-return {
-    "nvimtools/none-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+-- return {
+--     "nvimtools/none-ls.nvim",
+--     event = { "BufReadPre", "BufNewFile" },
 
-    opts = function()
-        local null_ls = require("null-ls")
-        local formatting = null_ls.builtins.formatting
-        local diagnostics = null_ls.builtins.diagnostics
-        local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-        -- local hover = null_ls.builtins.hover
-        -- local code_actions = null_ls.builtins.code_actions
-        -- local completion = null_ls.builtins.completion
+--     opts = function()
+--         local null_ls = require("null-ls")
+--         local formatting = null_ls.builtins.formatting
+--         local diagnostics = null_ls.builtins.diagnostics
+--         local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+--         -- local hover = null_ls.builtins.hover
+--         -- local code_actions = null_ls.builtins.code_actions
+--         -- local completion = null_ls.builtins.completion
 
-        local sources = {
-            formatting.black,
-            formatting.gofumpt,
-            formatting.goimports_reviser,
-            formatting.golines,
-            -- formatting.beautysh,
-            formatting.shellharden,
-            formatting.prettier,
-            -- formatting.stylua,
-            -- formatting.mdformat,
-            -- diagnostics.flake8,
-            diagnostics.markuplint,
-            diagnostics.ansiblelint.with {
-                args = { "-f", "codeclimate", "-q", "--nocolor", "$FILENAME" },
-            },
-            -- diagnostics.luacheck,
-            -- diagnostics.eslint,
-            -- completion.luasnip,
-        }
+--         local sources = {
+--             formatting.black,
+--             formatting.gofumpt,
+--             formatting.goimports_reviser,
+--             formatting.golines,
+--             -- formatting.beautysh,
+--             formatting.shellharden,
+--             formatting.prettier,
+--             -- formatting.stylua,
+--             -- formatting.mdformat,
+--             -- diagnostics.flake8,
+--             diagnostics.markuplint,
+--             diagnostics.ansiblelint.with({
+--                 args = { "-f", "codeclimate", "-q", "--nocolor", "$FILENAME" },
+--             }),
+--             diagnostics.luacheck,
+--             diagnostics.eslint,
+--             completion.luasnip,
+--         }
 
-        -- SETUP
-        null_ls.setup {
-            debug = false,
-            sources = sources,
-        }
+--         -- SETUP
+--         null_ls.setup({
+--             debug = false,
+--             sources = sources,
+--         })
 
-        -- KEYMAPS
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = "NULL-LS: " .. desc
-            end
+--         -- KEYMAPS
+--         local keymap = function(keys, func, desc)
+--             if desc then
+--                 desc = "NULL-LS: " .. desc
+--             end
 
-            vim.keymap.set("n", keys, func, { desc = desc })
-        end
+--             vim.keymap.set("n", keys, func, { desc = desc })
+--         end
 
-        local format = function()
-            vim.lsp.buf.format({ async = true })
-        end
+--         local format = function()
+--             vim.lsp.buf.format({ async = true })
+--         end
 
-        -- Bindings
-        keymap("<leader>lf", format, "[L]SP [F]ormat")
+--         -- Bindings
+--         keymap("<leader>lf", format, "[L]SP [F]ormat")
 
-        -- TEST:
-        -- print("Hello from lazy null-ls")
-    end,
-}
+--         -- TEST:
+--         -- print("Hello from lazy null-ls")
+--     end,
+-- }

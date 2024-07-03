@@ -7,14 +7,15 @@
 -- https://github.com/lewis6991/gitsigns.nvim
 
 return {
-    'lewis6991/gitsigns.nvim',
+    "lewis6991/gitsigns.nvim",
+    event = { "BufReadPre", "BufNewFile" },
 
     -- load plugin only when git directory available
     -- https://github.com/folke/lazy.nvim/discussions/994
     -- cond = vim.fn.isdirectory('.git') == 1,
 
     config = function()
-        local gitsigns = require('gitsigns')
+        local gitsigns = require("gitsigns")
 
         -- SETUP
         gitsigns.setup({
@@ -36,8 +37,8 @@ return {
             --     },
             -- },
             signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
-            numhl = false,     -- Toggle with `:Gitsigns toggle_numhl`
-            linehl = false,    -- Toggle with `:Gitsigns toggle_linehl`
+            numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
+            linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
             word_diff = false, -- Toggle with `:Gitsigns toggle_word_diff`
             watch_gitdir = {
                 interval = 1000,
@@ -74,10 +75,10 @@ return {
         -- KEYMAPS
         local keymap = function(keys, func, desc)
             if desc then
-                desc = 'GitSigns: ' .. desc
+                desc = "GitSigns: " .. desc
             end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
+            vim.keymap.set("n", keys, func, { desc = desc })
         end
 
         keymap("]g", ":Gitsigns next_hunk<CR>", "next hunk")
@@ -92,5 +93,5 @@ return {
 
         -- TEST:
         -- print("Hello from lazy gitsigns")
-    end
+    end,
 }
