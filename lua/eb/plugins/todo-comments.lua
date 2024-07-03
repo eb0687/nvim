@@ -107,9 +107,10 @@ return {
             end,
             "Previous todo comment")
 
+        -- NOTE: replaced with trouble.nvim
         -- list all todos in the current buffer's directory
-        keymap("<leader>tt", todo_current_buffer_dir,
-            "Previous todo comment")
+        -- keymap("<leader>tt", todo_current_buffer_dir,
+        --     "Previous todo comment")
 
         -- TEST:
         -- print("Hello from lazy todo-comments")
