@@ -62,6 +62,10 @@ return {
                 enabled = true,
                 view = "notify",
             },
+            messages = {
+                enabled = true,
+                view = "split",
+            },
         })
     end,
 }
