@@ -36,12 +36,6 @@ return {
         require("luasnip.loaders.from_vscode").lazy_load()
 
         cmp.setup({
-            lsp = {
-                override = {
-                    ["cmp.entry.get_documentation"] = { enabled = false },
-                },
-            },
-
             completion = {
                 completeopt = "menu,menuone,preview,noselect",
             },
