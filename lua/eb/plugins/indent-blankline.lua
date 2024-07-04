@@ -6,7 +6,7 @@
 -- https://github.com/lukas-reineke/indent-blankline.nvim
 
 return {
-    'lukas-reineke/indent-blankline.nvim',
+    "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPre", "BufNewFile" },
     main = "ibl",
 
@@ -16,19 +16,20 @@ return {
         -- vim.opt.listchars:append "space:⋅"
         -- vim.opt.listchars:append("eol:↴")
 
-        require("ibl").setup {
+        require("ibl").setup({
             enabled = true,
             indent = {
-                char = '│',
+                char = "│",
+                tab_char = "│",
                 priority = 2,
             },
             scope = {
                 enabled = true,
                 show_start = true,
                 show_end = true,
-            }
-        }
+            },
+        })
         -- TEST:
         -- print("Hello from lazy indent-blankline")
-    end
+    end,
 }
