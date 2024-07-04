@@ -3,13 +3,11 @@
 return {
     "olexsmir/gopher.nvim",
     ft = "go",
-    build = function ()
-        vim.cmd [[silent! GoInstallDeps]] 
+    build = function()
+        vim.cmd([[silent! GoInstallDeps]])
     end,
-    config = function ()
+    config = function()
         local gopher = require("gopher")
-        gopher.setup{}
-    end
+        gopher.setup({})
+    end,
 }
-
-
