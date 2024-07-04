@@ -3,11 +3,11 @@
 
 return {
     "ejrichards/baredot.nvim",
-    -- opts = {
-    --     git_dir = "~/.dotfiles", -- Change this path
-    -- },
+
     config = function()
         local baredot = require("baredot")
+
+        -- TODO: probably update this for compatibility with my vms on proxmox
         local git_dir = function()
             local result = ""
             if vim.fn.hostname() == "JIGA" then
