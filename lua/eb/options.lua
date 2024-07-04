@@ -23,7 +23,7 @@ local options = {
     ignorecase = true, -- ignore case in search patterns
     smartcase = true, -- :help smartcase
     list = true, -- enables visual indicators of spaces/tabs/trails/eol
-    listchars = { trail = "." , tab = ">."}, -- enables trail and represents it with a "."
+    listchars = { trail = ".", tab = "  " }, -- enables trail and represents it with a "."
     cmdheight = 1, -- number of screen lines to use for the command-line
     pumheight = 10, -- pop up menu height
     ttimeoutlen = 50, -- delay when changing from insert to normal mode
@@ -48,7 +48,7 @@ local options = {
     shiftwidth = 4, -- number of spaces inserted for each indentation
     tabstop = 4, -- number of steps for each tab
     termguicolors = true, -- :help termguicolors
-    updatetime = 50
+    updatetime = 50,
 }
 
 for k, v in pairs(options) do
@@ -56,7 +56,7 @@ for k, v in pairs(options) do
 end
 
 --
-vim.opt.iskeyword:append "-" -- uses "-" to connect words when using vim motions
+vim.opt.iskeyword:append("-") -- uses "-" to connect words when using vim motions
 
 -- vim syntax
 local cmd = vim.cmd
@@ -86,12 +86,14 @@ cmd([[
       call setqflist([])
     endfunction
     command! ClearQuickfixList call ClearQuickfixList()
+
+    autocmd FileType * silent! :TSEnable highlight
 ]])
 -- NOTE: temporarily disabling this keybind and using CODE_RUNNER for script execution
-    -- " execute python script
-    -- "augroup run_file
-    --     "autocmd BufEnter *.py let @p=":silent w\<CR>:vsp | terminal python %\<CR>i"
-    -- "augroup end
+-- " execute python script
+-- "augroup run_file
+--     "autocmd BufEnter *.py let @p=":silent w\<CR>:vsp | terminal python %\<CR>i"
+-- "augroup end
 
 -- vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
 
