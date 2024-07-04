@@ -10,14 +10,14 @@
 
 return {
 
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    event = { 'BufReadPre', 'BufNewFile' },
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        'nvim-treesitter/nvim-treesitter-textobjects'
+        "nvim-treesitter/nvim-treesitter-textobjects",
     },
     config = function()
-        local treesitter = require('nvim-treesitter.configs')
+        local treesitter = require("nvim-treesitter.configs")
 
         -- SETUP
         treesitter.setup({
@@ -26,12 +26,12 @@ return {
                 enable = true,
                 additional_vim_regex_highlighting = { "markdown" },
                 -- NOTE: list of languages that will be excluded from treesitter syntax highlighting
-                disable = { " " }
+                -- disable = { " " },
             },
             -- NOTE: treesitter tries and makes indentation consistent with this option enabled
             indent = {
                 enable = true,
-                disable = { "yaml", "python" }
+                disable = { "yaml", "python" },
             },
             ensure_installed = {
                 "bash",
@@ -55,10 +55,10 @@ return {
             incremental_selection = {
                 enable = true,
                 keymaps = {
-                    init_selection = '<C-space>',
-                    node_incremental = '<C-space>',
+                    init_selection = "<C-space>",
+                    node_incremental = "<C-space>",
                     scope_incremental = false,
-                    node_decremental = '<bs>',
+                    node_decremental = "<bs>",
                 },
             },
 
@@ -69,10 +69,10 @@ return {
                 max_file_lines = nil, -- Do not enable for files with more than n lines, int
                 -- colors = {}, -- table of hex strings
                 -- termcolors = {} -- table of colour name strings
-            }
+            },
         })
 
-        treesitter.setup {
+        treesitter.setup({
             textobjects = {
                 select = {
                     enable = true,
@@ -85,12 +85,19 @@ return {
                         ["as"] = { query = "@assignment.outer", desc = "TS-goto: Select outer part of an assignment" },
                         ["is"] = { query = "@assignment.inner", desc = "TS-goto: Select inner part of an assignment" },
                         ["ls"] = { query = "@assignment.lhs", desc = "TS-goto: Select left hand side of an assignment" },
-                        ["rs"] = { query = "@assignment.rhs", desc = "TS-goto: Select right hand side of an assignment" },
+                        ["rs"] = {
+                            query = "@assignment.rhs",
+                            desc = "TS-goto: Select right hand side of an assignment",
+                        },
 
-                        ["aa"] = { query = "@parmater.outer", desc =
-                        "TS-goto: Select outer part of an argument/parameter" },
-                        ["ia"] = { query = "@parmater.inner", desc =
-                        "TS-goto: Select inner part of an argument/parameter" },
+                        ["aa"] = {
+                            query = "@parmater.outer",
+                            desc = "TS-goto: Select outer part of an argument/parameter",
+                        },
+                        ["ia"] = {
+                            query = "@parmater.inner",
+                            desc = "TS-goto: Select inner part of an argument/parameter",
+                        },
 
                         ["ai"] = { query = "@conditional.outer", desc = "TS-goto: Select outer part of a conditional" },
                         ["ii"] = { query = "@conditional.inner", desc = "TS-goto: Select inner part of a conditional" },
@@ -112,9 +119,9 @@ return {
                     -- and should return the mode ('v', 'V', or '<c-v>') or a table
                     -- mapping query_strings to modes.
                     selection_modes = {
-                        ['@parameter.outer'] = 'v', -- charwise
-                        ['@function.outer'] = 'V',  -- linewise
-                        ['@class.outer'] = '<c-v>', -- blockwise
+                        ["@parameter.outer"] = "v", -- charwise
+                        ["@function.outer"] = "V", -- linewise
+                        ["@class.outer"] = "<c-v>", -- blockwise
                     },
                     -- If you set this to `true` (default is `false`) then any textobject is
                     -- extended to include preceding or succeeding whitespace. Succeeding
@@ -131,36 +138,36 @@ return {
                     enable = true,
                     set_jumps = true,
                     goto_next_start = {
-                        ["]f"] = { query = '@call.outer', desc = 'TS-move: Next function call start' },
-                        ["]m"] = { query = '@function.outer', desc = 'TS-move: Next method/function def start' },
-                        ["]c"] = { query = '@class.outer', desc = 'TS-move: Next class start' },
-                        ["]i"] = { query = '@conditional.outer', desc = 'TS-move: Next conditional start' },
-                        ["]l"] = { query = '@loop.outer', desc = 'TS-move: Next loop start' },
+                        ["]f"] = { query = "@call.outer", desc = "TS-move: Next function call start" },
+                        ["]m"] = { query = "@function.outer", desc = "TS-move: Next method/function def start" },
+                        ["]c"] = { query = "@class.outer", desc = "TS-move: Next class start" },
+                        ["]i"] = { query = "@conditional.outer", desc = "TS-move: Next conditional start" },
+                        ["]l"] = { query = "@loop.outer", desc = "TS-move: Next loop start" },
                     },
                     goto_next_end = {
-                        ["]F"] = { query = '@call.outer', desc = 'TS-move: Next function call end' },
-                        ["]M"] = { query = '@function.outer', desc = 'TS-move: Next method/function def end' },
-                        ["]C"] = { query = '@class.outer', desc = 'TS-move: Next class end' },
-                        ["]I"] = { query = '@conditional.outer', desc = 'TS-move: Next conditional end' },
-                        ["]L"] = { query = '@loop.outer', desc = 'TS-move: Next loop end' },
+                        ["]F"] = { query = "@call.outer", desc = "TS-move: Next function call end" },
+                        ["]M"] = { query = "@function.outer", desc = "TS-move: Next method/function def end" },
+                        ["]C"] = { query = "@class.outer", desc = "TS-move: Next class end" },
+                        ["]I"] = { query = "@conditional.outer", desc = "TS-move: Next conditional end" },
+                        ["]L"] = { query = "@loop.outer", desc = "TS-move: Next loop end" },
                     },
                     goto_previous_start = {
-                        ["[f"] = { query = '@call.outer', desc = 'TS-move: Prev function call start' },
-                        ["[m"] = { query = '@function.outer', desc = 'TS-move: Prev method/function def start' },
-                        ["[c"] = { query = '@class.outer', desc = 'TS-move: Prev class start' },
-                        ["[i"] = { query = '@conditional.outer', desc = 'TS-move: Prev conditional start' },
-                        ["[l"] = { query = '@loop.outer', desc = 'TS-move: Prev loop start' },
+                        ["[f"] = { query = "@call.outer", desc = "TS-move: Prev function call start" },
+                        ["[m"] = { query = "@function.outer", desc = "TS-move: Prev method/function def start" },
+                        ["[c"] = { query = "@class.outer", desc = "TS-move: Prev class start" },
+                        ["[i"] = { query = "@conditional.outer", desc = "TS-move: Prev conditional start" },
+                        ["[l"] = { query = "@loop.outer", desc = "TS-move: Prev loop start" },
                     },
                     goto_previous_end = {
-                        ["[F"] = { query = '@call.outer', desc = 'TS-move: Prev function call end' },
-                        ["[M"] = { query = '@function.outer', desc = 'TS-move: Prev method/function def end' },
-                        ["[C"] = { query = '@class.outer', desc = 'TS-move: Prev class end' },
-                        ["[I"] = { query = '@conditional.outer', desc = 'TS-move: Prev conditional end' },
-                        ["[L"] = { query = '@loop.outer', desc = 'TS-move: Prev loop end' },
+                        ["[F"] = { query = "@call.outer", desc = "TS-move: Prev function call end" },
+                        ["[M"] = { query = "@function.outer", desc = "TS-move: Prev method/function def end" },
+                        ["[C"] = { query = "@class.outer", desc = "TS-move: Prev class end" },
+                        ["[I"] = { query = "@conditional.outer", desc = "TS-move: Prev conditional end" },
+                        ["[L"] = { query = "@loop.outer", desc = "TS-move: Prev loop end" },
                     },
                 },
             },
-        }
+        })
 
         local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
@@ -191,8 +198,7 @@ return {
         -- keymap('n', ']d', vim.diagnostic.goto_next, 'Go to next diagnostic message')
         -- keymap('n', '<leader>dl', vim.diagnostic.setloclist, 'Open diagnostics list')
 
-
         -- TEST:
         -- print("Hello from lazy treesitter")
-    end
+    end,
 }
