@@ -18,7 +18,7 @@ return {
                 markdown = { "prettier" },
                 lua = { "stylua" },
                 python = { "black" },
-                go = { "goimports_reviser", "gofumpt", "golines" },
+                go = { "goimports", "gofumpt", "golines" },
                 bash = { "beautysh", "shellharden" },
             },
             format_on_save = {
