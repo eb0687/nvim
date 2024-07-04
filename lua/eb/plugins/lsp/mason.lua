@@ -54,6 +54,7 @@ return {
                 "stylua", -- lua formatter
                 "black", -- python formatter
                 "pylint",
+                "goimports",
             },
         })
     end,
