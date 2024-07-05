@@ -50,8 +50,6 @@ return {
 
             -- KEYMAPPING
             mapping = {
-                -- ['<C-p>'] = cmp.mapping(cmp.mapping.scroll_docs(-3), { 'i', 'c' }),
-                -- ['<C-n>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
                 ["<C-p>"] = cmp.mapping({
                     c = function()
                         if cmp.visible() then
