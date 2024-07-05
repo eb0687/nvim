@@ -85,12 +85,12 @@ return {
                 ["<C-j>"] = cmp.mapping({
                     c = function()
                         if cmp.visible() then
-                            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                            cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
                         end
                     end,
                     i = function(fallback)
                         if cmp.visible() then
-                            cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+                            cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
                         else
                             fallback()
                         end
@@ -99,12 +99,12 @@ return {
                 ["<C-k>"] = cmp.mapping({
                     c = function()
                         if cmp.visible() then
-                            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+                            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
                         end
                     end,
                     i = function(fallback)
                         if cmp.visible() then
-                            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+                            cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
                         else
                             fallback()
                         end
@@ -162,6 +162,7 @@ return {
                         buffer = "[BUFFER]",
                         gitmoji = "[GITMOJI]",
                         path = "[PATH]",
+                        Codeium = "[CODEIUM]",
                     },
                     before = require("tailwindcss-colorizer-cmp").formatter,
                 }),
@@ -170,8 +171,9 @@ return {
             -- SOURCES
             sources = cmp.config.sources({
                 { name = "vim-dadbod-completion" },
-                { name = "luasnip" },
                 { name = "nvim_lsp" },
+                { name = "luasnip" },
+                { name = "codeium" },
                 { name = "nvim_lua" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "path" },
