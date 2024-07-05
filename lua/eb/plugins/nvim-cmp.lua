@@ -80,8 +80,6 @@ return {
                     { "i" }
                 ),
                 ["<Up>"] = cmp.mapping(cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Select }), { "i" }),
-                -- ['<C-n>'] = cmp.mapping.scroll_docs(),
-                -- ['<C-p>'] = cmp.mapping.scroll_docs(),
                 ["<C-j>"] = cmp.mapping({
                     c = function()
                         if cmp.visible() then
@@ -110,7 +108,7 @@ return {
                         end
                     end,
                 }),
-                ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
+                -- ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
                 ["<C-e>"] = cmp.mapping({
                     i = cmp.mapping.close(),
                     c = cmp.mapping.close(),
@@ -118,26 +116,14 @@ return {
                 ["<CR>"] = cmp.mapping({
                     i = function(fallback)
                         if cmp.visible() and cmp.get_active_entry() then
-                            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+                            cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
                         else
                             fallback()
                         end
                     end,
                     s = cmp.mapping.confirm({ select = true }),
-                    c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
+                    c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
                 }),
-                -- ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-                -- ["<CR>"] = cmp.mapping.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace }),
-                -- ["<CR>"] = cmp.mapping({
-                --     i = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }),
-                --     c = function(fallback)
-                --         if cmp.visible() then
-                --             cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
-                --         else
-                --             fallback()
-                --         end
-                --     end,
-                -- }),
             },
             -- FORMATTING
             window = {
