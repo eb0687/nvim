@@ -41,6 +41,7 @@ return {
             },
 
             -- SNIPPETS
+            -- enable luasnip to handle snippet expansion for nvim-cmp
             snippet = {
                 expand = function(args)
                     luasnip.lsp_expand(args.body) -- For `luasnip` users.
