@@ -17,6 +17,19 @@ return {
                     command = "dotbare ls-files",
                     previewer = easypick.previewers.default(),
                 },
+                {
+                    -- Show staged files ready to be commited only
+                    name = "Staged files",
+                    command = "git diff --name-only --staged",
+                    action = easypick.actions.nvim_commandf("Git commit %s"),
+                    opts = require("telescope.themes").get_dropdown({}),
+                },
+                {
+                    -- Show unstagged files only
+                    name = "Unstagged files",
+                    command = "git diff --name-only",
+                    opts = require("telescope.themes").get_dropdown({}),
+                },
             },
         })
     end,
