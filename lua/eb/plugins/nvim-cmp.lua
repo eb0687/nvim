@@ -166,6 +166,9 @@ return {
                     before = require("tailwindcss-colorizer-cmp").formatter,
                 }),
             },
+            experimental = {
+                ghost_text = true,
+            },
 
             -- SOURCES
             sources = cmp.config.sources({
