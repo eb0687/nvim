@@ -6,23 +6,42 @@
 -- https://github.com/nvim-lualine/lualine.nvim
 
 return {
-    'nvim-lualine/lualine.nvim',
-    event = 'VeryLazy',
+    "nvim-lualine/lualine.nvim",
+    event = "VeryLazy",
     config = function()
-        local lsp_servers = require('eb.utils.lualine-helpers.lsp-servers')
-        local macro = require('eb.utils.lualine-helpers.macro')
+        local lsp_servers = require("eb.utils.lualine-helpers.lsp-servers")
+        local macro = require("eb.utils.lualine-helpers.macro")
         -- local cwd = require('eb.utils.lualine-helpers.cwd')
-        local diff = require('eb.utils.lualine-helpers.git-diff')
-        local branch = require('eb.utils.lualine-helpers.git-branch')
-        local mode = require('eb.utils.lualine-helpers.mode')
-        local diagnostics = require('eb.utils.lualine-helpers.diagnostics')
-        local location = require('eb.utils.lualine-helpers.location')
-        local custom_theme = require('eb.utils.lualine-helpers.themes.gruvbox-material-custom')
+        local diff = require("eb.utils.lualine-helpers.git-diff")
+        local branch = require("eb.utils.lualine-helpers.git-branch")
+        local mode = require("eb.utils.lualine-helpers.mode")
+        local diagnostics = require("eb.utils.lualine-helpers.diagnostics")
+        local location = require("eb.utils.lualine-helpers.location")
+        local custom_theme = require("eb.utils.lualine-helpers.themes.gruvbox-material-custom")
         local lazy_status = require("lazy.status")
+        local harpoon = require("harpoon.mark")
+
+        -- https://github.com/dmmulroy/kickstart.nix/blob/main/config/nvim/lua/plugins/lualine.lua
+        local function harpoon_component()
+            local total_marks = harpoon.get_length()
+
+            if total_marks == 0 then
+                return ""
+            end
+
+            local current_mark = "—"
+
+            local mark_idx = harpoon.get_current_index()
+            if mark_idx ~= nil then
+                current_mark = tostring(mark_idx)
+            end
+
+            return string.format("󱡅 %s/%d", current_mark, total_marks)
+        end
 
         -- https://github.com/declancm/maximize.nvim?tab=readme-ov-file#-statusline--winbar
         local function maximize_status()
-            return vim.t.maximized and '' or ''
+            return vim.t.maximized and "" or ""
         end
 
         -- NOTE: show modules based on the width of the window
@@ -33,14 +52,14 @@ return {
             end
         end
 
-        require('lualine').setup {
+        require("lualine").setup({
             sections = {
                 lualine_a = {
                     {
                         mode,
                         padding = 1,
-                        cond = min_window_width(40)
-                    }
+                        cond = min_window_width(40),
+                    },
                 },
                 -- lualine_b = {
                 -- {
@@ -63,28 +82,28 @@ return {
                 -- },
                 lualine_c = {
                     {
-                        'filename',
+                        "filename",
                         icon = {
                             "",
-                            align = 'left',
+                            align = "left",
                             color = {
                                 fg = "#7DAEA3",
-                            }
+                            },
                         },
                         file_status = true,
                         path = 3,
                         shorting_target = 30,
                         symbols = {
-                            modified = '󱇧', -- Text to show when the file is modified.
-                            readonly = '', -- Text to show when the file is non-modifiable or readonly.
-                            unnamed = 'Unammed', -- Text to show for unnamed buffers.
-                            newfile = 'New File', -- Text to show for newly created file before first write
+                            modified = "󱇧", -- Text to show when the file is modified.
+                            readonly = "", -- Text to show when the file is non-modifiable or readonly.
+                            unnamed = "Unammed", -- Text to show for unnamed buffers.
+                            newfile = "New File", -- Text to show for newly created file before first write
                         },
-                        cond = min_window_width(0)
+                        cond = min_window_width(0),
                     },
                     {
                         diagnostics,
-                        cond = min_window_width(30)
+                        cond = min_window_width(30),
                     },
                     { maximize_status },
                     macro,
@@ -93,56 +112,56 @@ return {
                     {
                         lazy_status.updates,
                         cond = lazy_status.has_updates,
-                        color = { fg = '#ea6962' },
-
+                        color = { fg = "#ea6962" },
                     },
+                    harpoon_component,
                     {
 
                         branch,
                         padding = 1,
-                        cond = min_window_width(40)
+                        cond = min_window_width(40),
                     },
                     {
                         diff,
                         padding = 1,
-                        cond = min_window_width(50)
+                        cond = min_window_width(50),
                     },
                     -- {
                     --     diagnostics,
                     --     cond = min_window_width(30)
                     -- },
-                }, lualine_y = {
+                },
+                lualine_y = {
                     {
-                        'filetype',
+                        "filetype",
                         padding = 1,
-                        cond = min_window_width(40)
+                        cond = min_window_width(40),
                     },
                     {
                         location,
                         padding = 1,
-                        cond = min_window_width(40)
+                        cond = min_window_width(40),
                     },
                     {
                         lsp_servers,
                         padding = 1,
-                        cond = min_window_width(50)
-                    }
+                        cond = min_window_width(50),
+                    },
                 },
-                lualine_z = {
-                },
+                lualine_z = {},
             },
             options = {
                 theme = custom_theme,
                 -- component_separators = { left = '│', right = '│' },
                 -- section_separators = { left = '│', right = '│' },
-                component_separators = { left = '', right = '' },
-                section_separators = { left = '', right = '' },
+                component_separators = { left = "", right = "" },
+                section_separators = { left = "", right = "" },
                 disabled_filetypes = {
-                    'NvimTree',
+                    "NvimTree",
                 },
             },
-        }
+        })
         -- TEST:
         -- print("Hello from lazy lualine")
-    end
+    end,
 }
