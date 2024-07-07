@@ -28,6 +28,7 @@ return {
 
     config = function()
         local telescope = require("telescope")
+        local telescope_builtin = require("telescope.builtin")
         local open_with_trouble = require("trouble.sources.telescope").open
         -- TODO: look up how to utilize this command
         -- Use this to add more results without clearing the trouble list
