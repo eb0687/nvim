@@ -126,8 +126,6 @@ return {
             previewer = false,
         })
 
-        local telescope_builtin = require("telescope.builtin")
-
         -- keybinds
         keymap("<leader>ff", telescope_builtin.find_files, "Find Files in local folder only recursively")
         keymap("<leader>fo", telescope_builtin.oldfiles, "Find recently Opened files")
