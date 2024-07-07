@@ -36,7 +36,7 @@ return {
                 current_mark = tostring(mark_idx)
             end
 
-            return string.format("󱡅 %s/%d", current_mark, total_marks)
+            return string.format("󱡅 [%s/%d]", current_mark, total_marks)
         end
 
         -- https://github.com/declancm/maximize.nvim?tab=readme-ov-file#-statusline--winbar
