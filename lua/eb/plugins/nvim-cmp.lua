@@ -120,7 +120,14 @@ return {
                             fallback()
                         end
                     end,
-                    s = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
+                    s = function(fallback)
+                        if cmp.visible() and cmp.get_active_entry() then
+                            cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+                        else
+                            fallback()
+                        end
+                    end,
+                    -- s = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
                     c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
                 }),
             },
