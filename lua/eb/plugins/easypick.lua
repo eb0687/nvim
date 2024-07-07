@@ -18,6 +18,18 @@ return {
                     previewer = easypick.previewers.default(),
                 },
                 {
+                    -- this will only work if not inside an existing git repo
+                    name = "Dotbare unstagged files",
+                    command = "dotbare diff --name-only",
+                    opts = require("telescope.themes").get_dropdown({}),
+                },
+                {
+                    -- Show staged files ready to be commited only
+                    name = "Dotbare staged files",
+                    command = "dotbare diff --name-only --staged",
+                    opts = require("telescope.themes").get_dropdown({}),
+                },
+                {
                     -- Show staged files ready to be commited only
                     name = "Staged files",
                     command = "git diff --name-only --staged",
