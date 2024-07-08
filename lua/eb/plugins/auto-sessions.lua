@@ -13,10 +13,10 @@ return {
             auto_session_create_enabled = true,
             auto_save_enabled = true,
             auto_restore_enabled = false,
-            -- auto_session_suppress_dirs = {
-            --     "~/Downloads",
-            --     "~/Documents",
-            -- },
+            auto_session_suppress_dirs = {
+                "~/Downloads",
+                "~/Documents",
+            },
         })
 
         local keymap = function(keys, func, desc)
