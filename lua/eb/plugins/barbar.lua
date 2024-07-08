@@ -6,15 +6,15 @@
 -- https://github.com/romgrk/barbar.nvim
 
 return {
-    'romgrk/barbar.nvim',
-    event = 'VeryLazy',
+    "romgrk/barbar.nvim",
+    event = "VeryLazy",
     dependencies = {
-        'lewis6991/gitsigns.nvim',                      -- OPTIONAL: for git status
-        { 'nvim-tree/nvim-web-devicons', lazy = true }, -- OPTIONAL: for file icons
+        "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
+        { "nvim-tree/nvim-web-devicons", lazy = true }, -- OPTIONAL: for file icons
     },
 
     config = function()
-        local barbar = require('barbar')
+        local barbar = require("barbar")
 
         -- SETUP
         barbar.setup({
@@ -23,36 +23,35 @@ return {
             -- closable = false,
             icons = {
                 pinned = {
-                    button = '',
+                    button = "",
                 },
                 button = false,
                 current = {
-                    button = ''
+                    button = "",
                 },
                 gitsigns = {
-                    added = { enabled = false, icon = '+' },
-                    changed = { enabled = false, icon = '~' },
-                    deleted = { enabled = false, icon = '-' }
+                    added = { enabled = false, icon = "+" },
+                    changed = { enabled = false, icon = "~" },
+                    deleted = { enabled = false, icon = "-" },
                 },
-                preset = 'default',
+                preset = "default",
                 -- separator = { left = '▎', right = '' },
-                separator = { left = '', right = '' },
+                separator = { left = "", right = "" },
                 separator_at_end = false,
                 inactive = {
                     separator = {
-                        left = '',
-                        right = ''
-                    }
+                        left = "",
+                        right = "",
+                    },
                 },
             },
             insert_at_end = true,
             minimum_padding = 2,
             maximum_padding = 2,
             sidebar_filetypes = {
-                NvimTree = 'enabled',
-                undotree = { text = 'undotree' },
-            }
-
+                NvimTree = "enabled",
+                undotree = { text = "undotree" },
+            },
         })
 
         -- KEYMAPS
@@ -76,38 +75,38 @@ return {
 
         local keymap = function(keys, func, desc)
             if desc then
-                desc = 'BARBAR: ' .. desc
+                desc = "BARBAR: " .. desc
             end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
+            vim.keymap.set("n", keys, func, { desc = desc })
         end
 
         -- Navigate between buffers
-        keymap('<S-tab>', '<Cmd>BufferPrevious<CR>', 'Previous buffer')
-        keymap('<tab>', "<Cmd>BufferNext<CR>", 'Next buffer')
+        keymap("<S-tab>", "<Cmd>BufferPrevious<CR>", "Previous buffer")
+        keymap("<tab>", "<Cmd>BufferNext<CR>", "Next buffer")
 
         -- Re-order buffers
-        keymap('<A-<>', '<Cmd>BufferMovePrevious<CR>', 'Move buffer to the left')
-        keymap('<A->>', '<Cmd>BufferMoveNext<CR>', 'Move buffer to the right')
+        keymap("<A-<>", "<Cmd>BufferMovePrevious<CR>", "Move buffer to the left")
+        keymap("<A->>", "<Cmd>BufferMoveNext<CR>", "Move buffer to the right")
 
         -- Pin/Unpin buffer
-        keymap('<A-p>', '<Cmd>BufferPin<CR>', 'Pin buffer')
+        keymap("<A-p>", "<Cmd>BufferPin<CR>", "Pin buffer")
 
         -- Close buffer
-        keymap('<leader>bd', '<Cmd>BufferClose<CR>', 'Close current buffer')
+        keymap("<leader>bd", "<Cmd>BufferClose<CR>", "Close current buffer")
 
         -- Goto buffer position
-        keymap('<A-1>', '<Cmd>BufferGoto 1<CR>', 'Go to buffer tab 1')
-        keymap('<A-2>', '<Cmd>BufferGoto 2<CR>', 'Go to buffer tab 2')
-        keymap('<A-3>', '<Cmd>BufferGoto 3<CR>', 'Go to buffer tab 3')
-        keymap('<A-4>', '<Cmd>BufferGoto 4<CR>', 'Go to buffer tab 4')
-        keymap('<A-5>', '<Cmd>BufferGoto 5<CR>', 'Go to buffer tab 5')
-        keymap('<A-6>', '<Cmd>BufferGoto 6<CR>', 'Go to buffer tab 6')
+        keymap("<A-1>", "<Cmd>BufferGoto 1<CR>", "Go to buffer tab 1")
+        keymap("<A-2>", "<Cmd>BufferGoto 2<CR>", "Go to buffer tab 2")
+        keymap("<A-3>", "<Cmd>BufferGoto 3<CR>", "Go to buffer tab 3")
+        keymap("<A-4>", "<Cmd>BufferGoto 4<CR>", "Go to buffer tab 4")
+        keymap("<A-5>", "<Cmd>BufferGoto 5<CR>", "Go to buffer tab 5")
+        keymap("<A-6>", "<Cmd>BufferGoto 6<CR>", "Go to buffer tab 6")
 
         -- keymap('<leader>bs', ':Mksession! ~/.nvim-sessions/', 'Save session')
         -- keymap('<leader>bo', ':source ~/.nvim-sessions/', 'Open session')
 
         -- TEST:
         -- print('Hello from AFTER/BARBAR')
-    end
+    end,
 }
