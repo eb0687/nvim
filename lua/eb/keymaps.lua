@@ -114,6 +114,7 @@ keymap_silent(
     "<cmd>execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<CR>",
     "Open in web browser"
 )
+keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
 -- Git fugitive
 keymap_silent("n", "<leader>go", ":Git commit<CR>", "Git commit current file in a vim split")
 
