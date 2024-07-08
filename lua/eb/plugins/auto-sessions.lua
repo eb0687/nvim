@@ -29,5 +29,6 @@ return {
 
         keymap("<leader>wr", "<cmd>SessionRestore<CR>", "Restore session for cwd") -- restore last workspace session for current directory
         keymap("<leader>ws", "<cmd>SessionSave<CR>", "Save session for auto session root dir") -- save workspace session for current working directory
+        keymap("<leader>wl", require("auto-session.session-lens").search_session, "List all sessions in Telescope")
     end,
 }
