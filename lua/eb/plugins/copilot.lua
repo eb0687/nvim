@@ -7,6 +7,9 @@ return {
     event = "InsertEnter",
     config = function()
         local copilot = require("copilot")
-        copilot.setup({})
+        copilot.setup({
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+        })
     end,
 }
