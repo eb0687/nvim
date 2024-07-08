@@ -34,6 +34,21 @@ return {
         -- Use this to add more results without clearing the trouble list
         local add_to_trouble = require("trouble.sources.telescope").add
 
+        local file_ignore_patterns = {
+            "^.git/",
+            "node_modules\\",
+            "__pycache__\\",
+            ".git\\",
+            "%.zip",
+            "%.tar",
+            "%.gz",
+            "%.7zip",
+            "%.exe",
+            "%.pyc",
+            "yarn%.lock",
+            "package%-lock%.json",
+        }
+
         -- SETUP
         telescope.setup({
             defaults = {
@@ -57,18 +72,7 @@ return {
                 scroll_strategy = "cycle",
                 border = {},
                 borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-                file_ignore_patterns = {
-                    "^.git/",
-                    "node_modules\\",
-                    "__pycache__\\",
-                    ".git\\",
-                    "%.zip",
-                    "%.tar",
-                    "%.gz",
-                    "%.7zip",
-                    "%.exe",
-                    "%.pyc",
-                },
+                file_ignore_patterns = file_ignore_patterns,
                 file_previewer = require("telescope.previewers").vim_buffer_cat.new,
                 grep_previewer = require("telescope.previewers").vim_buffer_vimgrep.new,
                 qflist_previewer = require("telescope.previewers").vim_buffer_qflist.new,
@@ -80,9 +84,11 @@ return {
                         ["<C-n>"] = "preview_scrolling_down",
                         ["<C-p>"] = "preview_scrolling_up",
                         ["<C-t>"] = open_with_trouble,
+                        ["<C-a>"] = add_to_trouble,
                     },
                     n = {
                         ["<C-t>"] = open_with_trouble,
+                        ["<C-a>"] = add_to_trouble,
                     },
                 },
             },
@@ -155,18 +161,7 @@ return {
         keymap("<leader>fn", function()
             telescope_builtin.find_files({
                 prompt_title = "[ VIMRC ]",
-                file_ignore_patterns = {
-                    "^.git/",
-                    "node_modules\\",
-                    "__pycache__\\",
-                    ".git\\",
-                    "%.zip",
-                    "%.tar",
-                    "%.gz",
-                    "%.7zip",
-                    "%.exe",
-                    "%.pyc",
-                },
+                file_ignore_patterns = file_ignore_patterns,
                 cwd = "~/.config/nvim/",
             })
         end, "Find in Nvim configs")
@@ -174,18 +169,7 @@ return {
         keymap("<leader>fF", function()
             telescope_builtin.find_files({
                 prompt_title = "[ Search HOME ]",
-                file_ignore_patterns = {
-                    "^.git/",
-                    "node_modules\\",
-                    "__pycache__\\",
-                    ".git\\",
-                    "%.zip",
-                    "%.tar",
-                    "%.gz",
-                    "%.7zip",
-                    "%.exe",
-                    "%.pyc",
-                },
+                file_ignore_patterns = file_ignore_patterns,
                 cwd = "~/",
             })
         end, "Find Files in home directory")
