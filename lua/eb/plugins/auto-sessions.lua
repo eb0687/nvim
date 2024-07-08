@@ -3,6 +3,9 @@
 
 return {
     "rmagatti/auto-session",
+    dependencies = {
+        "nvim-telescope/telescope.nvim", -- :Telescope session-lens
+    },
     config = function()
         local auto_session = require("auto-session")
 
