@@ -169,6 +169,7 @@ return {
                         gitmoji = "[GITMOJI]",
                         path = "[PATH]",
                         Codeium = "[CODEIUM]",
+                        Copilot = "[Copilot]",
                     },
                     before = require("tailwindcss-colorizer-cmp").formatter,
                 }),
@@ -180,14 +181,15 @@ return {
             -- SOURCES
             sources = cmp.config.sources({
                 { name = "vim-dadbod-completion" },
-                { name = "nvim_lsp" },
+                { name = "nvim_lsp", group_index = 1 },
                 { name = "luasnip" },
-                { name = "codeium" },
+                { name = "copilot", group_index = 1 },
+                { name = "codeium", group_index = 1 },
                 { name = "nvim_lua" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "path" },
                 { name = "gitmoji" },
-                { name = "buffer" },
+                { name = "buffer", group_index = 2 },
             }),
 
             -- COMMAND LINE
