@@ -171,6 +171,10 @@ return {
                         Codeium = "[CODEIUM]",
                         Copilot = "[Copilot]",
                     },
+                    symbol_map = {
+                        Copilot = "",
+                        Codeium = "",
+                    },
                     before = require("tailwindcss-colorizer-cmp").formatter,
                 }),
             },
