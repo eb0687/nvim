@@ -10,24 +10,26 @@
 
 return {
 
-    'epwalsh/obsidian.nvim',
+    "epwalsh/obsidian.nvim",
     lazy = true,
+    ft = "markdown",
     event = {
-        "BufReadPre " .. vim.fn.expand "~" .. "Documents/the_vault/**.md",
-        "BufNewFile " .. vim.fn.expand "~" .. "Documents/the_vault/**.md",
-        "BufEnter " .. vim.fn.expand "~" .. "Documents/the_vault/**.md",
+        "BufReadPre " .. vim.fn.expand("~") .. "Documents/the_vault/**.md",
+        "BufNewFile " .. vim.fn.expand("~") .. "Documents/the_vault/**.md",
+        "BufEnter " .. vim.fn.expand("~") .. "Documents/the_vault/**.md",
     },
     dependencies = {
-        'nvim-lua/plenary.nvim',
+        "nvim-lua/plenary.nvim",
     },
 
     config = function()
-        local obsidian = require('obsidian')
+        local obsidian = require("obsidian")
 
         -- NOTE: this function opens hyperlinks in web browsers
         local follow_url = function(url)
             vim.fn.jobstart({
-                "xdg-open", url
+                "xdg-open",
+                url,
             })
         end
 
@@ -38,7 +40,7 @@ return {
                 suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
             else
                 -- NOTE: add randomization if no title is entered
-                suffix = tostring(os.time()) .. string.char(math.random(65, 90)) .. '-' .. 'notitle'
+                suffix = tostring(os.time()) .. string.char(math.random(65, 90)) .. "-" .. "notitle"
             end
             return suffix
         end
@@ -59,7 +61,7 @@ return {
             },
             completion = {
                 nvim_cmp = true,
-            }
+            },
         })
 
         -- NOTE: this is a temporary fix for treesitter highlight not being enabled by default in markdown files
@@ -72,42 +74,40 @@ return {
 
         local keymap_normal = function(keys, func, desc)
             if desc then
-                desc = 'Obsidian: ' .. desc
+                desc = "Obsidian: " .. desc
             end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
+            vim.keymap.set("n", keys, func, { desc = desc })
         end
 
         local keymap_visual = function(keys, func, desc)
             if desc then
-                desc = 'Obsidian: ' .. desc
+                desc = "Obsidian: " .. desc
             end
 
-            vim.keymap.set('v', keys, func, { desc = desc })
+            vim.keymap.set("v", keys, func, { desc = desc })
         end
 
-        keymap_normal("gf", ":ObsidianFollowLink<CR>",
-            'follow Obsidian link')
-        keymap_normal('<leader>oo', ':ObsidianOpen ',
-            'Open note in Obsidian (optional args)')
-        keymap_normal('<leader>on', ':ObsidianNew ',
-            'Create new note in Obsidian (optional args)')
-        keymap_normal('<leader>of', ':ObsidianSearch ',
-            'Search obsidian vault using ripgrep (optional args)')
-        keymap_normal('<leader>ot', ':ObsidianTemplate<CR>',
-            'Import from Obsidian template(optional args)')
-        keymap_normal('<leader>oq', ':ObsidianQuickSwitch<CR>',
-            'Quickly switch between notes')
-        keymap_normal('<leader>ob', ':ObsidianBacklinks<CR>',
-            'Open Obsidian backlinks')
-        keymap_normal('<leader>od', ':ObsidianToday<CR>',
-            'Create new daily note')
-        keymap_visual('<leader>ol', ':ObsidianLink ',
-            'Link an inline visual selection to an existing note (optional args)')
-        keymap_visual('<leader>Ol', ':ObsidianLinkNew ',
-            'Create a new note and link to a visual selection (optional args)')
+        keymap_normal("gf", ":ObsidianFollowLink<CR>", "follow Obsidian link")
+        keymap_normal("<leader>oo", ":ObsidianOpen ", "Open note in Obsidian (optional args)")
+        keymap_normal("<leader>on", ":ObsidianNew ", "Create new note in Obsidian (optional args)")
+        keymap_normal("<leader>of", ":ObsidianSearch ", "Search obsidian vault using ripgrep (optional args)")
+        keymap_normal("<leader>ot", ":ObsidianTemplate<CR>", "Import from Obsidian template(optional args)")
+        keymap_normal("<leader>oq", ":ObsidianQuickSwitch<CR>", "Quickly switch between notes")
+        keymap_normal("<leader>ob", ":ObsidianBacklinks<CR>", "Open Obsidian backlinks")
+        keymap_normal("<leader>od", ":ObsidianToday<CR>", "Create new daily note")
+        keymap_visual(
+            "<leader>ol",
+            ":ObsidianLink ",
+            "Link an inline visual selection to an existing note (optional args)"
+        )
+        keymap_visual(
+            "<leader>Ol",
+            ":ObsidianLinkNew ",
+            "Create a new note and link to a visual selection (optional args)"
+        )
 
         -- TEST:
         -- print("Hello from lazy obsidian")
-    end
+    end,
 }
