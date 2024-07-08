@@ -37,67 +37,83 @@ local eb = s("eb", {
 })
 table.insert(snippets, eb)
 
-local email_ = s({
-    trig = "email_",
-    dscr = "Snippet to cycle through commonly used email addresses",
-},
-    fmt([[
+local email_ = s(
+    {
+        trig = "email_",
+        dscr = "Snippet to cycle through commonly used email addresses",
+    },
+    fmt(
+        [[
 {}
-]]   , {
-        c(1, {
-            t("ebrahim0687@gmail.com"),
-            t("eatar.log@gmail.com"),
-            t("mich.dee@gmail.com"),
-            t("snake_s_pit@hotmail.com"),
-            t("ebrahim0687@outlook.com"),
-        })
-    }))
+]],
+        {
+            c(1, {
+                t("ebrahim0687@gmail.com"),
+                t("eatar.log@gmail.com"),
+                t("mich.dee@gmail.com"),
+                t("snake_s_pit@hotmail.com"),
+                t("ebrahim0687@outlook.com"),
+            }),
+        }
+    )
+)
 table.insert(snippets, email_)
 
-local shebang = s("shebang_general", fmt([[
+local shebang = s(
+    "shebang_general",
+    fmt(
+        [[
 #!/bin/{}
 {}
-]], {
-    i(1, 'insert env here...'),
-    i(0)
-}))
+]],
+        {
+            i(1, "insert env here..."),
+            i(0),
+        }
+    )
+)
 table.insert(snippets, shebang)
 
 local dateDMY = s("dateDMY", {
     f(get_bash, {}, {
-        user_args = { "date -u +%d/%m/%Y" }
-    })
+        user_args = { "date -u +%d/%m/%Y" },
+    }),
 })
 table.insert(snippets, dateDMY)
 
 local pwd = s("pwd", {
     f(get_bash, {}, {
-        user_args = { "pwd" }
-    })
+        user_args = { "pwd" },
+    }),
 })
 table.insert(snippets, pwd)
 
 local current_filename = s("filename", {
-    f(get_filename, {})
+    f(get_filename, {}),
 })
 table.insert(snippets, current_filename)
 
-local todo = s({
-    trig = "todo",
-    dscr = "Snippet to cycle through todo choice nodes",
-},
-    fmt([[
+local todo = s(
+    {
+        trig = "todo",
+        dscr = "Snippet to cycle through todo choice nodes",
+    },
+    fmt(
+        [[
     {}: {}
-    ]], {
-        c(1, {
-            t("TODO"),
-            t("NOTE"),
-            t("FIX"),
-            t("WARN"),
-            t("HACK"),
-        }),
-        i(2, "add a description here...")
-    }))
+    ]],
+        {
+            c(1, {
+                t("TODO"),
+                t("NOTE"),
+                t("FIX"),
+                t("WARN"),
+                t("HACK"),
+            }),
+            i(2, "add a description here..."),
+        }
+    )
+)
 table.insert(snippets, todo)
 
 -- TODO: create a better todo snippet using this video as a guidline:
