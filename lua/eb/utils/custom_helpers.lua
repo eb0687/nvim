@@ -51,7 +51,7 @@ end
 
 function M.keymap_silent(mode, keys, func, desc)
     if desc then
-        desc = "KEYBIND: " .. desc
+        desc = "CUSTOM: " .. desc
     end
     vim.keymap.set(mode, keys, func, {
         noremap = true,
@@ -62,7 +62,7 @@ end
 
 function M.keymap_loud(mode, keys, func, desc)
     if desc then
-        desc = "KEYBIND: " .. desc
+        desc = "CUSTOM: " .. desc
     end
     vim.keymap.set(mode, keys, func, {
         noremap = true,
