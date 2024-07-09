@@ -23,6 +23,9 @@ return {
 
     config = function()
         local obsidian = require("obsidian")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
+        local keymap_visual = custom_helpers.keymap_visual
 
         -- NOTE: this function opens hyperlinks in web browsers
         local follow_url = function(url)
@@ -69,32 +72,26 @@ return {
             { pattern = { "*.md" }, command = "TSEnable highlight" }
         )
 
-        -- KEYMAPS
-
-        local keymap_normal = function(keys, func, desc)
-            if desc then
-                desc = "Obsidian: " .. desc
-            end
-
-            vim.keymap.set("n", keys, func, { desc = desc })
-        end
-
-        local keymap_visual = function(keys, func, desc)
-            if desc then
-                desc = "Obsidian: " .. desc
-            end
-
-            vim.keymap.set("v", keys, func, { desc = desc })
-        end
-
-        keymap_normal("gf", ":ObsidianFollowLink<CR>", "follow Obsidian link")
-        keymap_normal("<leader>oo", ":ObsidianOpen ", "Open note in Obsidian (optional args)")
-        keymap_normal("<leader>on", ":ObsidianNew ", "Create new note in Obsidian (optional args)")
-        keymap_normal("<leader>of", ":ObsidianSearch ", "Search obsidian vault using ripgrep (optional args)")
-        keymap_normal("<leader>ot", ":ObsidianTemplate<CR>", "Import from Obsidian template(optional args)")
-        keymap_normal("<leader>oq", ":ObsidianQuickSwitch<CR>", "Quickly switch between notes")
-        keymap_normal("<leader>ob", ":ObsidianBacklinks<CR>", "Open Obsidian backlinks")
-        keymap_normal("<leader>od", ":ObsidianToday<CR>", "Create new daily note")
+        keymap_normal("gf", ":ObsidianFollowLink<CR>", "OBSIDIAN", true, "follow Obsidian link")
+        keymap_normal("<leader>oo", ":ObsidianOpen ", "OBSIDIAN", true, "Open note in Obsidian (optional args)")
+        keymap_normal("<leader>on", ":ObsidianNew ", "OBSIDIAN", true, "Create new note in Obsidian (optional args)")
+        keymap_normal(
+            "<leader>of",
+            ":ObsidianSearch ",
+            "OBSIDIAN",
+            true,
+            "Search obsidian vault using ripgrep (optional args)"
+        )
+        keymap_normal(
+            "<leader>ot",
+            ":ObsidianTemplate<CR>",
+            "OBSIDIAN",
+            true,
+            "Import from Obsidian template(optional args)"
+        )
+        keymap_normal("<leader>oq", ":ObsidianQuickSwitch<CR>", "OBSIDIAN", true, "Quickly switch between notes")
+        keymap_normal("<leader>ob", ":ObsidianBacklinks<CR>", "OBSIDIAN", true, "Open Obsidian backlinks")
+        keymap_normal("<leader>od", ":ObsidianToday<CR>", "OBSIDIAN", true, "Create new daily note")
         keymap_visual(
             "<leader>ol",
             ":ObsidianLink ",
