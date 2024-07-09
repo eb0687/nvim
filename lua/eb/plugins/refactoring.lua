@@ -1,9 +1,10 @@
 return {
     "ThePrimeagen/refactoring.nvim",
+    enabled = false,
     ft = {
-        'javascript',
-        'lua',
-        'python',
+        "javascript",
+        "lua",
+        "python",
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -27,6 +28,5 @@ return {
         -- keymap('n', '<leader>rI', ':Refactor inline_func','Inverse of extract_func')
         -- keymap('n', '<leader>rb', ':Refactor extract_block','Extract block')
         -- keymap('n', '<leader>rB', ':Refactor extract_block_to_file','Extract block to a file')
-
     end,
 }
