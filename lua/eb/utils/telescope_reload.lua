@@ -1,4 +1,5 @@
 -- https://joseustra.com/blog/reloading-neovim-config-with-telescope/?source=ustrajunior.com
+-- NOTE: probably not needed any longer as telescope has as built in version
 -- BUG: this does not reload modules but does show the notification
 
 local M = {}
