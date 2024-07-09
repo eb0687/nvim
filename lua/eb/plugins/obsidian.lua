@@ -94,12 +94,16 @@ return {
         keymap_normal("<leader>od", ":ObsidianToday<CR>", "OBSIDIAN", true, "Create new daily note")
         keymap_visual(
             "<leader>ol",
-            ":ObsidianLink ",
+            ":ObsidianLink",
+            "OBSIDIAN",
+            true,
             "Link an inline visual selection to an existing note (optional args)"
         )
         keymap_visual(
             "<leader>Ol",
-            ":ObsidianLinkNew ",
+            ":ObsidianLinkNew",
+            "OBSIDIAN",
+            true,
             "Create a new note and link to a visual selection (optional args)"
         )
 
