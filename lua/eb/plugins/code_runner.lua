@@ -10,43 +10,36 @@
 -- figure out if I should lazy load this?
 
 return {
-    'CRAG666/code_runner.nvim',
+    "CRAG666/code_runner.nvim",
     enabled = true,
     keys = {
-        { "<leader>rr", ":RunCode<CR>", "Execute code" }
+        { "<leader>rr", ":RunCode<CR>", "Execute code" },
     },
 
     config = function()
         local code_runner = require("code_runner")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
         -- SETUP
         code_runner.setup({
             -- https://github.com/CRAG666/code_runner.nvim#setup-global
 
             -- choose default mode (valid term, tab, float, toggle, buf)
-            mode = 'term',
+            mode = "term",
             -- Focus on runner window(only works on toggle, term and tab mode)
             focus = true,
             -- startinsert (see ':h inserting-ex')
             startinsert = false,
             filetype = {
                 python = "python3 -u",
-                go = "go run ."
-            }
+                go = "go run .",
+            },
         })
 
-        -- KEYMAPS
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = 'CODE_RUNNER: ' .. desc
-            end
-
-            vim.keymap.set('n', keys, func, { desc = desc })
-        end
-
-        keymap("<leader>rr", ":RunCode<CR>", "Execute code")
+        keymap_normal("<leader>rr", ":RunCode<CR>", "CODE_RUNNER", true, "Execute code")
 
         -- TEST:
         -- print("Hello from lazy code_runner")
-    end
+    end,
 }
