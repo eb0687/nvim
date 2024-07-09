@@ -26,6 +26,17 @@ function M.keymap_normal(lhs, rhs, name, silent, desc)
     })
 end
 
+function M.keymap_visual(lhs, rhs, name, silent, desc)
+    if desc then
+        desc = name .. ": " .. desc
+    end
+
+    vim.keymap.set("v", lhs, rhs, {
+        silent = silent,
+        desc = desc,
+    })
+end
+
 function M.keymap_silent(mode, keys, func, desc)
     if desc then
         desc = "KEYBIND: " .. desc
