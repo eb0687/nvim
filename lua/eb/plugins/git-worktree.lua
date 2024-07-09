@@ -10,53 +10,71 @@
 -- https://github.com/ThePrimeagen/git-worktree.nvim/issues/97#issuecomment-1248246825
 
 return {
-    'ThePrimeagen/git-worktree.nvim',
+    "ThePrimeagen/git-worktree.nvim",
     -- lazy = true,
     -- events = 'VeryLazy',
     keys = {
-        { '<leader>gw', ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>",
-        'Switch & Delete worktree' },
-        { '<leader>gc', ":lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>",
-        'Create a worktree' }
+        {
+            "<leader>gw",
+            ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>",
+            "Switch & Delete worktree",
+        },
+        {
+            "<leader>gc",
+            ":lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>",
+            "Create a worktree",
+        },
     },
 
     -- load plugin only when git directory available
     -- https://github.com/folke/lazy.nvim/discussions/994
-    cond = vim.fn.isdirectory('.git') == 1,
+    cond = vim.fn.isdirectory(".git") == 1,
 
     config = function()
         local git_worktree = require("git-worktree")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
         -- SETUP
         git_worktree.setup({
             -- NOTE: Set this to 'tcd' if you want to only change the pwd for the current vim Tab
-            change_directory_command = 'cd',  -- default: "cd",
+            change_directory_command = "cd", -- default: "cd",
             -- NOTE: Updates the current buffer to point to the new work tree if the file is found in the new project. Otherwise, the following command will be run
-            update_on_change = true,          -- default: true,
+            update_on_change = true, -- default: true,
             -- NOTE: The vim command to run during the update_on_change event. Note, that this command will only be run when the current file is not found in the new worktree. This option defaults to e . which opens the root directory of the new worktree.
-            update_on_change_command = 'e .', -- default: "e .",
+            update_on_change_command = "e .", -- default: "e .",
             -- NOTE: Every time you switch branches, your jumplist will be cleared so that you don't accidentally go backward to a different branch and edit the wrong files.
-            clearjumps_on_change = true,      -- default: true,
+            clearjumps_on_change = true, -- default: true,
             -- NOTE: When creating a new worktree, it will push the branch to the upstream then perform a git rebase
-            autopush = false                  -- default: false,
+            autopush = false, -- default: false,
         })
 
         -- Telescope plugin integration
         require("telescope").load_extension("git_worktree")
 
         -- KEYMAPS
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = 'Git-Worktree: ' .. desc
-            end
+        -- local keymap = function(keys, func, desc)
+        --     if desc then
+        --         desc = "Git-Worktree: " .. desc
+        --     end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
-        end
+        --     vim.keymap.set("n", keys, func, { desc = desc })
+        -- end
 
-        keymap('<leader>gw', ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>",
-            'Switch & Delete worktree')
-        keymap('<leader>gc', ":lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>",
-            'Create a worktree')
+        keymap_normal(
+            "<leader>gw",
+            ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>",
+            "Git-Worktree",
+            true,
+            "Switch & Delete worktree"
+        )
+        keymap_normal(
+            "<leader>gc",
+            ":lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>",
+            "Git-Worktree",
+            true,
+            "Create a worktree"
+        )
 
         -- HOOKS
         local Worktree = require("git-worktree")
@@ -82,5 +100,5 @@ return {
 
         -- TEST:
         -- print("Hello from lazy git-worktree")
-    end
+    end,
 }
