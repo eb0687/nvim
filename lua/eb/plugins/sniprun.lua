@@ -10,6 +10,7 @@
 return {
 
     "michaelb/sniprun",
+    event = { "BufReadPost", "BufNewFile" },
     build = "sh ./install.sh",
     enabled = true,
 
