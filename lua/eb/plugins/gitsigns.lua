@@ -16,26 +16,11 @@ return {
 
     config = function()
         local gitsigns = require("gitsigns")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
         -- SETUP
         gitsigns.setup({
-            -- signs = {
-            --     add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-            --     change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-            --     delete = { hl = "GitSignsDelete", text = "▎", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-            --     topdelete = {
-            --         hl = "GitSignsDelete",
-            --         text = " ",
-            --         numhl = "GitSignsDeleteNr",
-            --         linehl = "GitSignsDeleteLn"
-            --     },
-            --     changedelete = {
-            --         hl = "GitSignsChange",
-            --         text = "▎",
-            --         numhl = "GitSignsChangeNr",
-            --         linehl = "GitSignsChangeLn"
-            --     },
-            -- },
             signcolumn = true, -- Toggle with `:Gitsigns toggle_signs`
             numhl = false, -- Toggle with `:Gitsigns toggle_numhl`
             linehl = false, -- Toggle with `:Gitsigns toggle_linehl`
@@ -73,23 +58,23 @@ return {
         })
 
         -- KEYMAPS
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = "GitSigns: " .. desc
-            end
+        -- local keymap = function(keys, func, desc)
+        --     if desc then
+        --         desc = "GitSigns: " .. desc
+        --     end
 
-            vim.keymap.set("n", keys, func, { desc = desc })
-        end
+        --     vim.keymap.set("n", keys, func, { desc = desc })
+        -- end
 
-        keymap("]g", ":Gitsigns next_hunk<CR>", "next hunk")
-        keymap("[g", ":Gitsigns prev_hunk<CR>", "previous hunk")
+        keymap_normal("]g", ":Gitsigns next_hunk<CR>", "GITSIGNS", true, "next hunk")
+        keymap_normal("[g", ":Gitsigns prev_hunk<CR>", "GITSIGNS", true, "previous hunk")
 
-        keymap("<leader>gp", ":Gitsigns preview_hunk<CR>", "preview hunk")
-        keymap("<leader>gs", ":Gitsigns stage_hunk<CR>", "stage hunk")
-        keymap("<leader>gu", ":Gitsigns undo_stage_hunk<CR>", "undo stage hunk")
+        keymap_normal("<leader>gp", ":Gitsigns preview_hunk<CR>", "GITSIGNS", true, "preview hunk")
+        keymap_normal("<leader>gs", ":Gitsigns stage_hunk<CR>", "GITSIGNS", true, "stage hunk")
+        keymap_normal("<leader>gu", ":Gitsigns undo_stage_hunk<CR>", "GITSIGNS", true, "undo stage hunk")
 
-        keymap("<leader>gS", ":Gitsigns stage_buffer<CR>", "stage buffer")
-        keymap("<leader>gU", ":Gitsigns reset_buffer<CR>", "reset buffer")
+        keymap_normal("<leader>gS", ":Gitsigns stage_buffer<CR>", "GITSIGNS", true, "stage buffer")
+        keymap_normal("<leader>gU", ":Gitsigns reset_buffer<CR>", "GITSIGNS", true, "reset buffer")
 
         -- TEST:
         -- print("Hello from lazy gitsigns")
