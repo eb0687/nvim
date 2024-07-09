@@ -5,22 +5,37 @@ return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
     config = function()
-        local trouble = require('trouble')
-        trouble.setup {}
+        local trouble = require("trouble")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = 'TROUBLE: ' .. desc
-            end
+        trouble.setup({})
 
-            vim.keymap.set('n', keys, func, { desc = desc })
-        end
+        -- local keymap_normal = function(keys, func, desc)
+        --     if desc then
+        --         desc = 'TROUBLE: ' .. desc
+        --     end
 
-        keymap("<leader>to", ":Trouble todo toggle focus=true<CR>", "Toggle todo list")
-        keymap("<leader>td", ":Trouble diagnostics toggle focus=true<CR>", "Toggle trouble list")
-        keymap("<leader>tq", ":Trouble quickfix toggle focus=true<CR>", "Toggle quickfix list")
-        keymap("<leader>ts", ":Trouble symbols toggle focus=true<CR>", "Toggle symbols list")
-        keymap("<leader>tl", ":Trouble loclist toggle focus=true<CR>", "Toggle symbols list")
-        keymap("<leader>tt", ":Trouble telescope_files toggle focus=true<CR>", "Toggle symbols list")
-    end
+        --     vim.keymap_normal.set('n', keys, func, { desc = desc })
+        -- end
+
+        keymap_normal("<leader>to", ":Trouble todo toggle focus=true<CR>", "TROUBLE", true, "Toggle todo list")
+        keymap_normal(
+            "<leader>td",
+            ":Trouble diagnostics toggle focus=true<CR>",
+            "TROUBLE",
+            true,
+            "Toggle trouble list"
+        )
+        keymap_normal("<leader>tq", ":Trouble quickfix toggle focus=true<CR>", "TROUBLE", true, "Toggle quickfix list")
+        keymap_normal("<leader>ts", ":Trouble symbols toggle focus=true<CR>", "TROUBLE", true, "Toggle symbols list")
+        keymap_normal("<leader>tl", ":Trouble loclist toggle focus=true<CR>", "TROUBLE", true, "Toggle symbols list")
+        keymap_normal(
+            "<leader>tt",
+            ":Trouble telescope_files toggle focus=true<CR>",
+            "TROUBLE",
+            true,
+            "Toggle symbols list"
+        )
+    end,
 }
