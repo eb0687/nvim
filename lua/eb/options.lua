@@ -66,20 +66,11 @@ cmd([[
     " disables automatic commenting on new line
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o,
 
-
     " healthcheck
     command! Health checkhealth
 
     autocmd FileType * silent! :TSEnable highlight
 ]])
-
--- NOTE: temporarily disabling this keybind and using CODE_RUNNER for script execution
--- " execute python script
--- "augroup run_file
---     "autocmd BufEnter *.py let @p=":silent w\<CR>:vsp | terminal python %\<CR>i"
--- "augroup end
-
--- vim.cmd[[hi NvimTreeNormal guibg=NONE ctermbg=NONE]]
 
 -- clean healthcheck output
 local g = vim.g
