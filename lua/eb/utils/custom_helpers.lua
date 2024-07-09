@@ -26,6 +26,7 @@ function M.keymap_normal(lhs, rhs, name, silent, desc)
     })
 end
 
+-- function for visual mode keymaps
 function M.keymap_visual(lhs, rhs, name, silent, desc)
     if desc then
         desc = name .. ": " .. desc
