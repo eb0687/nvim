@@ -52,19 +52,7 @@ return {
                 row = 0,
                 col = 1,
             },
-            -- yadm = {
-            --     enable = false,
-            -- },
         })
-
-        -- KEYMAPS
-        -- local keymap = function(keys, func, desc)
-        --     if desc then
-        --         desc = "GitSigns: " .. desc
-        --     end
-
-        --     vim.keymap.set("n", keys, func, { desc = desc })
-        -- end
 
         keymap_normal("]g", ":Gitsigns next_hunk<CR>", "GITSIGNS", true, "next hunk")
         keymap_normal("[g", ":Gitsigns prev_hunk<CR>", "GITSIGNS", true, "previous hunk")
