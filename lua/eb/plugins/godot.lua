@@ -17,6 +17,8 @@ return {
 
     config = function()
         local godot = require("godot")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
         -- SETUP
         godot.setup({
@@ -27,18 +29,11 @@ return {
         })
 
         -- KEYMAPS
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = "GODOT: " .. desc
-            end
-
-            vim.keymap.set("n", keys, func, { desc = desc })
-        end
-        keymap("<leader>dr", godot.debugger.debug, "Godot Debug")
-        keymap("<leader>dd", godot.debugger.debug_at_cursor, "Godot Debug at Cursor")
-        keymap("<leader>dq", godot.debugger.quit, "Godot Debug Quit")
-        keymap("<leader>dc", godot.debugger.continue, "Godot Debug Continue")
-        keymap("<leader>ds", godot.debugger.step, "Godot Debug Step")
+        keymap_normal("<leader>dr", godot.debugger.debug, "GODOT", true, "Godot Debug")
+        keymap_normal("<leader>dd", godot.debugger.debug_at_cursor, "GODOT", true, "Godot Debug at Cursor")
+        keymap_normal("<leader>dq", godot.debugger.quit, "GODOT", true, "Godot Debug Quit")
+        keymap_normal("<leader>dc", godot.debugger.continue, "GODOT", true, "Godot Debug Continue")
+        keymap_normal("<leader>ds", godot.debugger.step, "GODOT", true, "Godot Debug Step")
 
         -- TEST:
         -- print("Hello from lazy godot")
