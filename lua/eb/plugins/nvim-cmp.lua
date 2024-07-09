@@ -26,6 +26,7 @@ return {
             opts = {},
             ft = "gitcommit",
         },
+        "f3fora/cmp-spell",
     },
 
     config = function()
