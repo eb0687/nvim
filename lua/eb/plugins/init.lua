@@ -169,4 +169,9 @@ return {
             require("copilot_cmp").setup()
         end,
     },
+    -- https://github.com/shortcuts/no-neck-pain.nvim
+    {
+        "shortcuts/no-neck-pain.nvim",
+        version = "*",
+    },
 }
