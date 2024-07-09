@@ -14,4 +14,16 @@ function M.get_hostname()
     return hostname
 end
 
+-- function for normal mode keymaps
+function M.keymap_normal(lhs, rhs, name, silent, desc)
+    if desc then
+        desc = name .. ": " .. desc
+    end
+
+    vim.keymap.set("n", lhs, rhs, {
+        silent = silent,
+        desc = desc,
+    })
+end
+
 return M
