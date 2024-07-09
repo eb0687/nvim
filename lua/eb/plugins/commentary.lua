@@ -10,35 +10,35 @@
 -- lua/eb/plugins/comment.lua
 
 return {
-    'tpope/vim-commentary',
+    "tpope/vim-commentary",
     enabled = false,
 
     -- refer to this video for exaplanation on the below events:
     -- https://youtu.be/6mxWayq-s9I
-    event = { 'BufReadPre', 'BufNewFile' },
+    event = { "BufReadPre", "BufNewFile" },
 
     config = function()
         local keymap_n = function(keys, func, desc)
             if desc then
-                desc = 'VIM-Commentary: ' .. desc
+                desc = "VIM-Commentary: " .. desc
             end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
+            vim.keymap.set("n", keys, func, { desc = desc })
         end
 
         local keymap_v = function(keys, func, desc)
             if desc then
-                desc = 'VIM-Commentary: ' .. desc
+                desc = "VIM-Commentary: " .. desc
             end
 
-            vim.keymap.set('v', keys, func, { desc = desc })
+            vim.keymap.set("v", keys, func, { desc = desc })
         end
 
         -- KEYMAPS
-        keymap_n("<C-q>", ":Commentary<CR>", 'Add a comment in normal mode')
-        keymap_v("<C-q>", ":Commentary<CR>", 'Add a comment in visual mode')
+        keymap_n("<C-q>", ":Commentary<CR>", "Add a comment in normal mode")
+        keymap_v("<C-q>", ":Commentary<CR>", "Add a comment in visual mode")
 
         -- TEST:
         -- print("Hello from lazy commentary")
-    end
+    end,
 }
