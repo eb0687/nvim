@@ -9,15 +9,17 @@
 
 return {
 
-    'michaelb/sniprun',
-    build = 'sh ./install.sh',
+    "michaelb/sniprun",
+    build = "sh ./install.sh",
     enabled = true,
 
     config = function()
         local sniprun = require("sniprun")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_visual = custom_helpers.keymap_visual
 
         -- SETUP
-        sniprun.setup {
+        sniprun.setup({
 
             display = {
 
@@ -36,22 +38,12 @@ return {
                 SniprunFloatingWinOk = { fg = "#A9B665" },
                 SniprunFloatingWinErr = { fg = "#EA6962" },
             },
-            borders = "single"
-        }
+            borders = "single",
+        })
 
-        -- KEYMAPS
-
-        local keymap_visual = function(keys, func, desc)
-            if desc then
-                desc = 'Sniprun: ' .. desc
-            end
-
-            vim.keymap.set('v', keys, func, { desc = desc })
-        end
-
-        keymap_visual('<leader>lr', ':SnipRun<CR>', 'Run highlighted command')
+        keymap_visual("<leader>lr", ":SnipRun<CR>", "SNIPRUN", true, "Run highlighted command")
 
         -- TEST:
         -- print("Hello from after sniprun")
-    end
+    end,
 }
