@@ -25,31 +25,6 @@ return {
             jump_on_sole_occurrence = false,
         })
 
-        -- KEYMAPS
-        -- local keymap = function(keys, func, desc)
-        --     if desc then
-        --         desc = "HOP: " .. desc
-        --     end
-
-        --     vim.keymap.set("", keys, func, { desc = desc })
-        -- end
-
-        -- local keymap_n = function(keys, func, desc)
-        --     if desc then
-        --         desc = "HOP: " .. desc
-        --     end
-
-        --     vim.keymap.set("n", keys, func, { desc = desc })
-        -- end
-
-        -- local keymap_v = function(keys, func, desc)
-        --     if desc then
-        --         desc = "HOP: " .. desc
-        --     end
-
-        --     vim.keymap.set("v", keys, func, { desc = desc })
-        -- end
-
         -- source: https://github.com/smoka7/hop.nvim/wiki/Commands
         keymap_normal("<leader>hw", ":HopWord<CR", "HOP", true, "[H]op [W]ord")
         keymap_normal("<leader>hl", ":HopLine<CR", "HOP", true, "[H]op [L]ine")
