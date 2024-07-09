@@ -28,6 +28,7 @@ return {
             },
         })
 
+        -- BUG: The following keymap does not work
         vim.keymap.set({ "n", "v" }, "<leader>ls", function()
             conform.format({
                 lsp_fallback = true,
