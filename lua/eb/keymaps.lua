@@ -46,6 +46,7 @@ keymap_silent("n", "<TAB>", ":bnext<CR>", "Next buffer")
 keymap_silent("n", "<S-TAB>", ":bprevious<CR>", "Previous buffer")
 keymap_silent("n", "<leader>bd", ":bdelete<CR>", "Delete focused buffer")
 keymap_silent("n", "<leader>bD", ":%bd|e#<CR>", "Delete all except for focused buffer")
+keymap_silent("n", "<leader>BD", ":%bd<CR>", "Delete all buffers")
 -- Highlight off
 keymap_silent("n", "<leader>ho", ":noh<CR>", "Highlight off")
 -- Search & Replace
