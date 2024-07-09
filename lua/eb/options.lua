@@ -66,14 +66,13 @@ cmd([[
     " disables automatic commenting on new line
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o,
 
-    " automatically rebalance windows on vim resize when in a TMUX session.
-    autocmd VimResized * :wincmd =
 
     " healthcheck
     command! Health checkhealth
 
     autocmd FileType * silent! :TSEnable highlight
 ]])
+
 -- NOTE: temporarily disabling this keybind and using CODE_RUNNER for script execution
 -- " execute python script
 -- "augroup run_file
