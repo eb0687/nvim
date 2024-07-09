@@ -7,11 +7,13 @@
 
 return {
 
-    'jakewvincent/mkdnflow.nvim',
-    ft = 'markdown',
+    "jakewvincent/mkdnflow.nvim",
+    ft = "markdown",
 
     config = function()
         local mkdnflow = require("mkdnflow")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
         -- SETUP
         mkdnflow.setup({
@@ -25,18 +27,17 @@ return {
         })
 
         -- KEYMAPS
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = 'MKDNFlow: ' .. desc
-            end
+        -- local keymap = function(keys, func, desc)
+        --     if desc then
+        --         desc = "MKDNFlow: " .. desc
+        --     end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
-        end
+        --     vim.keymap.set("n", keys, func, { desc = desc })
+        -- end
 
-        keymap("<leader>ml", ":MkdnCreateLink<CR>", 'Create a [M]arkdown [L]ink')
+        keymap_normal("<leader>ml", ":MkdnCreateLink<CR>", "MKDNFlow", true, "Create a [M]arkdown [L]ink")
 
         -- TEST:
         -- print("Hello from lazy mkdnflow")
-    end
-
+    end,
 }
