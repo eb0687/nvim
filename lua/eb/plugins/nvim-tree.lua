@@ -10,6 +10,7 @@
 return {
 
     "nvim-tree/nvim-tree.lua",
+    enabled = false,
     events = "VeryLazy",
 
     -- keys = {
@@ -27,6 +28,8 @@ return {
 
     config = function()
         local nvimtree = require("nvim-tree")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
         -- SETUP
         nvimtree.setup({
@@ -123,23 +126,10 @@ return {
             },
         })
 
-        -- KEYMAPS
-
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = "Nvim Tree: " .. desc
-            end
-
-            vim.keymap.set("n", keys, func, { desc = desc })
-        end
-
-        -- Bindings
-
-        -- keymap("<leader>e", function()
-        --         local api = require('nvim-tree.api')
-        --         api.tree.toggle()
-        --     end,
-        --     'NvimTree toggle')
+        keymap_normal("<leader>e", function()
+            local api = require("nvim-tree.api")
+            api.tree.toggle()
+        end, "NVIMTREE", true, "NvimTree toggle")
 
         -- TEST:
         -- print("Hello from lazy nvim-tree")
