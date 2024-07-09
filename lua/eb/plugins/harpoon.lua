@@ -31,14 +31,6 @@ return {
         local custom_helpers = require("eb.utils.custom_helpers")
         local keymap_normal = custom_helpers.keymap_normal
 
-        -- local keymap = function(keys, func, desc)
-        --     if desc then
-        --         desc = "Harpoon: " .. desc
-        --     end
-
-        --     vim.keymap.set("n", keys, func, { desc = desc })
-        -- end
-
         keymap_normal("<leader>hm", ui.toggle_quick_menu, "HARPOON", true, "toggle harpoon menu")
         keymap_normal("<leader>ha", mark.add_file, "HARPOON", true, "add file to harpoon")
         keymap_normal("<leader>hr", mark.rm_file, "HARPOON", true, "remove file from harpoon")
