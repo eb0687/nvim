@@ -6,20 +6,14 @@
 -- https://github.com/mbbill/undotree
 
 return {
-    'mbbill/undotree',
+    "mbbill/undotree",
     keys = {
-        { "<F5>", ":UndotreeToggle<CR>", 'Undotree toggle' },
+        { "<F5>", ":UndotreeToggle<CR>", "Undotree toggle" },
     },
     config = function()
-        -- KEYMAP
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = 'UNDOTREE: ' .. desc
-            end
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
-            vim.keymap.set('n', keys, func, { desc = desc })
-        end
-
-        keymap("<F5>", ":UndotreeToggle<CR>", 'Undotree toggle')
-    end
+        keymap_normal("<F5>", ":UndotreeToggle<CR>", "UNDOTREE", true, "Undotree toggle")
+    end,
 }
