@@ -52,15 +52,6 @@ return {
         -- Telescope plugin integration
         require("telescope").load_extension("git_worktree")
 
-        -- KEYMAPS
-        -- local keymap = function(keys, func, desc)
-        --     if desc then
-        --         desc = "Git-Worktree: " .. desc
-        --     end
-
-        --     vim.keymap.set("n", keys, func, { desc = desc })
-        -- end
-
         keymap_normal(
             "<leader>gw",
             ":lua require('telescope').extensions.git_worktree.git_worktrees()<CR>",
