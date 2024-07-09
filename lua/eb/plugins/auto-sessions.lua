@@ -8,6 +8,8 @@ return {
     },
     config = function()
         local auto_session = require("auto-session")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
         auto_session.setup({
             auto_session_create_enabled = true,
@@ -19,15 +21,6 @@ return {
             },
         })
 
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = "AUTO-SESSION: " .. desc
-            end
-
-            vim.keymap.set("n", keys, func, { desc = desc })
-        end
-
-        keymap_normal("<leader>wr", "<cmd>SessionRestore<CR>", "AUTO SESSION", true, "Restore session for cwd")
         keymap_normal(
             "<leader>ws",
             "<cmd>SessionSave<CR>",
