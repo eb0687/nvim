@@ -83,7 +83,6 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- Quickfix list
 keymap_silent("n", "<leader>j", "<cmd>cnext<CR>zz", "Quickfix next")
 keymap_silent("n", "<leader>k", "<cmd>cprev<CR>zz", "Quickfix prev")
-keymap_silent("n", "<leadeR>cf", ":ClearQuickfixList<CR>", "Clear the Quickfix")
 -- Various
 keymap_silent("n", "<leader>xx", "<cmd>silent !chmod +x %<CR>", "Make executable")
 keymap_silent("n", "<leader>w", ":set wrap!<CR>", "Toggle wrap")
