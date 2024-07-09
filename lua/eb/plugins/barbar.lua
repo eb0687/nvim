@@ -15,6 +15,8 @@ return {
 
     config = function()
         local barbar = require("barbar")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap = custom_helpers.keymap_normal
 
         -- SETUP
         barbar.setup({
@@ -73,35 +75,27 @@ return {
         --     { bang = true, complete = 'file', desc = 'Save barbar with :mksession', nargs = '?' }
         -- )
 
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = "BARBAR: " .. desc
-            end
-
-            vim.keymap.set("n", keys, func, { desc = desc })
-        end
-
         -- Navigate between buffers
-        keymap("<S-tab>", "<Cmd>BufferPrevious<CR>", "Previous buffer")
-        keymap("<tab>", "<Cmd>BufferNext<CR>", "Next buffer")
+        keymap("<S-tab>", "<Cmd>BufferPrevious<CR>", "BARBAR", true, "Previous buffer")
+        keymap("<tab>", "<Cmd>BufferNext<CR>", "BARBAR", true, "Next buffer")
 
         -- Re-order buffers
-        keymap("<A-<>", "<Cmd>BufferMovePrevious<CR>", "Move buffer to the left")
-        keymap("<A->>", "<Cmd>BufferMoveNext<CR>", "Move buffer to the right")
+        keymap("<A-<>", "<Cmd>BufferMovePrevious<CR>", "BARBAR", true, "Move buffer to the left")
+        keymap("<A->>", "<Cmd>BufferMoveNext<CR>", "BARBAR", true, "Move buffer to the right")
 
         -- Pin/Unpin buffer
-        keymap("<A-p>", "<Cmd>BufferPin<CR>", "Pin buffer")
+        keymap("<A-p>", "<Cmd>BufferPin<CR>", "BARBAR", true, "Pin buffer")
 
         -- Close buffer
-        keymap("<leader>bd", "<Cmd>BufferClose<CR>", "Close current buffer")
+        keymap("<leader>bd", "<Cmd>BufferClose<CR>", "BARBAR", true, "Close current buffer")
 
         -- Goto buffer position
-        keymap("<A-1>", "<Cmd>BufferGoto 1<CR>", "Go to buffer tab 1")
-        keymap("<A-2>", "<Cmd>BufferGoto 2<CR>", "Go to buffer tab 2")
-        keymap("<A-3>", "<Cmd>BufferGoto 3<CR>", "Go to buffer tab 3")
-        keymap("<A-4>", "<Cmd>BufferGoto 4<CR>", "Go to buffer tab 4")
-        keymap("<A-5>", "<Cmd>BufferGoto 5<CR>", "Go to buffer tab 5")
-        keymap("<A-6>", "<Cmd>BufferGoto 6<CR>", "Go to buffer tab 6")
+        keymap("<A-1>", "<Cmd>BufferGoto 1<CR>", "BARBAR", true, "Go to buffer tab 1")
+        keymap("<A-2>", "<Cmd>BufferGoto 2<CR>", "BARBAR", true, "Go to buffer tab 2")
+        keymap("<A-3>", "<Cmd>BufferGoto 3<CR>", "BARBAR", true, "Go to buffer tab 3")
+        keymap("<A-4>", "<Cmd>BufferGoto 4<CR>", "BARBAR", true, "Go to buffer tab 4")
+        keymap("<A-5>", "<Cmd>BufferGoto 5<CR>", "BARBAR", true, "Go to buffer tab 5")
+        keymap("<A-6>", "<Cmd>BufferGoto 6<CR>", "BARBAR", true, "Go to buffer tab 6")
 
         -- keymap('<leader>bs', ':Mksession! ~/.nvim-sessions/', 'Save session')
         -- keymap('<leader>bo', ':source ~/.nvim-sessions/', 'Open session')
