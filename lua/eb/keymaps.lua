@@ -5,14 +5,6 @@
 -- |_|\_\___|\__, |_| |_| |_|\__,_| .__/|___/
 --           |___/                |_|
 
-local custom_helpers = require("eb.utils.custom_helpers")
-local keymap_silent = custom_helpers.keymap_silent
-local keymap_loud = custom_helpers.keymap_loud
-
--- leader remap
-keymap_silent("", "<Space>", "<Nop>", "Leader")
-vim.g.mapleader = " "
-
 -- NOTE:
 -- Modes
 -- normal_mode = "n",
@@ -22,10 +14,17 @@ vim.g.mapleader = " "
 -- term_mode = "t",
 -- command_mode = "c",
 
+local custom_helpers = require("eb.utils.custom_helpers")
+local keymap_silent = custom_helpers.keymap_silent
+local keymap_loud = custom_helpers.keymap_loud
+
+-- leader remap
+keymap_silent("", "<Space>", "<Nop>", "Leader")
+vim.g.mapleader = " "
+
 -- KEYMAPS
 
--- NORMAL MODE [[[
--- ]]]
+-- NORMAL MODE
 
 -- Source Nvim
 keymap_loud("n", "<leader>xo", ":luafile %<CR>", "Source NVIM")
@@ -115,16 +114,14 @@ end, "Change directory to current file working directory")
 -- Append line
 keymap_silent("n", "J", "mzJ`z", "Append bottom line")
 
--- INSERT MODE [[[
--- ]]]
+-- INSERT MODE
 
 -- Escape remap
 keymap_silent("i", "jk", "<Esc>", "Escape")
 keymap_silent("i", "kj", "<Esc>", "Escape")
 keymap_silent("i", "jj", "<Esc>", "Escape")
 
--- VISUAL MODE [[[
--- ]]]
+-- VISUAL MODE
 
 -- Move highlighted text around using J / K
 keymap_silent("v", "J", ":m '>+1<CR>gv=gv", "Move highlighted text down")
