@@ -20,7 +20,7 @@ return {
                 "~/Documents",
             },
         })
-
+        keymap_normal("<leader>wr", "<cmd>SessionRestore<CR>", "AUTO SESSION", true, "Restore session for cwd")
         keymap_normal(
             "<leader>ws",
             "<cmd>SessionSave<CR>",
