@@ -1,6 +1,5 @@
 return {
     "ThePrimeagen/refactoring.nvim",
-    enabled = false,
     ft = {
         "javascript",
         "lua",
