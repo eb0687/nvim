@@ -18,7 +18,7 @@ local custom_helpers = require("eb.utils.custom_helpers")
 local keymap_silent = custom_helpers.keymap_silent
 local keymap_loud = custom_helpers.keymap_loud
 
--- leader remap
+-- Leader remap
 keymap_silent("", "<Space>", "<Nop>", "Leader")
 vim.g.mapleader = " "
 
