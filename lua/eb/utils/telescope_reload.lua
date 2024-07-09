@@ -8,7 +8,7 @@ function M.reload()
     -- so this function convert the selected entry to
     -- the module name: ju.colors
     local function get_module_name(s)
-        local module_name;
+        local module_name
 
         module_name = s:gsub("%.lua", "")
         module_name = module_name:gsub("%/", ".")
@@ -40,11 +40,11 @@ function M.reload()
             end)
 
             return true
-        end
+        end,
     }
 
     -- call the builtin method to list files
-    require('telescope.builtin').find_files(opts)
+    require("telescope.builtin").find_files(opts)
 end
 
-return M;
+return M
