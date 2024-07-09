@@ -5,6 +5,7 @@
 -- |_.__/ \__,_|_|  |_.__/ \__,_|_|
 -- https://github.com/romgrk/barbar.nvim
 
+-- NOTE: disabling this plugin and using native neovim buffer navigation
 return {
     "romgrk/barbar.nvim",
     enabled = false,
