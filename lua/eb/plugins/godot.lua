@@ -11,11 +11,12 @@
 -- game dev.
 
 return {
-    'lommix/godot.nvim',
+    "lommix/godot.nvim",
     lazy = true,
+    enabled = false,
 
     config = function()
-        local godot = require('godot')
+        local godot = require("godot")
 
         -- SETUP
         godot.setup({
@@ -28,18 +29,18 @@ return {
         -- KEYMAPS
         local keymap = function(keys, func, desc)
             if desc then
-                desc = 'GODOT: ' .. desc
+                desc = "GODOT: " .. desc
             end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
+            vim.keymap.set("n", keys, func, { desc = desc })
         end
-        keymap("<leader>dr", godot.debugger.debug, 'Godot Debug')
-        keymap("<leader>dd", godot.debugger.debug_at_cursor, 'Godot Debug at Cursor')
-        keymap("<leader>dq", godot.debugger.quit, 'Godot Debug Quit')
-        keymap("<leader>dc", godot.debugger.continue, 'Godot Debug Continue')
-        keymap("<leader>ds", godot.debugger.step, 'Godot Debug Step')
+        keymap("<leader>dr", godot.debugger.debug, "Godot Debug")
+        keymap("<leader>dd", godot.debugger.debug_at_cursor, "Godot Debug at Cursor")
+        keymap("<leader>dq", godot.debugger.quit, "Godot Debug Quit")
+        keymap("<leader>dc", godot.debugger.continue, "Godot Debug Continue")
+        keymap("<leader>ds", godot.debugger.step, "Godot Debug Step")
 
         -- TEST:
         -- print("Hello from lazy godot")
-    end
+    end,
 }
