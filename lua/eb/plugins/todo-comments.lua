@@ -80,22 +80,14 @@ return {
         local custom_helpers = require("eb.utils.custom_helpers")
         local keymap_normal = custom_helpers.keymap_normal
 
-        local function todo_current_buffer_dir()
-            -- NOTE:
-            -- for more explanation on what the arguments passed to the expand
-            -- method mean, check the docs :help expand()
-            Command = "TodoTelescope cwd=" .. vim.fn.expand("%:p:h")
-            vim.api.nvim_command(Command)
-            print("TODO in: " .. vim.fn.expand("%:p:h"))
-        end
-
-        -- KEYMAPS
-        -- local keymap = function(keys, func, desc)
-        --     if desc then
-        --         desc = 'TODO-COMMENTS: ' .. desc
-        --     end
-
-        --     vim.keymap.set('n', keys, func, { desc = desc })
+        -- NOTE: disabling this for now and replacing it with trouble.nvim
+        -- local function todo_current_buffer_dir()
+        --     -- NOTE:
+        --     -- for more explanation on what the arguments passed to the expand
+        --     -- method mean, check the docs :help expand()
+        --     Command = "TodoTelescope cwd=" .. vim.fn.expand("%:p:h")
+        --     vim.api.nvim_command(Command)
+        --     print("TODO in: " .. vim.fn.expand("%:p:h"))
         -- end
 
         -- jump to next todo
