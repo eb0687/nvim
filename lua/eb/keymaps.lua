@@ -5,27 +5,9 @@
 -- |_|\_\___|\__, |_| |_| |_|\__,_| .__/|___/
 --           |___/                |_|
 
-local keymap_silent = function(mode, keys, func, desc)
-    if desc then
-        desc = "KEYBIND: " .. desc
-    end
-    vim.keymap.set(mode, keys, func, {
-        noremap = true,
-        silent = true,
-        desc = desc,
-    })
-end
-
-local keymap_loud = function(mode, keys, func, desc)
-    if desc then
-        desc = "KEYBIND: " .. desc
-    end
-    vim.keymap.set(mode, keys, func, {
-        noremap = true,
-        silent = false,
-        desc = desc,
-    })
-end
+local custom_helpers = require("eb.utils.custom_helpers")
+local keymap_silent = custom_helpers.keymap_silent
+local keymap_loud = custom_helpers.keymap_loud
 
 -- leader remap
 keymap_silent("", "<Space>", "<Nop>", "Leader")
