@@ -7,12 +7,14 @@
 -- https://github.com/arjunmahishi/flow.nvim
 
 return {
-    'arjunmahishi/flow.nvim',
+    "arjunmahishi/flow.nvim",
     enabled = false,
     config = function()
-        local flow = require('flow')
+        local flow = require("flow")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
-        flow.setup {
+        flow.setup({
             output = {
                 buffer = true,
                 size = "auto",
@@ -20,19 +22,19 @@ return {
                 modifiable = true,
             },
             window_override = {
-                border = 'single',
-            }
-        }
+                border = "single",
+            },
+        })
 
         local keymap = function(keys, func, desc)
             if desc then
-                desc = 'FLOW: ' .. desc
+                desc = "FLOW: " .. desc
             end
 
-            vim.keymap.set('n', keys, func, { desc = desc })
+            vim.keymap.set("n", keys, func, { desc = desc })
         end
 
-        keymap("<leader>rr",":FlowRunFile<CR>","execute the entire file")
-        keymap("<leader>lr",":FlowRunSelected<CR>","execute the current selection")
-    end
+        keymap_normal("<leader>rr", ":FlowRunFile<CR>", "FLOW", true, "execute the entire file")
+        keymap_normal("<leader>lr", ":FlowRunSelected<CR>", "FLOW", true, "execute the current selection")
+    end,
 }
