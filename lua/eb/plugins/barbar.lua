@@ -7,6 +7,7 @@
 
 return {
     "romgrk/barbar.nvim",
+    enabled = false,
     event = "VeryLazy",
     dependencies = {
         "lewis6991/gitsigns.nvim", -- OPTIONAL: for git status
