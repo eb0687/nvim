@@ -22,8 +22,6 @@ local keymap_loud = custom_helpers.keymap_loud
 keymap_silent("", "<Space>", "<Nop>", "Leader")
 vim.g.mapleader = " "
 
--- KEYMAPS
-
 -- NORMAL MODE
 
 -- Source Nvim
