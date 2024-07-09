@@ -26,15 +26,6 @@ return {
             },
         })
 
-        -- KEYMAPS
-        -- local keymap = function(keys, func, desc)
-        --     if desc then
-        --         desc = "MKDNFlow: " .. desc
-        --     end
-
-        --     vim.keymap.set("n", keys, func, { desc = desc })
-        -- end
-
         keymap_normal("<leader>ml", ":MkdnCreateLink<CR>", "MKDNFlow", true, "Create a [M]arkdown [L]ink")
 
         -- TEST:
