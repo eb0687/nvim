@@ -26,34 +26,35 @@ return {
         "nvim-lua/plenary.nvim",
     },
     config = function()
-        -- KEYMAPS
         local mark = require("harpoon.mark")
         local ui = require("harpoon.ui")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
 
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = "Harpoon: " .. desc
-            end
+        -- local keymap = function(keys, func, desc)
+        --     if desc then
+        --         desc = "Harpoon: " .. desc
+        --     end
 
-            vim.keymap.set("n", keys, func, { desc = desc })
-        end
+        --     vim.keymap.set("n", keys, func, { desc = desc })
+        -- end
 
-        keymap("<leader>hm", ui.toggle_quick_menu, "toggle harpoon menu")
-        keymap("<leader>ha", mark.add_file, "add file to harpoon")
-        keymap("<leader>hr", mark.rm_file, "remove file from harpoon")
-        keymap("<leader>hc", mark.clear_all, "clear all files from harpoon")
-        keymap("<leader>1", function()
+        keymap_normal("<leader>hm", ui.toggle_quick_menu, "HARPOON", true, "toggle harpoon menu")
+        keymap_normal("<leader>ha", mark.add_file, "HARPOON", true, "add file to harpoon")
+        keymap_normal("<leader>hr", mark.rm_file, "HARPOON", true, "remove file from harpoon")
+        keymap_normal("<leader>hc", mark.clear_all, "HARPOON", true, "clear all files from harpoon")
+        keymap_normal("<leader>1", function()
             ui.nav_file(1)
-        end, "Add to harpoon key [1]")
-        keymap("<leader>2", function()
+        end, "HARPOON", true, "Add to harpoon key [1]")
+        keymap_normal("<leader>2", function()
             ui.nav_file(2)
-        end, "Add to harpoon key [2]")
-        keymap("<leader>3", function()
+        end, "HARPOON", true, "Add to harpoon key [2]")
+        keymap_normal("<leader>3", function()
             ui.nav_file(3)
-        end, "Add to harpoon key [3]")
-        keymap("<leader>4", function()
+        end, "HARPOON", true, "Add to harpoon key [3]")
+        keymap_normal("<leader>4", function()
             ui.nav_file(4)
-        end, "Add to harpoon key [4]")
+        end, "HARPOON", true, "Add to harpoon key [4]")
 
         -- TEST:
         -- print("Hello from lazy harpoon")
