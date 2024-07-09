@@ -63,9 +63,6 @@ local cmd = vim.cmd
 cmd([[
     "let g:python3_host_prog = '/usr/bin/python3'",
 
-    " center documents when in INSERT mode
-    autocmd InsertEnter * norm zz,
-
     " disables automatic commenting on new line
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o,
 
