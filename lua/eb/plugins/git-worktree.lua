@@ -11,6 +11,7 @@
 
 return {
     "ThePrimeagen/git-worktree.nvim",
+    enabled = false,
     -- lazy = true,
     -- events = 'VeryLazy',
     keys = {
