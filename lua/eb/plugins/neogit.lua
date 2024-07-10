@@ -10,6 +10,10 @@ return {
     },
     config = function()
         local neogit = require("neogit")
-        neogit.setup({})
+        neogit.setup({
+            commit_editor = {
+                kind = "tab",
+            },
+        })
     end,
 }

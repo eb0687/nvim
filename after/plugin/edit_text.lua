@@ -12,7 +12,7 @@ end
 local edit_opts = vim.api.nvim_create_augroup("edit_text", { clear = true })
 
 -- Set filetypes here
-local patterns = { "gitcommit", "markdown", "text" }
+local patterns = { "gitcommit", "markdown", "text", "NeogitCommitMessage" }
 
 -- Function to enable cmp-spell source
 local function enable_cmp_spell_source()
