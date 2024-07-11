@@ -55,6 +55,9 @@ return {
                 "black", -- python formatter
                 "pylint",
                 "goimports",
+                "shellcheck",
+                "pylint",
+                "ansible-lint",
             },
         })
     end,
