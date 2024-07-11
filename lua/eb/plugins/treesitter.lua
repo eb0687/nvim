@@ -47,6 +47,7 @@ return {
                 "gitignore",
                 "javascript",
                 "go",
+                "vimdoc",
             },
             auto_install = true,
 
