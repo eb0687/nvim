@@ -48,6 +48,8 @@ return {
                 "javascript",
                 "go",
                 "vimdoc",
+                "commonlisp",
+                "regex",
             },
             auto_install = true,
 
