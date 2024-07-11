@@ -58,6 +58,7 @@ return {
                 "shellcheck",
                 "pylint",
                 "ansible-lint",
+                "eslint_d",
             },
         })
     end,
