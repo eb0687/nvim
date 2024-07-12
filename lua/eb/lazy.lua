@@ -37,7 +37,7 @@ local opts = {
 local utils = require("eb.utils.custom_helpers")
 local hostname = utils.get_hostname()
 
-if hostname == "JIGA" then
+if hostname == "JIGA" or "eb-t490" then
     require("lazy").setup({
         { import = "eb.plugins" }, -- plugins configs managed by lazy
         { import = "eb.plugins.lsp" }, -- lsp configs managed by lazy
