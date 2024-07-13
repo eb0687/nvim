@@ -59,6 +59,7 @@ return {
                 "pylint",
                 "ansible-lint",
                 "eslint_d",
+                "markdownlint",
             },
         })
     end,

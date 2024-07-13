@@ -12,6 +12,7 @@ return {
             python = { "pylint" },
             html = { "markuplint" },
             javascript = { "eslint_d" },
+            markdown = { "markdownlint" },
         }
         local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
