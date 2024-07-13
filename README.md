@@ -1,1 +1,1 @@
-Personal configs for NEOVIM mostly in LUA.
+# Personal configs for NEOVIM written mostly in LUA
