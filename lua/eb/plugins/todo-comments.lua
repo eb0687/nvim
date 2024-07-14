@@ -90,15 +90,15 @@ return {
         --     print("TODO in: " .. vim.fn.expand("%:p:h"))
         -- end
 
-        -- jump to next todo
-        keymap_normal("]t", function()
-            require("todo-comments").jump_next()
-        end, "TODO COMMENTS", true, "Next todo comment")
+        -- -- jump to next todo
+        -- keymap_normal("]t", function()
+        --     require("todo-comments").jump_next()
+        -- end, "TODO COMMENTS", true, "Next todo comment")
 
-        -- jump to previous todo
-        keymap_normal("[t", function()
-            require("todo-comments").jump_prev()
-        end, "TODO COMMENTS", true, "Previous todo comment")
+        -- -- jump to previous todo
+        -- keymap_normal("[t", function()
+        --     require("todo-comments").jump_prev()
+        -- end, "TODO COMMENTS", true, "Previous todo comment")
 
         -- NOTE: replaced with trouble.nvim
         -- list all todos in the current buffer's directory
