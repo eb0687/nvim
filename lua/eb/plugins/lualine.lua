@@ -12,32 +12,32 @@ return {
         local lsp_servers = require("eb.utils.lualine-helpers.lsp-servers")
         local macro = require("eb.utils.lualine-helpers.macro")
         -- local cwd = require('eb.utils.lualine-helpers.cwd')
-        local diff = require("eb.utils.lualine-helpers.git-diff")
-        local branch = require("eb.utils.lualine-helpers.git-branch")
+        -- local diff = require("eb.utils.lualine-helpers.git-diff")
+        -- local branch = require("eb.utils.lualine-helpers.git-branch")
         local mode = require("eb.utils.lualine-helpers.mode")
         local diagnostics = require("eb.utils.lualine-helpers.diagnostics")
         local location = require("eb.utils.lualine-helpers.location")
         local custom_theme = require("eb.utils.lualine-helpers.themes.gruvbox-material-custom")
         local lazy_status = require("lazy.status")
-        local harpoon = require("harpoon.mark")
+        -- local harpoon = require("harpoon.mark")
 
         -- https://github.com/dmmulroy/kickstart.nix/blob/main/config/nvim/lua/plugins/lualine.lua
-        local function harpoon_component()
-            local total_marks = harpoon.get_length()
+        -- local function harpoon_component()
+        --     local total_marks = harpoon.get_length()
 
-            if total_marks == 0 then
-                return ""
-            end
+        --     if total_marks == 0 then
+        --         return ""
+        --     end
 
-            local current_mark = "—"
+        --     local current_mark = "—"
 
-            local mark_idx = harpoon.get_current_index()
-            if mark_idx ~= nil then
-                current_mark = tostring(mark_idx)
-            end
+        --     local mark_idx = harpoon.get_current_index()
+        --     if mark_idx ~= nil then
+        --         current_mark = tostring(mark_idx)
+        --     end
 
-            return string.format("󱡅 [%s/%d]", current_mark, total_marks)
-        end
+        --     return string.format("󱡅 [%s/%d]", current_mark, total_marks)
+        -- end
 
         -- https://github.com/declancm/maximize.nvim?tab=readme-ov-file#-statusline--winbar
         local function maximize_status()
@@ -114,18 +114,23 @@ return {
                         cond = lazy_status.has_updates,
                         color = { fg = "#ea6962" },
                     },
-                    harpoon_component,
                     {
-
-                        branch,
-                        padding = 1,
-                        cond = min_window_width(40),
-                    },
-                    {
-                        diff,
+                        "harpoon2",
                         padding = 1,
                         cond = min_window_width(50),
                     },
+                    -- harpoon_component,
+                    -- {
+
+                    --     branch,
+                    --     padding = 1,
+                    --     cond = min_window_width(40),
+                    -- },
+                    -- {
+                    --     diff,
+                    --     padding = 1,
+                    --     cond = min_window_width(50),
+                    -- },
                     -- {
                     --     diagnostics,
                     --     cond = min_window_width(30)

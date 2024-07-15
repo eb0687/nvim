@@ -11,42 +11,76 @@
 
 return {
     "ThePrimeagen/harpoon",
+    branch = "harpoon2",
     event = "VeryLazy",
-    keys = {
-        { "<leader>hm", '<cmd>lua require("harpoon.ui").toggle_quick_menu()', "toggle harpoon menu" },
-        { "<leader>ha", '<cmd>lua require("harpoon.mark").add_file()', "add files to harpoon" },
-        { "<leader>hr", '<cmd>lua require("harpoon.mark").rm_file()', "remove file from harpoon" },
-        { "<leader>hc", '<cmd>lua require("harpoon.mark").clear_all()', "clear all files from harpoon" },
-        { "<leader>1", '<cmd>lua require("harpoon.ui").nav_file(1)', "Add to harpoon key [1]" },
-        { "<leader>2", '<cmd>lua require("harpoon.ui").nav_file(2)', "Add to harpoon key [2]" },
-        { "<leader>3", '<cmd>lua require("harpoon.ui").nav_file(3)', "Add to harpoon key [3]" },
-        { "<leader>4", '<cmd>lua require("harpoon.ui").nav_file(4)', "Add to harpoon key [4]" },
-    },
     dependencies = {
         "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim",
     },
     config = function()
-        local mark = require("harpoon.mark")
-        local ui = require("harpoon.ui")
         local custom_helpers = require("eb.utils.custom_helpers")
         local keymap_normal = custom_helpers.keymap_normal
 
-        keymap_normal("<leader>hm", ui.toggle_quick_menu, "HARPOON", true, "toggle harpoon menu")
-        keymap_normal("<leader>ha", mark.add_file, "HARPOON", true, "add file to harpoon")
-        keymap_normal("<leader>hr", mark.rm_file, "HARPOON", true, "remove file from harpoon")
-        keymap_normal("<leader>hc", mark.clear_all, "HARPOON", true, "clear all files from harpoon")
+        local harpoon = require("harpoon")
+        harpoon:setup({
+            settings = {
+                save_on_toggle = true,
+                sync_on_ui_close = false,
+                save_on_change = true,
+                excluded_filetypes = { "harpoon", "alpha", "dashboard", "gitcommit" },
+                key = function()
+                    return vim.loop.cwd()
+                end,
+            },
+        })
+
+        -- https://github.com/ThePrimeagen/harpoon/tree/harpoon2?tab=readme-ov-file#extend
+        harpoon:extend({
+            UI_CREATE = function(cx)
+                vim.keymap.set("n", "<C-v>", function()
+                    harpoon.ui:select_menu_item({ vsplit = true })
+                end, { buffer = cx.bufnr })
+
+                vim.keymap.set("n", "<C-h>", function()
+                    harpoon.ui:select_menu_item({ split = true })
+                end, { buffer = cx.bufnr })
+            end,
+        })
+
+        keymap_normal("<leader>ha", function()
+            harpoon:list():add()
+        end, "HARPOON", true, "Add to harpoon list")
+        keymap_normal("<leader>hm", function()
+            harpoon.ui:toggle_quick_menu(harpoon:list())
+        end, "HARPOON", true, "Toggle quick menu")
+        keymap_normal("<leader>hr", function()
+            harpoon:list():remove()
+        end, "HARPOON", true, "Remove from harpoon list")
+
+        -- Jump to harpoon mark
         keymap_normal("<leader>1", function()
-            ui.nav_file(1)
-        end, "HARPOON", true, "Add to harpoon key [1]")
+            harpoon:list():select(1)
+        end, "HARPOON", true, "Jump to mark 1")
         keymap_normal("<leader>2", function()
-            ui.nav_file(2)
-        end, "HARPOON", true, "Add to harpoon key [2]")
+            harpoon:list():select(2)
+        end, "HARPOON", true, "Jump to mark 2")
         keymap_normal("<leader>3", function()
-            ui.nav_file(3)
-        end, "HARPOON", true, "Add to harpoon key [3]")
+            harpoon:list():select(3)
+        end, "HARPOON", true, "Jump to mark 3")
         keymap_normal("<leader>4", function()
-            ui.nav_file(4)
-        end, "HARPOON", true, "Add to harpoon key [4]")
+            harpoon:list():select(4)
+        end, "HARPOON", true, "Jump to mark 4")
+        keymap_normal("<leader>5", function()
+            harpoon:list():select(5)
+        end, "HARPOON", true, "Jump to mark 5")
+
+        -- Toggle previous & next buffers stored within Harpoon list
+        keymap_normal("<C-n>", function()
+            harpoon:list():next()
+        end, "HARPOON", true, "Next buffer in harpoon list")
+        keymap_normal("<C-p>", function()
+            harpoon:list():prev()
+        end, "HARPOON", true, "Previous buffer in harpoon list")
 
         -- TEST:
         -- print("Hello from lazy harpoon")
