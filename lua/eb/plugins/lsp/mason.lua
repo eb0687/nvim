@@ -44,6 +44,7 @@ return {
                 "tsserver",
                 "tailwindcss",
                 "gopls",
+                "taplo",
             },
             automatic_installation = true,
         })
