@@ -48,7 +48,7 @@
   "maximize.nvim": { "branch": "master", "commit": "02588e7b20df1a0692aa96f83cc4670199f74d71" },
   "mkdnflow.nvim": { "branch": "main", "commit": "0fa1e682e35d46cd1a0102cedd05b0283e41d18d" },
   "multicursors.nvim": { "branch": "main", "commit": "782820896b1691ed664e4c24f1cd9793dcb33dfb" },
-  "neogit": { "branch": "master", "commit": "4fb60b903e8a01c9dfd3a59f56292dae667b8339" },
+  "neogit": { "branch": "master", "commit": "100959d839dfb64e16df27de79af2087e098ebaa" },
   "nerdy.nvim": { "branch": "main", "commit": "b467d6609b78d6a5f1e12cbc08fcc1ac87af20f5" },
   "no-neck-pain.nvim": { "branch": "main", "commit": "ecc584150f5c8a2a82f2e1d43201df0f65c63d0e" },
   "noice.nvim": { "branch": "main", "commit": "90844cfdf8c1d2edcb2e56c21e2724e7c6ea4c41" },
