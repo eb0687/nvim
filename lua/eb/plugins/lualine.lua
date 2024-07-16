@@ -22,6 +22,7 @@ return {
         local harpoon = require("harpoon")
 
         -- check for mason package upgrades
+        -- https://github.com/williamboman/mason.nvim/discussions/1535
         local function lualine_mason_updates()
             local registry = require("mason-registry")
             local installed_packages = registry.get_installed_package_names()
