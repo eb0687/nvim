@@ -124,6 +124,7 @@ return {
                     macro,
                 },
                 lualine_x = {
+                    { quickfix.counter },
                     {
                         lualine_mason_updates,
                         icon = "",
