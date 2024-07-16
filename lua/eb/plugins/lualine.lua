@@ -19,25 +19,33 @@ return {
         local location = require("eb.utils.lualine-helpers.location")
         local custom_theme = require("eb.utils.lualine-helpers.themes.gruvbox-material-custom")
         local lazy_status = require("lazy.status")
-        -- local harpoon = require("harpoon.mark")
 
-        -- https://github.com/dmmulroy/kickstart.nix/blob/main/config/nvim/lua/plugins/lualine.lua
-        -- local function harpoon_component()
-        --     local total_marks = harpoon.get_length()
+        -- check for mason package upgrades
+        local function lualine_mason_updates()
+            local registry = require("mason-registry")
+            local installed_packages = registry.get_installed_package_names()
+            local upgrades_available = false
+            local packages_outdated = 0
+            local function myCallback(success, result_or_err)
+                if success then
+                    upgrades_available = true
+                    packages_outdated = packages_outdated + 1
+                end
+            end
 
-        --     if total_marks == 0 then
-        --         return ""
-        --     end
+            for _, pkg in pairs(installed_packages) do
+                local p = registry.get_package(pkg)
+                if p then
+                    p:check_new_version(myCallback)
+                end
+            end
 
-        --     local current_mark = "—"
-
-        --     local mark_idx = harpoon.get_current_index()
-        --     if mark_idx ~= nil then
-        --         current_mark = tostring(mark_idx)
-        --     end
-
-        --     return string.format("󱡅 [%s/%d]", current_mark, total_marks)
-        -- end
+            if upgrades_available then
+                return packages_outdated
+            else
+                return ""
+            end
+        end
 
         -- https://github.com/declancm/maximize.nvim?tab=readme-ov-file#-statusline--winbar
         local function maximize_status()
@@ -110,9 +118,20 @@ return {
                 },
                 lualine_x = {
                     {
+                        lualine_mason_updates,
+                        icon = "",
+                        color = { fg = "#ea6962" },
+                        on_click = function()
+                            vim.cmd("Mason")
+                        end,
+                    },
+                    {
                         lazy_status.updates,
                         cond = lazy_status.has_updates,
                         color = { fg = "#ea6962" },
+                        on_click = function()
+                            vim.cmd("Lazy")
+                        end,
                     },
                     {
                         "harpoon2",
