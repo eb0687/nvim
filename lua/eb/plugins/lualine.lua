@@ -19,6 +19,7 @@ return {
         local location = require("eb.utils.lualine-helpers.location")
         local custom_theme = require("eb.utils.lualine-helpers.themes.gruvbox-material-custom")
         local lazy_status = require("lazy.status")
+        local harpoon = require("harpoon")
 
         -- check for mason package upgrades
         local function lualine_mason_updates()
@@ -45,6 +46,10 @@ return {
             else
                 return ""
             end
+        end
+
+        local function harpoon_toggle()
+            harpoon.ui:toggle_quick_menu(harpoon:list())
         end
 
         -- https://github.com/declancm/maximize.nvim?tab=readme-ov-file#-statusline--winbar
@@ -137,6 +142,9 @@ return {
                         "harpoon2",
                         padding = 1,
                         cond = min_window_width(50),
+                        on_click = function()
+                            harpoon_toggle()
+                        end,
                     },
                     -- harpoon_component,
                     -- {
@@ -170,6 +178,9 @@ return {
                         lsp_servers,
                         padding = 1,
                         cond = min_window_width(50),
+                        on_click = function()
+                            vim.cmd("LspInfo")
+                        end,
                     },
                 },
                 lualine_z = {},
