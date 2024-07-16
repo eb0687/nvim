@@ -20,6 +20,7 @@ return {
         local custom_theme = require("eb.utils.lualine-helpers.themes.gruvbox-material-custom")
         local lazy_status = require("lazy.status")
         local harpoon = require("harpoon")
+        local quickfix = require("eb.utils.lualine-helpers.quickfix")
 
         -- check for mason package upgrades
         -- https://github.com/williamboman/mason.nvim/discussions/1535
