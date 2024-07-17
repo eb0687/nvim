@@ -63,6 +63,7 @@ return {
 
         keymap_normal("<leader>gS", ":Gitsigns stage_buffer<CR>", "GITSIGNS", true, "stage buffer")
         keymap_normal("<leader>gU", ":Gitsigns reset_buffer<CR>", "GITSIGNS", true, "reset buffer")
+        keymap_normal("<leader>gd", ":Gitsigns diffthis<CR>", "GITSIGNS", true, "diff this")
 
         -- TEST:
         -- print("Hello from lazy gitsigns")
