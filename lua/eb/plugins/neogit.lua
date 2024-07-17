@@ -20,5 +20,9 @@ return {
         })
 
         keymap_normal("<leader>gc", ":Neogit commit<CR>", "NEOGIT", true, "Commit")
+        keymap_normal("<leader>gl", ":Neogit log<CR>", "NEOGIT", true, "Log")
+        keymap_normal("<leader>gP", ":Neogit push<CR>", "NEOGIT", true, "Push")
+        keymap_normal("<leader>gF", ":Neogit fetch<CR>", "NEOGIT", true, "Fetch")
+        keymap_normal("<leader>gp", ":Neogit pull<CR>", "NEOGIT", true, "Pull")
     end,
 }
