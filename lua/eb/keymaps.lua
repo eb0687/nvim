@@ -114,6 +114,12 @@ end, "Change directory to current file working directory")
 -- Append line
 keymap_silent("n", "J", "mzJ`z", "Append bottom line")
 
+-- Copy/paste with system clipboard
+keymap_silent({ "n", "x" }, "<leader>y", '"+y', "Copy to system clipboard")
+keymap_silent("n", "<leader>p", '"+p', "Paste from system clipboard")
+-- Paste in Visual with `P` to not copy selected text (`:h v_P`)
+keymap_silent("x", "<leader>p", '"+P', "Paste from system clipboard")
+
 -- INSERT MODE
 
 -- Escape remap
