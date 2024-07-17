@@ -96,8 +96,10 @@ keymap_silent(
     "Open in web browser"
 )
 keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
--- Git fugitive
-keymap_silent("n", "<leader>go", ":Git commit<CR>", "Git commit current file in a vim split")
+--
+-- NOTE: disabled for now, will use neogit instead
+-- Vim fugitive
+-- keymap_silent("n", "<leader>go", ":Git commit<CR>", "Git commit current file in a vim split")
 
 -- TODO: needs more work
 -- NOTE: temporarily disabling the below keymap and using CODE_RUNNER for script execution
