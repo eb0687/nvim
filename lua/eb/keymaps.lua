@@ -96,6 +96,9 @@ keymap_silent(
     "Open in web browser"
 )
 keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
+-- lazy
+keymap_silent("n", "<leader>zz", "<cmd>Lazy<CR>", "Lazy")
+
 --
 -- NOTE: disabled for now, will use neogit instead
 -- Vim fugitive
