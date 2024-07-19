@@ -58,21 +58,11 @@ return {
         end, "HARPOON", true, "Remove from harpoon list")
 
         -- Jump to harpoon mark
-        keymap_normal("<leader>1", function()
-            harpoon:list():select(1)
-        end, "HARPOON", true, "Jump to mark 1")
-        keymap_normal("<leader>2", function()
-            harpoon:list():select(2)
-        end, "HARPOON", true, "Jump to mark 2")
-        keymap_normal("<leader>3", function()
-            harpoon:list():select(3)
-        end, "HARPOON", true, "Jump to mark 3")
-        keymap_normal("<leader>4", function()
-            harpoon:list():select(4)
-        end, "HARPOON", true, "Jump to mark 4")
-        keymap_normal("<leader>5", function()
-            harpoon:list():select(5)
-        end, "HARPOON", true, "Jump to mark 5")
+        for i = 1, 5 do
+            keymap_normal("<leader>" .. i, function()
+                require("harpoon"):list():select(i)
+            end, "HARPOON", true, "Harpoon select " .. i)
+        end
 
         -- Toggle previous & next buffers stored within Harpoon list
         keymap_normal("<C-n>", function()
