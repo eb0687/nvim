@@ -95,6 +95,8 @@ return {
             pickers = {
                 find_files = {
                     hidden = true,
+                    -- TODO: create a toggle to show/hide gitignored files
+                    no_ignore = true,
                 },
             },
             extensions = {
