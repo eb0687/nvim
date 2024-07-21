@@ -29,6 +29,12 @@ return {
                 hover = {
                     enabled = true,
                 },
+                signature = {
+                    enabled = true,
+                    auto_open = {
+                        enabled = false,
+                    },
+                },
                 progress = {
                     -- NOTE: disabling this as it causes alot of visual clutter
                     -- check docs for other options and usage
