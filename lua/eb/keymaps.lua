@@ -60,15 +60,18 @@ keymap_silent("n", "<leader>BD", ":%bd<CR>", "Delete all buffers")
 keymap_silent("n", "<leader>ho", ":noh<CR>", "Highlight off")
 
 -- Search & Replace
-keymap_loud("n", "<C-s>s", ":%s/", "Search and replace")
 keymap_silent("n", "n", "nzzzv", "Go to next search")
 keymap_silent("n", "N", "Nzzzv", "Go to previous search")
+keymap_loud("n", "<C-s>s", ":%s/", "Search and replace")
 keymap_loud(
     "n",
     "<C-s>w",
     [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     "Search and replace word under cursor"
 )
+keymap_loud("v", "<C-s>v", ":s/\\%V", "Search & replace in visual selection")
+keymap_loud("n", "<leader>re", "*``cgn", "Replace word under cursor forward")
+keymap_loud("n", "<leader>rc", 'viw"+p', "Replace word under cursor with system clipboard")
 
 -- Automatically create the file if it does not exist
 keymap_silent("n", "gf", ":edit <cfile><CR>", "Go to file (creates file if missing)")
