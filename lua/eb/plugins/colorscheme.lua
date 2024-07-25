@@ -79,6 +79,8 @@ return {
         nvim_set_hl(0, "BufferCurrent", { bg = "#252423", fg = "#E78A4E" })
         nvim_set_hl(0, "BufferVisible", { bg = "#252423", fg = "#84776A" })
         nvim_set_hl(0, "BufferInactive", { bg = "#252423", fg = "#84776A" })
+        -- mini-animate
+        nvim_set_hl(0, "MiniAnimateCursor", { bg = "#E5E5E5" })
 
         -- TEST:
         -- print('Hello from colorscheme lazy')
