@@ -98,7 +98,7 @@ keymap_silent(
 keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
 -- lazy
 keymap_silent("n", "<leader>zz", "<cmd>Lazy<CR>", "Lazy")
--- fix word under cursor
+-- spellchecker
 keymap_silent("n", "z0", "1z=", "Fix world under cursor")
 
 --
