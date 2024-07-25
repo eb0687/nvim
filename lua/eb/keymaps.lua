@@ -60,12 +60,12 @@ keymap_silent("n", "<leader>BD", ":%bd<CR>", "Delete all buffers")
 keymap_silent("n", "<leader>ho", ":noh<CR>", "Highlight off")
 
 -- Search & Replace
-keymap_loud("n", "<C-s>", ":%s/", "Search and replace")
+keymap_loud("n", "<C-s>s", ":%s/", "Search and replace")
 keymap_silent("n", "n", "nzzzv", "Go to next search")
 keymap_silent("n", "N", "Nzzzv", "Go to previous search")
 keymap_loud(
     "n",
-    "<C-S>",
+    "<C-s>w",
     [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
     "Search and replace word under cursor"
 )
