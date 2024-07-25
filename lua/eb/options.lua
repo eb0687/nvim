@@ -49,6 +49,7 @@ local options = {
     tabstop = 4, -- number of steps for each tab
     termguicolors = true, -- :help termguicolors
     updatetime = 50,
+    inccommand = "split", -- show a preview of the substitution in a split buffer
 }
 
 for k, v in pairs(options) do
