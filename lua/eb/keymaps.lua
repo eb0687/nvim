@@ -22,7 +22,9 @@ local keymap_loud = custom_helpers.keymap_loud
 keymap_silent("", "<Space>", "<Nop>", "Leader")
 vim.g.mapleader = " "
 
--- NORMAL MODE
+-----------------
+-- NORMAL MODE --
+-----------------
 
 -- Source Nvim
 keymap_loud("n", "<leader>xo", ":luafile %<CR>", "Source NVIM")
@@ -122,35 +124,45 @@ keymap_loud("n", "<leader>cd", function()
     vim.cmd("cd %:h")
     vim.cmd("pwd")
 end, "Change directory to current file working directory")
+
 -- Append line
 keymap_silent("n", "J", "mzJ`z", "Append bottom line")
 
 -- Copy/paste with system clipboard
 keymap_silent({ "n", "x" }, "<leader>y", '"+y', "Copy to system clipboard")
 keymap_silent("n", "<leader>p", '"+p', "Paste from system clipboard")
+
 -- Paste in Visual with `P` to not copy selected text (`:h v_P`)
 keymap_silent("x", "<leader>p", '"+P', "Paste from system clipboard")
 
--- INSERT MODE
+-----------------
+-- INSERT MODE --
+-----------------
 
 -- Escape remap
 keymap_silent("i", "jk", "<Esc>", "Escape")
 keymap_silent("i", "kj", "<Esc>", "Escape")
 keymap_silent("i", "jj", "<Esc>", "Escape")
 
--- VISUAL MODE
+-----------------
+-- VISUAL MODE --
+-----------------
 
 -- Move highlighted text around using J / K
 keymap_silent("v", "J", ":m '>+1<CR>gv=gv", "Move highlighted text down")
 keymap_silent("v", "K", ":m '<-2<CR>gv=gv", "Move hightlighted text up")
+
 -- Indent line using "<" ">", tip: you can repeat the action with "."
 keymap_silent("v", ">", ">gv", "Indent line -->")
 keymap_silent("v", "<", "<gv", "Indent line <--")
+
 -- Mutli-line editing
 keymap_silent("v", "<leader>,", "<C-v><S-i>", "Edit multiple lines")
+
 -- Put sane
 keymap_silent("v", "p", '"_dP', "Sane put (paste)")
 -- keymap("v", "<leader>p", "\"_dP", opts)
+
 -- Increment and Decrement numbers
 -- Inspired by: https://www.youtube.com/shorts/kkcHypEr5y8
 keymap_silent("v", "+", "g<C-a>gv", "Ascending")
