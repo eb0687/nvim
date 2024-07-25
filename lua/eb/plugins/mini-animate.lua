@@ -19,7 +19,7 @@ return {
             },
             resize = {
                 enable = false,
-                timing = animate.gen_timing.linear({ duration = 80, unit = "total" }),
+                timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
             },
             scroll = {
                 enable = false,
