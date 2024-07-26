@@ -24,7 +24,7 @@ return {
         local harpoon = require("eb.utils.lualine-helpers.harpoon-toggle")
         local maximize = require("eb.utils.lualine-helpers.maximize")
         local min_window_width = require("eb.utils.lualine-helpers.minimum-window-width")
-        local filename_color = require("eb.utils.lualine-helpers.filename")
+        local filename_color_status = require("eb.utils.lualine-helpers.filename")
 
         require("lualine").setup({
             sections = {
@@ -37,7 +37,7 @@ return {
                 },
                 lualine_c = {
                     {
-                        filename_color,
+                        filename_color_status,
                         "filename",
                         icon = {
                             "",
