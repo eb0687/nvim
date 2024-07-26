@@ -1,3 +1,4 @@
+-- https://git.0x7be.net/dirk/neovim-config/src/commit/f2bd6aa9366f6aafc10210eca83c18b19c68cbe3/lua/plugins/lualine.lua#L49
 local M = {}
 
 M.get_permissions = function()
