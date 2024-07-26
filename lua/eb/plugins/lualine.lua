@@ -71,12 +71,11 @@ return {
                         color = { fg = "#ea6962" },
                     },
                     diagnostics,
-                    { maximize.maximize_status },
                     {
                         word_count.word_count,
                         cond = word_count.filetype,
-                        color = { fg = "#7daea3" },
                     },
+                    { maximize.maximize_status },
                     macro,
                 },
                 lualine_x = {

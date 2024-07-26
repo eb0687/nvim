@@ -9,7 +9,7 @@ vim.api.nvim_set_hl(0, "MyHighlightChars", { bg = "#32302f", fg = "#d3869b" })
 
 -- Helper function to apply highlight
 local function apply_highlight(group, text)
-    return "%#" .. group .. "#" .. text .. "%*"
+    return "%#" .. group .. "#" .. text
 end
 
 function M.word_count()
@@ -18,13 +18,11 @@ function M.word_count()
     local ends = fn.line(".")
     local lines = starts <= ends and ends - starts + 1 or starts - ends + 1
     if wc["visual_words"] then -- text is selected in visual mode
-        return apply_highlight("MyHighlightLines", tostring(lines) .. " Lines")
-            .. " / "
-            .. apply_highlight("MyHighlightWords", wc["visual_words"] .. " Words")
-            .. " / "
+        return apply_highlight("MyHighlightLines", tostring(lines) .. " Lines" .. " / ")
+            .. apply_highlight("MyHighlightWords", wc["visual_words"] .. " Words" .. " / ")
             .. apply_highlight("MyHighlightChars", wc["visual_chars"] .. " Chars ")
     else -- all of the document
-        return apply_highlight("MyHighlightWords", wc["words"] .. " Words")
+        return apply_highlight("MyHighlightWords", wc["words"] .. " Words ")
     end
 end
 
@@ -32,6 +30,7 @@ function M.filetype()
     local ft = vim.opt_local.filetype:get()
     local count = {
         text = true,
+        txt = true,
         markdown = true,
     }
     return count[ft] ~= nil
