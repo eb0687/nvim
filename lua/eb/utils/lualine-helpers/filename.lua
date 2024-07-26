@@ -1,6 +1,6 @@
 local M = require("lualine.components.filename"):extend()
 local highlight = require("lualine.highlight")
-local default_status_colors = { saved = "#32302f", modified = "#fabd24" }
+local default_status_colors = { saved = "#32302f", modified = "#fabd24", readonly = "#fb4934" }
 
 function M:init(options)
     M.super.init(self, options)
@@ -15,6 +15,11 @@ function M:init(options)
             "filename_status_modified",
             self.options
         ),
+        readonly = highlight.create_component_highlight_group(
+            { fg = default_status_colors.readonly },
+            "filename_status_readonly",
+            self.options
+        ),
     }
     if self.options.color == nil then
         self.options.color = ""
@@ -23,9 +28,16 @@ end
 
 function M:update_status()
     local data = M.super.update_status(self)
-    data = highlight.component_format_highlight(
-        vim.bo.modified and self.status_colors.modified or self.status_colors.saved
-    ) .. data
+    local highlight_group = self.status_colors.saved
+    if vim.bo.modified then
+        highlight_group = self.status_colors.modified
+    elseif vim.bo.readonly then
+        highlight_group = self.status_colors.readonly
+    end
+    if data == "[No Name]" then
+        highlight_group = self.status_colors.saved
+    end
+    data = highlight.component_format_highlight(highlight_group) .. data
     return data
 end
 
