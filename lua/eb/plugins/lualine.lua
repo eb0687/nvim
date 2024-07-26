@@ -26,6 +26,7 @@ return {
         local min_window_width = require("eb.utils.lualine-helpers.minimum-window-width")
         local filename_color_status = require("eb.utils.lualine-helpers.filename")
         local selection_count = require("eb.utils.lualine-helpers.selection-count")
+        local word_count = require("eb.utils.lualine-helpers.word-count")
 
         require("lualine").setup({
             sections = {
@@ -106,9 +107,14 @@ return {
                         cond = min_window_width.min_window_width(50),
                     },
                     {
+
                         location,
                         padding = 1,
                         cond = min_window_width.min_window_width(50),
+                    },
+                    {
+                        word_count.word_count,
+                        cond = word_count.filetype,
                     },
                     {
                         lsp_servers,
