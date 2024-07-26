@@ -25,6 +25,7 @@ return {
         local maximize = require("eb.utils.lualine-helpers.maximize")
         local min_window_width = require("eb.utils.lualine-helpers.minimum-window-width")
         local filename_color_status = require("eb.utils.lualine-helpers.filename")
+        local selection_count = require("eb.utils.lualine-helpers.selection-count")
 
         require("lualine").setup({
             sections = {
@@ -64,6 +65,10 @@ return {
                     },
                     diagnostics,
                     { maximize.maximize_status },
+                    {
+                        selection_count.selection_count,
+                        color = { fg = "#ea6962" },
+                    },
                     macro,
                 },
                 lualine_x = {
