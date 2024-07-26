@@ -5,7 +5,7 @@ function M:init(options)
         error = " ",
         warn = " ",
         hint = " ",
-        info = " "
+        info = " ",
     })
     M.super.init(self, options)
 end

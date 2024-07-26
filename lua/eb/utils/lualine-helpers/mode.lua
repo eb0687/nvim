@@ -1,4 +1,4 @@
-local M = require('lualine.component'):extend()
+local M = require("lualine.component"):extend()
 
 function M:init(options)
     options.width = options.width or 3
