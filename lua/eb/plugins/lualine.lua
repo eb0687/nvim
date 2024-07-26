@@ -27,6 +27,7 @@ return {
         local filename_color_status = require("eb.utils.lualine-helpers.filename")
         local selection_count = require("eb.utils.lualine-helpers.selection-count")
         local word_count = require("eb.utils.lualine-helpers.word-count")
+        local permissions = require("eb.utils.lualine-helpers.permissions")
 
         require("lualine").setup({
             sections = {
@@ -63,6 +64,11 @@ return {
                             newfile = "New File", -- Text to show for newly created file before first write
                         },
                         cond = min_window_width.min_window_width(50),
+                    },
+                    {
+                        permissions.get_permissions,
+                        cond = permissions.filetype,
+                        color = { fg = "#ea6962" },
                     },
                     diagnostics,
                     { maximize.maximize_status },
