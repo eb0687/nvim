@@ -10,8 +10,8 @@ return {
     event = "VeryLazy",
     config = function()
         -- local cwd = require('eb.utils.lualine-helpers.cwd')
-        -- local diff = require("eb.utils.lualine-helpers.git-diff")
         -- local branch = require("eb.utils.lualine-helpers.git-branch")
+        local diff_source = require("eb.utils.lualine-helpers.git-diff")
         local lsp_servers = require("eb.utils.lualine-helpers.lsp-servers")
         local macro = require("eb.utils.lualine-helpers.macro")
         local mode = require("eb.utils.lualine-helpers.mode")
@@ -35,6 +35,11 @@ return {
                         cond = min_window_width.min_window_width(50),
                     },
                 },
+                lualine_b = {
+                    "branch",
+                    { "diff", source = diff_source },
+                    { "diagnostics", source = diagnostics },
+                },
                 lualine_c = {
                     {
                         filename_color_status,
@@ -56,10 +61,6 @@ return {
                             newfile = "New File", -- Text to show for newly created file before first write
                         },
                         cond = min_window_width.min_window_width(50),
-                    },
-                    {
-                        diagnostics,
-                        cond = min_window_width.min_window_width(30),
                     },
                     { maximize.maximize_status },
                     macro,
