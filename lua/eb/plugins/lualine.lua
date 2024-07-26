@@ -47,7 +47,7 @@ return {
                             },
                         },
                         file_status = true,
-                        path = 3,
+                        path = 4,
                         shorting_target = 30,
                         symbols = {
                             modified = "󱇧", -- Text to show when the file is modified.
