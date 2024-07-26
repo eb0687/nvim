@@ -11,7 +11,6 @@ function M:init(options)
             self.options
         ),
         modified = highlight.create_component_highlight_group(
-            -- { bg = default_status_colors.modified, fg = default_status_colors.fg_modified },
             { fg = default_status_colors.modified },
             "filename_status_modified",
             self.options
