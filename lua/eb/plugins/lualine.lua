@@ -38,7 +38,7 @@ return {
                 lualine_b = {
                     "branch",
                     { "diff", source = diff_source },
-                    { "diagnostics", source = diagnostics },
+                    -- { "diagnostics", source = diagnostics },
                 },
                 lualine_c = {
                     {
@@ -62,6 +62,7 @@ return {
                         },
                         cond = min_window_width.min_window_width(50),
                     },
+                    diagnostics,
                     { maximize.maximize_status },
                     macro,
                 },
