@@ -35,25 +35,6 @@ return {
                         cond = min_window_width.min_window_width(50),
                     },
                 },
-                -- lualine_b = {
-                -- {
-                --     branch,
-                --     padding = 1,
-                --     cond = min_window_width(30)
-                -- },
-                -- {
-                --     diff,
-                --     padding = 1,
-                --     cond = min_window_width(90)
-                -- }
-                -- },
-                -- lualine_c = {
-                --     {
-                --         cwd,
-                --         padding = 1,
-                --         cond = min_window_width(20)
-                --     }
-                -- },
                 lualine_c = {
                     {
                         filename_color,
@@ -110,22 +91,6 @@ return {
                             harpoon.toggle()
                         end,
                     },
-                    -- harpoon_component,
-                    -- {
-
-                    --     branch,
-                    --     padding = 1,
-                    --     cond = min_window_width.min_window_width(40),
-                    -- },
-                    -- {
-                    --     diff,
-                    --     padding = 1,
-                    --     cond = min_window_width.min_window_width(50),
-                    -- },
-                    -- {
-                    --     diagnostics,
-                    --     cond = min_window_width.min_window_width(30)
-                    -- },
                 },
                 lualine_y = {
                     {
@@ -151,8 +116,6 @@ return {
             },
             options = {
                 theme = custom_theme,
-                -- component_separators = { left = '│', right = '│' },
-                -- section_separators = { left = '│', right = '│' },
                 component_separators = { left = "", right = "" },
                 section_separators = { left = "", right = "" },
                 disabled_filetypes = {
@@ -160,7 +123,5 @@ return {
                 },
             },
         })
-        -- TEST:
-        -- print("Hello from lazy lualine")
     end,
 }
