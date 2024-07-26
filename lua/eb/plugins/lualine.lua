@@ -25,7 +25,7 @@ return {
         local maximize = require("eb.utils.lualine-helpers.maximize")
         local min_window_width = require("eb.utils.lualine-helpers.minimum-window-width")
         local filename_color_status = require("eb.utils.lualine-helpers.filename")
-        local selection_count = require("eb.utils.lualine-helpers.selection-count")
+        -- local selection_count = require("eb.utils.lualine-helpers.selection-count")
         local word_count = require("eb.utils.lualine-helpers.word-count")
         local permissions = require("eb.utils.lualine-helpers.permissions")
 
@@ -72,10 +72,10 @@ return {
                     },
                     diagnostics,
                     { maximize.maximize_status },
-                    {
-                        selection_count.selection_count,
-                        color = { fg = "#ea6962" },
-                    },
+                    -- {
+                    --     selection_count.selection_count,
+                    --     color = { fg = "#ea6962" },
+                    -- },
                     macro,
                 },
                 lualine_x = {
@@ -121,6 +121,7 @@ return {
                     {
                         word_count.word_count,
                         cond = word_count.filetype,
+                        color = { fg = "#ea6962" },
                     },
                     {
                         lsp_servers,
