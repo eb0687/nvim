@@ -42,6 +42,7 @@ keymap_silent("n", "Y", "yg$", "Yank to end of line")
 -- Create splits
 keymap_silent("n", "<leader>h", ":split<CR>", "Horizontal split")
 keymap_silent("n", "<leader>v", ":vsplit<CR>", "Vertical split")
+keymap_loud("n", "<leader>ev", ':vsp <C-R>=expand("%:p:h") . "/" <CR>', "Open file in same dir in vsplit")
 
 -- Resize buffer splits
 keymap_silent("n", "<C-A-Left>", ":vertical resize +3<CR>", "Vertical resize (+)")
