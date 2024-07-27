@@ -24,7 +24,7 @@ return {
         {
             "Dynge/gitmoji.nvim", -- https://github.com/Dynge/gitmoji.nvim
             opts = {},
-            ft = "gitcommit",
+            ft = { "gitcommit" },
         },
         "f3fora/cmp-spell",
     },
@@ -33,6 +33,16 @@ return {
         local cmp = require("cmp")
         local luasnip = require("luasnip")
         local lspkind = require("lspkind")
+
+        -- NOTE: This is used to determine if there are any non-whitespace characters
+        -- before the cursor in the current line. This is useful in various
+        -- text-editing scenarios, such as deciding whether to trigger certain
+        -- completions or actions based on the cursor's position relative to other text.
+        -- delete this if it causes any issues.
+        local has_words_before = function()
+            local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+            return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+        end
 
         require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -87,6 +97,8 @@ return {
                     c = function()
                         if cmp.visible() then
                             cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+                        elseif has_words_before() then
+                            cmp.complete()
                         end
                     end,
                     i = function(fallback)
@@ -111,7 +123,6 @@ return {
                         end
                     end,
                 }),
-                -- ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
                 ["<C-e>"] = cmp.mapping({
                     i = cmp.mapping.close(),
                     c = cmp.mapping.close(),
@@ -133,7 +144,6 @@ return {
                             fallback()
                         end
                     end,
-                    -- s = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
                     c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
                 }),
             },
