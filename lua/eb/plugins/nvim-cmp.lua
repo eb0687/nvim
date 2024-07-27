@@ -50,6 +50,9 @@ return {
             },
 
             -- KEYMAPPING
+            -- NOTE: to disable default keymappings assign it to cmp.config.disable
+            -- for example: ["<C-y>"] = cmp.config.disable
+
             mapping = {
                 ["<C-p>"] = cmp.mapping({
                     c = function()
