@@ -34,3 +34,25 @@ vim.api.nvim_create_autocmd("User", {
         vim.loop.fs_copyfile(lockfile, snapshot)
     end,
 })
+
+-- https://github.com/hadynz/dotfiles/blob/main/nvim/lua/config/autocmds.lua
+
+-- Toggle relative numbers for active panes only
+vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FocusGained" }, {
+    callback = function()
+        vim.wo.relativenumber = true
+    end,
+})
+vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "FocusLost" }, {
+    callback = function()
+        vim.wo.relativenumber = false
+    end,
+})
+
+-- Disable new line comment
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        vim.opt.formatoptions:remove({ "c", "r", "o" })
+    end,
+    desc = "Disable New Line Comment",
+})
