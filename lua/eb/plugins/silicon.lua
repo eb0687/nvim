@@ -1,5 +1,10 @@
 -- nvim-siicon
 -- https://github.com/michaelrommel/nvim-silicon
+-- dependencies:
+-- nerdfont defined in the config
+-- the silicon binary installed and available in the path
+-- https://github.com/Aloxaf/silicon
+-- TODO: add a check and install using my ansible role
 
 return {
     "michaelrommel/nvim-silicon",
