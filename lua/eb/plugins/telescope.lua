@@ -201,9 +201,9 @@ return {
 
         keymap("<leader>fe", ":Easypick<CR>", "Find in Dotbare")
 
-        vim.keymap.set({ "n", "x" }, "<leader>re", function()
-            require("telescope").extensions.refactoring.refactors()
-        end)
+        -- vim.keymap.set({ "n", "x" }, "<leader>re", function()
+        --     require("telescope").extensions.refactoring.refactors()
+        -- end)
 
         -- TEST:
         -- print("Hello from lazy telescope")
