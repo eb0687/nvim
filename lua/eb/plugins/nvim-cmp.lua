@@ -198,9 +198,17 @@ return {
                 ghost_text = true,
             },
 
+            -- Setup for vim-dadbod
+            cmp.setup.filetype({ "sql" }, {
+                sources = {
+                    { name = "vim-dadbod-completion" },
+                    { name = "buffer" },
+                },
+            }),
+
             -- SOURCES
             sources = cmp.config.sources({
-                { name = "vim-dadbod-completion" },
+                -- { name = "vim-dadbod-completion" },
                 { name = "nvim_lsp", group_index = 1 },
                 { name = "luasnip" },
                 { name = "copilot", group_index = 1 },
