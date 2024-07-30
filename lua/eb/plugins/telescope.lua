@@ -199,6 +199,10 @@ return {
             telescope_builtin.command_history(custom_theme)
         end, "Find Command History")
 
+        keymap("<leader>fS", function()
+            telescope_builtin.spell_suggest(custom_theme)
+        end, "Spell Suggesions")
+
         keymap("<leader>fe", ":Easypick<CR>", "Find in Dotbare")
 
         -- vim.keymap.set({ "n", "x" }, "<leader>re", function()
