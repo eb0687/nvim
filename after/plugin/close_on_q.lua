@@ -15,6 +15,8 @@ vim.api.nvim_create_autocmd("FileType", {
         "tsplayground",
         "checkhealth",
         "gitsigns.blame",
+        "man",
+        "CodeAction",
     },
     callback = function(event)
         vim.bo[event.buf].buflisted = false
