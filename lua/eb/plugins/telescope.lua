@@ -135,7 +135,12 @@ return {
         })
 
         -- keybinds
-        keymap("<leader>ff", telescope_builtin.find_files, "Find Files in local folder only recursively")
+        -- keymap("<leader>ff", telescope_builtin.find_files, "Find Files in local folder only recursively")
+        keymap(
+            "<leader>ff",
+            "<CMD>Telescope find_files workspace=CWD theme=ivy<CR>",
+            "Find Files in local folder only recursively"
+        )
         keymap("<leader>fo", telescope_builtin.oldfiles, "Find recently Opened files")
         keymap("<leader>fk", telescope_builtin.keymaps, "Find Keymaps")
         keymap("<leader>fh", telescope_builtin.help_tags, "Find in Help tags")
