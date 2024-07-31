@@ -12,16 +12,25 @@ local function ToggleAlacrittyOpacity()
     end
 end
 
+local toggle_zen = false
 local function ToggleZen()
     local home = os.getenv("HOME")
     local binary_path = home .. "/.local/bin/toggle-alacritty-opacity"
 
-    if vim.fn.executable(binary_path) == 1 then
+    if toggle_zen then
+        if vim.fn.executable(binary_path) == 1 then
+            vim.api.nvim_command("!" .. binary_path)
+            vim.api.nvim_command(":" .. "NoNeckPain")
+            vim.o.laststatus = 3
+        else
+            print(binary_path .. " not found")
+        end
+    else
         vim.api.nvim_command("!" .. binary_path)
         vim.api.nvim_command(":" .. "NoNeckPain")
-    else
-        print(binary_path .. " not found")
+        vim.o.laststatus = 0
     end
+    toggle_zen = not toggle_zen
 end
 
 user_command("ToggleAlacrittyOpacity", ToggleAlacrittyOpacity, { desc = "Toggle Alacritty Opacity" })
