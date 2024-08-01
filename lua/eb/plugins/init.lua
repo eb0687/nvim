@@ -175,7 +175,7 @@ return {
         version = "*",
         opts = {
             buffers = {
-                right = { enabled = false },
+                -- right = { enabled = false },
             },
         },
     },
