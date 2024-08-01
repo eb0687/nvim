@@ -131,7 +131,7 @@ return {
                     i = function(fallback)
                         -- if cmp.visible() and cmp.get_active_entry() then
                         if cmp.visible() then
-                            cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+                            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
                         else
                             fallback()
                         end
@@ -139,7 +139,7 @@ return {
                     s = function(fallback)
                         -- if cmp.visible() and cmp.get_active_entry() then
                         if cmp.visible() then
-                            cmp.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true })
+                            cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
                         else
                             fallback()
                         end
