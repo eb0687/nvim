@@ -14,6 +14,8 @@ return {
                 result = "~/.dotfiles"
             elseif vim.fn.hostname() == "eb-t490" then
                 result = "~/.cfg"
+            else
+                result = "~/.dotfiles"
             end
             return result
         end
