@@ -8,6 +8,12 @@ return {
         local baredot = require("baredot")
 
         -- TODO: probably update this for compatibility with my vms on proxmox
+
+        local function directory_exists(path)
+            local stat = vim.loop.fs_stat(path)
+            return stat and stat.type == "directory" or false
+        end
+
         local git_dir = function()
             local result = ""
             if vim.fn.hostname() == "JIGA" then
@@ -15,7 +21,12 @@ return {
             elseif vim.fn.hostname() == "eb-t490" then
                 result = "~/.cfg"
             else
-                result = "~/.dotfiles"
+                local dotfiles_path = vim.fn.expand("~/.dotfiles")
+                if directory_exists(dotfiles_path) then
+                    result = dotfiles_path
+                else
+                    print(dotfiles_path .. " does not exist!")
+                end
             end
             return result
         end
