@@ -58,6 +58,7 @@ end
 
 --
 vim.opt.iskeyword:append("-") -- uses "-" to connect words when using vim motions
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- vim syntax
 local cmd = vim.cmd
