@@ -66,28 +66,18 @@ return {
             },
         })
 
-        -- NOTE: this is a temporary fix for treesitter highlight not being enabled by default in markdown files
-        vim.api.nvim_create_autocmd(
-            { "BufEnter", "BufWinEnter" },
-            { pattern = { "*.md" }, command = "TSEnable highlight" }
-        )
-
         keymap_normal("gf", ":ObsidianFollowLink<CR>", "OBSIDIAN", true, "follow Obsidian link")
         keymap_normal("<leader>oo", ":ObsidianOpen ", "OBSIDIAN", true, "Open note in Obsidian (optional args)")
         keymap_normal("<leader>on", ":ObsidianNew ", "OBSIDIAN", true, "Create new note in Obsidian (optional args)")
-        -- keymap_normal(
-        --     "<leader>oz",
-        --     ":ObsidianSearch ",
-        --     "OBSIDIAN",
-        --     true,
-        --     "Search obsidian vault using ripgrep (optional args)"
-        -- )
+        keymap_normal("<leader>oq", ":ObsidianQuickSwitch<CR>", "OBSIDIAN", true, "Quickly switch between notes")
+        keymap_normal("<leader>ob", ":ObsidianBacklinks<CR>", "OBSIDIAN", true, "Open Obsidian backlinks")
+        keymap_normal("<leader>od", ":ObsidianToday<CR>", "OBSIDIAN", true, "Create new daily note")
         keymap_normal(
             "<leader>of",
             ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>",
             "OBSIDIAN",
             true,
-            "strip date from note title & replace dashes with spaaces"
+            "Strip date from note title & replace dashes with spaces"
         )
         keymap_normal(
             "<leader>ot",
@@ -96,26 +86,23 @@ return {
             true,
             "Import from Obsidian template(optional args)"
         )
-
         keymap_normal(
             "<leader>on",
             ":ObsidianTemplate neovim-template<CR> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>",
             "OBSIDIAN",
             true,
-            "convert note template and remove leading white space"
+            -- this will insert the template under the cursor position
+            "Convert note template and remove leading white space"
         )
-        keymap_normal("<leader>oq", ":ObsidianQuickSwitch<CR>", "OBSIDIAN", true, "Quickly switch between notes")
-        keymap_normal("<leader>ob", ":ObsidianBacklinks<CR>", "OBSIDIAN", true, "Open Obsidian backlinks")
-        keymap_normal("<leader>od", ":ObsidianToday<CR>", "OBSIDIAN", true, "Create new daily note")
+        -- keymap_visual(
+        --     "<leader>ol",
+        --     ":ObsidianLink",
+        --     "OBSIDIAN",
+        --     true,
+        --     "Link an inline visual selection to an existing note (optional args)"
+        -- )
         keymap_visual(
             "<leader>ol",
-            ":ObsidianLink",
-            "OBSIDIAN",
-            true,
-            "Link an inline visual selection to an existing note (optional args)"
-        )
-        keymap_visual(
-            "<leader>Ol",
             ":ObsidianLinkNew",
             "OBSIDIAN",
             true,
