@@ -17,6 +17,9 @@ return {
         "BufReadPre " .. vim.fn.expand("~") .. "Documents/the_vault/**.md",
         "BufNewFile " .. vim.fn.expand("~") .. "Documents/the_vault/**.md",
         "BufEnter " .. vim.fn.expand("~") .. "Documents/the_vault/**.md",
+        "BufReadPre " .. "/mnt/d/the_vault",
+        "BufNewFile " .. "/mnt/d/the_vault",
+        "BufEnter " .. "/mnt/d/the_vault",
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
