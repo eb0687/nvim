@@ -7,6 +7,8 @@
 
 -- NOTE:
 -- this plugin is not loaded at startup and would require manually loading
+-- TODO: consider creating a bash script to organize notes in the zettle folder
+-- https://github.com/agalea91/dotfiles/blob/97f0eca4cc0c4c0ff1f7b025bbb32f394d427cb5/bin/og
 
 return {
 
