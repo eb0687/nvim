@@ -135,7 +135,7 @@ return {
         if hostname == "JIGA" then
             keymap_normal(
                 "<leader>ok",
-                ":!mv '%:p' /mnt/d/the_vault/zettel",
+                ":!mv '%:p' /mnt/d/the_vault/zettel<CR>:bd<CR>",
                 "OBSIDIAN",
                 true,
                 "Move note from inbox to Zettel for processing"
@@ -143,7 +143,7 @@ return {
         elseif hostname == "eb-t490" then
             keymap_normal(
                 "<leader>ok",
-                ":!mv '%:p' ~/Documents/the_vault/zettel",
+                ":!mv '%:p' ~/Documents/the_vault/zettel<CR>:bd<CR>",
                 "OBSIDIAN",
                 true,
                 "Move note from inbox to Zettel for processing"
