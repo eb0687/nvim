@@ -257,7 +257,8 @@ return {
         end, "Find Word under cursor")
 
         keymap("<leader>fb", function()
-            telescope_builtin.buffers(custom_theme)
+            -- telescope_builtin.buffers(custom_theme)
+            telescope_builtin.buffers()
         end, "Find in existing Buffers")
 
         keymap("<leader>fsh", function()
