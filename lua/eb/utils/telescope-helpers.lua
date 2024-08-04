@@ -52,7 +52,7 @@ end
 
 -- https://github.com/creativecreature/dotfiles/blob/master/nvim/lua/plugins/telescope.lua
 -- NOTE: allow u to select results in a telescope window using the TAB key and
--- the selections to a quickfix list
+-- the selections to a quickfix list using the <C-s> key
 function M.multi_select(prompt_bufnr)
     local picker = action_state.get_current_picker(prompt_bufnr)
     local num_selections = table.getn(picker:get_multi_selection())
