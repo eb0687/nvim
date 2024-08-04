@@ -12,29 +12,17 @@ return {
 
     "epwalsh/obsidian.nvim",
     version = "*",
-    -- ft = "markdown",
+    ft = "markdown",
     event = {
         "BufReadPre " .. vim.fn.expand("~") .. "Documents/the_vault/**.md",
         "BufNewFile " .. vim.fn.expand("~") .. "Documents/the_vault/**.md",
         "BufEnter " .. vim.fn.expand("~") .. "Documents/the_vault/**.md",
-        "BufReadPre " .. "/mnt/d/the_vault",
-        "BufNewFile " .. "/mnt/d/the_vault",
-        "BufEnter " .. "/mnt/d/the_vault",
+        "BufReadPre " .. "/mnt/d/the_vault/**.md",
+        "BufNewFile " .. "/mnt/d/the_vault/**.md",
+        "BufEnter " .. "/mnt/d/the_vault/**.md",
     },
     dependencies = {
         "nvim-lua/plenary.nvim",
-    },
-    opts = {
-        workspaces = {
-            {
-                name = "t490",
-                path = "~/Documents/the_vault",
-            },
-            {
-                name = "jiga-wsl",
-                path = "/mnt/d/the_vault",
-            },
-        },
     },
 
     config = function()
@@ -42,6 +30,16 @@ return {
         local custom_helpers = require("eb.utils.custom_helpers")
         local keymap_normal = custom_helpers.keymap_normal
         local keymap_visual = custom_helpers.keymap_visual
+        local utils = require("eb.utils.custom_helpers")
+        local hostname = utils.get_hostname()
+
+        local function get_obsidian_dir()
+            if hostname == "eb-t490" then
+                return "~/Documents/the_vault/"
+            elseif hostname == "JIGA" then
+                return "/mnt/d/the_vault/"
+            end
+        end
 
         -- NOTE: this function opens hyperlinks in web browsers
         local follow_url = function(url)
@@ -65,6 +63,12 @@ return {
 
         -- SETUP
         obsidian.setup({
+            workspaces = {
+                {
+                    name = "eb-vault",
+                    path = get_obsidian_dir(),
+                },
+            },
             -- dir = "~/Documents/the_vault/",
             daily_notes = {
                 folder = "dailies",
