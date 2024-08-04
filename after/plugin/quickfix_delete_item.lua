@@ -1,4 +1,5 @@
 -- Delete quickfix item under cursor using dd
+-- source: https://stackoverflow.com/questions/42905008/quickfix-list-how-to-add-and-remove-entries
 
 function Remove_qf_item()
     local curqfidx = vim.fn.line(".")
