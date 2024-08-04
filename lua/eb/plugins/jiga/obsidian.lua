@@ -91,7 +91,8 @@ return {
         keymap_normal("<leader>on", ":ObsidianNew ", "OBSIDIAN", true, "Create new note in Obsidian (optional args)")
         keymap_normal("<leader>oq", ":ObsidianQuickSwitch<CR>", "OBSIDIAN", true, "Quickly switch between notes")
         keymap_normal("<leader>ob", ":ObsidianBacklinks<CR>", "OBSIDIAN", true, "Open Obsidian backlinks")
-        keymap_normal("<leader>od", ":ObsidianToday<CR>", "OBSIDIAN", true, "Create new daily note")
+        keymap_normal("<leader>odn", ":ObsidianToday<CR>", "OBSIDIAN", true, "Create new daily note")
+        keymap_normal("<leader>odd", ":!rm '%:p'<CR>:bd<CR>", "OBSIDIAN", true, "Delete note from inbox")
         keymap_normal(
             "<leader>of",
             ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>",
@@ -128,6 +129,24 @@ return {
             true,
             "Create a new note and link to a visual selection (optional args)"
         )
+
+        if hostname == "JIGA" then
+            keymap_normal(
+                "<leader>ok",
+                ":!mv '%:p' /mnt/d/the_vault/zettel",
+                "OBSIDIAN",
+                true,
+                "Move note from inbox to Zettel for processing"
+            )
+        elseif hostname == "eb-t490" then
+            keymap_normal(
+                "<leader>ok",
+                ":!mv '%:p' ~/Documents/the_vault/zettel",
+                "OBSIDIAN",
+                true,
+                "Move note from inbox to Zettel for processing"
+            )
+        end
 
         -- TEST:
         -- print("Hello from lazy obsidian")
