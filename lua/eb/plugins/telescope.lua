@@ -135,6 +135,9 @@ return {
                 lsp_document_symbols = {
                     theme = "ivy",
                 },
+                buffers = {
+                    theme = "ivy",
+                },
             },
             extensions = {
                 tmuxinator = {
