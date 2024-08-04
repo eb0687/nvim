@@ -28,6 +28,7 @@ return {
         local filename_color_status = require("eb.utils.lualine-helpers.filename")
         local word_count = require("eb.utils.lualine-helpers.word-count")
         local permissions = require("eb.utils.lualine-helpers.permissions")
+        local lint_progress = require("eb.utils.lualine-helpers.lint-progress")
 
         require("lualine").setup({
             sections = {
