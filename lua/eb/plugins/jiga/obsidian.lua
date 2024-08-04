@@ -75,12 +75,19 @@ return {
         keymap_normal("gf", ":ObsidianFollowLink<CR>", "OBSIDIAN", true, "follow Obsidian link")
         keymap_normal("<leader>oo", ":ObsidianOpen ", "OBSIDIAN", true, "Open note in Obsidian (optional args)")
         keymap_normal("<leader>on", ":ObsidianNew ", "OBSIDIAN", true, "Create new note in Obsidian (optional args)")
+        -- keymap_normal(
+        --     "<leader>oz",
+        --     ":ObsidianSearch ",
+        --     "OBSIDIAN",
+        --     true,
+        --     "Search obsidian vault using ripgrep (optional args)"
+        -- )
         keymap_normal(
             "<leader>of",
-            ":ObsidianSearch ",
+            ":s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>",
             "OBSIDIAN",
             true,
-            "Search obsidian vault using ripgrep (optional args)"
+            "strip date from note title & replace dashes with spaaces"
         )
         keymap_normal(
             "<leader>ot",
@@ -88,6 +95,14 @@ return {
             "OBSIDIAN",
             true,
             "Import from Obsidian template(optional args)"
+        )
+
+        keymap_normal(
+            "<leader>on",
+            ":ObsidianTemplate neovim-template<CR> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>",
+            "OBSIDIAN",
+            true,
+            "convert note template and remove leading white space"
         )
         keymap_normal("<leader>oq", ":ObsidianQuickSwitch<CR>", "OBSIDIAN", true, "Quickly switch between notes")
         keymap_normal("<leader>ob", ":ObsidianBacklinks<CR>", "OBSIDIAN", true, "Open Obsidian backlinks")
