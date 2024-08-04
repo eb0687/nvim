@@ -34,6 +34,9 @@ return {
         -- Use this to add more results without clearing the trouble list
         local add_to_trouble = require("trouble.sources.telescope").add
 
+        local utils = require("eb.utils.custom_helpers")
+        local hostname = utils.get_hostname()
+
         local file_ignore_patterns = {
             "^.git/",
             "node_modules\\",
@@ -193,18 +196,33 @@ return {
         --     "Reload nvim plugin using telescope"
         -- )
 
-        keymap(
-            "<leader>os",
-            ":Telescope find_files search_dirs=~/Documents/the_vault<CR>",
-            "Search notes in Obsidian vault"
-        )
+        if hostname == "JIGA" then
+            keymap(
+                "<leader>os",
+                ":Telescope find_files search_dirs=/mnt/d/the_vault/<CR>",
+                "Search notes in Obsidian vault"
+            )
 
-        keymap("<leader>oz", function()
-            telescope_builtin.grep_string({
-                search = vim.fn.input("Grep in Obisidian > "),
-                search_dirs = { "~/Documents/the_vault" },
-            })
-        end, "Grep string in Obsidian vault")
+            keymap("<leader>oz", function()
+                telescope_builtin.grep_string({
+                    search = vim.fn.input("Grep in Obisidian > "),
+                    search_dirs = { "/mnt/d/the_vault/" },
+                })
+            end, "Grep string in Obsidian vault")
+        elseif hostname == "eb-t490" then
+            keymap(
+                "<leader>os",
+                ":Telescope find_files search_dirs=~/Documents/the_vault<CR>",
+                "Search notes in Obsidian vault"
+            )
+
+            keymap("<leader>oz", function()
+                telescope_builtin.grep_string({
+                    search = vim.fn.input("Grep in Obisidian > "),
+                    search_dirs = { "~/Documents/the_vault" },
+                })
+            end, "Grep string in Obsidian vault")
+        end
 
         keymap("<leader>fss", function()
             telescope_builtin.grep_string({

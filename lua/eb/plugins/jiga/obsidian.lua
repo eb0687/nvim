@@ -24,6 +24,18 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
+    opts = {
+        workspaces = {
+            {
+                name = "t490",
+                path = "~/Documents/the_vault",
+            },
+            {
+                name = "jiga-wsl",
+                path = "/mnt/d/the_vault",
+            },
+        },
+    },
 
     config = function()
         local obsidian = require("obsidian")
@@ -53,7 +65,7 @@ return {
 
         -- SETUP
         obsidian.setup({
-            dir = "~/Documents/the_vault/",
+            -- dir = "~/Documents/the_vault/",
             daily_notes = {
                 folder = "dailies",
             },
