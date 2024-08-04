@@ -127,7 +127,13 @@ return {
                         end,
                     },
                 },
-                lualine_z = {},
+                lualine_z = {
+                    {
+                        lint_progress.lint_progress,
+                        padding = 1,
+                        cond = min_window_width.min_window_width(50),
+                    },
+                },
             },
             options = {
                 theme = custom_theme,
