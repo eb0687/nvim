@@ -193,7 +193,20 @@ return {
         --     "Reload nvim plugin using telescope"
         -- )
 
-        keymap("<leader>fs", function()
+        keymap(
+            "<leader>os",
+            ":Telescope find_files search_dirs=~/Documents/the_vault<CR>",
+            "Search notes in Obsidian vault"
+        )
+
+        keymap("<leader>oz", function()
+            telescope_builtin.grep_string({
+                search = vim.fn.input("Grep in Obisidian > "),
+                search_dirs = { "~/Documents/the_vault" },
+            })
+        end, "Grep string in Obsidian vault")
+
+        keymap("<leader>fss", function()
             telescope_builtin.grep_string({
                 search = vim.fn.input("Grep for > "),
             })
