@@ -163,6 +163,7 @@ return {
             telescope.load_extension("notify"),
             telescope.load_extension("harpoon"),
             telescope.load_extension("import"),
+            telescope.load_extension("luasnip"),
             -- telescope.load_extension("refactoring"),
         })
 
@@ -283,6 +284,8 @@ return {
         end, "Spell Suggesions")
 
         keymap("<leader>fe", ":Easypick<CR>", "Find in Dotbare")
+
+        keymap("<leader>fu", ":Telescope luasnip theme=ivy<CR>", "Find in luansip snippets")
 
         -- vim.keymap.set({ "n", "x" }, "<leader>re", function()
         --     require("telescope").extensions.refactoring.refactors()
