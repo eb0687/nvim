@@ -105,6 +105,7 @@ return {
                     -- TODO: create a toggle to show/hide gitignored files
                     no_ignore = true,
                     theme = "ivy",
+                    find_command = { "rg", "--files", "--sortr=modified" },
                 },
                 keymaps = {
                     theme = "ivy",
