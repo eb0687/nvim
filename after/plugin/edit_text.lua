@@ -19,6 +19,7 @@ local function enable_cmp_spell_source()
     local cmp = require("cmp")
     cmp.setup.buffer({
         sources = {
+            { name = "luasnip" },
             { name = "spell" },
             { name = "buffer" },
             { name = "nvim_lsp" },

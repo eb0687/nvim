@@ -34,8 +34,10 @@ return {
         -- Use this to add more results without clearing the trouble list
         local add_to_trouble = require("trouble.sources.telescope").add
 
-        local utils = require("eb.utils.custom_helpers")
-        local hostname = utils.get_hostname()
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local hostname = custom_helpers.get_hostname()
+        local utils = require("eb.utils.telescope-helpers")
+        local multi_select = utils.multi_select
 
         local file_ignore_patterns = {
             "^.git/",
@@ -88,10 +90,12 @@ return {
                         ["<C-p>"] = "preview_scrolling_up",
                         ["<C-t>"] = open_with_trouble,
                         ["<C-a>"] = add_to_trouble,
+                        ["<C-s>"] = multi_select,
                     },
                     n = {
                         ["<C-t>"] = open_with_trouble,
                         ["<C-a>"] = add_to_trouble,
+                        ["<C-s>"] = multi_select,
                     },
                 },
             },

@@ -1,9 +1,11 @@
+local M = {}
+
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
+
 -- https://joseustra.com/blog/reloading-neovim-config-with-telescope/?source=ustrajunior.com
 -- NOTE: probably not needed any longer as telescope has as built in version
 -- BUG: this does not reload modules but does show the notification
-
-local M = {}
-
 function M.reload()
     -- Telescope will give us something like ju/colors.lua,
     -- so this function convert the selected entry to
@@ -46,6 +48,23 @@ function M.reload()
 
     -- call the builtin method to list files
     require("telescope.builtin").find_files(opts)
+end
+
+-- https://github.com/creativecreature/dotfiles/blob/master/nvim/lua/plugins/telescope.lua
+-- NOTE: allow u to select results in a telescope window using the TAB key and
+-- the selections to a quickfix list using the <C-s> key
+function M.multi_select(prompt_bufnr)
+    local picker = action_state.get_current_picker(prompt_bufnr)
+    local num_selections = table.getn(picker:get_multi_selection())
+
+    if num_selections > 1 then
+        -- actions.file_edit throws - context of picker seems to change
+        --actions.file_edit(prompt_bufnr)
+        actions.send_selected_to_qflist(prompt_bufnr)
+        actions.open_qflist()
+    else
+        actions.file_edit(prompt_bufnr)
+    end
 end
 
 return M
