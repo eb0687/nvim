@@ -20,22 +20,10 @@ M.toggle_oil_columns = function()
     state.is_detailed = not state.is_detailed
 end
 
-M.keymap_opts = function(mode, name, desc)
-    if desc then
-        desc = name .. ": " .. desc
-    end
-    return {
-        mode = mode,
-        nowait = true,
-        desc = desc,
-    }
-end
-
 M.telescope_find_cwd = function()
     telescope_builtin.find_files({
         cwd = oil.get_current_dir(),
     })
-    return M.keymap_opts("n", "OIL", "Find files in the current directory")
 end
 
 return M
