@@ -16,10 +16,6 @@ return {
 
         oil.setup({
             keymaps = {
-                -- ["<leader>e"] = {
-                --     ":lua require('oil').close()<CR> ",
-                --     desc = "Close oil",
-                -- },
                 ["g?"] = "actions.show_help",
                 ["<CR>"] = "actions.select",
                 ["<C-s>"] = false,
