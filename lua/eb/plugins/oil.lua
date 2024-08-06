@@ -8,7 +8,9 @@ return {
     config = function()
         local oil = require("oil")
         local custom_helpers = require("eb.utils.custom_helpers")
+        local oil_helpers = require("eb.utils.oil-helpers")
         local keymap_normal = custom_helpers.keymap_normal
+        local toggle_oil_columns = oil_helpers.toggle_oil_columns
 
         oil.setup({
             keymaps = {
@@ -33,6 +35,7 @@ return {
                 ["<C-t>"] = { "actions.select", opts = { tab = true }, desc = "Open the entry in new tab" },
                 ["<C-p>"] = "actions.preview",
                 ["<C-c>"] = "actions.close",
+                ["q"] = "actions.close",
                 ["<C-l>"] = "actions.refresh",
                 ["-"] = "actions.parent",
                 ["_"] = "actions.open_cwd",
@@ -42,6 +45,7 @@ return {
                 ["gx"] = "actions.open_external",
                 ["g."] = "actions.toggle_hidden",
                 ["g\\"] = "actions.toggle_trash",
+                ["gc"] = toggle_oil_columns,
             },
             view_options = {
                 show_hidden = true,
