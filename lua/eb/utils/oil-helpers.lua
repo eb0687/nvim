@@ -20,10 +20,17 @@ M.toggle_oil_columns = function()
     state.is_detailed = not state.is_detailed
 end
 
+-- search in the current directory using telescope
 M.telescope_find_cwd = function()
     telescope_builtin.find_files({
         cwd = oil.get_current_dir(),
     })
+end
+
+M.open_file = function()
+    -- Get the current file path and remove the first 5 characters (index 6 onwards)
+    local file_path = vim.fn.expand("%:p"):sub(6)
+    vim.cmd("!xdg-open " .. file_path)
 end
 
 return M

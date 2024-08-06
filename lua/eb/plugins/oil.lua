@@ -12,6 +12,7 @@ return {
         local keymap_normal = custom_helpers.keymap_normal
         local toggle_oil_columns = oil_helpers.toggle_oil_columns
         local telescope_find_cwd = oil_helpers.telescope_find_cwd
+        local open_file = oil_helpers.open_file
 
         oil.setup({
             keymaps = {
@@ -55,6 +56,11 @@ return {
                     telescope_find_cwd,
                     mode = "n",
                     desc = "Find files in the current directory",
+                },
+                ["<leader>o"] = {
+                    open_file,
+                    mode = "n",
+                    desc = "Open file in default app",
                 },
             },
             view_options = {
