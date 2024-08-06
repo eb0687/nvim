@@ -11,6 +11,8 @@ return {
         local oil_helpers = require("eb.utils.oil-helpers")
         local keymap_normal = custom_helpers.keymap_normal
         local toggle_oil_columns = oil_helpers.toggle_oil_columns
+        local telescope_find_cwd = oil_helpers.telescope_find_cwd
+        local keymap_opts = oil_helpers.keymap_opts
 
         oil.setup({
             keymaps = {
@@ -46,6 +48,7 @@ return {
                 ["g."] = "actions.toggle_hidden",
                 ["g\\"] = "actions.toggle_trash",
                 ["gc"] = toggle_oil_columns,
+                ["<leader>ff"] = telescope_find_cwd,
             },
             view_options = {
                 show_hidden = true,
