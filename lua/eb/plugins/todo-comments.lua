@@ -81,7 +81,6 @@ return {
         -- local keymap_normal = custom_helpers.keymap_normal
 
         -- NOTE: disabling this for now and replacing it with trouble.nvim
-        -- local function todo_current_buffer_dir()
         -- NOTE:
         -- for more explanation on what the arguments passed to the expand
         -- method mean, check the docs :help expand()
