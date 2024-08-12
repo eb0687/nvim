@@ -82,7 +82,7 @@ return {
 
         -- NOTE: disabling this for now and replacing it with trouble.nvim
         -- local function todo_current_buffer_dir()
-        --     -- NOTE:
+        -- NOTE:
         --     -- for more explanation on what the arguments passed to the expand
         --     -- method mean, check the docs :help expand()
         --     Command = "TodoTelescope cwd=" .. vim.fn.expand("%:p:h")
