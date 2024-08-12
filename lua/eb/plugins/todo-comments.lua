@@ -57,7 +57,7 @@ return {
                 error = { "DiagnosticError", "ErrorMsg", "#EA6962" },
                 warning = { "DiagnosticWarn", "WarningMsg", "#E78A4E" },
                 info = { "DiagnosticInfo", "#7DAEA3" },
-                hint = { "DiagnosticHint", "#5D5D5D" },
+                hint = { "#504945" },
                 default = { "Identifier", "#665C54" },
                 test = { "Identifier", "#A9B665" },
             },
