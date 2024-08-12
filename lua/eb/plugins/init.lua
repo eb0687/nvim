@@ -92,19 +92,19 @@ return {
         cmd = "Nerdy",
     },
     -- https://github.com/roobert/tailwindcss-colorizer-cmp.nvim
-    {
-        "roobert/tailwindcss-colorizer-cmp.nvim",
-        ft = {
-            "javascript",
-            "html",
-        },
-        -- optionally, override the default options:
-        config = function()
-            require("tailwindcss-colorizer-cmp").setup({
-                color_square_width = 2,
-            })
-        end,
-    },
+    -- {
+    --     "roobert/tailwindcss-colorizer-cmp.nvim",
+    --     ft = {
+    --         "javascript",
+    --         "html",
+    --     },
+    --     -- optionally, override the default options:
+    --     config = function()
+    --         require("tailwindcss-colorizer-cmp").setup({
+    --             color_square_width = 2,
+    --         })
+    --     end,
+    -- },
 
     -- https://github.com/laytan/tailwind-sorter.nvim
     -- NOTE: could not get the prettier-plugin-tailwindcss to work,

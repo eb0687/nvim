@@ -224,10 +224,10 @@ return {
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss
         -- https://github.com/tailwindlabs/tailwindcss-intellisense
         -- NOTE: this requires tailwind to be setup properly in the poject directory
-        lspconfig.tailwindcss.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-        })
+        -- lspconfig.tailwindcss.setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        -- })
 
         -- sql
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sqlls

@@ -191,7 +191,7 @@ return {
                         Copilot = "",
                         Codeium = "",
                     },
-                    before = require("tailwindcss-colorizer-cmp").formatter,
+                    -- before = require("tailwindcss-colorizer-cmp").formatter,
                 }),
             },
             experimental = {
