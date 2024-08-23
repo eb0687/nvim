@@ -38,6 +38,7 @@ return {
         local hostname = custom_helpers.get_hostname()
         local utils = require("eb.utils.telescope-helpers")
         local multi_select = utils.multi_select
+        local buffer_searcher = utils.buffer_searcher
 
         local file_ignore_patterns = {
             "^.git/",
@@ -262,10 +263,12 @@ return {
             })
         end, "Find Word under cursor")
 
-        keymap("<leader>fb", function()
-            -- telescope_builtin.buffers(custom_theme)
-            telescope_builtin.buffers()
-        end, "Find in existing Buffers")
+        -- keymap("<leader>fb", function()
+        --     -- telescope_builtin.buffers(custom_theme)
+        --     telescope_builtin.buffers()
+        -- end, "Find in existing Buffers")
+
+        keymap("<leader>fb", buffer_searcher, "Find in existing Buffers")
 
         keymap("<leader>fsh", function()
             telescope_builtin.search_history(custom_theme)
