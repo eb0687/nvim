@@ -56,3 +56,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
     desc = "Disable New Line Comment",
 })
+
+-- Rasi ft
+vim.api.nvim_create_augroup("rasi_ft", { clear = true })
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+    group = "rasi_ft",
+    pattern = "*.rasi",
+    command = "set ft=rasi",
+})
