@@ -240,6 +240,13 @@ return {
             })
         end, "Find using Grep")
 
+        keymap("<leader>fsb", function()
+            telescope_builtin.grep_string({
+                search = vim.fn.input("Grep in open buffers > "),
+                grep_open_files = true,
+            })
+        end, "Find using Grep in current open buffers")
+
         keymap("<leader>fn", function()
             telescope_builtin.find_files({
                 prompt_title = "[ VIMRC ]",
@@ -256,7 +263,7 @@ return {
             })
         end, "Find Files in home directory")
 
-        keymap("<leader>fw", function()
+        keymap("<leader>fsw", function()
             telescope_builtin.grep_string({
                 search = vim.fn.expand("<cword>"),
                 grep_open_files = true,
