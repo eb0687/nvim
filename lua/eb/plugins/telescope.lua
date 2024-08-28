@@ -144,6 +144,9 @@ return {
                 buffers = {
                     theme = "ivy",
                 },
+                current_buffer_fuzzy_find = {
+                    theme = "ivy",
+                },
             },
             extensions = {
                 tmuxinator = {
@@ -246,6 +249,19 @@ return {
                 grep_open_files = true,
             })
         end, "Find using Grep in current open buffers")
+
+        keymap("<leader>fsB", function()
+            -- local current_buffer = vim.api.nvim_get_current_buf()
+            -- local lines = vim.api.nvim_buf_get_lines(current_buffer, 0, -1, false)
+            local search_term = vim.fn.input("Grep in current buffer > ")
+
+            telescope_builtin.grep_string({
+                search = search_term,
+                search_dirs = { vim.fn.expand("%:p") }, -- Limit to the current buffer's directory
+                only_sort_text = true, -- Focus on the search term itself
+                default_text = search_term,
+            })
+        end, "Find using Grep in current buffer")
 
         keymap("<leader>fn", function()
             telescope_builtin.find_files({
