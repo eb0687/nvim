@@ -34,3 +34,5 @@ end
 -- jump to diagnostics
 keymap("n", "[d", vim.diagnostic.goto_prev, "Go to previous diagnostic message")
 keymap("n", "]d", vim.diagnostic.goto_next, "Go to next diagnostic message")
+-- past image from clipboard
+keymap("n", "<leader>pi", ":PasteImg<CR>", "Paste image from clipboard")
