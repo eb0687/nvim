@@ -144,6 +144,7 @@ return {
     --     end,
     -- },
 
+    -- https://github.com/AckslD/nvim-FeMaco.lua
     {
         "AckslD/nvim-FeMaco.lua",
         config = function()
