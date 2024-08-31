@@ -19,6 +19,10 @@ return {
                     vim.fn.inputrestore()
                     return name:gsub(" ", "-")
                 end,
+                img_handler = function(img)
+                    vim.cmd("normal! f[")
+                    vim.cmd("normal! a" .. img.name)
+                end,
             },
         })
     end,
