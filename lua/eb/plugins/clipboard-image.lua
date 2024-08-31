@@ -15,7 +15,7 @@ return {
                 img_dir_txt = "assets/img",
                 img_name = function()
                     vim.fn.inputsave()
-                    local name = vim.fn.input("Name: ")
+                    local name = vim.fn.input("Name the image: ")
                     vim.fn.inputrestore()
                     return name:gsub(" ", "-")
                 end,
