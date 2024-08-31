@@ -59,11 +59,11 @@ return {
         cond = vim.fn.isdirectory(".git") == 1,
     },
 
-    -- https://github.com/Bekaboo/deadcolumn.nvim
-    {
-        "Bekaboo/deadcolumn.nvim",
-        event = "VeryLazy",
-    },
+    -- -- https://github.com/Bekaboo/deadcolumn.nvim
+    -- {
+    --     "Bekaboo/deadcolumn.nvim",
+    --     event = "VeryLazy",
+    -- },
 
     -- https://github.com/tpope/vim-obsession
     -- {
