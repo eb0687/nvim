@@ -168,7 +168,7 @@ return {
         -- javascript, typescript
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
         -- https://github.com/typescript-language-server/typescript-language-server
-        lspconfig.tsserver.setup({
+        lspconfig.ts_ls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
             filetypes = {
