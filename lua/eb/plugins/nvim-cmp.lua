@@ -179,8 +179,8 @@ return {
                     ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
                     menu = {
                         nvim_lsp = "[LSP]",
-                        nvim_lua = "[NVIM_LUA]",
                         luasnip = "[LUASNIP]",
+                        nvim_lua = "[NVIM_LUA]",
                         buffer = "[BUFFER]",
                         gitmoji = "[GITMOJI]",
                         path = "[PATH]",
@@ -211,8 +211,8 @@ return {
                 -- { name = "vim-dadbod-completion" },
                 { name = "nvim_lsp", group_index = 1 },
                 { name = "luasnip" },
-                { name = "copilot", group_index = 1 },
-                { name = "codeium", group_index = 1 },
+                { name = "copilot", group_index = 2 },
+                { name = "codeium", group_index = 2 },
                 { name = "nvim_lua" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "path" },
