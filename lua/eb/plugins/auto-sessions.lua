@@ -12,10 +12,10 @@ return {
         local keymap_normal = custom_helpers.keymap_normal
 
         auto_session.setup({
-            auto_session_create_enabled = true,
-            auto_save_enabled = true,
-            auto_restore_enabled = false,
-            auto_session_suppress_dirs = {
+            auto_create = true,
+            auto_save = true,
+            auto_restore = false,
+            suppressed_dirs = {
                 "~/Downloads",
                 "~/Documents",
             },
