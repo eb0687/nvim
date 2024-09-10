@@ -1,6 +1,6 @@
 local M = require("lualine.components.filename"):extend()
 local highlight = require("lualine.highlight")
-local default_status_colors = { saved = "#32302f", modified = "#d8a657", readonly = "#fb4934" }
+local default_status_colors = { saved = "#1D2021", modified = "#d8a657", readonly = "#fb4934" }
 
 function M:init(options)
     M.super.init(self, options)
