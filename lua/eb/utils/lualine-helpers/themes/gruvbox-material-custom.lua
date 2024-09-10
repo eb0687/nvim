@@ -14,9 +14,12 @@ local colors = {
 
 return {
     normal = {
-        a = { fg = colors.color4, bg = colors.color3, gui = "bold" },
-        b = { fg = colors.color4, bg = colors.color3 },
-        c = { fg = colors.color4, bg = colors.color3 },
+        -- a = { fg = colors.color4, bg = colors.color3, gui = "bold" },
+        -- b = { fg = colors.color4, bg = colors.color3 },
+        -- c = { fg = colors.color4, bg = colors.color3 },
+        a = { fg = colors.color4, bg = colors.bg, gui = "bold" },
+        b = { fg = colors.color4, bg = colors.bg },
+        c = { fg = colors.color4, bg = colors.bg },
     },
     command = { a = { fg = colors.fg1, bg = colors.color5, gui = "bold" } },
     inactive = { a = { fg = colors.fg2, bg = colors.color2 } },
