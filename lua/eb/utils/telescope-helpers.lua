@@ -73,6 +73,8 @@ end
 M.buffer_searcher = function()
     builtin.buffers({
         sort_mru = true,
+        sort_lastused = true,
+        initial_mode = "normal",
         ignore_current_buffer = false,
         show_all_buffers = true,
         attach_mappings = function(prompt_bufnr, map)

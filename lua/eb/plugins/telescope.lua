@@ -96,7 +96,8 @@ return {
                     n = {
                         ["<C-t>"] = open_with_trouble,
                         ["<C-a>"] = add_to_trouble,
-                        ["<C-s>"] = multi_select,
+                        ["q"] = require("telescope.actions").close,
+                        ["d"] = require("telescope.actions").delete_buffer,
                     },
                 },
             },
