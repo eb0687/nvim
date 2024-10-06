@@ -1,5 +1,11 @@
 local M = {}
 
+vim.api.nvim_set_hl(0, "BufferHighlightIcon", { bg = "#1D2021", fg = "#8ec07c" })
+
+local function apply_highlight(group, text)
+    return "%#" .. group .. "#" .. text
+end
+
 -- source: https://github.com/linkarzu/dotfiles-latest/blob/main/neovim/neobean/lua/config/options.lua#L26
 -- https://youtu.be/ldfxEda_mzc?t=385
 function M.count_buffers()
@@ -11,7 +17,9 @@ function M.count_buffers()
             count = count + 1
         end
     end
-    return count
+    local icon = apply_highlight("BufferHighlightIcon", " ") -- Icon with highlight
+    local out = icon .. tostring(count)
+    return out
 end
 
 return M

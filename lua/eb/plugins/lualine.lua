@@ -69,7 +69,6 @@ return {
                     },
                     {
                         buffer_count.count_buffers,
-                        icon = "",
                     },
                     {
                         permissions.get_permissions,
