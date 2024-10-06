@@ -29,6 +29,7 @@ return {
         local word_count = require("eb.utils.lualine-helpers.word-count")
         local permissions = require("eb.utils.lualine-helpers.permissions")
         local lint_progress = require("eb.utils.lualine-helpers.lint-progress")
+        local buffer_count = require("eb.utils.lualine-helpers.buffer-count")
 
         require("lualine").setup({
             sections = {
@@ -65,6 +66,10 @@ return {
                             newfile = "New File", -- Text to show for newly created file before first write
                         },
                         cond = min_window_width.min_window_width(50),
+                    },
+                    {
+                        buffer_count.count_buffers,
+                        icon = "",
                     },
                     {
                         permissions.get_permissions,
