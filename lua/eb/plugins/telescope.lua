@@ -148,6 +148,9 @@ return {
                 current_buffer_fuzzy_find = {
                     theme = "ivy",
                 },
+                diagnostics = {
+                    theme = "ivy",
+                },
             },
             extensions = {
                 tmuxinator = {
@@ -198,6 +201,7 @@ return {
         keymap("<leader>fp", telescope_builtin.man_pages, "Find in man Pages")
         keymap("<leader>fm", telescope_builtin.marks, "Find in vim marks")
         keymap("<leader>fg", telescope_builtin.git_files, "Find files in Git repository")
+        keymap("<leader>fd", telescope_builtin.diagnostics, "Find all diagnostics")
         keymap("gr", telescope_builtin.lsp_references, "Find references [LSP]")
         keymap("gd", telescope_builtin.lsp_definitions, "Find definitions [LSP]")
         keymap("gD", telescope_builtin.lsp_type_definitions, "Find type definitions [LSP]")
