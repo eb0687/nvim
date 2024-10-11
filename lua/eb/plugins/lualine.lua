@@ -30,6 +30,7 @@ return {
         local permissions = require("eb.utils.lualine-helpers.permissions")
         local lint_progress = require("eb.utils.lualine-helpers.lint-progress")
         local buffer_count = require("eb.utils.lualine-helpers.buffer-count")
+        local copilot_helper = require("eb.utils.lualine-helpers.copilot-helpers")
 
         require("lualine").setup({
             sections = {
@@ -129,6 +130,23 @@ return {
                         cond = min_window_width.min_window_width(50),
                         on_click = function()
                             vim.cmd("LspInfo")
+                        end,
+                    },
+                    {
+                        "copilot",
+                        symbols = {
+                            hl = {
+                                enabled = "#50FA7B",
+                                sleep = "#AEB7D0",
+                                disabled = "#6272A4",
+                                warning = "#FFB86C",
+                                unknown = "#FF5555",
+                            },
+                        },
+                        show_colors = true,
+                        padding = 1,
+                        on_click = function()
+                            copilot_helper.toggle_copilot()
                         end,
                     },
                 },
