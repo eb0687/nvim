@@ -184,7 +184,7 @@ return {
                         buffer = "[BUFFER]",
                         gitmoji = "[GITMOJI]",
                         path = "[PATH]",
-                        Codeium = "[CODEIUM]",
+                        Codeium = "[Codeium]",
                         Copilot = "[Copilot]",
                     },
                     symbol_map = {
@@ -195,7 +195,7 @@ return {
                 }),
             },
             experimental = {
-                ghost_text = true,
+                ghost_text = false,
             },
 
             -- Setup for vim-dadbod
@@ -211,8 +211,8 @@ return {
                 -- { name = "vim-dadbod-completion" },
                 { name = "nvim_lsp", group_index = 1 },
                 { name = "luasnip" },
-                { name = "copilot", group_index = 2 },
-                { name = "codeium", group_index = 2 },
+                { name = "copilot" },
+                { name = "codeium" },
                 { name = "nvim_lua" },
                 { name = "nvim_lsp_signature_help" },
                 { name = "path" },
