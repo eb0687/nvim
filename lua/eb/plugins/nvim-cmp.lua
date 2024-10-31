@@ -27,6 +27,7 @@ return {
             ft = { "gitcommit" },
         },
         "f3fora/cmp-spell",
+        "stevearc/vim-vscode-snippets",
     },
 
     config = function()
@@ -58,6 +59,9 @@ return {
                     luasnip.lsp_expand(args.body) -- For `luasnip` users.
                 end,
             },
+
+            -- NOTE: disabling this for now, not liking how it doesnt select the thing i want
+            -- preselect = "none",
 
             -- KEYMAPPING
             -- NOTE: to disable default keymappings assign it to cmp.config.disable

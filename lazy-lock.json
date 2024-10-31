@@ -91,5 +91,6 @@
   "vim-hcl": { "branch": "main", "commit": "1e1116c17a5774851360ea8077f349e36fc733c1" },
   "vim-lastplace": { "branch": "master", "commit": "e58cb0df716d3c88605ae49db5c4741db8b48aa9" },
   "vim-tmux-navigator": { "branch": "master", "commit": "a9b52e7d36114d40350099f254b5f299a35df978" },
+  "vim-vscode-snippets": { "branch": "master", "commit": "c34e9edee6a00cf3d0b8edb515e08e3df450bcfa" },
   "wtf.nvim": { "branch": "main", "commit": "16eec1f32c3608bd8519e9e520041fe34201abb0" }
 }
