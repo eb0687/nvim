@@ -64,3 +64,26 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     pattern = "*.rasi",
     command = "set ft=rasi",
 })
+
+-- wsl clipboard
+local function get_distro_name()
+    local handle = io.popen("echo $WSL_DISTRO_NAME")
+    local hostname = handle:read("*a")
+    handle:close()
+    return hostname:match("^%s*(.-)%s*$")
+end
+
+if get_distro_name() ~= "" then
+    vim.g.clipboard = {
+        name = "WslClipboard",
+        copy = {
+            ["+"] = "clip.exe",
+            ["*"] = "clip.exe",
+        },
+        paste = {
+            ["+"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ["*"] = 'powershell.exe -NoLogo -NoProfile -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        },
+        cache_enabled = 0,
+    }
+end
