@@ -210,6 +210,15 @@ return {
                 },
             }),
 
+            -- NOTE: enable only buffer and path as sources for oil
+            -- codeium completion error messages are annoying, this fixes it
+            cmp.setup.filetype({ "oil" }, {
+                sources = {
+                    { name = "buffer" },
+                    { name = "path" },
+                },
+            }),
+
             -- SOURCES
             sources = cmp.config.sources({
                 -- { name = "vim-dadbod-completion" },
