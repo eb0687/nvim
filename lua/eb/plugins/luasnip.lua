@@ -109,10 +109,12 @@ return {
         keymap("<a-s>", expand, "Expand Snippet")
         -- keymap("<a-1>", jump_previous, "Jump to previous section")
         -- keymap("<a-2>", jump_next, "Jump to next section")
-        keymap("<a-1>", jump_backward, "Jump to previous section")
-        keymap("<a-2>", jump_forward, "Jump to next section")
-        keymap("<a-3>", choice_previous, "Cycle through choices in choice node")
-        keymap("<a-4>", choice_next, "Cycle through choices in choice node")
+        -- keymap("<a-1>", jump_backward, "Jump to previous section")
+        -- keymap("<a-2>", jump_forward, "Jump to next section")
+        keymap("<s-tab>", jump_backward, "Jump to previous section")
+        keymap("<tab>", jump_forward, "Jump to next section")
+        keymap("<a-p>", choice_previous, "Cycle through choices in choice node")
+        keymap("<a-n>", choice_next, "Cycle through choices in choice node")
 
         -- TEST:
         -- print("Hello from lazy luasnip")
