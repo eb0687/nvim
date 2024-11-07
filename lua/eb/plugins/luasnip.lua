@@ -111,10 +111,11 @@ return {
         -- keymap("<a-2>", jump_next, "Jump to next section")
         -- keymap("<a-1>", jump_backward, "Jump to previous section")
         -- keymap("<a-2>", jump_forward, "Jump to next section")
-        keymap("<s-tab>", jump_backward, "Jump to previous section")
-        keymap("<tab>", jump_forward, "Jump to next section")
-        keymap("<a-p>", choice_previous, "Cycle through choices in choice node")
-        keymap("<a-n>", choice_next, "Cycle through choices in choice node")
+        -- TODO: figure out better bindings for these
+        keymap("<a-p>", jump_backward, "Jump to previous section")
+        keymap("<a-n>", jump_forward, "Jump to next section")
+        -- keymap("<a-p>", choice_previous, "Cycle through choices in choice node")
+        -- keymap("<a-n>", choice_next, "Cycle through choices in choice node")
 
         -- TEST:
         -- print("Hello from lazy luasnip")
