@@ -73,10 +73,12 @@ return {
                 },
                 ["yap"] = {
                     copy_abs_path,
+                    mode = "n",
                     desc = "Copy absolute filepath to system clipboard",
                 },
                 ["yrp"] = {
                     copy_rel_path,
+                    mode = "n",
                     desc = "Copy relative filepath to system clipboard",
                 },
             },
