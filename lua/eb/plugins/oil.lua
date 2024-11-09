@@ -13,7 +13,8 @@ return {
         local toggle_oil_columns = oil_helpers.toggle_oil_columns
         local telescope_find_cwd = oil_helpers.telescope_find_cwd
         local open_file = oil_helpers.open_file
-        local copy_file_path = oil_helpers.copy_file_path
+        local copy_abs_path = oil_helpers.copy_absolute_path
+        local copy_rel_path = oil_helpers.copy_relative_path
 
         oil.setup({
             keymaps = {
@@ -70,9 +71,13 @@ return {
                     mode = "n",
                     desc = "Open file in default app",
                 },
-                ["yp"] = {
-                    copy_file_path,
-                    desc = "Copy filepath to system clipboard",
+                ["yap"] = {
+                    copy_abs_path,
+                    desc = "Copy absolute filepath to system clipboard",
+                },
+                ["yrp"] = {
+                    copy_rel_path,
+                    desc = "Copy relative filepath to system clipboard",
                 },
             },
             view_options = {

@@ -33,9 +33,21 @@ M.open_file = function()
     vim.cmd("!xdg-open " .. file_path)
 end
 
-M.copy_file_path = function()
+M.copy_absolute_path = function()
     require("oil.actions").copy_entry_path.callback()
     vim.fn.setreg("+", vim.fn.getreg(vim.v.register))
+end
+
+M.copy_relative_path = function()
+    local entry = oil.get_cursor_entry()
+    local dir = oil.get_current_dir()
+
+    if not entry or not dir then
+        return
+    end
+
+    local relpath = vim.fn.fnamemodify(dir, ":.")
+    vim.fn.setreg("+", relpath .. entry.name)
 end
 
 return M
