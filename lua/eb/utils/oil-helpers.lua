@@ -33,4 +33,9 @@ M.open_file = function()
     vim.cmd("!xdg-open " .. file_path)
 end
 
+M.copy_file_path = function()
+    require("oil.actions").copy_entry_path.callback()
+    vim.fn.setreg("+", vim.fn.getreg(vim.v.register))
+end
+
 return M
