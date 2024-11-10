@@ -27,6 +27,16 @@ return {
             },
         }, ns)
 
+        -- NOTE: dsiable line length warning in markdown files
+        -- SOURCE: https://www.reddit.com/r/neovim/comments/19ceuoq/comment/kuna12d/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+        local markdownlint = require("lint").linters.markdownlint
+        markdownlint.args = {
+            "--disable",
+            "MD013",
+            "MD007",
+            "--", -- Required
+        }
+
         vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
             group = lint_augroup,
             callback = function()

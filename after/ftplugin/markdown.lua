@@ -22,7 +22,7 @@ end
 vcmd("setlocal spell spelllang=en_us")
 vcmd("setlocal expandtab shiftwidth=4 softtabstop=4 autoindent")
 
--- this setting makes markdown auto-set the 80 text width limit when typing
+-- this setting makes markdown auto-set the 80 text width limit when typing for the color column
 if is_in_obsidian_repo() then
     vim.bo.textwidth = 175 -- No limit for Obsidian repository
     vim.opt_local.colorcolumn = "175"
