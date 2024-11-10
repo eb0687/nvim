@@ -1,5 +1,8 @@
 return {
     "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = false,
     dependencies = {
         "nvim-tree/nvim-web-devicons",
         "stevearc/dressing.nvim",
@@ -12,5 +15,13 @@ return {
         },
     },
     build = "make",
-    opts = { provider = "copilot" },
+    opts = {
+        provider = "copilot",
+        hints = {
+            enabled = true,
+        },
+        windows = {
+            width = 40,
+        },
+    },
 }

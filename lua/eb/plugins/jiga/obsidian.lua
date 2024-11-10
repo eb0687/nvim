@@ -86,6 +86,11 @@ return {
             completion = {
                 nvim_cmp = true,
             },
+            -- NOTE: if enabled, this conflicts with the render-markdown plugin
+            -- which is used in Avante plugin
+            ui = {
+                enable = false,
+            },
         })
 
         keymap_normal("gf", ":ObsidianFollowLink<CR>", "OBSIDIAN", true, "follow Obsidian link")
