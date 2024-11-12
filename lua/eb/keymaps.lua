@@ -17,6 +17,7 @@
 local custom_helpers = require("eb.utils.custom_helpers")
 local keymap_silent = custom_helpers.keymap_silent
 local keymap_loud = custom_helpers.keymap_loud
+local file_info = custom_helpers.file_info
 
 -- Leader remap
 keymap_silent("", "<Space>", "<Nop>", "Leader")
@@ -144,6 +145,9 @@ keymap_silent("n", "<leader>p", '"+p', "Paste from system clipboard")
 
 -- Paste in Visual with `P` to not copy selected text (`:h v_P`)
 keymap_silent("x", "<leader>p", '"+P', "Paste from system clipboard")
+
+-- Custom
+keymap_silent("n", "<leader>i", file_info, "Custom: open basic file information")
 
 -----------------
 -- INSERT MODE --
