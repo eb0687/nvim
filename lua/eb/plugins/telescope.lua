@@ -39,6 +39,7 @@ return {
         local utils = require("eb.utils.telescope-helpers")
         local multi_select = utils.multi_select
         local buffer_searcher = utils.buffer_searcher
+        local document_symbols_for_selected = utils.document_symbols_for_selected
 
         local file_ignore_patterns = {
             "^.git/",
@@ -92,12 +93,14 @@ return {
                         ["<C-t>"] = open_with_trouble,
                         ["<C-a>"] = add_to_trouble,
                         ["<C-s>"] = multi_select,
+                        ["<C-y>"] = document_symbols_for_selected,
                     },
                     n = {
                         ["<C-t>"] = open_with_trouble,
                         ["<C-a>"] = add_to_trouble,
                         ["q"] = require("telescope.actions").close,
                         ["d"] = require("telescope.actions").delete_buffer,
+                        ["<C-y>"] = document_symbols_for_selected,
                     },
                 },
             },
