@@ -39,5 +39,9 @@ return {
                 enable = false,
             },
         })
+
+        -- source: https://github.com/echasnovski/mini.ai?tab=readme-ov-file
+        local ai = require("mini.ai")
+        ai.setup()
     end,
 }
