@@ -51,5 +51,9 @@ return {
         -- source: https://github.com/echasnovski/mini.pairs
         local pairs = require("mini.pairs")
         pairs.setup()
+
+        -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-comment.md
+        local comment = require("mini.comment")
+        comment.setup()
     end,
 }
