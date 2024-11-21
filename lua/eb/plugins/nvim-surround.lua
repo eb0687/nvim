@@ -5,10 +5,13 @@
 -- |_| |_|\_/ |_|_| |_| |_|     |___/\__,_|_|  |_|  \___/ \__,_|_| |_|\__,_|
 -- https://github.com/kylechui/nvim-surround
 
+-- NOTE: testing out mini-surround
+
 return {
-    'kylechui/nvim-surround',
+    "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = { "BufReadPre", "BufNewFile" },
+    enabled = false,
     config = function()
         require("nvim-surround").setup({
             -- Configuration here, or leave empty to use defaults
@@ -16,5 +19,5 @@ return {
 
         -- TEST:
         -- print("Hello from lazy nvim-surround")
-    end
+    end,
 }

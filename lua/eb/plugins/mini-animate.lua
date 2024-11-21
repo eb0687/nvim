@@ -43,5 +43,9 @@ return {
         -- source: https://github.com/echasnovski/mini.ai?tab=readme-ov-file
         local ai = require("mini.ai")
         ai.setup()
+
+        -- source: https://github.com/echasnovski/mini.surround
+        local surround = require("mini.surround")
+        surround.setup()
     end,
 }
