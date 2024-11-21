@@ -47,5 +47,9 @@ return {
         -- source: https://github.com/echasnovski/mini.surround
         local surround = require("mini.surround")
         surround.setup()
+
+        -- source: https://github.com/echasnovski/mini.pairs
+        local pairs = require("mini.pairs")
+        pairs.setup()
     end,
 }

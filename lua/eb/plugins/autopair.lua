@@ -7,10 +7,11 @@
 -- https://github.com/windwp/nvim-autopairs
 
 return {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
+    "windwp/nvim-autopairs",
+    enabled = false,
+    event = "InsertEnter",
     dependencies = {
-        'hrsh7th/nvim-cmp'
+        "hrsh7th/nvim-cmp",
     },
 
     config = function()
@@ -20,9 +21,9 @@ return {
 
         nvim_autopairs.setup({
             check_ts = true,
-            ts_config ={
-                lua = {"string"}, -- dont add pairs in lua string treesitter nodes
-                javascript = {"template_string"},
+            ts_config = {
+                lua = { "string" }, -- dont add pairs in lua string treesitter nodes
+                javascript = { "template_string" },
                 java = false, -- dont check treesitter on java
             },
 
@@ -30,22 +31,22 @@ return {
 
             -- source: https://github.com/windwp/nvim-autopairs#fastwrap
             fast_wrap = {
-                map = '<M-e>',
-                chars = { '{', '[', '(', '"', "'" },
+                map = "<M-e>",
+                chars = { "{", "[", "(", '"', "'" },
                 pattern = [=[[%'%"%>%]%)%}%,]]=],
-                end_key = '$',
-                before_key = 'h',
-                after_key = 'l',
+                end_key = "$",
+                before_key = "h",
+                after_key = "l",
                 cursor_pos_before = true,
-                keys = 'qwertyuiopzxcvbnmasdfghjkl',
+                keys = "qwertyuiopzxcvbnmasdfghjkl",
                 check_comma = true,
                 manual_position = true,
-                highlight = 'Search',
-                highlight_grey = 'Comment'
-            }
+                highlight = "Search",
+                highlight_grey = "Comment",
+            },
         })
 
         -- TEST:
         -- print('Hello from lazy autopairs')
-    end
+    end,
 }
