@@ -125,4 +125,22 @@ function M.file_info()
     })
 end
 
+local function is_wsl()
+    local handle = io.popen("grep -qi microsoft /proc/version && echo true || echo false")
+    local result = handle:read("*a")
+    handle:close()
+    return result:match("^%s*(.-)%s*$") == "true"
+end
+
+-- NOTE: this uses wslview to open links in windows default browser
+function M.open_in_browser()
+    local file = vim.fn.expand("<cfile>")
+    local escaped_file = vim.fn.shellescape(file) -- Escape the file for safe use in shell commands
+    if is_wsl() then
+        vim.fn.system("wslview " .. escaped_file)
+    else
+        vim.fn.system("xdg-open " .. escaped_file)
+    end
+end
+
 return M

@@ -18,6 +18,7 @@ local custom_helpers = require("eb.utils.custom_helpers")
 local keymap_silent = custom_helpers.keymap_silent
 local keymap_loud = custom_helpers.keymap_loud
 local file_info = custom_helpers.file_info
+local open_url = custom_helpers.open_in_browser
 
 -- Leader remap
 keymap_silent("", "<Space>", "<Nop>", "Leader")
@@ -116,12 +117,7 @@ keymap_silent("n", "<leader>w", ":set wrap!<CR>", "Toggle wrap")
 -- keymap_silent("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", 'Tmux sessionizer')
 keymap_silent("n", "<C-f>", "<cmd>silent !t<CR>", "Tmux sessionizer")
 keymap_silent("n", "<leader>tmss", "<cmd>silent !tmux neww tmss<CR>", "Switch Tmux session")
-keymap_silent(
-    "n",
-    "gx",
-    "<cmd>execute '!xdg-open ' .. shellescape(expand('<cfile>'), v:true)<CR>",
-    "Open in web browser"
-)
+keymap_silent("n", "gx", open_url, "Open in web browser")
 keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
 
 -- Lazy
