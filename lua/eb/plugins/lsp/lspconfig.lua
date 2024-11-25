@@ -268,6 +268,11 @@ return {
             on_attach = on_attach,
         })
 
+        lspconfig.cssls.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+        })
+
         -- TEST:
         -- print("Hello from lazy lspconfig")
     end,
