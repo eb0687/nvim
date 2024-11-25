@@ -5,19 +5,17 @@ return {
             window = {
                 width = 90,
                 options = {
-                    number = false,
-                    relativenumber = false,
-                    signcolumn = "no",
+                    number = true,
+                    relativenumber = true,
+                    signcolumn = "yes",
                     cursorcolumn = false,
+                    laststatus = 0,
                 },
             },
             plugins = {
                 alacritty = {
                     enabled = true,
                     font = "15",
-                },
-                options = {
-                    laststatus = 0,
                 },
             },
         })
