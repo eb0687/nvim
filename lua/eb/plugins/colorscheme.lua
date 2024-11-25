@@ -37,8 +37,12 @@ return {
         -- of colors
 
         -- Custom highlights
-        nvim_set_hl(0, "NormalFloat", { bg = "#32302F" })
-        nvim_set_hl(0, "FloatBorder", { bg = "#32302F", fg = "#000000" })
+        -- nvim_set_hl(0, "NormalFloat", { bg = "#32302F" })
+        -- nvim_set_hl(0, "FloatBorder", { bg = "#32302F", fg = "#000000" })
+        -- NOTE: color highlight for harpoon2
+        nvim_set_hl(0, "NormalFloat", { bg = "#32302f" })
+        nvim_set_hl(0, "FloatTitle", { bg = "#32302f" })
+        nvim_set_hl(0, "FloatBorder", { bg = "#32302f", fg = "#000000" })
 
         -- Flash.nvim
         nvim_set_hl(0, "FlashBackdrop", { bg = "#191919", fg = "#665C54" })
@@ -81,6 +85,8 @@ return {
         nvim_set_hl(0, "BufferInactive", { bg = "#252423", fg = "#84776A" })
         -- mini-animate
         nvim_set_hl(0, "MiniAnimateCursor", { bg = "#E5E5E5" })
+
+        nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#84776A" })
 
         -- TEST:
         -- print('Hello from colorscheme lazy')

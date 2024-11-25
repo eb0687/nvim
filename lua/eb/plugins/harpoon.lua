@@ -21,6 +21,13 @@ return {
         local custom_helpers = require("eb.utils.custom_helpers")
         local keymap_normal = custom_helpers.keymap_normal
 
+        local toggle_opts = {
+            border = "solid",
+            title_pos = "center",
+            ui_width_ratio = 0.40,
+            title = " Harpoon ",
+        }
+
         local harpoon = require("harpoon")
         harpoon:setup({
             settings = {
@@ -51,7 +58,7 @@ return {
             harpoon:list():add()
         end, "HARPOON", true, "Add to harpoon list")
         keymap_normal("<leader>hm", function()
-            harpoon.ui:toggle_quick_menu(harpoon:list())
+            harpoon.ui:toggle_quick_menu(harpoon:list(), toggle_opts)
         end, "HARPOON", true, "Toggle quick menu")
         keymap_normal("<leader>hr", function()
             harpoon:list():remove()
