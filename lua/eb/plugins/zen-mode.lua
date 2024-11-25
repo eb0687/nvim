@@ -9,13 +9,15 @@ return {
                     relativenumber = true,
                     signcolumn = "yes",
                     cursorcolumn = false,
-                    laststatus = 0,
                 },
             },
             plugins = {
                 alacritty = {
                     enabled = true,
                     font = "15",
+                },
+                options = {
+                    laststatus = 0,
                 },
             },
         })
