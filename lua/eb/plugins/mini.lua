@@ -56,6 +56,8 @@ return {
         local comment = require("mini.comment")
         comment.setup()
 
+        -- TODO: setup https://github.com/benfrain/neovim/tree/main/lua/setup
+
         local indent = require("mini.indentscope")
         indent.setup({
             -- symbol = "▎",
