@@ -158,13 +158,13 @@ keymap_silent("i", "jj", "<Esc>", "Escape")
 -- VISUAL MODE --
 -----------------
 
--- Move highlighted text around using J / K
-keymap_silent("v", "J", ":m '>+1<CR>gv=gv", "Move highlighted text down")
-keymap_silent("v", "K", ":m '<-2<CR>gv=gv", "Move hightlighted text up")
-
--- Indent line using "<" ">", tip: you can repeat the action with "."
-keymap_silent("v", ">", ">gv", "Indent line -->")
-keymap_silent("v", "<", "<gv", "Indent line <--")
+-- -- Move highlighted text around using J / K
+-- keymap_silent("v", "J", ":m '>+1<CR>gv=gv", "Move highlighted text down")
+-- keymap_silent("v", "K", ":m '<-2<CR>gv=gv", "Move hightlighted text up")
+--
+-- -- Indent line using "<" ">", tip: you can repeat the action with "."
+-- keymap_silent("v", ">", ">gv", "Indent line -->")
+-- keymap_silent("v", "<", "<gv", "Indent line <--")
 
 -- Mutli-line editing
 keymap_silent("v", "<leader>,", "<C-v><S-i>", "Edit multiple lines")
