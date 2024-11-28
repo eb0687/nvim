@@ -6,39 +6,39 @@ return {
     version = "*",
     event = "VeryLazy",
     config = function()
-        local animate = require("mini.animate")
-        animate.setup({
-            cursor = {
-                enable = true,
-                timing = animate.gen_timing.exponential({ duration = 80, unit = "total" }),
-                path = animate.gen_path.angle({
-                    predicate = function()
-                        return true
-                    end,
-                }),
-            },
-            resize = {
-                enable = false,
-                timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
-            },
-            scroll = {
-                enable = false,
-            },
-            open = {
-                enable = false,
-                -- Animate for 400 milliseconds with linear easing
-                timing = animate.gen_timing.linear({ duration = 300, unit = "total" }),
-
-                -- Animate with wiping from nearest edge instead of default static one
-                winconfig = animate.gen_winconfig.wipe({ direction = "from_edge" }),
-
-                -- Make bigger windows more transparent
-                winblend = animate.gen_winblend.linear({ from = 80, to = 100 }),
-            },
-            close = {
-                enable = false,
-            },
-        })
+        -- local animate = require("mini.animate")
+        -- animate.setup({
+        --     cursor = {
+        --         enable = true,
+        --         timing = animate.gen_timing.exponential({ duration = 80, unit = "total" }),
+        --         path = animate.gen_path.angle({
+        --             predicate = function()
+        --                 return true
+        --             end,
+        --         }),
+        --     },
+        --     resize = {
+        --         enable = false,
+        --         timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
+        --     },
+        --     scroll = {
+        --         enable = false,
+        --     },
+        --     open = {
+        --         enable = false,
+        --         -- Animate for 400 milliseconds with linear easing
+        --         timing = animate.gen_timing.linear({ duration = 300, unit = "total" }),
+        --
+        --         -- Animate with wiping from nearest edge instead of default static one
+        --         winconfig = animate.gen_winconfig.wipe({ direction = "from_edge" }),
+        --
+        --         -- Make bigger windows more transparent
+        --         winblend = animate.gen_winblend.linear({ from = 80, to = 100 }),
+        --     },
+        --     close = {
+        --         enable = false,
+        --     },
+        -- })
 
         -- source: https://github.com/echasnovski/mini.ai?tab=readme-ov-file
         local ai = require("mini.ai")
@@ -56,7 +56,29 @@ return {
         local comment = require("mini.comment")
         comment.setup()
 
-        -- TODO: setup https://github.com/benfrain/neovim/tree/main/lua/setup
+        local move = require("mini.move")
+        move.setup({
+            -- Module mappings. Use `''` (empty string) to disable one.
+            mappings = {
+                -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+                left = "<",
+                right = ">",
+                down = "J",
+                up = "K",
+
+                -- Move current line in Normal mode
+                line_left = "<Left>",
+                line_right = "<Right>",
+                line_down = "<Down>",
+                line_up = "<Up>",
+            },
+
+            -- Options which control moving behavior
+            options = {
+                -- Automatically reindent selection during linewise vertical move
+                reindent_linewise = true,
+            },
+        })
 
         local indent = require("mini.indentscope")
         indent.setup({
