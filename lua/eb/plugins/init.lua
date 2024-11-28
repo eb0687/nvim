@@ -190,6 +190,7 @@ return {
     },
     {
         "letieu/harpoon-lualine",
+        event = "VeryLazy",
         dependencies = {
             {
                 "ThePrimeagen/harpoon",
