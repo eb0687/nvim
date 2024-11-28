@@ -180,6 +180,7 @@ return {
     -- https://github.com/shortcuts/no-neck-pain.nvim
     {
         "shortcuts/no-neck-pain.nvim",
+        enabled = false,
         version = "*",
         opts = {
             buffers = {
