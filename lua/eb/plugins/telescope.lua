@@ -175,6 +175,7 @@ return {
             telescope.load_extension("harpoon"),
             telescope.load_extension("import"),
             telescope.load_extension("luasnip"),
+            telescope.load_extension("noice"),
             -- telescope.load_extension("refactoring"),
         })
 
