@@ -158,7 +158,7 @@ function M.toggle_numbering()
     vim.opt.signcolumn = signcolumn_setting
 end
 
---- Toggle inlay hints
+-- NOTE: Toggle inlay hints
 function M.toggle_inlay_hint()
     local is_enabled = vim.lsp.inlay_hint.is_enabled()
     vim.lsp.inlay_hint.enable(not is_enabled)
