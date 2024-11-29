@@ -194,6 +194,9 @@ return {
                 "typescript.tsx",
             },
             root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+            init_options = {
+                hostInfo = "neovim",
+            },
             single_file_support = true,
             settings = {
                 completions = {
