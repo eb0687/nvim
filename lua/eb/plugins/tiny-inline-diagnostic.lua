@@ -16,6 +16,10 @@ return {
                 enabled = true,
                 after = 30,
             },
+            options = {
+                show_source = true,
+                multilines = true,
+            },
         })
     end,
 }
