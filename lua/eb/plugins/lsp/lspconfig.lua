@@ -193,7 +193,7 @@ return {
                 "typescriptreact",
                 "typescript.tsx",
             },
-            root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+            root_dir = lspconfig.util.root_pattern("jsconfig.json", "package.json", "tsconfig.json", ".git"),
             init_options = {
                 hostInfo = "neovim",
             },
