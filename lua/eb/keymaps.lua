@@ -177,6 +177,12 @@ keymap_silent("v", "<leader>,", "<C-v><S-i>", "Edit multiple lines")
 
 -- Put sane
 keymap_silent("v", "p", '"_dP', "Sane put (paste)")
+
+keymap_silent("n", "p", function()
+    local row, col = unpack(vim.api.nvim_win_get_cursor(0))
+    vim.cmd("put")
+    vim.api.nvim_win_set_cursor(0, { row + 1, col })
+end, "New paste")
 -- keymap("v", "<leader>p", "\"_dP", opts)
 
 -- Increment and Decrement numbers
