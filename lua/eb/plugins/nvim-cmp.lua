@@ -153,32 +153,49 @@ return {
             },
             -- FORMATTING
             window = {
-                -- completion = {
-                --     col_offset = -3,
-                --     side_padding = 1,
-                --     winhighlight = 'Normal:#32302F',
-                -- },
                 documentation = {
                     cmp.config.window.bordered(),
                     winblend = 0,
-                    border = "rounded",
                     winhighlight = "Normal:None,FloatBorder:None",
                     col_offset = -3,
                     side_padding = 1,
+                    -- border = "rounded",
+                    border = {
+                        { "󰙎", "DiagnosticHint" },
+                        { "─", "Comment" },
+                        { "╮", "Comment" },
+                        { "│", "Comment" },
+                        { "╯", "Comment" },
+                        { "─", "Comment" },
+                        { "╰", "Comment" },
+                        { "│", "Comment" },
+                    },
+                    scrollbar = false,
                 },
                 completion = {
                     cmp.config.window.bordered(),
                     winblend = 0,
-                    border = "rounded",
                     winhighlight = "Normal:None,FloatBorder:None",
-                    col_offset = -3,
+                    col_offset = -4,
                     side_padding = 1,
+                    -- border = "rounded",
+                    border = {
+                        { "", "WarningMsg" },
+                        { "─", "Comment" },
+                        { "╮", "Comment" },
+                        { "│", "Comment" },
+                        { "╯", "Comment" },
+                        { "─", "Comment" },
+                        { "╰", "Comment" },
+                        { "│", "Comment" },
+                    },
+                    scrollbar = false,
                 },
             },
             formatting = {
                 -- fields = { "kind", "abbr", "menu" },
                 format = lspkind.cmp_format({
-                    mode = "symbol_text", -- show only symbol annotations
+                    mode = "symbol_text",
                     maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
                     ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
                     menu = {
