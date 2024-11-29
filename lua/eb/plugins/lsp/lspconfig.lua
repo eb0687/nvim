@@ -142,6 +142,9 @@ return {
                     format = {
                         enable = false,
                     },
+                    hint = {
+                        enable = true,
+                    },
                 },
             },
         })
@@ -168,6 +171,17 @@ return {
         -- javascript, typescript
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
         -- https://github.com/typescript-language-server/typescript-language-server
+        local inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+        }
+
         lspconfig.ts_ls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
@@ -180,6 +194,14 @@ return {
                 "typescript.tsx",
             },
             root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+            settings = {
+                typescript = {
+                    inlayHints = inlayHints,
+                },
+                javascript = {
+                    inlayHints = inlayHints,
+                },
+            },
         })
 
         -- bash
@@ -252,6 +274,16 @@ return {
             root_dir = util.root_pattern("go.work", "go.mod", ".git"),
             settings = {
                 gopls = {
+                    -- source: https://github.com/chrisgrieser/nvim-lsp-endhints?tab=readme-ov-file#how-to-enable-inlay-hints-for-a-language
+                    hints = {
+                        rangeVariableTypes = true,
+                        parameterNames = true,
+                        constantValues = true,
+                        assignVariableTypes = true,
+                        compositeLiteralFields = true,
+                        compositeLiteralTypes = true,
+                        functionTypeParameters = true,
+                    },
                     completeUnimported = true,
                     usePlaceholders = true,
                     analyses = {
