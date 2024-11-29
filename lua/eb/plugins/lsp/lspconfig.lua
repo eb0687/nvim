@@ -194,7 +194,11 @@ return {
                 "typescript.tsx",
             },
             root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+            single_file_support = true,
             settings = {
+                completions = {
+                    completeFunctionCalls = true,
+                },
                 typescript = {
                     inlayHints = inlayHints,
                 },

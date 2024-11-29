@@ -3,11 +3,11 @@ return {
     config = function()
         require("zen-mode").setup({
             window = {
-                width = 90,
+                width = 100,
                 options = {
-                    number = true,
-                    relativenumber = true,
-                    signcolumn = "yes",
+                    number = false,
+                    relativenumber = false,
+                    signcolumn = "no",
                     cursorcolumn = false,
                 },
             },
