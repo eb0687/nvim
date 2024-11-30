@@ -42,8 +42,6 @@ return {
         -- NOTE: color highlight for harpoon2
         nvim_set_hl(0, "NormalFloat", { bg = "#32302f" })
         nvim_set_hl(0, "FloatTitle", { bg = "#32302f", fg = "#E78A4E" })
-        nvim_set_hl(0, "FloatBorder", { bg = "#32302f", fg = "#000000" })
-
         -- Flash.nvim
         nvim_set_hl(0, "FlashBackdrop", { bg = "#191919", fg = "#665C54" })
         nvim_set_hl(0, "FlashLabel", { bg = "#EA6962", fg = "#191919" })
@@ -80,11 +78,11 @@ return {
         nvim_set_hl(0, "Multicursor", { bg = "#32302F", fg = "#EA6962", default = true })
         nvim_set_hl(0, "MulticursorMain", { bg = "#32302F", fg = "#EA6962", bold = true, default = true })
         -- barbar
-        nvim_set_hl(0, "BufferCurrent", { bg = "#252423", fg = "#E78A4E" })
-        nvim_set_hl(0, "BufferVisible", { bg = "#252423", fg = "#84776A" })
-        nvim_set_hl(0, "BufferInactive", { bg = "#252423", fg = "#84776A" })
+        -- nvim_set_hl(0, "BufferCurrent", { bg = "#252423", fg = "#E78A4E" })
+        -- nvim_set_hl(0, "BufferVisible", { bg = "#252423", fg = "#84776A" })
+        -- nvim_set_hl(0, "BufferInactive", { bg = "#252423", fg = "#84776A" })
         -- mini-animate
-        nvim_set_hl(0, "MiniAnimateCursor", { bg = "#E5E5E5" })
+        -- nvim_set_hl(0, "MiniAnimateCursor", { bg = "#E5E5E5" })
 
         nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#84776A" })
 

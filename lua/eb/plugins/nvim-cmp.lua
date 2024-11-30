@@ -47,6 +47,9 @@ return {
 
         require("luasnip.loaders.from_vscode").lazy_load()
 
+        vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#32302f", bg = "#7daea3", bold = true, italic = false })
+        vim.api.nvim_set_hl(0, "MyBorder", { fg = "#7daea3" })
+
         cmp.setup({
             completion = {
                 completeopt = "menu,menuone,preview,noselect",
@@ -151,46 +154,43 @@ return {
                     c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Insert, select = true }),
                 }),
             },
+
             -- FORMATTING
             window = {
-                documentation = {
-                    cmp.config.window.bordered(),
+                documentation = cmp.config.window.bordered({
                     winblend = 0,
                     winhighlight = "Normal:None,FloatBorder:None",
-                    col_offset = -3,
+                    col_offset = 0,
                     side_padding = 1,
-                    -- border = "rounded",
-                    border = {
-                        { "󰙎", "DiagnosticHint" },
-                        { "─", "Comment" },
-                        { "╮", "Comment" },
-                        { "│", "Comment" },
-                        { "╯", "Comment" },
-                        { "─", "Comment" },
-                        { "╰", "Comment" },
-                        { "│", "Comment" },
-                    },
-                    scrollbar = false,
-                },
-                completion = {
-                    cmp.config.window.bordered(),
-                    winblend = 0,
-                    winhighlight = "Normal:None,FloatBorder:None",
-                    col_offset = -4,
-                    side_padding = 1,
-                    -- border = "rounded",
                     border = {
                         { "", "WarningMsg" },
-                        { "─", "Comment" },
-                        { "╮", "Comment" },
-                        { "│", "Comment" },
-                        { "╯", "Comment" },
-                        { "─", "Comment" },
-                        { "╰", "Comment" },
-                        { "│", "Comment" },
+                        { "─", "MyBorder" },
+                        { "╮", "MyBorder" },
+                        { "│", "MyBorder" },
+                        { "╯", "MyBorder" },
+                        { "─", "MyBorder" },
+                        { "╰", "MyBorder" },
+                        { "│", "MyBorder" },
                     },
                     scrollbar = false,
-                },
+                }),
+                completion = cmp.config.window.bordered({
+                    winblend = 0,
+                    winhighlight = "Normal:None,FloatBorder:None,CursorLine:MyCursorLine",
+                    col_offset = 0,
+                    side_padding = 1,
+                    border = {
+                        { "", "WarningMsg" },
+                        { "─", "MyBorder" },
+                        { "╮", "MyBorder" },
+                        { "│", "MyBorder" },
+                        { "╯", "MyBorder" },
+                        { "─", "MyBorder" },
+                        { "╰", "MyBorder" },
+                        { "│", "MyBorder" },
+                    },
+                    scrollbar = false,
+                }),
             },
             formatting = {
                 -- fields = { "kind", "abbr", "menu" },
