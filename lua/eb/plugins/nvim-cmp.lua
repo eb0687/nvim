@@ -200,9 +200,9 @@ return {
                     ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
                     menu = {
                         nvim_lsp = "[LSP]",
-                        luasnip = "[LUASNIP]",
-                        nvim_lua = "[NVIM_LUA]",
-                        buffer = "[BUFFER]",
+                        luasnip = "[SNIP]",
+                        nvim_lua = "[API]",
+                        buffer = "[BUFF]",
                         gitmoji = "[GITMOJI]",
                         path = "[PATH]",
                         -- Codeium = "[Codeium]",
@@ -239,16 +239,39 @@ return {
             -- SOURCES
             sources = cmp.config.sources({
                 -- { name = "vim-dadbod-completion" },
-                { name = "nvim_lsp", group_index = 1 },
+                { name = "nvim_lua" },
+                { name = "nvim_lsp" },
                 { name = "luasnip" },
                 { name = "copilot" },
                 -- { name = "codeium" },
-                { name = "nvim_lua" },
-                { name = "nvim_lsp_signature_help" },
                 { name = "path" },
+                { name = "buffer" },
+                { name = "nvim_lsp_signature_help" },
                 { name = "gitmoji" },
-                { name = "buffer", group_index = 2 },
             }),
+
+            sorting = {
+                comparators = {
+                    cmp.config.compare.offset,
+                    cmp.config.compare.exact,
+                    cmp.config.compare.score,
+                    function(entry1, entry2)
+                        local _, entry1_under = entry1.completion_item.label:find("^_+")
+                        local _, entry2_under = entry2.completion_item.label:find("^_+")
+                        entry1_under = entry1_under or 0
+                        entry2_under = entry2_under or 0
+                        if entry1_under > entry2_under then
+                            return false
+                        elseif entry1_under < entry2_under then
+                            return true
+                        end
+                    end,
+                    cmp.config.compare.kind,
+                    cmp.config.compare.sort_text,
+                    cmp.config.compare.length,
+                    cmp.config.compare.order,
+                },
+            },
 
             -- COMMAND LINE
             -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
