@@ -40,8 +40,9 @@ return {
         -- nvim_set_hl(0, "NormalFloat", { bg = "#32302F" })
         -- nvim_set_hl(0, "FloatBorder", { bg = "#32302F", fg = "#000000" })
         -- NOTE: color highlight for harpoon2
-        nvim_set_hl(0, "NormalFloat", { bg = "#32302f" })
-        nvim_set_hl(0, "FloatTitle", { bg = "#32302f", fg = "#E78A4E" })
+        nvim_set_hl(0, "NormalFloat", { bg = "#191919" })
+        nvim_set_hl(0, "FloatTitle", { bg = "#191919", fg = "#E78A4E" })
+        nvim_set_hl(0, "FloatBorder", { bg = "#191919" })
         -- Flash.nvim
         nvim_set_hl(0, "FlashBackdrop", { bg = "#191919", fg = "#665C54" })
         nvim_set_hl(0, "FlashLabel", { bg = "#EA6962", fg = "#191919" })
