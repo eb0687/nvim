@@ -22,7 +22,17 @@ return {
         local keymap_normal = custom_helpers.keymap_normal
 
         local toggle_opts = {
-            border = "solid",
+            border = {
+                { "", "WarningMsg" },
+                { "─", "MyBorder" },
+                { "╮", "MyBorder" },
+                { "│", "MyBorder" },
+                { "╯", "MyBorder" },
+                { "─", "MyBorder" },
+                { "╰", "MyBorder" },
+                { "│", "MyBorder" },
+            },
+            border = "rounded",
             title_pos = "center",
             ui_width_ratio = 0.40,
             title = " Harpoon ",

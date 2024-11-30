@@ -69,7 +69,7 @@ return {
                 view = "notify",
             },
             messages = {
-                enabled = true,
+                enabled = false,
                 view = "messages",
             },
         })

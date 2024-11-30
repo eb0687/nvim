@@ -20,7 +20,17 @@ return {
             ui = {
                 code_action = "󰌶",
                 diagnostic = "",
-                border = "solid",
+                -- border = "solid",
+                border = {
+                    { "", "WarningMsg" },
+                    { "─", "MyBorder" },
+                    { "╮", "MyBorder" },
+                    { "│", "MyBorder" },
+                    { "╯", "MyBorder" },
+                    { "─", "MyBorder" },
+                    { "╰", "MyBorder" },
+                    { "│", "MyBorder" },
+                },
             },
             symbol_in_winbar = {
                 enable = false,

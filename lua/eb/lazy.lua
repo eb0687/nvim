@@ -32,6 +32,9 @@ local opts = {
     change_detection = {
         notify = false,
     },
+    ui = {
+        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+    },
 }
 
 local utils = require("eb.utils.custom_helpers")

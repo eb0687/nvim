@@ -21,8 +21,8 @@ end
 
 -- statusline component, showing current and total quickfix item
 -- Define highlight groups
-vim.api.nvim_set_hl(0, "MyHighlightIcon", { bg = "#32302f", fg = "#d3869b" })
-vim.api.nvim_set_hl(0, "MyHighlightCount", { bg = "#32302f", fg = "#a9b665" })
+vim.api.nvim_set_hl(0, "MyHighlightIcon", { bg = "#1D2021", fg = "#d3869b" })
+vim.api.nvim_set_hl(0, "MyHighlightCount", { bg = "#1D2021", fg = "#a9b665" })
 
 -- Helper function to apply highlight
 local function apply_highlight(group, text)
