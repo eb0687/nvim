@@ -165,23 +165,23 @@ function M.toggle_inlay_hint()
 end
 
 -- NOTE: Toggle flow
-local state = 0
-function M.toggle_flow()
-    if state == 0 then
-        vim.o.relativenumber = false
-        vim.o.number = false
-        vim.opt.signcolumn = "no"
-        vim.opt.laststatus = 1
-        state = 1
-        vim.cmd("redraw")
-    else
-        vim.o.relativenumber = true
-        vim.o.number = true
-        vim.opt.signcolumn = "auto"
-        vim.opt.laststatus = 2
-        state = 0
-        vim.cmd("redraw")
-    end
-end
+-- local state = 0
+-- function M.toggle_flow()
+--     if state == 0 then
+--         vim.o.relativenumber = false
+--         vim.o.number = false
+--         vim.opt.signcolumn = "no"
+--         vim.opt.laststatus = 1
+--         state = 1
+--         vim.cmd("redraw")
+--     else
+--         vim.o.relativenumber = true
+--         vim.o.number = true
+--         vim.opt.signcolumn = "auto"
+--         vim.opt.laststatus = 2
+--         state = 0
+--         vim.cmd("redraw")
+--     end
+-- end
 
 return M

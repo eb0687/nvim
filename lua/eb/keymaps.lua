@@ -21,7 +21,7 @@ local file_info = custom_helpers.file_info
 local open_url = custom_helpers.open_in_browser
 local toggle_numbers = custom_helpers.toggle_numbering
 local toggle_inlay_hints = custom_helpers.toggle_inlay_hint
-local toggle_flow = custom_helpers.toggle_flow
+-- local toggle_flow = custom_helpers.toggle_flow
 
 -- Leader remap
 keymap_silent("", "<Space>", "<Nop>", "Leader")
@@ -149,7 +149,7 @@ keymap_silent("x", "<leader>p", '"+P', "Paste from system clipboard")
 keymap_silent("n", "<leader>io", file_info, "open basic file information")
 keymap_silent("n", "<leader>ih", toggle_inlay_hints, "toggle inlay hints")
 keymap_silent("n", "<leader>n", toggle_numbers, "toggle line numbers")
-keymap_silent("n", "<leader>zf", toggle_flow, "toggle flow")
+-- keymap_silent("n", "<leader>zf", toggle_flow, "toggle flow")
 
 -----------------
 -- INSERT MODE --
