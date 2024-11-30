@@ -171,7 +171,7 @@ return {
                 },
             },
 
-            telescope.load_extension("notify"),
+            -- telescope.load_extension("notify"),
             telescope.load_extension("harpoon"),
             telescope.load_extension("import"),
             telescope.load_extension("luasnip"),

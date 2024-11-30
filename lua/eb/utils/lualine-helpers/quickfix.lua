@@ -9,7 +9,7 @@ local cmd = vim.cmd
 ---@return boolean
 local function quickFixIsEmpty()
     if #vim.fn.getqflist() == 0 then
-        vim.notify(" Quickfix List empty.", vim.log.levels.WARN)
+        -- vim.notify(" Quickfix List empty.", vim.log.levels.WARN)
         return true
     end
     return false
@@ -71,7 +71,7 @@ function M.next()
     else
         cmd("silent cfirst")
         g.qfCount = 1
-        vim.notify("Wrapping to the beginning.")
+        -- vim.notify("Wrapping to the beginning.")
     end
 end
 
@@ -93,7 +93,7 @@ function M.previous()
     else
         cmd("silent clast")
         g.qfCount = #(vim.fn.getqflist())
-        vim.notify("Wrapping to the end.")
+        -- vim.notify("Wrapping to the end.")
     end
 end
 

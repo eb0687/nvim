@@ -1,20 +1,20 @@
 -- NOTE: https://github.com/neovim/neovim/pull/15959
 -- TESTING:
-local user_command = vim.api.nvim_create_user_command
-local input = vim.ui.input
+-- local user_command = vim.api.nvim_create_user_command
+-- local input = vim.ui.input
+--
+-- local user_prompt = function()
+--     input({
+--         prompt = "Please enter some information: ",
+--         default = "this is a test",
+--     }, function(result)
+--         vim.notify(result)
+--     end)
+-- end
 
-local user_prompt = function()
-    input({
-        prompt = "Please enter some information: ",
-        default = "this is a test",
-    }, function(result)
-        vim.notify(result)
-    end)
-end
-
-user_command("HelloWorld", user_prompt, {
-    desc = "this a hello world user command test",
-})
+-- user_command("HelloWorld", user_prompt, {
+--     desc = "this a hello world user command test",
+-- })
 
 -- SOURCE: https://dev.to/vonheikemen/lazynvim-how-to-revert-a-plugin-back-to-a-previous-version-1pdp
 local lazy_cmds = vim.api.nvim_create_augroup("lazy_cmds", { clear = true })

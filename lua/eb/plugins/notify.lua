@@ -7,16 +7,17 @@
 -- https://github.com/rcarriga/nvim-notify
 
 return {
-    'rcarriga/nvim-notify',
+    "rcarriga/nvim-notify",
+    enabled = false,
     config = function()
-        require("notify").setup {
-            stages = 'slide',
-            background_colour = 'FloatShadow',
+        require("notify").setup({
+            stages = "slide",
+            background_colour = "FloatShadow",
             timeout = 1000,
-            render = 'wrapped-compact',
+            render = "wrapped-compact",
             fps = 60,
-            top_down = true
-        }
-        vim.notify = require('notify')
-    end
+            top_down = true,
+        })
+        vim.notify = require("notify")
+    end,
 }

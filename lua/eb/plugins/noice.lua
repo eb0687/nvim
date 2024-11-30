@@ -11,7 +11,7 @@ return {
     dependencies = {
         -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
         { "MunifTanjim/nui.nvim", lazy = true },
-        "rcarriga/nvim-notify",
+        -- "rcarriga/nvim-notify",
     },
 
     config = function()
@@ -65,12 +65,12 @@ return {
                 -- event is always "notify" and kind can be any log level as a string
                 -- The default routes will forward notifications to nvim-notify
                 -- Benefit of using Noice for this is the routing and consistent history view
-                enabled = true,
+                enabled = false,
                 view = "notify",
             },
             messages = {
                 enabled = true,
-                view = "notify",
+                view = "messages",
             },
         })
     end,
