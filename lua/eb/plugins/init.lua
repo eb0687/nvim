@@ -227,4 +227,10 @@ return {
         },
     },
     { "AndreM222/copilot-lualine" },
+    {
+        -- https://github.com/NStefan002/screenkey.nvim
+        "NStefan002/screenkey.nvim",
+        lazy = false,
+        version = "*", -- or branch = "dev", to use the latest commit
+    },
 }
