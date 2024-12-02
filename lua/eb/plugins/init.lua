@@ -12,6 +12,8 @@ return {
 
     -- https://github.com/NvChad/nvim-colorizer.lua
     -- Defaults: https://github.com/NvChad/nvim-colorizer.lua#customization
+    -- TODO: mayb replace with mini.hipatterns
+    -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
     {
         "NvChad/nvim-colorizer.lua",
         cmd = "ColorizerToggle",

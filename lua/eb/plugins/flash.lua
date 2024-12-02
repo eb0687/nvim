@@ -11,11 +11,35 @@ return {
         event = "VeryLazy",
         opts = {},
         keys = {
-            { "s",mode = { "n", "o", "x" },function() require("flash").jump() end,desc = "Flash" },
-            { "S",mode = { "n", "o", "x" },function() require("flash").treesitter() end,desc = "Flash Treesitter" },
+            {
+                "s",
+                mode = { "n", "o", "x" },
+                function()
+                    require("flash").jump()
+                end,
+                desc = "Flash",
+            },
+            {
+                "S",
+                mode = { "n", "o", "x" },
+                function()
+                    require("flash").treesitter()
+                end,
+                desc = "Flash Treesitter",
+            },
             -- { "r",mode = "o",function() require("flash").remote() end,desc = "Remote Flash" },
             -- { "R",mode = { "Toggle Flash Search", "x" },function() require("flash").treesitter_search() end,desc = "Treesitter Search" },
             -- { "<c-d>", mode = { "c" },function() require("flash").toggle() end,desc = "Toggle Flash Search" },
         },
-    }
+        config = function()
+            require("flash").setup({
+                modes = {
+                    char = {
+                        -- NOTE: using mini jump instead of flash
+                        enabled = false,
+                    },
+                },
+            })
+        end,
+    },
 }

@@ -6,6 +6,7 @@ return {
     version = "*",
     event = "VeryLazy",
     config = function()
+        -- NOTE: disabling for now, the reactiveness isnt upto what I like it yet
         -- local animate = require("mini.animate")
         -- animate.setup({
         --     cursor = {
@@ -28,10 +29,8 @@ return {
         --         enable = false,
         --         -- Animate for 400 milliseconds with linear easing
         --         timing = animate.gen_timing.linear({ duration = 300, unit = "total" }),
-        --
         --         -- Animate with wiping from nearest edge instead of default static one
         --         winconfig = animate.gen_winconfig.wipe({ direction = "from_edge" }),
-        --
         --         -- Make bigger windows more transparent
         --         winblend = animate.gen_winblend.linear({ from = 80, to = 100 }),
         --     },
@@ -89,6 +88,9 @@ return {
             },
         })
 
+        local jump = require("mini.jump")
+        jump.setup({})
+
         local clue = require("mini.clue")
         clue.setup({
             triggers = {
@@ -132,10 +134,11 @@ return {
                 -- clue.gen_clues.windows(),
                 -- clue.gen_clues.z(),
             },
-
             window = {
                 config = { width = 50 },
             },
         })
+        -- TODO: mayb replace colorizer.nvim with the below
+        -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
     end,
 }

@@ -174,16 +174,14 @@ return {
 
         local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
 
-        -- vim way: ; goes to the direction you were moving.
-        vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
-        vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
-
+        -- NOTE: trying out mini.jump
         -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
-        -- NOTE: this does not seem to work, maybe interferance from flash.nvim plugin
-        vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
-        vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
-        vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
-        vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
+        -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
+        -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
+        -- vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f)
+        -- vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F)
+        -- vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t)
+        -- vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T)
 
         --  KEYMAPS
         -- local keymap = function(mode, keys, func, desc)
