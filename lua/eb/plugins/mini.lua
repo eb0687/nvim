@@ -88,8 +88,9 @@ return {
             },
         })
 
-        local jump = require("mini.jump")
-        jump.setup({})
+        -- NOTE: gone back to flash
+        -- local jump = require("mini.jump")
+        -- jump.setup({})
 
         local clue = require("mini.clue")
         clue.setup({

@@ -35,8 +35,8 @@ return {
             require("flash").setup({
                 modes = {
                     char = {
-                        -- NOTE: using mini jump instead of flash
-                        enabled = false,
+                        enabled = true,
+                        jump_labels = true,
                     },
                 },
             })
