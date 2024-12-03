@@ -39,8 +39,12 @@ return {
                     pattern = vim.fn.expand("<cword>"),
                 })
             end
+            local flash_treesitter = function()
+                require("flash").treesitter_search()
+            end
 
             keymap_silent("n", "<leader>fw", flash_word, "test")
+            keymap_silent("n", "<leader>ft", flash_treesitter, "test")
 
             require("flash").setup({
                 modes = {
