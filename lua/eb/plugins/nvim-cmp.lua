@@ -64,7 +64,7 @@ return {
             },
 
             -- NOTE: disabling this for now, not liking how it doesnt select the thing i want
-            -- preselect = "none",
+            preselect = "None",
 
             -- KEYMAPPING
             -- NOTE: to disable default keymappings assign it to cmp.config.disable
@@ -244,6 +244,10 @@ return {
                 { name = "luasnip" },
                 { name = "copilot" },
                 -- { name = "codeium" },
+                {
+                    name = "lazydev",
+                    group_index = 0,
+                },
                 { name = "path" },
                 { name = "buffer" },
                 { name = "nvim_lsp_signature_help" },
@@ -251,9 +255,11 @@ return {
             }),
 
             sorting = {
+                priority_weight = 2,
                 comparators = {
                     cmp.config.compare.offset,
                     cmp.config.compare.exact,
+                    require("copilot_cmp.comparators").prioritize,
                     cmp.config.compare.score,
                     function(entry1, entry2)
                         local _, entry1_under = entry1.completion_item.label:find("^_+")
