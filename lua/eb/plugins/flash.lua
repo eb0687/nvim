@@ -48,6 +48,9 @@ return {
                         enabled = true,
                         jump_labels = true,
                     },
+                    search = {
+                        enabled = true,
+                    },
                 },
             })
         end,
