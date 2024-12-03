@@ -32,6 +32,16 @@ return {
             -- { "<c-d>", mode = { "c" },function() require("flash").toggle() end,desc = "Toggle Flash Search" },
         },
         config = function()
+            local custom_helpers = require("eb.utils.custom_helpers")
+            local keymap_silent = custom_helpers.keymap_silent
+            local flash_word = function()
+                require("flash").jump({
+                    pattern = vim.fn.expand("<cword>"),
+                })
+            end
+
+            keymap_silent("n", "<leader>fw", flash_word, "test")
+
             require("flash").setup({
                 modes = {
                     char = {
