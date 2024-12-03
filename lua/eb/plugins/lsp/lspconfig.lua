@@ -45,7 +45,7 @@ return {
                     desc = "LSP: " .. desc
                 end
 
-                vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc })
+                vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc, silent = true })
             end
 
             -- KEYMAPS
