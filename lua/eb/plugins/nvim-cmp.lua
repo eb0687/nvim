@@ -64,7 +64,7 @@ return {
             },
 
             -- NOTE: disabling this for now, not liking how it doesnt select the thing i want
-            preselect = "None",
+            -- preselect = "None",
 
             -- KEYMAPPING
             -- NOTE: to disable default keymappings assign it to cmp.config.disable
@@ -260,6 +260,7 @@ return {
                     cmp.config.compare.offset,
                     cmp.config.compare.exact,
                     require("copilot_cmp.comparators").prioritize,
+                    require("copilot_cmp.comparators").score,
                     cmp.config.compare.score,
                     function(entry1, entry2)
                         local _, entry1_under = entry1.completion_item.label:find("^_+")
