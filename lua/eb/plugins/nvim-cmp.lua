@@ -63,6 +63,11 @@ return {
                 end,
             },
 
+            confirm_opts = {
+                behavior = cmp.ConfirmBehavior.Replace,
+                select = false,
+            },
+
             -- NOTE: disabling this for now, not liking how it doesnt select the thing i want
             -- preselect = "None",
 
