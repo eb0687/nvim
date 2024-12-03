@@ -32,7 +32,7 @@ return {
                 { "╰", "MyBorder" },
                 { "│", "MyBorder" },
             },
-            border = "rounded",
+            -- border = "rounded",
             title_pos = "center",
             ui_width_ratio = 0.40,
             title = " Harpoon ",
