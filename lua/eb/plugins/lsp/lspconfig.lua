@@ -301,7 +301,7 @@ return {
                         functionTypeParameters = true,
                     },
                     completeUnimported = true,
-                    usePlaceholders = true,
+                    usePlaceholders = false,
                     analyses = {
                         unusedparams = true,
                     },
