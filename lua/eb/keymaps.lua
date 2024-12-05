@@ -31,12 +31,14 @@ vim.g.mapleader = " "
 -- NORMAL MODE --
 -----------------
 
--- Source Nvim
-keymap_loud("n", "<leader>xo", ":luafile %<CR>", "Source NVIM")
-
 -- Save file
 -- keymap("n", "<leader>s", ":w<CR>", 'Save file')
 keymap_loud("n", "<leader>s", ":update<CR>", "Save file")
+
+-- Source file
+keymap_loud("n", "<leader><leader>s", "<cmd>source %<CR>", "Source file")
+keymap_loud("n", "<leader><leader>S", ":.lua<CR>", "Execute lua line")
+keymap_loud("v", "<leader><leader>s", ":.lua<CR>", "Execute lua selection")
 
 -- Quit Nvim
 keymap_silent("n", "<leader>q", ":q!<CR>", "Quit Vim")
