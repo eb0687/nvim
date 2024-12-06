@@ -5,16 +5,13 @@ return {
     -- https://github.com/christoomey/vim-tmux-navigator
     "christoomey/vim-tmux-navigator",
 
-    -- https://github.com/norcalli/nvim-colorizer.lua
-    -- TODO: lookup the lua api in :h colorizer.lua
-    -- NOTE: replacing with a fork by NVChad
-    -- 'norcalli/nvim-colorizer.lua',
-
     -- https://github.com/NvChad/nvim-colorizer.lua
     -- Defaults: https://github.com/NvChad/nvim-colorizer.lua#customization
+    -- NOTE: using minihipatterns instead
     {
         "NvChad/nvim-colorizer.lua",
         cmd = "ColorizerToggle",
+        enabled = false,
         config = function()
             require("colorizer").setup({
                 user_default_options = {

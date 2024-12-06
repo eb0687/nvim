@@ -139,7 +139,15 @@ return {
                 config = { width = 50 },
             },
         })
-        -- TODO: mayb replace colorizer.nvim with the below
+
         -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
+        -- NOTE: look at the examples for custom setup similar to todo-comments
+        local hipatterns = require("mini.hipatterns")
+
+        hipatterns.setup({
+            highlighters = {
+                hex_color = hipatterns.gen_highlighter.hex_color(),
+            },
+        })
     end,
 }

@@ -87,3 +87,6 @@ if get_distro_name() ~= "" then
         cache_enabled = 0,
     }
 end
+
+-- Toggle MiniHiPattern usercommand
+vim.api.nvim_create_user_command("ToggleMiniHipatterns", ":lua MiniHipatterns.toggle()", {})
