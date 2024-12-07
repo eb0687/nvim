@@ -47,8 +47,8 @@ keymap_silent("n", "<leader>q", ":q!<CR>", "Quit Vim")
 keymap_silent("n", "Y", "yg$", "Yank to end of line")
 
 -- Yank entire buffer
-keymap_silent("n", "<leader>ya", ":%yank<CR>", "Yank/Copy entire buffer")
-keymap_silent("n", "<leader>yc", ":%yank+<CR>", "Yank/Copy entire buffer to system clipboard")
+keymap_silent("n", "<leader>yA", ":%yank<CR>", "Yank/Copy entire buffer")
+keymap_silent("n", "<leader>yC", ":%yank+<CR>", "Yank/Copy entire buffer to system clipboard")
 
 -- Create splits
 keymap_silent("n", "<leader>h", ":split<CR>", "Horizontal split")
