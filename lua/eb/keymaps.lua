@@ -33,7 +33,7 @@ vim.g.mapleader = " "
 
 -- Save file
 -- keymap("n", "<leader>s", ":w<CR>", 'Save file')
-keymap_loud("n", "<leader>s", ":update<CR>", "Save file")
+keymap_silent("n", "<leader>s", ":update<CR>", "Save file")
 
 -- Source file
 keymap_loud("n", "<leader><leader>s", "<cmd>source %<CR>", "Source file")

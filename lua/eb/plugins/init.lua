@@ -230,4 +230,8 @@ return {
         lazy = false,
         version = "*", -- or branch = "dev", to use the latest commit
     },
+    {
+        "sphamba/smear-cursor.nvim",
+        opts = {},
+    },
 }
