@@ -81,8 +81,8 @@ M.buffer_searcher = function()
 end
 
 function M.document_symbols_for_selected(prompt_bufnr)
-    local action_state = require("telescope.actions.state")
-    local actions = require("telescope.actions")
+    -- local action_state = require("telescope.actions.state")
+    -- local actions = require("telescope.actions")
     local entry = action_state.get_selected_entry()
 
     if entry == nil then
