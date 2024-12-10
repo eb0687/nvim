@@ -25,6 +25,12 @@ return {
             "piersolenski/telescope-import.nvim",
             ft = { "python", "javascript", "lua" },
         },
+        {
+            "nvim-telescope/telescope-frecency.nvim",
+            config = function()
+                require("telescope").load_extension("frecency")
+            end,
+        },
     },
 
     config = function()
