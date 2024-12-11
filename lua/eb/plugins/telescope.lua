@@ -167,6 +167,7 @@ return {
                     -- Add imports to the top of the file keeping the cursor in place
                     insert_at_top = true,
                 },
+                fzf = {},
             },
 
             telescope.load_extension("fzf"),
