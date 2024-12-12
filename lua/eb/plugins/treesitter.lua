@@ -172,9 +172,8 @@ return {
             },
         })
 
-        local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
-
         -- NOTE: trying out mini.jump
+        -- local ts_repeat_move = require("nvim-treesitter.textobjects.repeatable_move")
         -- Optionally, make builtin f, F, t, T also repeatable with ; and ,
         -- vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move)
         -- vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_opposite)
