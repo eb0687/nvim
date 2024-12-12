@@ -7,18 +7,18 @@
 -- https://github.com/tenxsoydev/tabs-vs-spaces.nvim
 
 return {
-    'tenxsoydev/tabs-vs-spaces.nvim',
+    "tenxsoydev/tabs-vs-spaces.nvim",
 
     -- load this plugin only after using the below keymap
     keys = {
-        { '<leader>ct', ':TabsVsSpacesConvert', desc = 'Convert tabs to spaces OR vice versa' }
+        { "<leader>ct", ":TabsVsSpacesConvert", desc = "Convert tabs to spaces OR vice versa" },
     },
 
     config = function()
         local tabsvspace = require("tabs-vs-spaces")
 
         -- SETUP
-        tabsvspace.setup {
+        tabsvspace.setup({
             -- Preferred indentation. Possible values: "auto"|"tabs"|"spaces".
             -- "auto" detects the dominant indentation style in a buffer and highlights deviations.
             indentation = "auto",
@@ -45,10 +45,9 @@ return {
             standartize_on_save = false,
             -- Enable or disable user commands see Readme.md/#Commands for more info.
             user_commands = true,
-        }
+        })
 
         -- TEST:
         print("Hello from lazy tabs-vs-spaces")
-    end
-
+    end,
 }

@@ -3,11 +3,7 @@
 
 local custom_helpers = require("eb.utils.custom_helpers")
 local keymap_normal = custom_helpers.keymap_normal
-
--- Function to clear the quickfix list
-local function clear_quickfix_list()
-    vim.fn.setqflist({})
-end
+local clear_quickfix_list = custom_helpers.clear_quickfix
 
 -- Create a custom command to call the function
 vim.api.nvim_create_user_command("ClearQuickfixList", clear_quickfix_list, {})

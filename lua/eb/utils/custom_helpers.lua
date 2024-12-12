@@ -1,25 +1,14 @@
 local M = {}
 
--- return hostname of the machine
+-- NOTE: return hostname of the machine
 function M.get_hostname()
     local handle = io.popen("hostname")
     local hostname = handle:read("*a")
     handle:close()
     return hostname:match("^%s*(.-)%s*$")
-
-    -- local handle = io.popen("hostname")
-    -- if not handle then
-    --     return nil
-    -- end
-    -- local hostname = handle:read("*a")
-    -- handle:close()
-    -- if not hostname then
-    --     return nil
-    -- end
-    -- return hostname
 end
 
--- function for normal mode keymaps
+-- NOTE: Normal mode keymaps
 function M.keymap_normal(lhs, rhs, name, silent, desc)
     if desc then
         desc = name .. ": " .. desc
@@ -31,7 +20,7 @@ function M.keymap_normal(lhs, rhs, name, silent, desc)
     })
 end
 
--- function for visual mode keymaps
+-- NOTE: Visual mode keymaps
 function M.keymap_visual(lhs, rhs, name, silent, desc)
     if desc then
         desc = name .. ": " .. desc
@@ -43,6 +32,7 @@ function M.keymap_visual(lhs, rhs, name, silent, desc)
     })
 end
 
+-- NOTE: Generic keymap
 function M.keymap(lhs, rhs, name, silent, desc)
     if desc then
         desc = name .. ": " .. desc
@@ -54,6 +44,7 @@ function M.keymap(lhs, rhs, name, silent, desc)
     })
 end
 
+-- NOTE: Silent keymap
 function M.keymap_silent(mode, keys, func, desc)
     if desc then
         desc = "CUSTOM: " .. desc
@@ -65,6 +56,7 @@ function M.keymap_silent(mode, keys, func, desc)
     })
 end
 
+-- NOTE: Loud keymap
 function M.keymap_loud(mode, keys, func, desc)
     if desc then
         desc = "CUSTOM: " .. desc
@@ -76,7 +68,8 @@ function M.keymap_loud(mode, keys, func, desc)
     })
 end
 
--- SOURCE: https://github.com/JoosepAlviste/dotfiles/tree/93f670c9b9d1972a8bc63f94698c4c0eec7c888a/config/nvim/lua/j/file_info
+-- NOTE: show information about a file
+-- source: https://github.com/JoosepAlviste/dotfiles/tree/93f670c9b9d1972a8bc63f94698c4c0eec7c888a/config/nvim/lua/j/file_info
 function M.file_info()
     local filename = vim.fn.expand("%"):gsub(vim.pesc(vim.loop.cwd()), "."):gsub(vim.pesc(vim.fn.expand("$HOME")), "~")
 
@@ -125,6 +118,7 @@ function M.file_info()
     })
 end
 
+-- NOTE: Useful for WSL specific configuration
 local function is_wsl()
     local handle = io.popen("grep -qi microsoft /proc/version && echo true || echo false")
     local result = handle:read("*a")
@@ -143,7 +137,7 @@ function M.open_in_browser()
     end
 end
 
--- NOTE: toggles line numbers
+-- NOTE: Toggles line numbers
 -- source: https://github.com/pwnwriter/pwnvim/blob/main/lua/modules.lua#L3
 local cmds = { "nu!", "rnu!", "nonu!" }
 local current_index = 1
@@ -164,24 +158,20 @@ function M.toggle_inlay_hint()
     vim.lsp.inlay_hint.enable(not is_enabled)
 end
 
--- NOTE: Toggle flow
--- local state = 0
--- function M.toggle_flow()
---     if state == 0 then
---         vim.o.relativenumber = false
---         vim.o.number = false
---         vim.opt.signcolumn = "no"
---         vim.opt.laststatus = 1
---         state = 1
---         vim.cmd("redraw")
---     else
---         vim.o.relativenumber = true
---         vim.o.number = true
---         vim.opt.signcolumn = "auto"
---         vim.opt.laststatus = 2
---         state = 0
---         vim.cmd("redraw")
---     end
--- end
+-- NOTE: Validate arguments before executing a function or callback, useful for
+-- user created commands
+function M.validate_args(fargs, min_args, usage_message)
+    if #fargs < min_args then
+        vim.notify(usage_message, vim.log.levels.WARN)
+        return false
+    end
+    return true
+end
+
+-- NOTE: Clear quickfix list
+function M.clear_quickfix()
+    vim.fn.setqflist({})
+    vim.notify("Quickfix list cleared", vim.log.levels.INFO)
+end
 
 return M
