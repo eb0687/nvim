@@ -22,7 +22,7 @@ return {
     },
 
     -- https://github.com/nvim-lua/popup.nvim
-    "nvim-lua/popup.nvim",
+    -- "nvim-lua/popup.nvim",
 
     -- https://github.com/jvirtanen/vim-hcl
     {
@@ -163,28 +163,29 @@ return {
             require("nvim-ts-autotag").setup()
         end,
     },
-    {
-        "kmonad/kmonad-vim",
-        enabled = false,
-        ft = "kbd",
-    },
+    -- {
+    --     "kmonad/kmonad-vim",
+    --     enabled = false,
+    --     ft = "kbd",
+    -- },
     {
         "zbirenbaum/copilot-cmp",
+        event = "VeryLazy",
         config = function()
             require("copilot_cmp").setup()
         end,
     },
     -- https://github.com/shortcuts/no-neck-pain.nvim
-    {
-        "shortcuts/no-neck-pain.nvim",
-        enabled = false,
-        version = "*",
-        opts = {
-            buffers = {
-                -- right = { enabled = false },
-            },
-        },
-    },
+    -- {
+    --     "shortcuts/no-neck-pain.nvim",
+    --     enabled = false,
+    --     version = "*",
+    --     opts = {
+    --         buffers = {
+    --             -- right = { enabled = false },
+    --         },
+    --     },
+    -- },
     {
         "letieu/harpoon-lualine",
         event = "VeryLazy",
@@ -198,6 +199,7 @@ return {
     -- https://github.com/piersolenski/wtf.nvim
     {
         "piersolenski/wtf.nvim",
+        event = "LspAttach",
         dependencies = {
             "MunifTanjim/nui.nvim",
         },
@@ -223,15 +225,20 @@ return {
             },
         },
     },
-    { "AndreM222/copilot-lualine" },
+    {
+        "AndreM222/copilot-lualine",
+        event = "VeryLazy",
+    },
     {
         -- https://github.com/NStefan002/screenkey.nvim
         "NStefan002/screenkey.nvim",
-        lazy = false,
+        lazy = true,
         version = "*", -- or branch = "dev", to use the latest commit
     },
+    -- https://github.com/sphamba/smear-cursor.nvim
     {
         "sphamba/smear-cursor.nvim",
+        event = "VeryLazy",
         opts = {
             legacy_computing_symbols_support = false,
             stiffness = 0.8, -- 0.6      [0, 1]
