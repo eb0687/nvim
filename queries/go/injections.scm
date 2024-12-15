@@ -1,3 +1,5 @@
+; extends
+
 ; SOURCE: https://github.com/tree-sitter/tree-sitter/discussions/1577
 ((
   (raw_string_literal_content) @constant
