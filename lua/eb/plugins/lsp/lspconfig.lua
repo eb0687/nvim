@@ -66,14 +66,18 @@ return {
             -- keymap('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
             -- keymap('gr', require('telescope.builtin').lsp_references, 'Goto References')
             -- keymap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
-            -- keymap('<space>f', '<cmd>lua vim.lsp.buf.format()<CR>', 'Format code')
+            keymap("<space>fr", '<cmd>lua require("conform").format()<CR>', "Format code")
 
             -- NOTE: `:help K` for why this keymap
             keymap("<leader>D", vim.lsp.buf.signature_help, "Signature Documentation")
 
             -- Create a command `:Format` local to the LSP buffer
             vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-                vim.lsp.buf.format()
+                require("conform").format({
+                    lsp_fallback = true,
+                    async = false,
+                    timeout_ms = 1000,
+                })
             end, { desc = "Format current buffer with LSP" })
 
             -- Disable tsserver autoformat

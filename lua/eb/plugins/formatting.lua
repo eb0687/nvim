@@ -23,8 +23,8 @@ return {
                 ["*"] = { "injected" },
             },
             format_on_save = {
-                lsp_fallback = "always",
-                async = false,
+                lsp_format = "fallback",
+                async = true,
                 timeout_ms = 1000,
             },
         })
