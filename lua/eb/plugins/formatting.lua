@@ -3,7 +3,7 @@
 
 return {
     "stevearc/conform.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
     config = function()
         local conform = require("conform")
         conform.setup({
@@ -17,16 +17,16 @@ return {
                 markdown = { "prettier" },
                 lua = { "stylua" },
                 python = { "black" },
-                go = { "goimports", "gofumpt", "golines" },
+                go = { "goimports", "gofumpt" },
                 bash = { "beautysh", "shellharden" },
                 sql = { "sql_formatter" },
                 ["*"] = { "injected" },
             },
-            format_on_save = {
-                lsp_format = "fallback",
-                async = true,
-                timeout_ms = 1000,
-            },
+            -- format_on_save = {
+            --     lsp_format = "fallback",
+            --     async = false,
+            --     timeout_ms = 1000,
+            -- },
         })
 
         -- require("conform").formatters.sql_formatter = {

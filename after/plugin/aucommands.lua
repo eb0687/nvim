@@ -131,3 +131,15 @@ vim.api.nvim_create_user_command("FormatEnable", function()
 end, {
     desc = "Re-enable autoformat-on-save",
 })
+
+-- NOTE: autoformat on save
+vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.*",
+    callback = function()
+        if vim.bo.modified == true then
+            vim.cmd("Format")
+        else
+            vim.notify("No changes to save")
+        end
+    end,
+})
