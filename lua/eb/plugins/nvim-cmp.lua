@@ -20,7 +20,13 @@ return {
         "hrsh7th/cmp-nvim-lua", -- plugin for nvim-lua completion
         "hrsh7th/cmp-nvim-lsp-signature-help", -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
         "onsails/lspkind.nvim", -- https://github.com/onsails/lspkind.nvim
-        "rafamadriz/friendly-snippets", -- https://github.com/rafamadriz/friendly-snippets
+        {
+            "rafamadriz/friendly-snippets",
+            config = function()
+                require("luasnip").filetype_extend("javascriptreact", { "html" })
+                require("luasnip.loaders.from_vscode").lazy_load()
+            end,
+        }, -- https://github.com/rafamadriz/friendly-snippets
         {
             "Dynge/gitmoji.nvim", -- https://github.com/Dynge/gitmoji.nvim
             opts = {},
