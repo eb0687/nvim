@@ -247,4 +247,19 @@ return {
             hide_target_hack = false, -- true     boolean
         },
     },
+    -- https://github.com/jmbuhr/otter.nvim
+    {
+        "jmbuhr/otter.nvim",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+        opts = {},
+    },
+    -- NOTE: not using this as of now, will play around with custom injections
+    -- https://github.com/DariusCorvus/tree-sitter-language-injection.nvim
+    {
+        "DariusCorvus/tree-sitter-language-injection.nvim",
+        enabled = false,
+        opts = {},
+    },
 }
