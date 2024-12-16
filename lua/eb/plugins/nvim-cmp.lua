@@ -41,6 +41,11 @@ return {
         local luasnip = require("luasnip")
         local lspkind = require("lspkind")
 
+        local utils = require("eb.utils.custom_helpers")
+        local keymap_normal = utils.keymap_normal
+
+        keymap_normal("<leader>uc", ":ToggleCmp<CR>", "CMP", true, "toggle nvim-cmp")
+
         -- NOTE: This is used to determine if there are any non-whitespace characters
         -- before the cursor in the current line. This is useful in various
         -- text-editing scenarios, such as deciding whether to trigger certain
@@ -57,6 +62,10 @@ return {
         vim.api.nvim_set_hl(0, "MyBorder", { fg = "#7daea3" })
 
         cmp.setup({
+            enabled = function()
+                return vim.g.cmp_toggle
+            end,
+
             completion = {
                 completeopt = "menu,menuone,preview,noselect",
             },
@@ -315,8 +324,5 @@ return {
         -- require("cmp").setup {
         --     formatting = { format = require("tailwindcss-colorizer-cmp").formatter },
         -- }
-
-        -- TEST:
-        -- print("Hello from lazy cmp")
     end,
 }
