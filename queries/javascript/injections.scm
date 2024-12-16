@@ -15,4 +15,7 @@
   (#match? @constant "html-injection")
 )@injection.content (#set! injection.language "html"))
 
-
+((
+  (string_fragment) @constant
+  (#match? @constant "<")
+)@injection.content (#set! injection.language "html"))
