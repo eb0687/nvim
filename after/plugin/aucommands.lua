@@ -137,7 +137,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.*",
     callback = function()
         -- List of filetypes to ignore
-        local ignore_filetypes = { "query" }
+        local ignore_filetypes = { "query", "tmux" }
 
         -- Check if the current buffer's filetype is in the ignore list
         if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then

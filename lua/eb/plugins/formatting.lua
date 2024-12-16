@@ -8,7 +8,7 @@ return {
         local conform = require("conform")
         conform.setup({
             formatters_by_ft = {
-                javascript = { "prettier" },
+                javascript = { "prettier", "injected" },
                 typescript = { "prettier" },
                 css = { "prettier" },
                 html = { "prettier" },
@@ -17,10 +17,10 @@ return {
                 markdown = { "prettier" },
                 lua = { "stylua" },
                 python = { "black" },
-                go = { "goimports", "gofumpt" },
+                go = { "goimports", "gofumpt", "injected" },
                 bash = { "beautysh", "shellharden" },
                 sql = { "sql_formatter" },
-                ["*"] = { "injected" },
+                -- ["*"] = { "injected" },
             },
             -- format_on_save = {
             --     lsp_format = "fallback",
