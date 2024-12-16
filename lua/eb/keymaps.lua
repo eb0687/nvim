@@ -51,9 +51,41 @@ keymap_silent("n", "<leader>yC", ":%yank+<CR>", "Yank/Copy entire buffer to syst
 
 -- Yank/paste with system clipboard
 keymap_silent({ "n", "x" }, "<leader>yy", '"+y', "Yank/Copy to system clipboard")
-keymap_silent("n", "<leader>p", '"+p', "Paste from system clipboard")
+keymap_silent("n", "<leader>pp", '"+p', "Paste from system clipboard")
 
 -- Registers
+vim.keymap.set("v", "<leader>ya", function()
+    custom_helpers.yank_to_register("a")
+end, { desc = "Yank selection to register 'a'" })
+vim.keymap.set("v", "<leader>ys", function()
+    custom_helpers.yank_to_register("s")
+end, { desc = "Yank selection to register 's'" })
+vim.keymap.set("v", "<leader>yd", function()
+    custom_helpers.yank_to_register("d")
+end, { desc = "Yank selection to register 'd'" })
+vim.keymap.set("v", "<leader>yf", function()
+    custom_helpers.yank_to_register("f")
+end, { desc = "Yank selection to register 'f'" })
+
+-- TODO: refactor this
+vim.keymap.set("n", "<leader>pa", function()
+    vim.cmd('normal! "ap')
+    vim.notify("Pasted from register 'a'", vim.log.levels.INFO, { title = "Paste" })
+end, { desc = "Paste from register 'a'" })
+vim.keymap.set("n", "<leader>ps", function()
+    vim.cmd('normal! "sp')
+    vim.notify("Pasted from register 's'", vim.log.levels.INFO, { title = "Paste" })
+end, { desc = "Paste from register 's'" })
+
+vim.keymap.set("n", "<leader>pd", function()
+    vim.cmd('normal! "dp')
+    vim.notify("Pasted from register 'd'", vim.log.levels.INFO, { title = "Paste" })
+end, { desc = "Paste from register 'd'" })
+
+vim.keymap.set("n", "<leader>pf", function()
+    vim.cmd('normal! "fp')
+    vim.notify("Pasted from register 'f'", vim.log.levels.INFO, { title = "Paste" })
+end, { desc = "Paste from register 'f'" })
 
 -- Create splits
 keymap_silent("n", "<leader>h", ":split<CR>", "Horizontal split")
