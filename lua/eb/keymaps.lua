@@ -44,12 +44,16 @@ keymap_loud("v", "<leader><leader>s", ":.lua<CR>", "Execute lua selection")
 -- Quit Nvim
 keymap_silent("n", "<leader>q", ":q!<CR>", "Quit Vim")
 
--- Yank from current position to end of line
+-- Yanks
 keymap_silent("n", "Y", "yg$", "Yank to end of line")
-
--- Yank entire buffer
 keymap_silent("n", "<leader>yA", ":%yank<CR>", "Yank/Copy entire buffer")
 keymap_silent("n", "<leader>yC", ":%yank+<CR>", "Yank/Copy entire buffer to system clipboard")
+
+-- Yank/paste with system clipboard
+keymap_silent({ "n", "x" }, "<leader>yy", '"+y', "Yank/Copy to system clipboard")
+keymap_silent("n", "<leader>p", '"+p', "Paste from system clipboard")
+
+-- Registers
 
 -- Create splits
 keymap_silent("n", "<leader>h", ":split<CR>", "Horizontal split")
@@ -144,10 +148,6 @@ end, "Change directory to current file working directory")
 
 -- Append line
 keymap_silent("n", "J", "mzJ`z", "Append bottom line")
-
--- Copy/paste with system clipboard
-keymap_silent({ "n", "x" }, "<leader>y", '"+y', "Copy to system clipboard")
-keymap_silent("n", "<leader>p", '"+p', "Paste from system clipboard")
 
 -- Paste in Visual with `P` to not copy selected text (`:h v_P`)
 keymap_silent("x", "<leader>p", '"+P', "Paste from system clipboard")

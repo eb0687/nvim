@@ -174,4 +174,19 @@ function M.clear_quickfix()
     vim.notify("Quickfix list cleared", vim.log.levels.INFO)
 end
 
+-- NOTE: Yank to registers
+function M.yank_to_register(register)
+    local start_line = vim.fn.line("'<")
+    local end_line = vim.fn.line("'>")
+    local num_lines = end_line - start_line + 1
+
+    vim.cmd('normal! "' .. register .. "y")
+
+    vim.notify(
+        string.format("Yanked %d line(s) to register '%s'", num_lines, register),
+        vim.log.levels.INFO,
+        { title = "Yank" }
+    )
+end
+
 return M

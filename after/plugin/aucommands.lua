@@ -154,16 +154,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- NOTE: requires cmp
 -- source: https://github.com/hrsh7th/nvim-cmp/issues/261
+vim.g.cmp_toggle = true
 local function toggle_autocomplete()
-    local cmp = require("cmp")
-    local current_setting = cmp.get_config().completion.autocomplete
-    if current_setting and #current_setting > 0 then
-        cmp.setup({ completion = { autocomplete = false } })
-        vim.notify("Autocomplete disabled")
+    vim.g.cmp_toggle = not vim.g.cmp_toggle
+    local status
+
+    if vim.g.cmp_toggle then
+        status = "ENABLED"
     else
-        cmp.setup({ completion = { autocomplete = { cmp.TriggerEvent.TextChanged } } })
-        vim.notify("Autocomplete enabled")
+        status = "DISABLED"
     end
+
+    print("Autocomplete", status)
 end
 
 vim.api.nvim_create_user_command("ToggleCmp", toggle_autocomplete, {})
