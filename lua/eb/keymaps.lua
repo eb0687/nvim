@@ -160,15 +160,9 @@ vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 keymap_silent("n", "<leader>j", "<cmd>cnext<CR>zz", "Quickfix next")
 keymap_silent("n", "<leader>k", "<cmd>cprev<CR>zz", "Quickfix prev")
 
--- Various
-keymap_silent("n", "<leader>xx", "<cmd>silent !chmod +x %<CR>", "Make executable")
-keymap_silent("n", "<leader>w", ":set wrap!<CR>", "Toggle wrap")
-
--- keymap_silent("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", 'Tmux sessionizer')
-keymap_silent("n", "<C-f>", "<cmd>silent !t<CR>", "Tmux sessionizer")
-keymap_silent("n", "<leader>tmss", "<cmd>silent !tmux neww tmss<CR>", "Switch Tmux session")
-keymap_silent("n", "gx", open_url, "Open in web browser")
-keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
+-- Grep
+-- keymap_loud("n", "<leader>gg", ":copen | :silent :grep ", "Custom grep")
+keymap_loud("n", "<leader>gg", ":Grep ", "Custom grep")
 
 -- Lazy
 keymap_silent("n", "<leader>zz", "<cmd>Lazy<CR>", "Lazy")
@@ -188,10 +182,15 @@ keymap_silent("n", "J", "mzJ`z", "Append bottom line")
 -- Paste in Visual with `P` to not copy selected text (`:h v_P`)
 keymap_silent("x", "<leader>p", '"+P', "Paste from system clipboard")
 
--- Custom
+-- Various
 keymap_silent("n", "<leader>io", file_info, "open basic file information")
 keymap_silent("n", "<leader>ih", toggle_inlay_hints, "toggle inlay hints")
 keymap_silent("n", "<leader>n", toggle_numbers, "toggle line numbers")
+keymap_silent("n", "<leader>xx", "<cmd>silent !chmod +x %<CR>", "Make executable")
+keymap_silent("n", "<leader>w", ":set wrap!<CR>", "Toggle wrap")
+keymap_silent("n", "gx", open_url, "Open in web browser")
+keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
+
 -- keymap_silent("n", "<leader>zf", toggle_flow, "toggle flow")
 
 -----------------
