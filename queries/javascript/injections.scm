@@ -1,15 +1,5 @@
 ; extends
 
-; NOTE: not sure why this does not work
-; ((call_expression
-;    function: (identifier)
-;    arguments: (arguments
-;                 (comment) @injection.language
-;                 (#eq? @injection.language "/*html*/")
-;                 (template_string
-;                   (string_fragment) @injection.content)))
-;  (#set! injection.language "html")) ; Set the language of the string_fragment to HTML
-
 ((
   (string_fragment) @constant
   (#match? @constant "html-injection")
@@ -19,3 +9,12 @@
   (string_fragment) @constant
   (#match? @constant "<")
 )@injection.content (#set! injection.language "html"))
+
+; TODO: needs more work to be universal
+; (
+;  (comment) @constant
+;  (#match? @constant "html")
+;  (template_string (string_fragment) @injection.content (#set! injection.language "html"))
+;  )
+
+
