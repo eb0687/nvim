@@ -1,4 +1,4 @@
--- NOTE: https://github.com/neovim/neovim/pull/15959
+-- source: https://github.com/neovim/neovim/pull/15959
 -- TESTING:
 -- local user_command = vim.api.nvim_create_user_command
 -- local input = vim.ui.input
@@ -16,7 +16,9 @@
 --     desc = "this a hello world user command test",
 -- })
 
--- SOURCE: https://dev.to/vonheikemen/lazynvim-how-to-revert-a-plugin-back-to-a-previous-version-1pdp
+-------------------------------------------------------------------------------
+-- NOTE: Snapshot
+-- source: https://dev.to/vonheikemen/lazynvim-how-to-revert-a-plugin-back-to-a-previous-version-1pdp
 local lazy_cmds = vim.api.nvim_create_augroup("lazy_cmds", { clear = true })
 local snapshot_dir = vim.fn.stdpath("data") .. "/plugin-snapshot"
 local lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json"
@@ -37,7 +39,8 @@ vim.api.nvim_create_autocmd("User", {
 
 -- https://github.com/hadynz/dotfiles/blob/main/nvim/lua/config/autocmds.lua
 
--- Toggle relative numbers for active panes only
+-------------------------------------------------------------------------------
+-- NOTE: Toggle relative numbers for active panes only
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FocusGained" }, {
     callback = function()
         vim.wo.relativenumber = true
@@ -49,7 +52,8 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "FocusLost" }, {
     end,
 })
 
--- Disable new line comment
+-------------------------------------------------------------------------------
+-- NOTE: Disable new line comment
 vim.api.nvim_create_autocmd("BufEnter", {
     callback = function()
         vim.opt.formatoptions:remove({ "c", "r", "o" })
@@ -57,7 +61,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
     desc = "Disable New Line Comment",
 })
 
--- Rasi ft
+-------------------------------------------------------------------------------
+-- NOTE: Rasi ft
 vim.api.nvim_create_augroup("rasi_ft", { clear = true })
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     group = "rasi_ft",
@@ -65,7 +70,8 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
     command = "set ft=rasi",
 })
 
--- wsl clipboard
+-------------------------------------------------------------------------------
+-- NOTE: Wsl clipboard
 local function get_distro_name()
     local handle = io.popen("echo $WSL_DISTRO_NAME")
     local hostname = handle:read("*a")
@@ -88,10 +94,12 @@ if get_distro_name() ~= "" then
     }
 end
 
--- Toggle MiniHiPattern usercommand
+-------------------------------------------------------------------------------
+-- NOTE: Toggle MiniHiPattern usercommand
 vim.api.nvim_create_user_command("ToggleMiniHipatterns", ":lua MiniHipatterns.toggle()", {})
 
--- Global find and replace
+-------------------------------------------------------------------------------
+-- NOTE: Global find and replace
 -- source: https://elanmed.dev/blog/global-find-and-replace-in-neovim
 -- source: https://www.youtube.com/watch?v=9JCsPsdeflY
 local utils = require("eb.utils.custom_helpers")
@@ -103,6 +111,8 @@ vim.api.nvim_create_user_command("FindAndReplaceGlobal", function(opts)
     utils.clear_quickfix()
 end, { nargs = "*" })
 
+-------------------------------------------------------------------------------
+-- NOTE: Toggle autoformat on save
 -- source: https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#command-to-toggle-format-on-save
 require("conform").setup({
     format_on_save = function(bufnr)
@@ -132,6 +142,7 @@ end, {
     desc = "Re-enable autoformat-on-save",
 })
 
+-------------------------------------------------------------------------------
 -- NOTE: autoformat on save
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.*",
@@ -152,6 +163,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end,
 })
 
+-------------------------------------------------------------------------------
 -- NOTE: requires cmp
 -- source: https://github.com/hrsh7th/nvim-cmp/issues/261
 vim.g.cmp_toggle = true
@@ -170,7 +182,8 @@ end
 
 vim.api.nvim_create_user_command("ToggleCmp", toggle_autocomplete, {})
 
--- Custom grep
+-------------------------------------------------------------------------------
+-- NOTE: Custom grep
 vim.api.nvim_create_user_command("Grep", function(opts)
     local query = opts.args
     if query and query ~= "" then
@@ -180,3 +193,11 @@ vim.api.nvim_create_user_command("Grep", function(opts)
         print("Usage: :CustomGrep <search_term>")
     end
 end, { nargs = "+" })
+
+-------------------------------------------------------------------------------
+-- NOTE: Grep word under cursor user command
+vim.api.nvim_create_user_command(
+    "GrepCursorWord",
+    utils.grep_word_under_cursor,
+    { desc = "Grep for the word under the cursor and open results in quickfix" }
+)

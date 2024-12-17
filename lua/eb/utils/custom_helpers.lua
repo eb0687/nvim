@@ -189,4 +189,16 @@ function M.yank_to_register(register)
     )
 end
 
+-- NOTE: Custom grep for word under cursor
+function M.grep_word_under_cursor()
+    local word = vim.fn.expand("<cword>") -- Get the word under the cursor
+    if word ~= "" then
+        vim.cmd("copen") -- Open quickfix list
+        vim.cmd("silent grep " .. vim.fn.shellescape(word)) -- Perform grep safely
+        vim.notify("Grep results for: " .. word, vim.log.levels.INFO) -- Display message
+    else
+        vim.notify("No word under the cursor to search for.", vim.log.levels.WARN)
+    end
+end
+
 return M

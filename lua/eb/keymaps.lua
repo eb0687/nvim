@@ -163,6 +163,7 @@ keymap_silent("n", "<leader>k", "<cmd>cprev<CR>zz", "Quickfix prev")
 -- Grep
 -- keymap_loud("n", "<leader>gg", ":copen | :silent :grep ", "Custom grep")
 keymap_loud("n", "<leader>gg", ":Grep ", "Custom grep")
+keymap_loud("n", "<leader>gw", ":GrepCursorWord<CR>", "Grep for word under cursor")
 
 -- Lazy
 keymap_silent("n", "<leader>zz", "<cmd>Lazy<CR>", "Lazy")
