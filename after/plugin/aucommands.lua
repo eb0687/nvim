@@ -169,3 +169,14 @@ local function toggle_autocomplete()
 end
 
 vim.api.nvim_create_user_command("ToggleCmp", toggle_autocomplete, {})
+
+-- Custom grep
+vim.api.nvim_create_user_command("Grep", function(opts)
+    local query = opts.args
+    if query and query ~= "" then
+        vim.cmd("copen")
+        vim.cmd("silent grep " .. query)
+    else
+        print("Usage: :CustomGrep <search_term>")
+    end
+end, { nargs = "+" })
