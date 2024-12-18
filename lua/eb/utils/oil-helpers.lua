@@ -35,19 +35,36 @@ end
 
 M.copy_absolute_path = function()
     require("oil.actions").copy_entry_path.callback()
-    vim.fn.setreg("+", vim.fn.getreg(vim.v.register))
+    local yanked_path = vim.fn.getreg(vim.v.register)
+    vim.fn.setreg("+", yanked_path)
+    vim.notify("Yanked absolute path: " .. yanked_path, vim.log.levels.INFO)
 end
 
 M.copy_relative_path = function()
-    local entry = oil.get_cursor_entry()
-    local dir = oil.get_current_dir()
+    local entry = require("oil").get_cursor_entry()
+    local dir = require("oil").get_current_dir()
 
     if not entry or not dir then
+        vim.notify("Failed to yank path, no entry or directory found.", vim.log.levels.WARN)
         return
     end
 
     local relpath = vim.fn.fnamemodify(dir, ":.")
-    vim.fn.setreg("+", relpath .. entry.name)
+    local yanked_path = relpath .. entry.name
+    vim.fn.setreg("+", yanked_path)
+    vim.notify("Yanked relative path: " .. yanked_path, vim.log.levels.INFO)
 end
+
+-- M.copy_relative_path = function()
+--     local entry = oil.get_cursor_entry()
+--     local dir = oil.get_current_dir()
+--
+--     if not entry or not dir then
+--         return
+--     end
+--
+--     local relpath = vim.fn.fnamemodify(dir, ":.")
+--     vim.fn.setreg("+", relpath .. entry.name)
+-- end
 
 return M
