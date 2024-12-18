@@ -3,7 +3,7 @@ local set = vim.opt_local
 set.tabstop = 2
 set.shiftwidth = 2
 
--- add auto async/await
+-- NOTE: add auto async/await
 -- source: https://gist.github.com/JoosepAlviste/43e03d931db2d273f3a6ad21134b3806
 -- source: https://www.youtube.com/watch?v=_m7amJZpQQ8
 
