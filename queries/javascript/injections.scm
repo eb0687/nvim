@@ -17,4 +17,12 @@
 ;  (template_string (string_fragment) @injection.content (#set! injection.language "html"))
 ;  )
 
+; TODO: need to test this
+(
+    (comment) @comm
+    (#match? @comm "GraphQL")
+    (template_string (string_fragment) @injection.content  (#set! injection.language "graphql"))
+)
+
+
 

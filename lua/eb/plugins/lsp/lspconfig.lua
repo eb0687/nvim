@@ -325,7 +325,14 @@ return {
             on_attach = on_attach,
         })
 
-        -- TEST:
-        -- print("Hello from lazy lspconfig")
+        -- NOTE:
+        -- temporary fix for  graphql lsp
+        -- source: https://www.reddit.com/r/neovim/
+        lspconfig.graphql.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            cmd = { "graphql-lsp", "server", "-m", "stream" },
+            root_dir = lspconfig.util.root_pattern(".git", ".graphqlrc*", ".graphql.config.*", "graphql.config.*"),
+        })
     end,
 }
