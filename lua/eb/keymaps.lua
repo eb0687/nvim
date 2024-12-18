@@ -37,8 +37,13 @@ vim.g.mapleader = " "
 keymap_silent("n", "<leader>s", ":write<CR>", "Save file")
 
 -- Source file
-keymap_loud("n", "<leader><leader>s", "<cmd>source %<CR>", "Source file")
+-- keymap_loud("n", "<leader><leader>s", "<cmd>source %<CR>", "Source file")
 keymap_loud("n", "<leader><leader>S", ":.lua<CR>", "Execute lua line")
+keymap_loud("n", "<leader><leader>s", function()
+    local current_file = vim.fn.expand("%")
+    vim.cmd("source " .. current_file)
+    vim.notify("Sourced: " .. current_file, vim.log.levels.INFO, { title = "Neovim" })
+end, "Source file")
 keymap_loud("v", "<leader><leader>s", ":.lua<CR>", "Execute lua selection")
 
 -- Quit Nvim
