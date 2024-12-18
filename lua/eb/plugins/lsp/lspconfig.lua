@@ -325,6 +325,8 @@ return {
             on_attach = on_attach,
         })
 
+        -- graphql
+        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#graphql
         -- NOTE:
         -- temporary fix for  graphql lsp
         -- source: https://www.reddit.com/r/neovim/
