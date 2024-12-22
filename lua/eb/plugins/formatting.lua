@@ -29,6 +29,17 @@ return {
             -- },
         })
 
+        -- NOTE: does this work?
+        -- https://github.com/tjdevries/config.nvim/blob/master/lua/custom/autoformat.lua
+        conform.formatters.injected = {
+            options = {
+                ignore_errors = false,
+                lang_to_formatters = {
+                    sql = { "sql_formatter" },
+                },
+            },
+        }
+
         -- require("conform").formatters.sql_formatter = {
         --     prepend_args = { "-c", vim.fn.expand("~/.config/sql_formatter.json") },
         -- }
