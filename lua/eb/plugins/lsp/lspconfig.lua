@@ -329,7 +329,8 @@ return {
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#graphql
         -- NOTE:
         -- temporary fix for  graphql lsp
-        -- source: https://www.reddit.com/r/neovim/
+        -- source: https://www.reddit.com/r/neovim/comments/1dfpp3m/for_anyone_whos_trying_to_get_graphql_ls_working/
+        -- source: https://github.com/graphql/graphiql/issues/3538
         lspconfig.graphql.setup({
             capabilities = capabilities,
             on_attach = on_attach,
