@@ -156,7 +156,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         end
 
         if vim.bo.modified == true then
-            vim.cmd("Format")
+            -- vim.cmd("Format")
+            require("conform").format({
+                lsp_fallback = true,
+                async = false,
+                timeout_ms = 1000,
+            })
         else
             vim.notify("No changes to save")
         end
