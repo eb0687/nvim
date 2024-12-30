@@ -20,6 +20,7 @@ return {
         "hrsh7th/cmp-nvim-lua", -- plugin for nvim-lua completion
         "hrsh7th/cmp-nvim-lsp-signature-help", -- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
         "onsails/lspkind.nvim", -- https://github.com/onsails/lspkind.nvim
+        "tailwind-tools",
         {
             "rafamadriz/friendly-snippets",
             config = function()
@@ -215,6 +216,7 @@ return {
             formatting = {
                 -- fields = { "kind", "abbr", "menu" },
                 format = lspkind.cmp_format({
+                    before = require("tailwind-tools.cmp").lspkind_format,
                     mode = "symbol_text",
                     maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
                     ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
