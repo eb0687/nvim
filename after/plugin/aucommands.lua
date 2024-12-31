@@ -169,6 +169,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -------------------------------------------------------------------------------
+-- NOTE: autosort tailwindclasses on save
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+    pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.scss" }, -- Replace with the desired filetypes
+    command = "TailwindSort",
+    desc = "Automatically sort Tailwind classes on save",
+})
+
+-------------------------------------------------------------------------------
 -- NOTE: requires cmp
 -- source: https://github.com/hrsh7th/nvim-cmp/issues/261
 vim.g.cmp_toggle = true
