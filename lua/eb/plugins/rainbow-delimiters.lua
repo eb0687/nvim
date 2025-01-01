@@ -22,14 +22,19 @@ return {
                 [""] = "rainbow-delimiters",
                 lua = "rainbow-blocks",
             },
+            -- highlight = {
+            --     "RainbowDelimiterRed",
+            --     "RainbowDelimiterYellow",
+            --     "RainbowDelimiterBlue",
+            --     "RainbowDelimiterOrange",
+            --     "RainbowDelimiterGreen",
+            --     "RainbowDelimiterViolet",
+            --     "RainbowDelimiterCyan",
+            -- },
             highlight = {
                 "RainbowDelimiterRed",
-                "RainbowDelimiterYellow",
-                "RainbowDelimiterBlue",
                 "RainbowDelimiterOrange",
-                "RainbowDelimiterGreen",
                 "RainbowDelimiterViolet",
-                "RainbowDelimiterCyan",
             },
             blacklist = { "c", "cpp" },
         }
