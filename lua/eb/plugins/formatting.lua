@@ -10,6 +10,8 @@ return {
             formatters_by_ft = {
                 javascript = { "prettier", "injected" },
                 typescript = { "prettier" },
+                typescriptreact = { "prettier" },
+                javascriptreact = { "prettier" },
                 css = { "prettier" },
                 html = { "prettier" },
                 json = { "prettier" },
