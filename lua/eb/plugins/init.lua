@@ -232,6 +232,7 @@ return {
     {
         -- https://github.com/NStefan002/screenkey.nvim
         "NStefan002/screenkey.nvim",
+        enabled = false,
         lazy = true,
         version = "*", -- or branch = "dev", to use the latest commit
     },
