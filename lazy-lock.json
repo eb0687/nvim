@@ -88,7 +88,7 @@
   "telescope-import.nvim": { "branch": "main", "commit": "6fd69447679a99b463025e7f2f787e8b185dd740" },
   "telescope-luasnip.nvim": { "branch": "master", "commit": "07a2a2936a7557404c782dba021ac0a03165b343" },
   "telescope.nvim": { "branch": "0.1.x", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
-  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "4a395a2928425a85f5b7b4cea51035561670c54f" },
+  "tiny-inline-diagnostic.nvim": { "branch": "main", "commit": "cdf1ac3a0ce30a4357699a6650dfae3b6ea31265" },
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "tree-sitter-language-injection.nvim": { "branch": "main", "commit": "453d6b08053b3c7df4491d1ffb84fc395da110d6" },
   "trouble.nvim": { "branch": "main", "commit": "46cf952fc115f4c2b98d4e208ed1e2dce08c9bf6" },
