@@ -171,10 +171,24 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -------------------------------------------------------------------------------
 -- NOTE: autosort tailwindclasses on save
 
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--     pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.scss" }, -- Replace with the desired filetypes
+--     command = "TailwindSort",
+--     desc = "Automatically sort Tailwind classes on save",
+-- })
+
 vim.api.nvim_create_autocmd("BufWritePost", {
     pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.scss" }, -- Replace with the desired filetypes
-    command = "TailwindSort",
-    desc = "Automatically sort Tailwind classes on save",
+    callback = function()
+        local buf_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
+        for _, client in ipairs(buf_clients) do
+            if client.name == "tailwindcss" then
+                vim.cmd("TailwindSort")
+                return
+            end
+        end
+    end,
+    desc = "Automatically sort Tailwind classes on save, if Tailwind LSP is active",
 })
 
 -------------------------------------------------------------------------------
