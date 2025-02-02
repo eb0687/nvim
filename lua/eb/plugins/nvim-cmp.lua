@@ -92,6 +92,7 @@ return {
             -- for example: ["<C-y>"] = cmp.config.disable
 
             mapping = {
+                ["<C-Space>"] = cmp.mapping.complete(),
                 ["<C-p>"] = cmp.mapping({
                     c = function()
                         if cmp.visible() then
