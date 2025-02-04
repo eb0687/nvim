@@ -60,6 +60,14 @@ end
 vim.opt.iskeyword:append("-") -- uses "-" to connect words when using vim motions
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- NASSER fold
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldcolumn = "0"
+vim.opt.foldlevel = 99
+vim.opt.foldnestmax = 9
+vim.opt.foldtext = ""
+
 -- vim syntax
 local cmd = vim.cmd
 cmd([[

@@ -98,6 +98,9 @@ return {
         -- NOTE: refer to this for more info: https://github.com/L3MON4D3/LuaSnip#add-snippets
         require("luasnip.loaders.from_vscode").lazy_load()
 
+        -- NOTE: nasser custom snippets
+        require("luasnip.loaders.from_vscode").lazy_load({ paths = "./custom_snippets" })
+
         ls.config.set_config({
             history = true,
             updateevents = "TextChanged,TextChangedI",
