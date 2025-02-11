@@ -150,10 +150,11 @@ return {
                         enable = true,
                     },
                     workspace = {
-                        library = {
-                            [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                            [vim.fn.stdpath("config") .. "/lua"] = true,
-                        },
+                        -- library = {
+                        --     [vim.fn.expand("$XDG_DATA_HOME/nvim/lazy")] = true,
+                        --     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+                        --     [vim.fn.stdpath("config") .. "/lua"] = true,
+                        -- },
                     },
                     completion = {
                         callSnippet = "Replace",
