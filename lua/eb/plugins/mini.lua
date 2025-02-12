@@ -3,6 +3,9 @@
 
 return {
     "echasnovski/mini.nvim",
+    dependencies = {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+    },
     version = "*",
     event = "VeryLazy",
     config = function()
@@ -53,7 +56,13 @@ return {
 
         -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-comment.md
         local comment = require("mini.comment")
-        comment.setup()
+        comment.setup({
+            options = {
+                custom_commentstring = function()
+                    return require("ts_context_commentstring").calculate_commentstring() or vim.bo.commentstring
+                end,
+            },
+        })
 
         local move = require("mini.move")
         move.setup({
