@@ -158,5 +158,11 @@ return {
                 hex_color = hipatterns.gen_highlighter.hex_color(),
             },
         })
+
+        local splitjoin = require("mini.splitjoin")
+        splitjoin.setup({})
+
+        local operators = require("mini.operators")
+        operators.setup({})
     end,
 }
