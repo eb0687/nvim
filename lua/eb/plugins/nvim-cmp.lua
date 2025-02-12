@@ -280,11 +280,13 @@ return {
             sorting = {
                 priority_weight = 2,
                 comparators = {
+                    require("copilot_cmp.comparators").prioritize,
                     cmp.config.compare.offset,
                     cmp.config.compare.exact,
-                    require("copilot_cmp.comparators").prioritize,
-                    require("copilot_cmp.comparators").score,
                     cmp.config.compare.score,
+                    cmp.config.compare.recently_used,
+                    cmp.config.compare.locality,
+                    require("copilot_cmp.comparators").score,
                     function(entry1, entry2)
                         local _, entry1_under = entry1.completion_item.label:find("^_+")
                         local _, entry2_under = entry2.completion_item.label:find("^_+")
