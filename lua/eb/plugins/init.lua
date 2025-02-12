@@ -263,4 +263,8 @@ return {
         enabled = false,
         opts = {},
     },
+    {
+        "mg979/vim-visual-multi",
+        config = function() end,
+    },
 }

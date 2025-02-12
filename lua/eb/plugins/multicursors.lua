@@ -10,6 +10,7 @@
 -- lazy.nvim:
 return {
     "smoka7/multicursors.nvim",
+    enabled = false,
     dependencies = {
         "smoka7/hydra.nvim",
     },
