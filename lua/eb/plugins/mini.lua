@@ -162,7 +162,7 @@ return {
         local splitjoin = require("mini.splitjoin")
         splitjoin.setup({})
 
-        -- NOTE: disabled for now due to conflicts with keybinds
+        -- FIX: disabled for now due to conflicts with keybinds
         -- local operators = require("mini.operators")
         -- operators.setup({})
     end,
