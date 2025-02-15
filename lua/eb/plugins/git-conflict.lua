@@ -7,7 +7,7 @@ return {
 
         local gc = require("git-conflict")
         gc.setup({
-            default_mappings = true,
+            default_mappings = false,
             default_commands = true,
             disable_diagnostics = true,
             list_opener = "copen",
@@ -16,5 +16,30 @@ return {
                 current = "CurrentCustom",
             },
         })
+
+        local function choose_ours()
+            vim.cmd("GitConflictChooseOurs")
+            vim.cmd("GitConflictNextConflict")
+        end
+        local function choose_theirs()
+            vim.cmd("GitConflictChooseTheirs")
+            vim.cmd("GitConflictNextConflict")
+        end
+
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
+
+        keymap_normal("co", choose_ours, "GitConflict", true, "choose ours, move to next conflict and refresh qflist")
+        keymap_normal(
+            "ct",
+            choose_theirs,
+            "GitConflict",
+            true,
+            "choose theirs, move to next conflict and refresh qflist"
+        )
+        keymap_normal("c0", "<Plug>(git-conflict-none)", "GitConflict", true, "choose none")
+        keymap_normal("cb", "<Plug>(git-conflict-both)", "GitConflict", true, "choose both")
+        keymap_normal("[x", "<Plug>(git-conflict-prev-conflict)", "GitConflict", true, "goto prev conflict")
+        keymap_normal("]x", "<Plug>(git-conflict-next-conflict)", "GitConflict", true, "goto next conflict")
     end,
 }
