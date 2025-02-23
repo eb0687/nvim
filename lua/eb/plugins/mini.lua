@@ -75,10 +75,10 @@ return {
                 up = "K",
 
                 -- Move current line in Normal mode
-                line_left = "<Left>",
-                line_right = "<Right>",
-                line_down = "<Down>",
-                line_up = "<Up>",
+                line_left = "<M-Left>",
+                line_right = "<M-Right>",
+                line_down = "<M-Down>",
+                line_up = "<M-Up>",
             },
 
             -- Options which control moving behavior
