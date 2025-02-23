@@ -1,6 +1,7 @@
 -- https://github.com/luckasRanarison/tailwind-tools.nvim
 return {
     "luckasRanarison/tailwind-tools.nvim",
+    event = "VeryLazy",
     name = "tailwind-tools",
     build = ":UpdateRemotePlugins",
     dependencies = {

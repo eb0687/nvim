@@ -12,6 +12,7 @@ return {
             -- NOTE: for configuration options refer to this link:
             -- https://github.com/MeanderingProgrammer/render-markdown.nvim/wiki
             "MeanderingProgrammer/render-markdown.nvim",
+            event = "VeryLazy",
             opts = { file_types = { "markdown", "Avante" } },
             ft = { "markdown", "Avante" },
         },
