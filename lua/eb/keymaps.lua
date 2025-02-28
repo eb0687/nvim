@@ -53,6 +53,23 @@ keymap_silent("n", "<leader>q", ":q!<CR>", "Quit Vim")
 keymap_silent("n", "Y", "yg$", "Yank to end of line")
 keymap_silent("n", "<leader>yA", ":%yank<CR>", "Yank/Copy entire buffer")
 keymap_silent("n", "<leader>yC", ":%yank+<CR>", "Yank/Copy entire buffer to system clipboard")
+keymap_loud("v", "<leader>ym", function()
+    local start_line = vim.fn.line("'<")
+    local end_line = vim.fn.line("'>")
+
+    local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+
+    if #lines == 0 then
+        vim.notify("No lines selected!", vim.log.levels.WARN)
+        return
+    end
+    local code_block = table.concat(lines, "\n")
+    local filetype = vim.bo.filetype
+    local markdown = string.format("```%s\n%s\n```", filetype, code_block)
+
+    vim.fn.setreg("+", markdown)
+    vim.notify("Copied selected lines as markdown code block", vim.log.levels.INFO)
+end, "Yank file as markdown code block")
 
 -- Yank/paste with system clipboard
 keymap_silent({ "n", "x" }, "<leader>yy", '"+y', "Yank/Copy to system clipboard")
