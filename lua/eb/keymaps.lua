@@ -54,6 +54,8 @@ keymap_silent("n", "Y", "yg$", "Yank to end of line")
 keymap_silent("n", "<leader>yA", ":%yank<CR>", "Yank/Copy entire buffer")
 keymap_silent("n", "<leader>yC", ":%yank+<CR>", "Yank/Copy entire buffer to system clipboard")
 keymap_loud("v", "<leader>ym", function()
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "x", false)
+
     local start_line = vim.fn.line("'<")
     local end_line = vim.fn.line("'>")
 
@@ -63,6 +65,7 @@ keymap_loud("v", "<leader>ym", function()
         vim.notify("No lines selected!", vim.log.levels.WARN)
         return
     end
+
     local code_block = table.concat(lines, "\n")
     local filetype = vim.bo.filetype
     local markdown = string.format("```%s\n%s\n```", filetype, code_block)
