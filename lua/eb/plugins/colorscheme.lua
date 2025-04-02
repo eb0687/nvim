@@ -5,7 +5,6 @@
 
 -- gruvbox-material
 -- https://github.com/sainnhe/gruvbox-material
-
 return {
     "sainnhe/gruvbox-material", -- gruvbox material colorscheme
     priority = 1000,
@@ -20,7 +19,7 @@ return {
             let g:gruvbox_material_enable_bold = 1
             let g:gruvbox_material_background = ""
             let g:gruvbox_material_transparent_background = 1
-            let g:gruvbox_material_visual = "red background"
+            let g:gruvbox_material_visual = "green background"
             let g:gruvbox_material_menu_selection_background = "orange"
             let g:gruvbox_material_ui_contrast = "low"
             let g:gruvbox_material_diagnostic_text_highlight = 1
@@ -82,10 +81,25 @@ return {
         -- nvim_set_hl(0, "BufferCurrent", { bg = "#252423", fg = "#E78A4E" })
         -- nvim_set_hl(0, "BufferVisible", { bg = "#252423", fg = "#84776A" })
         -- nvim_set_hl(0, "BufferInactive", { bg = "#252423", fg = "#84776A" })
-        -- mini-animate
-        -- nvim_set_hl(0, "MiniAnimateCursor", { bg = "#E5E5E5" })
 
+        -- Mini
+        -- nvim_set_hl(0, "MiniAnimateCursor", { bg = "#E5E5E5" })
+        nvim_set_hl(0, "MiniCursorwordCurrent", { bg = "#84776A", fg = "#000000" })
         nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#84776A" })
+
+        -- Blink
+        nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = "#7daea3", bg = "", bold = true, italic = false })
+        nvim_set_hl(0, "BlinkCmpMenu", { fg = "", bg = "", bold = true, italic = false })
+        nvim_set_hl(0, "BlinkCmpSource", { fg = "", bg = "", bold = true, italic = false })
+        nvim_set_hl(0, "BlinkCmpMenuSelection", { fg = "#32302f", bg = "#7daea3", bold = true, italic = false })
+        nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#7daea3", bg = "", bold = true, italic = false })
+        nvim_set_hl(0, "BlinkCmpDoc", { fg = "", bg = "", bold = true, italic = false })
+        nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { fg = "#89B482", bg = "", bold = true, italic = false })
+
+        -- Custom
+        nvim_set_hl(0, "YankHi", { fg = "#000000", bg = "#89B482", bold = true, italic = false })
+        vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#32302f", bg = "#7daea3", bold = true, italic = false })
+        vim.api.nvim_set_hl(0, "MyBorder", { fg = "#7daea3", bg = "" })
 
         -- TEST:
         -- print('Hello from colorscheme lazy')

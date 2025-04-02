@@ -12,31 +12,41 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
-        "hrsh7th/cmp-nvim-lsp",
+        -- "hrsh7th/cmp-nvim-lsp",
+        { "saghen/blink.cmp" },
         { "antosha417/nvim-lsp-file-operations", config = true },
     },
     config = function()
         local lspconfig = require("lspconfig")
         local util = require("lspconfig/util")
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
         -- Capabilities
+        -- local cmp_nvim_lsp = require("cmp_nvim_lsp")
         -- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-        local capabilities = cmp_nvim_lsp.default_capabilities()
+        -- local capabilities = cmp_nvim_lsp.default_capabilities()
+
+        -- local original_capabilities = vim.lsp.protocol.make_client_capabilities
+        -- local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
 
         -- NOTE:
         -- Capabilities required for the visualstudio lsps (css, html, etc)
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
-        capabilities.textDocument.completion.completionItem.preselectSupport = true
-        capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-        capabilities.textDocument.completion.completionItem.resolveSupport = {
-            properties = {
-                "documentation",
-                "detail",
-                "additionalTextEdits",
-            },
-        }
+        -- capabilities.textDocument.completion.completionItem.snippetSupport = true
+        -- capabilities.textDocument.completion.completionItem.preselectSupport = true
+        -- capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
+        -- capabilities.textDocument.completion.completionItem.resolveSupport = {
+        --     properties = {
+        --         "documentation",
+        --         "detail",
+        --         "additionalTextEdits",
+        --     },
+        -- }
+
+        -- vim.keymap.set("n", "grr", "<Nop>", { noremap = true, silent = true })
+        -- vim.keymap.set("n", "grn", "<Nop>", { noremap = true, silent = true })
+        -- vim.keymap.set("n", "gri", "<Nop>", { noremap = true, silent = true })
+        -- vim.keymap.set("n", "gO", "<Nop>", { noremap = true, silent = true })
+        -- vim.keymap.set("n", "gra", "<Nop>", { noremap = true, silent = true })
 
         -- NOTE: Use an on_attach function to only map the following keys after the language server attaches to the current buffer
         local on_attach = function(client, bufnr)
@@ -52,20 +62,20 @@ return {
             keymap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "Go to previous diagnostic message")
             keymap("]d", ":Lspsaga diagnostic_jump_next<CR>", "Go to next diagnostic message")
             keymap("gp", ":Lspsaga peek_definition<CR>", "Go to next diagnostic message")
-            keymap("rn", ":Lspsaga rename<CR>", "Rename")
+            keymap("rn", function()
+                vim.lsp.buf.rename()
+            end, "Rename")
             keymap("K", ":Lspsaga hover_doc<CR>", "Hover documentation")
-            keymap("<leader>ca", ":Lspsaga code_action<CR>", "Code action")
+            keymap("<leader>ca", function()
+                vim.lsp.buf.code_action()
+            end, "Code action")
             keymap("fi", ":Lspsaga finder<CR>", "Finder saga window")
             keymap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
+            keymap("gR", require("telescope.builtin").lsp_references, "Goto References")
             keymap("gD", ":Lspsaga goto_definition<CR>", "Goto Definition")
             keymap("df", ":Lspsaga show_cursor_diagnostics ++normal<CR>", "Open Diagnostic Float")
 
             keymap("gI", vim.lsp.buf.implementation, "Goto Implementation")
-            -- keymap("df", vim.diagnostic.open_float, "Open Diagnostic Float")
-            -- keymap('rn', vim.lsp.buf.rename, 'ReName')
-            -- keymap('<leader>ds', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
-            -- keymap('gr', require('telescope.builtin').lsp_references, 'Goto References')
-            -- keymap('<leader>D', vim.lsp.buf.type_definition, 'Type Definition')
             keymap("<space>fr", '<cmd>lua require("conform").format()<CR>', "Format code")
 
             -- NOTE: `:help K` for why this keymap
@@ -110,7 +120,7 @@ return {
         -- https://github.com/iamcco/vim-language-server
         lspconfig.vimls.setup({
             on_attach = on_attach,
-            capabilities = capabilities,
+            -- capabilities = capabilities,
         })
 
         -- ansible

@@ -20,7 +20,6 @@ return {
             ui = {
                 code_action = "󰌶",
                 diagnostic = "",
-                -- border = "solid",
                 border = {
                     { "", "WarningMsg" },
                     { "─", "MyBorder" },
@@ -42,6 +41,7 @@ return {
             code_action = {
                 -- NOTE: default keymaps and config explanation
                 -- https://nvimdev.github.io/lspsaga/codeaction/
+                enable = false,
                 show_server_name = true,
                 extend_gitsigns = true,
                 num_shortcut = true,

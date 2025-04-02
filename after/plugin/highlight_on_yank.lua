@@ -5,6 +5,13 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = "*",
     desc = "Highlight selection on yank",
     callback = function()
-        vim.highlight.on_yank({ timeout = 200, visual = true })
+        vim.b.minicursorword_disable = true
+        vim.highlight.on_yank({ timeout = 200, visual = true, higroup = "YankHi" })
+        vim.defer_fn(function()
+            vim.b.minicursorword_disable = nil
+            -- Trigger 'mini.cursorword' re-render after yank highlight is hidden
+            vim.cmd("doautocmd CursorMoved")
+        end, 220)
+        -- vim.highlight.on_yank({ timeout = 200, visual = true, higroup = "YankHi" })
     end,
 })

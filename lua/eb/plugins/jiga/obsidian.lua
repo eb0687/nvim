@@ -84,7 +84,7 @@ return {
                 time_format = "%H:%M",
             },
             completion = {
-                nvim_cmp = true,
+                nvim_cmp = false,
             },
             -- NOTE: if enabled, this conflicts with the render-markdown plugin
             -- which is used in Avante plugin

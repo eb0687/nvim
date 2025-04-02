@@ -162,6 +162,9 @@ return {
         local splitjoin = require("mini.splitjoin")
         splitjoin.setup({})
 
+        local cursorword = require("mini.cursorword")
+        cursorword.setup({ delay = 50 })
+
         -- FIX: disabled for now due to conflicts with keybinds
         -- local operators = require("mini.operators")
         -- operators.setup({})

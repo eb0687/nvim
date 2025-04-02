@@ -10,10 +10,12 @@
 
 return {
     "hrsh7th/nvim-cmp", -- main completion plugin
+    enabled = false,
+    version = "v0.0.2",
     event = "InsertEnter",
     dependencies = {
-        "hrsh7th/cmp-buffer", -- plugin for buffer completion
-        "hrsh7th/cmp-path", -- plugin for path completion
+        -- "hrsh7th/cmp-buffer", -- plugin for buffer completion
+        -- "hrsh7th/cmp-path", -- plugin for path completion
         "hrsh7th/cmp-nvim-lsp",
         "saadparwaiz1/cmp_luasnip", -- plugin for snippet completion
         "hrsh7th/cmp-cmdline", -- plugin for command line completion

@@ -170,6 +170,7 @@ return {
     -- },
     {
         "zbirenbaum/copilot-cmp",
+        enabled = false,
         event = "VeryLazy",
         config = function()
             require("copilot_cmp").setup()
@@ -251,6 +252,7 @@ return {
     -- https://github.com/jmbuhr/otter.nvim
     {
         "jmbuhr/otter.nvim",
+        enabled = false,
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
         },
