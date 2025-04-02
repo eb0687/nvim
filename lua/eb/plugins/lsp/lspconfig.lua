@@ -20,18 +20,27 @@ return {
         local lspconfig = require("lspconfig")
         local util = require("lspconfig/util")
 
+        local capabilities = {
+            textDocument = {
+                foldingRange = {
+                    dynamicRegistration = false,
+                    lineFoldingOnly = true,
+                },
+            },
+        }
+
+        capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+
+        -- NOTE: old capabilities for cmp
         -- Capabilities
         -- local cmp_nvim_lsp = require("cmp_nvim_lsp")
         -- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
         -- local capabilities = cmp_nvim_lsp.default_capabilities()
 
-        -- local original_capabilities = vim.lsp.protocol.make_client_capabilities
-        -- local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
-
         -- NOTE:
         -- Capabilities required for the visualstudio lsps (css, html, etc)
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
-        -- capabilities.textDocument.completion.completionItem.snippetSupport = true
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
         -- capabilities.textDocument.completion.completionItem.preselectSupport = true
         -- capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
         -- capabilities.textDocument.completion.completionItem.resolveSupport = {
@@ -42,6 +51,7 @@ return {
         --     },
         -- }
 
+        -- NOTE: to disable new keymaps for lsp
         -- vim.keymap.set("n", "grr", "<Nop>", { noremap = true, silent = true })
         -- vim.keymap.set("n", "grn", "<Nop>", { noremap = true, silent = true })
         -- vim.keymap.set("n", "gri", "<Nop>", { noremap = true, silent = true })
