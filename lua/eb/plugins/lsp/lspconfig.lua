@@ -75,7 +75,11 @@ return {
             keymap("rn", function()
                 vim.lsp.buf.rename()
             end, "Rename")
-            keymap("K", ":Lspsaga hover_doc<CR>", "Hover documentation")
+            keymap("K", function()
+                vim.lsp.buf.hover({
+                    border = { "", "─", "╮", "│", "╯", "─", "╰", "│" },
+                })
+            end, "Hover documentation")
             keymap("<leader>ca", function()
                 vim.lsp.buf.code_action()
             end, "Code action")
