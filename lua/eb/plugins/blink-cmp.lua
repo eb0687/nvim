@@ -3,8 +3,11 @@ return {
     dependencies = {
         "rafamadriz/friendly-snippets",
         "moyiz/blink-emoji.nvim",
+        "MahanRahmati/blink-nerdfont.nvim",
+        "disrupted/blink-cmp-conventional-commits",
         "giuxtaposition/blink-cmp-copilot",
         { "L3MON4D3/LuaSnip", version = "v2.*" },
+        "folke/lazydev.nvim",
     },
     version = "1.*",
 
@@ -100,7 +103,10 @@ return {
                 "snippets",
                 "buffer",
                 "emoji",
+                "nerdfont",
+                "conventional_commits",
                 "copilot",
+                "lazydev",
             },
             providers = {
                 emoji = {
@@ -117,6 +123,22 @@ return {
                         )
                     end,
                 },
+                nerdfont = {
+                    module = "blink-nerdfont",
+                    name = "Nerd Fonts",
+                    score_offset = 15,
+                    opts = { insert = true },
+                },
+                conventional_commits = {
+                    name = "Conventional Commits",
+                    module = "blink-cmp-conventional-commits",
+                    enabled = function()
+                        return vim.bo.filetype == "gitcommit"
+                    end,
+                    ---@module 'blink-cmp-conventional-commits'
+                    ---@type blink-cmp-conventional-commits.Options
+                    opts = {},
+                },
                 copilot = {
                     name = "copilot",
                     module = "blink-cmp-copilot",
@@ -131,6 +153,12 @@ return {
                         end
                         return items
                     end,
+                },
+                lazydev = {
+                    name = "LazyDev",
+                    module = "lazydev.integrations.blink",
+                    -- make lazydev completions top priority (see `:h blink.cmp`)
+                    score_offset = 100,
                 },
             },
         },

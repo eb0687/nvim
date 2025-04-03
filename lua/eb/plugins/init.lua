@@ -79,15 +79,17 @@ return {
             vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
         end,
     },
+    -- NOTE: disabling for now and will be using blink cmp for finding nerd fonts
     -- https://github.com/2KAbhishek/nerdy.nvim
-    {
-        "2kabhishek/nerdy.nvim",
-        dependencies = {
-            "stevearc/dressing.nvim",
-            "nvim-telescope/telescope.nvim",
-        },
-        cmd = "Nerdy",
-    },
+    -- {
+    --     "2kabhishek/nerdy.nvim",
+    --     dependencies = {
+    --         "stevearc/dressing.nvim",
+    --         "nvim-telescope/telescope.nvim",
+    --     },
+    --     cmd = "Nerdy",
+    -- },
+
     -- https://github.com/roobert/tailwindcss-colorizer-cmp.nvim
     -- {
     --     "roobert/tailwindcss-colorizer-cmp.nvim",
