@@ -9,39 +9,6 @@ return {
     version = "*",
     event = "VeryLazy",
     config = function()
-        -- NOTE: disabling for now, the reactiveness isnt upto what I like it yet
-        -- local animate = require("mini.animate")
-        -- animate.setup({
-        --     cursor = {
-        --         enable = true,
-        --         timing = animate.gen_timing.exponential({ duration = 80, unit = "total" }),
-        --         path = animate.gen_path.angle({
-        --             predicate = function()
-        --                 return true
-        --             end,
-        --         }),
-        --     },
-        --     resize = {
-        --         enable = false,
-        --         timing = animate.gen_timing.linear({ duration = 50, unit = "total" }),
-        --     },
-        --     scroll = {
-        --         enable = false,
-        --     },
-        --     open = {
-        --         enable = false,
-        --         -- Animate for 400 milliseconds with linear easing
-        --         timing = animate.gen_timing.linear({ duration = 300, unit = "total" }),
-        --         -- Animate with wiping from nearest edge instead of default static one
-        --         winconfig = animate.gen_winconfig.wipe({ direction = "from_edge" }),
-        --         -- Make bigger windows more transparent
-        --         winblend = animate.gen_winblend.linear({ from = 80, to = 100 }),
-        --     },
-        --     close = {
-        --         enable = false,
-        --     },
-        -- })
-
         -- source: https://github.com/echasnovski/mini.ai?tab=readme-ov-file
         local ai = require("mini.ai")
         ai.setup()
@@ -97,10 +64,6 @@ return {
             },
         })
 
-        -- NOTE: gone back to flash
-        -- local jump = require("mini.jump")
-        -- jump.setup({})
-
         local clue = require("mini.clue")
         clue.setup({
             triggers = {
@@ -152,18 +115,29 @@ return {
         -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
         -- NOTE: look at the examples for custom setup similar to todo-comments
         local hipatterns = require("mini.hipatterns")
-
         hipatterns.setup({
             highlighters = {
                 hex_color = hipatterns.gen_highlighter.hex_color(),
             },
         })
 
+        -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-splitjoin.md
         local splitjoin = require("mini.splitjoin")
         splitjoin.setup({})
 
+        -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-cursorword.md
         local cursorword = require("mini.cursorword")
         cursorword.setup({ delay = 50 })
+
+        -- Miscellaneous
+        require("mini.misc").setup({})
+
+        local custom_helpers = require("lua.eb.utils.custom_helpers")
+        local keymap_silent = custom_helpers.keymap_silent
+
+        keymap_silent("n", "<leader>=", function()
+            MiniMisc.zoom()
+        end, "MINI: Zoom in/out buffer")
 
         -- FIX: disabled for now due to conflicts with keybinds
         -- local operators = require("mini.operators")

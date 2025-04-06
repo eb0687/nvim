@@ -86,7 +86,9 @@ return {
         -- nvim_set_hl(0, "BufferInactive", { bg = "#252423", fg = "#84776A" })
 
         -- Mini
-        nvim_set_hl(0, "MiniCursorwordCurrent", { bg = "#84776A", fg = "#000000" })
+        -- nvim_set_hl(0, "MiniCursorwordCurrent", { bg = "#84776A", fg = "#000000" })
+        vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { underline = true, fg = nil, bg = nil })
+        vim.api.nvim_set_hl(0, "MiniCursorword", { underline = false, fg = nil, bg = nil })
         nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#84776A" })
 
         -- Blink
