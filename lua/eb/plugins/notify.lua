@@ -6,6 +6,8 @@
 --                                                      |___/
 -- https://github.com/rcarriga/nvim-notify
 
+-- NOTE: disabled takes too much resources and makes things feel laggy on the lenovo T490
+
 return {
     "rcarriga/nvim-notify",
     enabled = false,

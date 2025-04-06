@@ -6,6 +6,8 @@
 --                       |_|
 -- https://github.com/windwp/nvim-autopairs
 
+-- NOTE: replaced this with mini pairs
+
 return {
     "windwp/nvim-autopairs",
     enabled = false,

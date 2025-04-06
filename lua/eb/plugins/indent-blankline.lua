@@ -5,6 +5,8 @@
 -- |_|_| |_|\__,_|\___|_| |_|\__| |_.__/|_|\__,_|_| |_|_|\_\_|_|_| |_|\___|
 -- https://github.com/lukas-reineke/indent-blankline.nvim
 
+-- NOTE: replaced with mini
+
 return {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPre", "BufNewFile" },

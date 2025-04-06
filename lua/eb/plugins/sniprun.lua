@@ -8,7 +8,6 @@
 -- https://michaelb.github.io/sniprun/sources/README.html#
 
 return {
-
     "michaelb/sniprun",
     event = { "BufReadPost", "BufNewFile" },
     build = "sh ./install.sh",

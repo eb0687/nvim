@@ -1,4 +1,5 @@
 -- nvim-line.nvim
+
 -- https://github.com/mfussenegger/nvim-lint
 
 return {

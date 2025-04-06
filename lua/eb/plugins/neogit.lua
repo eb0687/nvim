@@ -1,4 +1,5 @@
 -- neogit.nvim
+
 -- https://github.com/NeogitOrg/neogit
 
 return {

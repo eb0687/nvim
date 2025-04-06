@@ -6,6 +6,8 @@
 --             |_|
 -- https://github.com/smoka7/hop.nvim
 
+-- NOTE: using flash.nvim
+
 return {
     "smoka7/hop.nvim",
     version = "*",

@@ -6,7 +6,6 @@
 -- https://gitlab.com/HiPhish/rainbow-delimiters.nvim
 
 return {
-
     "HiPhish/rainbow-delimiters.nvim",
     event = "VeryLazy",
     config = function()
@@ -22,15 +21,6 @@ return {
                 [""] = "rainbow-delimiters",
                 lua = "rainbow-blocks",
             },
-            -- highlight = {
-            --     "RainbowDelimiterRed",
-            --     "RainbowDelimiterYellow",
-            --     "RainbowDelimiterBlue",
-            --     "RainbowDelimiterOrange",
-            --     "RainbowDelimiterGreen",
-            --     "RainbowDelimiterViolet",
-            --     "RainbowDelimiterCyan",
-            -- },
             highlight = {
                 "RainbowDelimiterRed",
                 "RainbowDelimiterOrange",

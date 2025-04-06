@@ -7,7 +7,7 @@ return {
 
     -- https://github.com/NvChad/nvim-colorizer.lua
     -- Defaults: https://github.com/NvChad/nvim-colorizer.lua#customization
-    -- NOTE: using minihipatterns instead
+    -- NOTE: replaced with mini
     {
         "NvChad/nvim-colorizer.lua",
         cmd = "ColorizerToggle",
@@ -20,9 +20,6 @@ return {
             })
         end,
     },
-
-    -- https://github.com/nvim-lua/popup.nvim
-    -- "nvim-lua/popup.nvim",
 
     -- https://github.com/jvirtanen/vim-hcl
     {
@@ -56,18 +53,6 @@ return {
         cond = vim.fn.isdirectory(".git") == 1,
     },
 
-    -- -- https://github.com/Bekaboo/deadcolumn.nvim
-    -- {
-    --     "Bekaboo/deadcolumn.nvim",
-    --     event = "VeryLazy",
-    -- },
-
-    -- https://github.com/tpope/vim-obsession
-    -- {
-    --     "tpope/vim-obsession",
-    --     event = { "BufReadPre", "BufNewFile" },
-    -- },
-
     -- https://github.com/olrtg/nvim-emmet
     {
         "olrtg/nvim-emmet",
@@ -79,17 +64,8 @@ return {
             vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
         end,
     },
-    -- NOTE: disabling for now and will be using blink cmp for finding nerd fonts
-    -- https://github.com/2KAbhishek/nerdy.nvim
-    -- {
-    --     "2kabhishek/nerdy.nvim",
-    --     dependencies = {
-    --         "stevearc/dressing.nvim",
-    --         "nvim-telescope/telescope.nvim",
-    --     },
-    --     cmd = "Nerdy",
-    -- },
 
+    -- NOTE: replaced with tailwind-tools
     -- https://github.com/roobert/tailwindcss-colorizer-cmp.nvim
     -- {
     --     "roobert/tailwindcss-colorizer-cmp.nvim",
@@ -106,6 +82,7 @@ return {
     -- },
 
     -- https://github.com/laytan/tailwind-sorter.nvim
+    -- NOTE: replaced with tailwind-tools
     -- NOTE: could not get the prettier-plugin-tailwindcss to work,
     -- using the below module instead.
     -- BUG: the below plugin is not consistent, need to restart nvim for sorting
@@ -146,10 +123,12 @@ return {
     -- https://github.com/AckslD/nvim-FeMaco.lua
     {
         "AckslD/nvim-FeMaco.lua",
+        enabled = false,
         config = function()
             require("femaco").setup()
         end,
     },
+
     {
         "windwp/nvim-ts-autotag",
         ft = {
@@ -165,11 +144,8 @@ return {
             require("nvim-ts-autotag").setup()
         end,
     },
-    -- {
-    --     "kmonad/kmonad-vim",
-    --     enabled = false,
-    --     ft = "kbd",
-    -- },
+
+    -- NOTE: replaced with blink
     {
         "zbirenbaum/copilot-cmp",
         enabled = false,
@@ -178,17 +154,7 @@ return {
             require("copilot_cmp").setup()
         end,
     },
-    -- https://github.com/shortcuts/no-neck-pain.nvim
-    -- {
-    --     "shortcuts/no-neck-pain.nvim",
-    --     enabled = false,
-    --     version = "*",
-    --     opts = {
-    --         buffers = {
-    --             -- right = { enabled = false },
-    --         },
-    --     },
-    -- },
+
     {
         "letieu/harpoon-lualine",
         event = "VeryLazy",
@@ -199,39 +165,43 @@ return {
             },
         },
     },
+
+    -- NOTE: have not been using this at all
     -- https://github.com/piersolenski/wtf.nvim
-    {
-        "piersolenski/wtf.nvim",
-        event = "LspAttach",
-        dependencies = {
-            "MunifTanjim/nui.nvim",
-        },
-        opts = {
-            search_engine = "google",
-        },
-        keys = {
-            {
-                "gW",
-                mode = { "n", "x" },
-                function()
-                    require("wtf").ai()
-                end,
-                desc = "Debug diagnostic with AI",
-            },
-            {
-                mode = { "n" },
-                "gw",
-                function()
-                    require("wtf").search()
-                end,
-                desc = "Search diagnostic with Google",
-            },
-        },
-    },
+    -- {
+    --     "piersolenski/wtf.nvim",
+    --     event = "LspAttach",
+    --     dependencies = {
+    --         "MunifTanjim/nui.nvim",
+    --     },
+    --     opts = {
+    --         search_engine = "google",
+    --     },
+    --     keys = {
+    --         {
+    --             "gW",
+    --             mode = { "n", "x" },
+    --             function()
+    --                 require("wtf").ai()
+    --             end,
+    --             desc = "Debug diagnostic with AI",
+    --         },
+    --         {
+    --             mode = { "n" },
+    --             "gw",
+    --             function()
+    --                 require("wtf").search()
+    --             end,
+    --             desc = "Search diagnostic with Google",
+    --         },
+    --     },
+    -- },
+
     {
         "AndreM222/copilot-lualine",
         event = "VeryLazy",
     },
+
     {
         -- https://github.com/NStefan002/screenkey.nvim
         "NStefan002/screenkey.nvim",
@@ -239,6 +209,7 @@ return {
         lazy = true,
         version = "*", -- or branch = "dev", to use the latest commit
     },
+
     -- https://github.com/sphamba/smear-cursor.nvim
     {
         "sphamba/smear-cursor.nvim",
@@ -251,6 +222,7 @@ return {
             hide_target_hack = false, -- true     boolean
         },
     },
+
     -- https://github.com/jmbuhr/otter.nvim
     {
         "jmbuhr/otter.nvim",
@@ -260,13 +232,15 @@ return {
         },
         opts = {},
     },
+
     -- NOTE: not using this as of now, will play around with custom injections
     -- https://github.com/DariusCorvus/tree-sitter-language-injection.nvim
-    {
-        "DariusCorvus/tree-sitter-language-injection.nvim",
-        enabled = false,
-        opts = {},
-    },
+    -- {
+    --     "DariusCorvus/tree-sitter-language-injection.nvim",
+    --     enabled = false,
+    --     opts = {},
+    -- },
+
     {
         "mg979/vim-visual-multi",
         config = function() end,
