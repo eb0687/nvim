@@ -6,9 +6,11 @@
 --                                         |_|
 -- https://github.com/farmergreg/vim-lastplace
 
+-- NOTE: replaced with mini
+
 return {
     "farmergreg/vim-lastplace",
-    -- enabled = false,
+    enabled = false,
     config = function()
         local global_var = vim.g
 
