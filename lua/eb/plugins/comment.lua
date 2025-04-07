@@ -4,10 +4,8 @@
 -- | |__| (_) | | | | | | | | | | |  __/ | | | |_ _| | | \ V /| | | | | | |
 --  \____\___/|_| |_| |_|_| |_| |_|\___|_| |_|\__(_)_| |_|\_/ |_|_| |_| |_|
 -- https://github.com/numToStr/Comment.nvim
--- NOTE:
--- Possibly replacing commenatry by tpope as it does block based commenting
 
--- NOTE: replacing with mini
+-- NOTE: Replaced with mini
 
 return {
     "numToStr/Comment.nvim",

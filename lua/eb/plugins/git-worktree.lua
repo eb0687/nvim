@@ -9,6 +9,8 @@
 -- BUG: there is an error with the telescope integration, details & fix in this link:
 -- https://github.com/ThePrimeagen/git-worktree.nvim/issues/97#issuecomment-1248246825
 
+-- NOTE: disabled, not being used at all
+
 return {
     "ThePrimeagen/git-worktree.nvim",
     enabled = false,

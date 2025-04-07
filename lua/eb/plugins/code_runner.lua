@@ -9,6 +9,8 @@
 -- go through the documentation for harpoon integration
 -- figure out if I should lazy load this?
 
+-- NOTE: have not been using this as much, maybe disable this soon?
+
 return {
     "CRAG666/code_runner.nvim",
     enabled = true,

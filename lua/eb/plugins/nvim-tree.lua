@@ -5,7 +5,7 @@
 --  |_| \_| \_/ |_|_| |_| |_|      \__|_|  \___|\___|
 -- https://github.com/nvim-tree/nvim-tree.lua
 
--- NOTE: disabling thing for now and replacing with oil.nvim
+-- NOTE: replaced with oil.nvim
 
 return {
 

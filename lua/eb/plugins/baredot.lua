@@ -9,6 +9,7 @@ return {
 
         -- TODO: probably update this for compatibility with my vms on proxmox
 
+        -- TODO: probably move this to a utils folder
         local function directory_exists(path)
             local stat = vim.loop.fs_stat(path)
             return stat and stat.type == "directory" or false

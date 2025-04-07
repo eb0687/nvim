@@ -5,7 +5,7 @@
 -- |_| |_|\_/ |_|_| |_| |_|     |___/\__,_|_|  |_|  \___/ \__,_|_| |_|\__,_|
 -- https://github.com/kylechui/nvim-surround
 
--- NOTE: testing out mini-surround
+-- NOTE: replaced with mini
 
 return {
     "kylechui/nvim-surround",

@@ -6,6 +6,8 @@
 --                           \/      \/              \/
 -- https://github.com/arjunmahishi/flow.nvim
 
+-- NOTE: no longer using this, replaced with code runner and not even using that as much
+
 return {
     "arjunmahishi/flow.nvim",
     enabled = false,
@@ -25,14 +27,6 @@ return {
                 border = "single",
             },
         })
-
-        local keymap = function(keys, func, desc)
-            if desc then
-                desc = "FLOW: " .. desc
-            end
-
-            vim.keymap.set("n", keys, func, { desc = desc })
-        end
 
         keymap_normal("<leader>rr", ":FlowRunFile<CR>", "FLOW", true, "execute the entire file")
         keymap_normal("<leader>lr", ":FlowRunSelected<CR>", "FLOW", true, "execute the current selection")

@@ -6,7 +6,10 @@
 --                                   |___/
 -- https://github.com/stevearc/dressing.nvim
 
+-- NOTE: this plugin is archived, possibly use snacks.nvim implementation
+-- source: https://github.com/stevearc/dressing.nvim/issues/190
+
 return {
-    'stevearc/dressing.nvim',
-    event = 'VeryLazy',
+    "stevearc/dressing.nvim",
+    event = "VeryLazy",
 }

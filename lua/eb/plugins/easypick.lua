@@ -1,4 +1,5 @@
 -- easypick.nvim
+
 -- https://github.com/axkirillov/easypick.nvim
 
 return {

@@ -7,6 +7,8 @@
 -- https://github.com/kristijanhusak/vim-dadbod-ui
 -- https://github.com/kristijanhusak/vim-dadbod-completion
 
+-- NOTE: using lazysql cli tool for my db needs
+
 return {
     "kristijanhusak/vim-dadbod-ui",
     enabled = false,

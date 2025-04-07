@@ -1,4 +1,6 @@
 -- https://github.com/rachartier/tiny-inline-diagnostic.nvim
+
+-- NOTE: nvim 0.11 improved their inline diagnostic mayb have a look at it?
 return {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "LspAttach", -- Or `LspAttach`

@@ -1,4 +1,4 @@
--- nvim-siicon
+-- nvim-silicon
 -- https://github.com/michaelrommel/nvim-silicon
 -- dependencies:
 -- nerdfont defined in the config

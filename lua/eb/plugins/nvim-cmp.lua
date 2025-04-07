@@ -8,6 +8,8 @@
 -- Description:
 -- A completion engine plugin for neovim written in Lua
 
+-- NOTE: replaced with blink
+
 return {
     "hrsh7th/nvim-cmp", -- main completion plugin
     enabled = false,

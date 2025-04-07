@@ -5,8 +5,9 @@
 --  \___/|___/\___|____/_____|
 -- https://github.com/ojroques/nvim-osc52
 
-return {
+-- NOTE: mainly useful for yanking text in a SSH session
 
+return {
     "ojroques/nvim-osc52",
     config = function()
         -- SETUP
