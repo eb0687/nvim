@@ -145,6 +145,9 @@ return {
                 grep_string = {
                     theme = "ivy",
                 },
+                live_grep = {
+                    theme = "ivy",
+                },
                 quickfix = {
                     theme = "ivy",
                 },
@@ -251,10 +254,14 @@ return {
         -- --------------------------------------------------------
         -- Custom Grep keymaps
         -- --------------------------------------------------------
+        -- keymap("<leader>fss", function()
+        --     telescope_builtin.grep_string({
+        --         search = vim.fn.input("Grep for > "),
+        --     })
+        -- end, "Find using Grep")
+
         keymap("<leader>fss", function()
-            telescope_builtin.grep_string({
-                search = vim.fn.input("Grep for > "),
-            })
+            telescope_builtin.live_grep({})
         end, "Find using Grep")
 
         keymap("<leader>fsb", function()
