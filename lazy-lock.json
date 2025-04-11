@@ -15,7 +15,7 @@
   "conform.nvim": { "branch": "master", "commit": "eebc724d12c5579d733d1f801386e0ceb909d001" },
   "copilot-cmp": { "branch": "master", "commit": "15fc12af3d0109fa76b60b5cffa1373697e261d1" },
   "copilot-lualine": { "branch": "main", "commit": "6bc29ba1fcf8f0f9ba1f0eacec2f178d9be49333" },
-  "copilot.lua": { "branch": "master", "commit": "2378a40e9cecbf3720b6f4f3d5d6b6d8994bd321" },
+  "copilot.lua": { "branch": "master", "commit": "0a7502946845fb14b860a6384c709a791bbab96a" },
   "deadcolumn.nvim": { "branch": "master", "commit": "8f5f8610fda22ff7a3937bc72d0e7d41faaceeaa" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "dressing.nvim": { "branch": "master", "commit": "2d7c2db2507fa3c4956142ee607431ddb2828639" },
