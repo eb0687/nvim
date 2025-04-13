@@ -83,6 +83,7 @@ return {
             keymap("<leader>ca", function()
                 vim.lsp.buf.code_action()
             end, "Code action")
+            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "code action" })
             keymap("fi", ":Lspsaga finder<CR>", "Finder saga window")
             keymap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
             keymap("gR", require("telescope.builtin").lsp_references, "Goto References")
