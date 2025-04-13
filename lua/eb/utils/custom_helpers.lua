@@ -171,6 +171,15 @@ end
 -- NOTE: Clear quickfix list
 function M.clear_quickfix()
     vim.fn.setqflist({})
+
+    -- Close the quickfix window if it's open
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        local buf = vim.api.nvim_win_get_buf(win)
+        if vim.bo[buf].buftype == "quickfix" then
+            vim.api.nvim_win_close(win, true)
+        end
+    end
+
     vim.notify("Quickfix list cleared", vim.log.levels.INFO)
 end
 
