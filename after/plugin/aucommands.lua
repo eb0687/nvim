@@ -229,3 +229,13 @@ vim.api.nvim_create_user_command(
     utils.grep_word_under_cursor,
     { desc = "Grep for the word under the cursor and open results in quickfix" }
 )
+
+-------------------------------------------------------------------------------
+-- NOTE: remove messages from commandine after a set interval
+vim.api.nvim_create_autocmd("CmdlineLeave", {
+    callback = function()
+        vim.defer_fn(function()
+            vim.cmd("echo ''")
+        end, 3000)
+    end,
+})
