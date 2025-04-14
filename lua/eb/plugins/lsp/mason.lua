@@ -36,10 +36,10 @@ return {
             ensure_installed = {
                 "vimls",
                 "bashls",
-                "pyright",
                 "lua_ls",
-                "ansiblels",
                 "jsonls",
+                -- "ansiblels",
+                -- "pyright",
                 -- "sqlls",
                 -- "emmet_ls",
                 -- "tsserver",
