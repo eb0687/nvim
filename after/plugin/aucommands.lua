@@ -239,3 +239,13 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
         end, 3000)
     end,
 })
+
+-------------------------------------------------------------------------------
+-- NOTE: disable line numbers for specific filetypes
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "man", "help" },
+    callback = function()
+        vim.wo.number = false
+        vim.wo.relativenumber = false
+    end,
+})
