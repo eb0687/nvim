@@ -241,11 +241,12 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 })
 
 -------------------------------------------------------------------------------
--- NOTE: disable line numbers for specific filetypes
+-- NOTE: disable line numbers and mini indentscope plugin for specific filetypes
 vim.api.nvim_create_autocmd("FileType", {
     pattern = { "man", "help" },
     callback = function()
         vim.wo.number = false
         vim.wo.relativenumber = false
+        vim.b.miniindentscope_disable = true
     end,
 })
