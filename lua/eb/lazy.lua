@@ -56,5 +56,6 @@ else
     require("lazy").setup({
         { import = "eb.plugins" }, -- plugins configs managed by lazy
         { import = "eb.plugins.lsp" }, -- lsp configs managed by lazy
+        { import = "eb.plugins.cmp" }, -- lsp configs managed by lazy
     }, opts)
 end
