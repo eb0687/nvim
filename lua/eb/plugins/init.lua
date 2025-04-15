@@ -198,11 +198,6 @@ return {
     -- },
 
     {
-        "AndreM222/copilot-lualine",
-        event = "VeryLazy",
-    },
-
-    {
         -- https://github.com/NStefan002/screenkey.nvim
         "NStefan002/screenkey.nvim",
         enabled = false,
