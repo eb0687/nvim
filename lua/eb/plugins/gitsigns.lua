@@ -52,6 +52,7 @@ return {
                 row = 0,
                 col = 1,
             },
+            trouble = false,
         })
 
         keymap_normal("]g", ":Gitsigns next_hunk<CR>", "GITSIGNS", true, "next hunk")
