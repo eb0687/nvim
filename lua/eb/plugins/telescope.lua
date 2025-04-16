@@ -172,6 +172,9 @@ return {
                 diagnostics = {
                     theme = "ivy",
                 },
+                registers = {
+                    theme = "ivy",
+                },
             },
             extensions = {
                 import = {
@@ -212,6 +215,7 @@ return {
         keymap("<leader>fm", telescope_builtin.marks, "Find in vim marks")
         keymap("<leader>fg", telescope_builtin.git_files, "Find files in Git repository")
         keymap("<leader>fd", telescope_builtin.diagnostics, "Find all diagnostics")
+        keymap("<leader>fsr", telescope_builtin.registers, "Find all registers")
         keymap("gr", telescope_builtin.lsp_references, "Find references [LSP]")
         keymap("gd", telescope_builtin.lsp_definitions, "Find definitions [LSP]")
         keymap("gD", telescope_builtin.lsp_type_definitions, "Find type definitions [LSP]")
