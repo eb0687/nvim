@@ -13,7 +13,7 @@ return {
             -- https://github.com/MeanderingProgrammer/render-markdown.nvim/wiki
             "MeanderingProgrammer/render-markdown.nvim",
             event = "VeryLazy",
-            opts = { file_types = { "markdown", "Avante" } },
+            opts = { file_types = { "markdown", "Avante" }, render_modes = { "n", "c", "t" } },
             ft = { "markdown", "Avante" },
         },
     },
