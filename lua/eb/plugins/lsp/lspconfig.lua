@@ -370,5 +370,26 @@ return {
             cmd = { "graphql-lsp", "server", "-m", "stream" },
             root_dir = lspconfig.util.root_pattern(".git", ".graphqlrc*", ".graphql.config.*", "graphql.config.*"),
         })
+
+        -- harper
+        -- source: https://writewithharper.com/docs/integrations/neovim
+        lspconfig.harper_ls.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            filetypes = { "markdown" },
+            settings = {
+                ["harper-ls"] = {
+                    userDictPath = "~/dict.txt",
+                    codeActions = {
+                        ForceStable = true,
+                    },
+                    linters = {
+                        SentenceCapitalization = false,
+                        ToDoHyphen = false,
+                        -- SpellCheck = false,
+                    },
+                },
+            },
+        })
     end,
 }
