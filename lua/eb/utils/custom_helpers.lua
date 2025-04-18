@@ -119,7 +119,7 @@ function M.file_info()
 end
 
 -- NOTE: Useful for WSL specific configuration
-local function is_wsl()
+function M.is_wsl()
     local handle = io.popen("grep -qi microsoft /proc/version && echo true || echo false")
     local result = handle:read("*a")
     handle:close()
