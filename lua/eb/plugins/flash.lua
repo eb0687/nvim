@@ -27,9 +27,30 @@ return {
                 end,
                 desc = "Flash Treesitter",
             },
-            -- { "r",mode = "o",function() require("flash").remote() end,desc = "Remote Flash" },
-            -- { "R",mode = { "Toggle Flash Search", "x" },function() require("flash").treesitter_search() end,desc = "Treesitter Search" },
-            -- { "<c-d>", mode = { "c" },function() require("flash").toggle() end,desc = "Toggle Flash Search" },
+            {
+                "r",
+                mode = "o",
+                function()
+                    require("flash").treesitter_search()
+                end,
+                desc = "Treesitter search",
+            },
+            {
+                "R",
+                mode = { "o" },
+                function()
+                    require("flash").remote()
+                end,
+                desc = "Remote flash",
+            },
+            -- {
+            --     "<c-s>",
+            --     mode = { "c" },
+            --     function()
+            --         require("flash").toggle()
+            --     end,
+            --     desc = "Toggle Flash Search",
+            -- },
         },
         config = function()
             local custom_helpers = require("eb.utils.custom_helpers")
