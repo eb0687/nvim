@@ -8,6 +8,13 @@ return {
         "giuxtaposition/blink-cmp-copilot",
         { "L3MON4D3/LuaSnip", version = "v2.*" },
         "folke/lazydev.nvim",
+        {
+            "stevearc/vim-vscode-snippets",
+            config = function()
+                require("luasnip.loaders.from_vscode").lazy_load()
+                require("luasnip.loaders.from_vscode").lazy_load({ paths = "./custom_snippets" })
+            end,
+        },
     },
     version = "1.*",
 
