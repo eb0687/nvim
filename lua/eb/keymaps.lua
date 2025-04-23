@@ -262,3 +262,6 @@ keymap_silent("v", "+", "g<C-a>gv", "Ascending")
 keymap_silent("v", "-", "g<C-x>gv", "Descending")
 keymap_silent("v", "<leader>-", "<C-x>gv", "Increment")
 keymap_silent("v", "<leader>+", "<C-a>gv", "Decrement")
+
+-- Cut selection to system clipboard
+keymap_silent("v", "<leader>d", '"+d<Esc>', "Cut line to system clipboard")
