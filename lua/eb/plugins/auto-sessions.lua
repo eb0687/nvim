@@ -20,21 +20,27 @@ return {
         },
     },
 
-    keys = {
-        {
-            "<leader>wr",
-            "<cmd>SessionRestore<CR>",
-            desc = "AUTO SESSION: Restore session for cwd",
-        },
-        {
+    config = function(_, opts)
+        local auto_session = require("auto-session")
+        local custom_helpers = require("eb.utils.custom_helpers")
+        local keymap_normal = custom_helpers.keymap_normal
+
+        auto_session.setup(opts)
+
+        keymap_normal("<leader>wr", "<cmd>SessionRestore<CR>", "AUTO SESSION", true, "Restore session for cwd")
+        keymap_normal(
             "<leader>ws",
             "<cmd>SessionSave<CR>",
-            desc = "AUTO SESSION: Save session for auto session root dir",
-        },
-        {
+            "AUTO SESSION",
+            true,
+            "Save session for auto session root dir"
+        )
+        keymap_normal(
             "<leader>wl",
-            "<cmd>Telescope session-lens<CR>",
-            desc = "AUTO SESSION: List all sessions in Telescope",
-        },
-    },
+            require("auto-session.session-lens").search_session,
+            "AUTO SESSION",
+            true,
+            "List all sessions in Telescope"
+        )
+    end,
 }
