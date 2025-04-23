@@ -9,7 +9,21 @@ return {
     {
         "folke/flash.nvim",
         event = "VeryLazy",
-        opts = {},
+
+        ---@module "flash"
+        ---@type Flash.Config
+        opts = {
+            modes = {
+                char = {
+                    enabled = true,
+                    jump_labels = true,
+                },
+            },
+            search = {
+                enabled = false,
+            },
+        },
+
         keys = {
             {
                 "s",
@@ -52,7 +66,8 @@ return {
             --     desc = "Toggle Flash Search",
             -- },
         },
-        config = function()
+
+        config = function(_, opts)
             local custom_helpers = require("eb.utils.custom_helpers")
             local keymap_silent = custom_helpers.keymap_silent
             local flash_word = function()
@@ -67,17 +82,7 @@ return {
             keymap_silent("n", "<leader>fw", flash_word, "test")
             keymap_silent("n", "<leader>ft", flash_treesitter, "test")
 
-            require("flash").setup({
-                modes = {
-                    char = {
-                        enabled = true,
-                        jump_labels = true,
-                    },
-                    search = {
-                        enabled = false,
-                    },
-                },
-            })
+            require("flash").setup(opts)
         end,
     },
 }
