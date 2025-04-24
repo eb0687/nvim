@@ -66,7 +66,7 @@ return {
                             unnamed = "Unammed", -- Text to show for unnamed buffers.
                             newfile = "New File", -- Text to show for newly created file before first write
                         },
-                        cond = min_window_width.min_window_width(50),
+                        -- cond = min_window_width.min_window_width(50),
                     },
                     {
                         buffer_count.count_buffers,
