@@ -29,6 +29,12 @@ return {
             },
         }
 
+        -- NOTE: disables the default keymap for nepvim native lsp
+        vim.keymap.del("n", "grr")
+        vim.keymap.del("n", "gra")
+        vim.keymap.del("n", "gri")
+        vim.keymap.del("n", "grn")
+
         capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
         -- NOTE: old capabilities for cmp
@@ -86,7 +92,7 @@ return {
             vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "code action" })
             keymap("fi", ":Lspsaga finder<CR>", "Finder saga window")
             keymap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
-            keymap("gR", require("telescope.builtin").lsp_references, "Goto References")
+            keymap("gr", require("telescope.builtin").lsp_references, "Goto References")
             keymap("gD", ":Lspsaga goto_definition<CR>", "Goto Definition")
             keymap("df", ":Lspsaga show_cursor_diagnostics ++normal<CR>", "Open Diagnostic Float")
 
