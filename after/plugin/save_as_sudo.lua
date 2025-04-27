@@ -1,5 +1,6 @@
 -- NOTE: workaround for saving files as root using pkexec
 -- when using something like :w !sudo tee % neovim would hang as it expects a password
+-- SOURCE: https://github.com/neovim/neovim/issues/12103#issuecomment-2564170743
 
 -- Define :SudoW command to save the file using pkexec and force reload
 vim.api.nvim_create_user_command("SudoW", function()
