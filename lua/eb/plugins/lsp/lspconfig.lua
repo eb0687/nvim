@@ -395,6 +395,9 @@ return {
                         ToDoHyphen = false,
                         -- SpellCheck = false,
                     },
+                    markdown = {
+                        IgnoreLinkTitle = true,
+                    },
                 },
             },
         })
