@@ -19,7 +19,7 @@ local function is_in_obsidian_repo()
 end
 
 -- standard settings for markdown files
-vcmd("setlocal spell spelllang=en_us")
+-- vcmd("setlocal spell spelllang=en_us")
 vcmd("setlocal expandtab shiftwidth=4 softtabstop=4 autoindent")
 
 -- this setting makes markdown auto-set the 80 text width limit when typing for the color column
