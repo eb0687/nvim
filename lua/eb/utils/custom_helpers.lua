@@ -8,6 +8,7 @@ function M.get_hostname()
     return hostname:match("^%s*(.-)%s*$")
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Normal mode keymaps
 function M.keymap_normal(lhs, rhs, name, silent, desc)
     if desc then
@@ -20,6 +21,7 @@ function M.keymap_normal(lhs, rhs, name, silent, desc)
     })
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Visual mode keymaps
 function M.keymap_visual(lhs, rhs, name, silent, desc)
     if desc then
@@ -32,6 +34,7 @@ function M.keymap_visual(lhs, rhs, name, silent, desc)
     })
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Generic keymap
 function M.keymap(lhs, rhs, name, silent, desc)
     if desc then
@@ -44,6 +47,7 @@ function M.keymap(lhs, rhs, name, silent, desc)
     })
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Silent keymap
 function M.keymap_silent(mode, keys, func, desc)
     if desc then
@@ -68,8 +72,19 @@ function M.keymap_loud(mode, keys, func, desc)
     })
 end
 
+-------------------------------------------------------------------------------
+-- NOTE: fix path helper function
+function M.expand_path(path)
+    if path:sub(1, 1) == "~" then
+        return os.getenv("HOME") .. path:sub(2)
+    end
+    return path
+end
+
+-------------------------------------------------------------------------------
 -- NOTE: show information about a file
 -- source: https://github.com/JoosepAlviste/dotfiles/tree/93f670c9b9d1972a8bc63f94698c4c0eec7c888a/config/nvim/lua/j/file_info
+-- TODO: split this into its own file
 function M.file_info()
     local filename = vim.fn.expand("%"):gsub(vim.pesc(vim.loop.cwd()), "."):gsub(vim.pesc(vim.fn.expand("$HOME")), "~")
 
@@ -118,6 +133,7 @@ function M.file_info()
     })
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Useful for WSL specific configuration
 local function is_wsl()
     local handle = io.popen("grep -qi microsoft /proc/version && echo true || echo false")
@@ -137,8 +153,10 @@ function M.open_in_browser()
     end
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Toggles line numbers
 -- source: https://github.com/pwnwriter/pwnvim/blob/main/lua/modules.lua#L3
+-- TODO: split this into its own file
 local cmds = { "nu!", "rnu!", "nonu!" }
 local current_index = 1
 
@@ -152,12 +170,15 @@ function M.toggle_numbering()
     vim.opt.signcolumn = signcolumn_setting
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Toggle inlay hints
+-- TODO: split this into its own file
 function M.toggle_inlay_hint()
     local is_enabled = vim.lsp.inlay_hint.is_enabled()
     vim.lsp.inlay_hint.enable(not is_enabled)
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Validate arguments before executing a function or callback, useful for
 -- user created commands
 function M.validate_args(fargs, min_args, usage_message)
@@ -168,7 +189,9 @@ function M.validate_args(fargs, min_args, usage_message)
     return true
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Clear quickfix list
+-- TODO: split this into its own file
 function M.clear_quickfix()
     vim.fn.setqflist({})
 
@@ -183,7 +206,9 @@ function M.clear_quickfix()
     vim.notify("Quickfix list cleared", vim.log.levels.INFO)
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Yank to registers
+-- TODO: split this into its own file
 function M.yank_to_register(register)
     local start_line = vim.fn.line("'<")
     local end_line = vim.fn.line("'>")
@@ -198,7 +223,9 @@ function M.yank_to_register(register)
     )
 end
 
+-------------------------------------------------------------------------------
 -- NOTE: Custom grep for word under cursor
+-- TODO: split this into its own file
 function M.grep_word_under_cursor()
     local word = vim.fn.expand("<cword>") -- Get the word under the cursor
     if word ~= "" then
