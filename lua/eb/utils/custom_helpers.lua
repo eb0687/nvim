@@ -3,9 +3,12 @@ local M = {}
 -- NOTE: return hostname of the machine
 function M.get_hostname()
     local handle = io.popen("hostname")
+    if not handle then
+        return nil
+    end
     local hostname = handle:read("*a")
     handle:close()
-    return hostname:match("^%s*(.-)%s*$")
+    return hostname and hostname:match("^%s*(.-)%s*$") or nil
 end
 
 -------------------------------------------------------------------------------
@@ -94,7 +97,6 @@ end
 
 -------------------------------------------------------------------------------
 -- NOTE: Clear quickfix list
--- TODO: split this into its own file
 function M.clear_quickfix()
     vim.fn.setqflist({})
 
@@ -110,8 +112,7 @@ function M.clear_quickfix()
 end
 
 -------------------------------------------------------------------------------
--- NOTE: Yank to registers
--- TODO: split this into its own file
+-- NOTE: Utility function for keymaps yank to registers
 function M.yank_to_register(register)
     local start_line = vim.fn.line("'<")
     local end_line = vim.fn.line("'>")
