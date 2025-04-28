@@ -82,26 +82,6 @@ function M.expand_path(path)
 end
 
 -------------------------------------------------------------------------------
--- NOTE: Useful for WSL specific configuration
-local function is_wsl()
-    local handle = io.popen("grep -qi microsoft /proc/version && echo true || echo false")
-    local result = handle:read("*a")
-    handle:close()
-    return result:match("^%s*(.-)%s*$") == "true"
-end
-
--- NOTE: this uses wslview to open links in windows default browser
-function M.open_in_browser()
-    local file = vim.fn.expand("<cfile>")
-    local escaped_file = vim.fn.shellescape(file) -- Escape the file for safe use in shell commands
-    if is_wsl() then
-        vim.fn.system("wslview " .. escaped_file)
-    else
-        vim.fn.system("xdg-open " .. escaped_file)
-    end
-end
-
--------------------------------------------------------------------------------
 -- NOTE: Toggles line numbers
 -- source: https://github.com/pwnwriter/pwnvim/blob/main/lua/modules.lua#L3
 -- TODO: split this into its own file

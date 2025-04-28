@@ -17,7 +17,6 @@
 local custom_helpers = require("eb.utils.custom_helpers")
 local keymap_silent = custom_helpers.keymap_silent
 local keymap_loud = custom_helpers.keymap_loud
-local open_url = custom_helpers.open_in_browser
 local toggle_numbers = custom_helpers.toggle_numbering
 local toggle_inlay_hints = custom_helpers.toggle_inlay_hint
 -- local toggle_flow = custom_helpers.toggle_flow
@@ -213,7 +212,7 @@ keymap_silent("n", "<leader>ih", toggle_inlay_hints, "toggle inlay hints")
 keymap_silent("n", "<leader>n", toggle_numbers, "toggle line numbers")
 keymap_silent("n", "<leader>xx", "<cmd>silent !chmod +x %<CR>", "Make executable")
 keymap_silent("n", "<leader>w", ":set wrap!<CR>", "Toggle wrap")
-keymap_silent("n", "gx", open_url, "Open in web browser")
+keymap_silent("n", "gx", ":OpenInBrowser<CR>", "Open in web browser")
 keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
 
 -- keymap_silent("n", "<leader>zf", toggle_flow, "toggle flow")
