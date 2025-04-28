@@ -218,17 +218,9 @@ vim.api.nvim_create_user_command("Grep", function(opts)
         vim.cmd("copen")
         vim.cmd("silent grep " .. query)
     else
-        print("Usage: :CustomGrep <search_term>")
+        vim.notify("Usage: :Grep <search_term>")
     end
 end, { nargs = "+" })
-
--------------------------------------------------------------------------------
--- NOTE: Grep word under cursor user command
-vim.api.nvim_create_user_command(
-    "GrepCursorWord",
-    utils.grep_word_under_cursor,
-    { desc = "Grep for the word under the cursor and open results in quickfix" }
-)
 
 -------------------------------------------------------------------------------
 -- NOTE: remove messages from commandine after a set interval
