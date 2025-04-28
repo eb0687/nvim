@@ -7,7 +7,6 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 -- TODO: install trouble.nvim using this guide: https://youtu.be/6pAG3BHurdM?t=4307https://youtu.be/6pAG3BHurdM?t=4307
-
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
@@ -20,14 +19,18 @@ return {
         local lspconfig = require("lspconfig")
         local util = require("lspconfig/util")
 
-        local capabilities = {
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+        capabilities = vim.tbl_deep_extend("force", capabilities, require("blink.cmp").get_lsp_capabilities({}, false))
+
+        capabilities = vim.tbl_deep_extend("force", capabilities, {
             textDocument = {
                 foldingRange = {
                     dynamicRegistration = false,
                     lineFoldingOnly = true,
                 },
             },
-        }
+        })
 
         -- NOTE: disables the default keymap for nepvim native lsp
         vim.keymap.del("n", "grr")
@@ -35,34 +38,10 @@ return {
         vim.keymap.del("n", "gri")
         vim.keymap.del("n", "grn")
 
-        capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
-
-        -- NOTE: old capabilities for cmp
-        -- Capabilities
-        -- local cmp_nvim_lsp = require("cmp_nvim_lsp")
-        -- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
-        -- local capabilities = cmp_nvim_lsp.default_capabilities()
-
         -- NOTE:
         -- Capabilities required for the visualstudio lsps (css, html, etc)
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#cssls
         capabilities.textDocument.completion.completionItem.snippetSupport = true
-        -- capabilities.textDocument.completion.completionItem.preselectSupport = true
-        -- capabilities.textDocument.completion.completionItem.insertReplaceSupport = true
-        -- capabilities.textDocument.completion.completionItem.resolveSupport = {
-        --     properties = {
-        --         "documentation",
-        --         "detail",
-        --         "additionalTextEdits",
-        --     },
-        -- }
-
-        -- NOTE: to disable new keymaps for lsp
-        -- vim.keymap.set("n", "grr", "<Nop>", { noremap = true, silent = true })
-        -- vim.keymap.set("n", "grn", "<Nop>", { noremap = true, silent = true })
-        -- vim.keymap.set("n", "gri", "<Nop>", { noremap = true, silent = true })
-        -- vim.keymap.set("n", "gO", "<Nop>", { noremap = true, silent = true })
-        -- vim.keymap.set("n", "gra", "<Nop>", { noremap = true, silent = true })
 
         -- NOTE: Use an on_attach function to only map the following keys after the language server attaches to the current buffer
         local on_attach = function(client, bufnr)
@@ -115,8 +94,6 @@ return {
             if client.name == "tsserver" then
                 client.server_capabilities.documentFormattingProvider = false
             end
-            -- client.server_capabilities.document_formatting = false
-            -- client.server_capabilities.document_range_formatting = false
 
             -- Diagnostic Signs
             local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
@@ -141,7 +118,7 @@ return {
         -- https://github.com/iamcco/vim-language-server
         lspconfig.vimls.setup({
             on_attach = on_attach,
-            -- capabilities = capabilities,
+            capabilities = capabilities,
         })
 
         -- ansible
@@ -162,7 +139,7 @@ return {
         lspconfig.lua_ls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
-            settings = { -- custom settings for lua
+            settings = {
                 Lua = {
                     runtime = {
                         version = "LuaJIT",
@@ -181,14 +158,13 @@ return {
                         enable = true,
                     },
                     workspace = {
-                        -- library = {
-                        --     [vim.fn.expand("$XDG_DATA_HOME/nvim/lazy")] = true,
-                        --     [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-                        --     [vim.fn.stdpath("config") .. "/lua"] = true,
-                        -- },
+                        -- library = vim.api.nvim_get_runtime_file("", true),
+                        library = { vim.env.VIMRUNTIME },
+                        checkThirdParty = false,
                     },
                     completion = {
                         callSnippet = "Replace",
+                        workspaceWord = true,
                     },
                 },
             },
