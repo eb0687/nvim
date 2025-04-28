@@ -170,7 +170,10 @@ return {
                 },
             },
         },
-        fuzzy = { implementation = "prefer_rust_with_warning" },
+        fuzzy = {
+            implementation = "prefer_rust_with_warning",
+            sorts = { "exact", "kind", "sort_text", "label", "score", "score" },
+        },
     },
     opts_extend = { "sources.default" },
 }
