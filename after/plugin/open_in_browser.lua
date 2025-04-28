@@ -25,4 +25,4 @@ end
 
 vim.api.nvim_create_user_command("OpenInBrowser", function()
     open_in_browser()
-end, {})
+end, { desc = "Conditionally open web browser link based on linux or wsl" })

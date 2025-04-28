@@ -15,4 +15,4 @@ end
 
 vim.api.nvim_create_user_command("ToggleLineNumbers", function()
     toggle_numbering()
-end, {})
+end, { desc = "Toggle line numbers between 3 states: relative, normal, no numbers" })

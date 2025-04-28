@@ -82,14 +82,6 @@ function M.expand_path(path)
 end
 
 -------------------------------------------------------------------------------
--- NOTE: Toggle inlay hints
--- TODO: split this into its own file
-function M.toggle_inlay_hint()
-    local is_enabled = vim.lsp.inlay_hint.is_enabled()
-    vim.lsp.inlay_hint.enable(not is_enabled)
-end
-
--------------------------------------------------------------------------------
 -- NOTE: Validate arguments before executing a function or callback, useful for
 -- user created commands
 function M.validate_args(fargs, min_args, usage_message)
