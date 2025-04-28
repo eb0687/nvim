@@ -17,7 +17,6 @@
 local custom_helpers = require("eb.utils.custom_helpers")
 local keymap_silent = custom_helpers.keymap_silent
 local keymap_loud = custom_helpers.keymap_loud
-local file_info = custom_helpers.file_info
 local open_url = custom_helpers.open_in_browser
 local toggle_numbers = custom_helpers.toggle_numbering
 local toggle_inlay_hints = custom_helpers.toggle_inlay_hint
@@ -209,7 +208,7 @@ keymap_silent("n", "J", "mzJ`z", "Append bottom line")
 keymap_silent("x", "<leader>p", '"+P', "Paste from system clipboard")
 
 -- Various
-keymap_silent("n", "<leader>io", file_info, "open basic file information")
+keymap_silent("n", "<leader>io", ":FileInfo<CR>", "open basic file information")
 keymap_silent("n", "<leader>ih", toggle_inlay_hints, "toggle inlay hints")
 keymap_silent("n", "<leader>n", toggle_numbers, "toggle line numbers")
 keymap_silent("n", "<leader>xx", "<cmd>silent !chmod +x %<CR>", "Make executable")
