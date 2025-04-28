@@ -1,3 +1,5 @@
+local border_chars = { "", "─", "╮", "│", "╯", "─", "╰", "│" }
+
 return {
     "saghen/blink.cmp",
     dependencies = {
@@ -44,11 +46,11 @@ return {
             documentation = {
                 auto_show = true,
                 window = {
-                    border = { "", "─", "╮", "│", "╯", "─", "╰", "│" },
+                    border = border_chars,
                 },
             },
             menu = {
-                border = { "", "─", "╮", "│", "╯", "─", "╰", "│" },
+                border = border_chars,
                 auto_show = true,
                 draw = {
                     columns = {
@@ -93,7 +95,7 @@ return {
         signature = {
             enabled = true,
             window = {
-                border = { "", "─", "╮", "│", "╯", "─", "╰", "│" },
+                border = border_chars,
             },
         },
 
