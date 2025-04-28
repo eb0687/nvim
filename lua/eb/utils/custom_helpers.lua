@@ -6,6 +6,7 @@ function M.get_hostname()
     if not handle then
         return nil
     end
+
     local hostname = handle:read("*a")
     handle:close()
     return hostname and hostname:match("^%s*(.-)%s*$") or nil
