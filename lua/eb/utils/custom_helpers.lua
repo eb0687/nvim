@@ -82,23 +82,6 @@ function M.expand_path(path)
 end
 
 -------------------------------------------------------------------------------
--- NOTE: Toggles line numbers
--- source: https://github.com/pwnwriter/pwnvim/blob/main/lua/modules.lua#L3
--- TODO: split this into its own file
-local cmds = { "nu!", "rnu!", "nonu!" }
-local current_index = 1
-
-function M.toggle_numbering()
-    current_index = current_index % #cmds + 1
-    vim.cmd("set " .. cmds[current_index])
-    local signcolumn_setting = "auto"
-    if cmds[current_index] == "nonu!" then
-        signcolumn_setting = "yes:4"
-    end
-    vim.opt.signcolumn = signcolumn_setting
-end
-
--------------------------------------------------------------------------------
 -- NOTE: Toggle inlay hints
 -- TODO: split this into its own file
 function M.toggle_inlay_hint()
