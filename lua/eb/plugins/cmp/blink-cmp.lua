@@ -23,6 +23,9 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
+        enabled = function()
+            return vim.g.blink_cmp
+        end,
         keymap = { preset = "enter" },
         appearance = {
             nerd_font_variant = "mono",

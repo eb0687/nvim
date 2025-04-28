@@ -117,19 +117,6 @@ if get_distro_name() ~= "" then
 end
 
 -------------------------------------------------------------------------------
--- NOTE: Global find and replace
--- source: https://elanmed.dev/blog/global-find-and-replace-in-neovim
--- source: https://www.youtube.com/watch?v=9JCsPsdeflY
-local utils = require("eb.utils.custom_helpers")
-vim.api.nvim_create_user_command("FindAndReplaceGlobal", function(opts)
-    if not utils.validate_args(opts.fargs, 2, "Usage: :FindAndReplaceGlobal <search_pattern> <replace_pattern>") then
-        return
-    end
-    vim.api.nvim_command(string.format("cfdo s/%s/%s/g | update | bd", opts.fargs[1], opts.fargs[2]))
-    utils.clear_quickfix()
-end, { nargs = "*" })
-
--------------------------------------------------------------------------------
 -- NOTE: autoformat on save
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.*",
@@ -157,13 +144,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -------------------------------------------------------------------------------
 -- NOTE: autosort tailwindclasses on save
-
--- vim.api.nvim_create_autocmd("BufWritePost", {
---     pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.scss" }, -- Replace with the desired filetypes
---     command = "TailwindSort",
---     desc = "Automatically sort Tailwind classes on save",
--- })
-
 vim.api.nvim_create_autocmd("BufWritePost", {
     pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.scss" }, -- Replace with the desired filetypes
     callback = function()
@@ -177,25 +157,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
     end,
     desc = "Automatically sort Tailwind classes on save, if Tailwind LSP is active",
 })
-
--------------------------------------------------------------------------------
--- NOTE: requires cmp
--- source: https://github.com/hrsh7th/nvim-cmp/issues/261
-vim.g.cmp_toggle = true
-local function toggle_autocomplete()
-    vim.g.cmp_toggle = not vim.g.cmp_toggle
-    local status
-
-    if vim.g.cmp_toggle then
-        status = "ENABLED"
-    else
-        status = "DISABLED"
-    end
-
-    print("Autocomplete", status)
-end
-
-vim.api.nvim_create_user_command("ToggleCmp", toggle_autocomplete, {})
 
 -------------------------------------------------------------------------------
 -- NOTE: Custom grep
