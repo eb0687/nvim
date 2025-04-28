@@ -3,8 +3,13 @@
 -- helper function to detech if in WSL
 local function is_wsl()
     local handle = io.popen("grep -qi microsoft /proc/version && echo true || echo false")
+
+    if handle == nil then
+        return false
+    end
     local result = handle:read("*a")
     handle:close()
+
     return result:match("^%s*(.-)%s*$") == "true"
 end
 
