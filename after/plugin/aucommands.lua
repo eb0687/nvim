@@ -37,18 +37,36 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
--- https://github.com/hadynz/dotfiles/blob/main/nvim/lua/config/autocmds.lua
-
 -------------------------------------------------------------------------------
 -- NOTE: Toggle relative numbers for active panes only
+local excluded_filetypes = {
+    "alpha",
+    "dashboard",
+    "lazy",
+    "NvimTree",
+    "TelescopePrompt",
+    "man",
+    "help",
+    -- add any others you want
+}
+
+local function should_ignore()
+    return vim.tbl_contains(excluded_filetypes, vim.bo.filetype)
+end
+
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FocusGained" }, {
     callback = function()
-        vim.wo.relativenumber = true
+        if not should_ignore() then
+            vim.wo.relativenumber = true
+        end
     end,
 })
+
 vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "FocusLost" }, {
     callback = function()
-        vim.wo.relativenumber = false
+        if not should_ignore() then
+            vim.wo.relativenumber = false
+        end
     end,
 })
 
