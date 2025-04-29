@@ -190,3 +190,12 @@ vim.api.nvim_create_autocmd("FileType", {
         vim.b.miniindentscope_disable = true
     end,
 })
+
+-------------------------------------------------------------------------------
+-- NOTE: highlight on yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight selection on yank",
+    callback = function()
+        vim.hl.on_yank({ higroup = "YankHi", timeout = 50 })
+    end,
+})
