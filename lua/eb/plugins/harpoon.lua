@@ -67,9 +67,15 @@ return {
         keymap_normal("<leader>ha", function()
             harpoon:list():add()
         end, "HARPOON", true, "Add to harpoon list")
-        keymap_normal("<leader>hm", function()
+
+        keymap_normal("<leader>hf", function()
+            harpoon:list():prepend()
+        end, "HARPOON", true, "Add to harpoon list")
+
+        keymap_normal("<C-e>", function()
             harpoon.ui:toggle_quick_menu(harpoon:list(), toggle_opts)
         end, "HARPOON", true, "Toggle quick menu")
+
         keymap_normal("<leader>hr", function()
             harpoon:list():remove()
         end, "HARPOON", true, "Remove from harpoon list")
