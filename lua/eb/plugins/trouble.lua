@@ -27,7 +27,7 @@ return {
         --     "Toggle trouble list"
         -- )
         keymap_normal("<leader>tq", ":Trouble quickfix toggle focus=true<CR>", "TROUBLE", true, "Toggle quickfix list")
-        keymap_normal("<leader>ts", ":Trouble symbols toggle focus=true<CR>", "TROUBLE", true, "Toggle symbols list")
+        -- keymap_normal("<leader>ts", ":Trouble symbols toggle focus=true<CR>", "TROUBLE", true, "Toggle symbols list")
         keymap_normal("<leader>tl", ":Trouble loclist toggle focus=true<CR>", "TROUBLE", true, "Toggle symbols list")
         keymap_normal(
             "<leader>tt",
