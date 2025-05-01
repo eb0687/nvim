@@ -136,6 +136,12 @@ return {
                     name = "Nerd Fonts",
                     score_offset = 15,
                     opts = { insert = true },
+                    should_show_items = function()
+                        local line = vim.api.nvim_get_current_line()
+                        local cursor = vim.api.nvim_win_get_cursor(0)[2]
+                        local before_cursor = line:sub(1, cursor)
+                        return before_cursor:match("^:%w*$") or before_cursor:match("%s:%w*$") ~= nil
+                    end,
                 },
                 conventional_commits = {
                     name = "Conventional Commits",
