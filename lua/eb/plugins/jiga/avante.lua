@@ -25,6 +25,9 @@ return {
         },
         windows = {
             width = 40,
+            sidebar_header = {
+                align = "left",
+            },
         },
     },
 }
