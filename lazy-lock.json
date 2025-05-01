@@ -2,7 +2,7 @@
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "LuaSnip": { "branch": "master", "commit": "03c8e67eb7293c404845b3982db895d59c0d1538" },
   "auto-session": { "branch": "main", "commit": "00334ee24b9a05001ad50221c8daffbeedaa0842" },
-  "avante.nvim": { "branch": "main", "commit": "448efbb8423c319e6d10e527dc0827c22b3748ff" },
+  "avante.nvim": { "branch": "main", "commit": "3a43621e17bf782b8c725f44979ca320ffbe661e" },
   "baredot.nvim": { "branch": "master", "commit": "b5409b042d84043c8a897e8732d0f69e174ee499" },
   "blink-cmp-conventional-commits": { "branch": "main", "commit": "e7ce3ddcc6d4044067d6d77ab41d480202e814ad" },
   "blink-cmp-copilot": { "branch": "main", "commit": "439cff78780c033aa23cf061d7315314b347e3c1" },
