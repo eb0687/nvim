@@ -151,7 +151,7 @@ return {
                 copilot = {
                     name = "copilot",
                     module = "blink-cmp-copilot",
-                    score_offset = 100,
+                    score_offset = -50,
                     async = true,
                     transform_items = function(_, items)
                         local CompletionItemKind = require("blink.cmp.types").CompletionItemKind
@@ -173,7 +173,8 @@ return {
         },
         fuzzy = {
             implementation = "prefer_rust_with_warning",
-            sorts = { "exact", "kind", "sort_text", "label", "score" },
+            -- sorts = { "exact", "kind", "sort_text", "label", "score" },
+            sorts = { "exact", "score", "sort_text", "kind", "label" },
         },
     },
     opts_extend = { "sources.default" },

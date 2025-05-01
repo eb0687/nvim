@@ -172,7 +172,8 @@ return {
         },
         fuzzy = {
             implementation = "prefer_rust_with_warning",
-            sorts = { "exact", "kind", "sort_text", "label", "score" },
+            -- sorts = { "exact", "kind", "sort_text", "label", "score" },
+            sorts = { "exact", "score", "sort_text", "kind", "label" },
         },
     },
     opts_extend = { "sources.default" },
