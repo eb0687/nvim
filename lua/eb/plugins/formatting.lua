@@ -20,6 +20,7 @@ return {
             python = { "black" },
             go = { "goimports", "gofumpt", "injected" },
             bash = { "beautysh", "shellharden" },
+            sh = { "beautysh", "shellharden" },
             sql = { "sql_formatter" },
             -- ["*"] = { "injected" },
         },
