@@ -24,7 +24,7 @@ return {
 
         -- source: https://github.com/echasnovski/mini.surround
         local surround = require("mini.surround")
-        surround.setup()
+        surround.setup({ highlight_duration = 200 })
 
         -- source: https://github.com/echasnovski/mini.pairs
         local pairs = require("mini.pairs")
