@@ -87,6 +87,20 @@ return {
             end, "HARPOON", true, "Harpoon select " .. i)
         end
 
+        -- Replace harpoon mark
+        vim.keymap.set("n", "h1", function()
+            harpoon:list():replace_at(1)
+        end)
+        vim.keymap.set("n", "h2", function()
+            harpoon:list():replace_at(2)
+        end)
+        vim.keymap.set("n", "h3", function()
+            harpoon:list():replace_at(3)
+        end)
+        vim.keymap.set("n", "h4", function()
+            harpoon:list():replace_at(4)
+        end)
+
         -- Toggle previous & next buffers stored within Harpoon list
         keymap_normal("<C-n>", function()
             harpoon:list():next()
