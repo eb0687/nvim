@@ -14,12 +14,21 @@ local function is_wsl()
 end
 
 local function open_in_browser()
-    local file = vim.fn.expand("<cfile>")
-    local escaped_file = vim.fn.shellescape(file) -- Escape the file for safe use in shell commands
+    local target = vim.fn.expand("<cfile>")
+    -- local safe_target = vim.fn.shellescape(target) -- Escape the file for safe use in shell commands
     if is_wsl() then
-        vim.fn.system("wslview " .. escaped_file)
+        vim.ui.open(target, {
+            cmd = {
+                "wslview",
+            },
+        })
     else
-        vim.fn.system("xdg-open " .. escaped_file)
+        vim.ui.open(target, {
+            cmd = {
+                "xdg-open",
+            },
+        })
+        -- vim.fn.system("xdg-open " .. safe_target)
     end
 end
 
