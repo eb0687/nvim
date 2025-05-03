@@ -13,8 +13,34 @@ return {
             -- https://github.com/MeanderingProgrammer/render-markdown.nvim/wiki
             "MeanderingProgrammer/render-markdown.nvim",
             event = "VeryLazy",
-            opts = { file_types = { "markdown", "Avante" }, render_modes = { "n", "c", "t" } },
-            ft = { "markdown", "Avante" },
+            opts = {
+                file_types = {
+                    "markdown",
+                    "Avante",
+                },
+                render_modes = {
+                    "n",
+                    "c",
+                    "t",
+                },
+                completions = {
+                    blink = {
+                        enabled = true,
+                    },
+                    lsp = {
+                        enabled = true,
+                    },
+                },
+                heading = {
+                    position = "right",
+                    width = "block",
+                    right_pad = 2,
+                },
+            },
+            ft = {
+                "markdown",
+                "Avante",
+            },
         },
     },
     build = "make",
