@@ -31,7 +31,7 @@ return {
         local lint_progress = require("eb.utils.lualine-helpers.lint-progress")
         local buffer_count = require("eb.utils.lualine-helpers.buffer-count")
         local copilot_helper = require("eb.utils.lualine-helpers.copilot-helpers")
-        local telescope_helper = require("lua.eb.utils.telescope-helpers")
+        local telescope_helper = require("eb.utils.telescope-helpers")
 
         require("lualine").setup({
             sections = {
