@@ -12,8 +12,8 @@ return {
         -- local cwd = require('eb.utils.lualine-helpers.cwd')
         -- local branch = require("eb.utils.lualine-helpers.git-branch")
         -- local selection_count = require("eb.utils.lualine-helpers.selection-count")
-        local diff_source = require("eb.utils.lualine-helpers.git-diff")
-        local lsp_servers = require("eb.utils.lualine-helpers.lsp-servers")
+        -- local diff_source = require("eb.utils.lualine-helpers.git-diff")
+        -- local lsp_servers = require("eb.utils.lualine-helpers.lsp-servers")
         local macro = require("eb.utils.lualine-helpers.macro")
         local mode = require("eb.utils.lualine-helpers.mode")
         local diagnostics = require("eb.utils.lualine-helpers.diagnostics")
@@ -31,6 +31,7 @@ return {
         local lint_progress = require("eb.utils.lualine-helpers.lint-progress")
         local buffer_count = require("eb.utils.lualine-helpers.buffer-count")
         local copilot_helper = require("eb.utils.lualine-helpers.copilot-helpers")
+        local telescope_helper = require("lua.eb.utils.telescope-helpers")
 
         require("lualine").setup({
             sections = {
@@ -38,27 +39,34 @@ return {
                     {
                         mode,
                         padding = 1,
-                        cond = min_window_width.min_window_width(50),
+                        cond = min_window_width.min_window_width(80),
                     },
                 },
                 lualine_b = {
-                    "branch",
-                    { "diff", source = diff_source },
-                    -- { "diagnostics", source = diagnostics },
+                    {
+                        "branch",
+                        icon = "",
+                        color = { fg = "#7DAEA3" },
+                        -- {
+                        --     "diff",
+                        --     source = diff_source,
+                        -- },
+                        cond = min_window_width.min_window_width(80),
+                    },
                 },
                 lualine_c = {
                     {
                         filename_color_status,
                         "filename",
-                        icon = {
-                            "",
-                            align = "left",
-                            color = {
-                                fg = "#7DAEA3",
-                            },
-                        },
+                        -- icon = {
+                        --     "",
+                        --     align = "left",
+                        --     color = {
+                        --         fg = "#7DAEA3",
+                        --     },
+                        -- },
                         file_status = true,
-                        path = 4,
+                        path = 3,
                         shorting_target = 30,
                         symbols = {
                             modified = "󱇧", -- Text to show when the file is modified.
@@ -66,10 +74,6 @@ return {
                             unnamed = "Unammed", -- Text to show for unnamed buffers.
                             newfile = "New File", -- Text to show for newly created file before first write
                         },
-                        -- cond = min_window_width.min_window_width(50),
-                    },
-                    {
-                        buffer_count.count_buffers,
                     },
                     {
                         permissions.get_permissions,
@@ -85,7 +89,25 @@ return {
                     macro,
                 },
                 lualine_x = {
-                    { quickfix.counter },
+                    {
+                        "harpoon2",
+                        icon = "",
+                        cond = min_window_width.min_window_width(80),
+                        on_click = function()
+                            harpoon.toggle()
+                        end,
+                    },
+                    {
+                        quickfix.counter,
+                        cond = min_window_width.min_window_width(80),
+                    },
+                    {
+                        buffer_count.count_buffers,
+                        cond = min_window_width.min_window_width(80),
+                        on_click = function()
+                            telescope_helper.buffer_searcher()
+                        end,
+                    },
                     {
                         mason_updates.get_updates,
                         icon = "",
@@ -93,45 +115,41 @@ return {
                         on_click = function()
                             vim.cmd("Mason")
                         end,
-                        cond = min_window_width.min_window_width(50),
+                        cond = min_window_width.min_window_width(80),
                     },
                     {
                         lazy_status.updates,
-                        cond = lazy_status.has_updates,
+                        cond = function()
+                            return lazy_status.has_updates() or min_window_width.min_window_width(80)
+                        end,
                         color = { fg = "#ea6962" },
                         on_click = function()
                             vim.cmd("Lazy")
                         end,
                     },
-                    {
-                        "harpoon2",
-                        padding = 1,
-                        cond = min_window_width.min_window_width(50),
-                        on_click = function()
-                            harpoon.toggle()
-                        end,
-                    },
                 },
                 lualine_y = {
-                    {
-                        "filetype",
-                        padding = 1,
-                        cond = min_window_width.min_window_width(50),
-                    },
+                    -- {
+                    --     "filetype",
+                    --     padding = 1,
+                    --     cond = min_window_width.min_window_width(80),
+                    -- },
                     {
 
                         location,
                         padding = 1,
-                        cond = min_window_width.min_window_width(50),
+                        cond = min_window_width.min_window_width(80),
+                        icon = false,
                     },
-                    {
-                        lsp_servers,
-                        padding = 1,
-                        cond = min_window_width.min_window_width(50),
-                        on_click = function()
-                            vim.cmd("LspInfo")
-                        end,
-                    },
+                    -- {
+                    --     lsp_servers,
+                    --     padding = 1,
+                    --     cond = min_window_width.min_window_width(80),
+                    --     on_click = function()
+                    --         vim.cmd("LspInfo")
+                    --     end,
+                    --     icon = false,
+                    -- },
                     {
                         "copilot",
                         symbols = {
@@ -148,13 +166,14 @@ return {
                         on_click = function()
                             copilot_helper.toggle_copilot()
                         end,
+                        cond = min_window_width.min_window_width(80),
                     },
                 },
                 lualine_z = {
                     {
                         lint_progress.lint_progress,
                         padding = 1,
-                        cond = min_window_width.min_window_width(50),
+                        cond = min_window_width.min_window_width(80),
                     },
                 },
             },
