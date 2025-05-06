@@ -7,6 +7,7 @@ return {
         "JoosepAlviste/nvim-ts-context-commentstring",
     },
     version = "*",
+    -- version = false,
     event = "VeryLazy",
     config = function()
         -- source: https://github.com/echasnovski/mini.ai?tab=readme-ov-file
