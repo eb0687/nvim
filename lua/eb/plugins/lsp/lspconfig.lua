@@ -354,6 +354,12 @@ return {
             root_dir = lspconfig.util.root_pattern(".git", ".graphqlrc*", ".graphql.config.*", "graphql.config.*"),
         })
 
+        -- lspconfig.marksman.setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        --     root_dir = lspconfig.util.root_pattern(".git", ".marksman.toml"),
+        -- })
+
         -- harper
         -- source: https://writewithharper.com/docs/integrations/neovim
         lspconfig.harper_ls.setup({
