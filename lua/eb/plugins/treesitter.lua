@@ -50,6 +50,8 @@ return {
                 "vimdoc",
                 "commonlisp",
                 "regex",
+                "tsx",
+                "css",
             },
             auto_install = true,
 
