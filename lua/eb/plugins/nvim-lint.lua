@@ -7,22 +7,22 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     config = function()
         local lint = require("lint")
+        vim.env.ESLINT_D_PPID = vim.fn.getpid()
         lint.linters_by_ft = {
             ansible = { "ansible_lint" },
             bash = { "shellcheck" },
             python = { "pylint" },
             html = { "markuplint" },
             javascript = { "eslint_d" },
+            typescript = { "eslint_d" },
             markdown = { "markdownlint" },
         }
-        local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
         local ns = require("lint").get_namespace("markdownlint")
         vim.diagnostic.config({
             virtual_text = false,
             float = {
                 show_header = true,
-                source = "always",
                 border = "rounded",
                 focusable = true,
             },
@@ -38,10 +38,9 @@ return {
             "--", -- Required
         }
 
-        vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
-            group = lint_augroup,
+        vim.api.nvim_create_autocmd({ "BufWritePost" }, {
             callback = function()
-                lint.try_lint()
+                require("lint").try_lint()
             end,
         })
     end,
