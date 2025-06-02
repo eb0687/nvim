@@ -360,6 +360,32 @@ return {
         --     root_dir = lspconfig.util.root_pattern(".git", ".marksman.toml"),
         -- })
 
+        lspconfig.rust_analyzer.setup({
+            capabilities = capabilities,
+            on_attach = on_attach,
+            settings = {
+                ["rust_analyzer"] = {
+                    assist = {
+                        importEnforceGranularity = true,
+                        importPrefix = "crate",
+                    },
+                    cargo = {
+                        allFeatures = true,
+                    },
+                    checkOnSave = {
+                        command = "clippy",
+                    },
+                    inlayHints = { locationLinks = false },
+                    diagnostics = {
+                        enable = true,
+                        experimental = {
+                            enable = true,
+                        },
+                    },
+                },
+            },
+        })
+
         -- harper
         -- source: https://writewithharper.com/docs/integrations/neovim
         lspconfig.harper_ls.setup({

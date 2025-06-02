@@ -22,6 +22,7 @@ return {
             bash = { "beautysh", "shellharden" },
             sh = { "beautysh", "shellharden" },
             sql = { "sql_formatter" },
+            rust = { "rustfmt" },
             -- ["*"] = { "injected" },
         },
         format_on_save = {
