@@ -388,26 +388,26 @@ return {
 
         -- harper
         -- source: https://writewithharper.com/docs/integrations/neovim
-        lspconfig.harper_ls.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            filetypes = { "markdown" },
-            settings = {
-                ["harper-ls"] = {
-                    userDictPath = "~/dict.txt",
-                    codeActions = {
-                        ForceStable = true,
-                    },
-                    linters = {
-                        SentenceCapitalization = false,
-                        ToDoHyphen = false,
-                        -- SpellCheck = false,
-                    },
-                    markdown = {
-                        IgnoreLinkTitle = true,
-                    },
-                },
-            },
-        })
+        -- lspconfig.harper_ls.setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        --     filetypes = { "markdown" },
+        --     settings = {
+        --         ["harper-ls"] = {
+        --             userDictPath = "~/dict.txt",
+        --             codeActions = {
+        --                 ForceStable = true,
+        --             },
+        --             linters = {
+        --                 SentenceCapitalization = false,
+        --                 ToDoHyphen = false,
+        --                 -- SpellCheck = false,
+        --             },
+        --             markdown = {
+        --                 IgnoreLinkTitle = true,
+        --             },
+        --         },
+        --     },
+        -- })
     end,
 }
