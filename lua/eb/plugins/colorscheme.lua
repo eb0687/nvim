@@ -101,7 +101,9 @@ return {
         nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { fg = "#89B482", bg = "", bold = true, italic = false })
 
         -- Custom
-        nvim_set_hl(0, "YankHi", { fg = "#000000", bg = "#89B482", bold = true, italic = false })
+        nvim_set_hl(0, "YankHi", { fg = "#191919", bg = "#d4869b", bold = true, italic = false })
+        nvim_set_hl(0, "Visual", { bg = "#d3869b", fg = "#191919" })
+
         vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#32302f", bg = "#7daea3", bold = true, italic = false })
         vim.api.nvim_set_hl(0, "MyBorder", { fg = "#7daea3", bg = "" })
 
