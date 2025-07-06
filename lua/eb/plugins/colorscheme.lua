@@ -36,7 +36,9 @@ return {
         -- of colors
 
         -- NOTE: Harpoon2
-        nvim_set_hl(0, "NormalFloat", { bg = "#1D2021" })
+
+        -- nvim_set_hl(0, "NormalFloat", { bg = "#1D2021" })
+        nvim_set_hl(0, "NormalFloat", { bg = "#252423" })
         nvim_set_hl(0, "FloatTitle", { bg = "#1D2021", fg = "#E78A4E" })
         nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "#7DAEA3" })
 
