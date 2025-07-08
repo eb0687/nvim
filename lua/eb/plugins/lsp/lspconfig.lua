@@ -57,7 +57,7 @@ return {
             keymap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "Go to previous diagnostic message")
             keymap("]d", ":Lspsaga diagnostic_jump_next<CR>", "Go to next diagnostic message")
             keymap("gp", ":Lspsaga peek_definition<CR>", "Go to next diagnostic message")
-            keymap("rn", function()
+            keymap("<leader>rn", function()
                 vim.lsp.buf.rename()
             end, "Rename")
             keymap("K", function()
