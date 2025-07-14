@@ -365,6 +365,9 @@ return {
             on_attach = on_attach,
             settings = {
                 ["rust_analyzer"] = {
+                    procMacro = {
+                        enable = true,
+                    },
                     assist = {
                         importEnforceGranularity = true,
                         importPrefix = "crate",
