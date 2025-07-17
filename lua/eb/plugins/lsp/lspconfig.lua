@@ -167,6 +167,8 @@ return {
         -- lua
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
         -- https://github.com/luals/lua-language-server
+        -- NOTE: i installed lua-ls-server manually and symlinked in to ~/.local/bin
+        -- https://github.com/LuaLS/lua-language-server/wiki/Getting-Started
         lspconfig.lua_ls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
