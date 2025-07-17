@@ -32,6 +32,12 @@ return {
             },
         })
 
+        -- Diagnostics
+        vim.diagnostic.config({
+            virtual_lines = { current_line = true },
+            underline = true,
+        })
+
         -- NOTE: disables the default keymap for nepvim native lsp
         vim.keymap.del("n", "grr")
         vim.keymap.del("n", "gra")
@@ -55,11 +61,21 @@ return {
 
             -- KEYMAPS
             keymap("[d", function()
-                vim.diagnostic.jump({ count = 1, float = false })
+                vim.diagnostic.jump({
+                    count = 1,
+                    float = false,
+                })
             end, "Go to previous diagnostic message")
 
             keymap("]d", function()
-                vim.diagnostic.jump({ count = -1, float = false })
+                vim.diagnostic.jump({
+                    count = -1,
+                    float = false,
+                })
+            end, "Go to next diagnostic message")
+
+            keymap("df", function()
+                vim.diagnostic.open_float()
             end, "Go to next diagnostic message")
 
             keymap("<leader>rn", function()
