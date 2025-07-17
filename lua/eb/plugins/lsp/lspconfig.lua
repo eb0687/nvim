@@ -54,32 +54,45 @@ return {
             end
 
             -- KEYMAPS
-            keymap("[d", ":Lspsaga diagnostic_jump_prev<CR>", "Go to previous diagnostic message")
-            keymap("]d", ":Lspsaga diagnostic_jump_next<CR>", "Go to next diagnostic message")
-            keymap("gp", ":Lspsaga peek_definition<CR>", "Go to next diagnostic message")
+            keymap("[d", function()
+                vim.diagnostic.jump({ count = 1, float = false })
+            end, "Go to previous diagnostic message")
+
+            keymap("]d", function()
+                vim.diagnostic.jump({ count = -1, float = false })
+            end, "Go to next diagnostic message")
+
             keymap("<leader>rn", function()
                 vim.lsp.buf.rename()
             end, "Rename")
+
             keymap("K", function()
                 vim.lsp.buf.hover({
                     border = { "", "─", "╮", "│", "╯", "─", "╰", "│" },
                 })
             end, "Hover documentation")
+
             keymap("<leader>ca", function()
                 vim.lsp.buf.code_action()
             end, "Code action")
-            vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "code action" })
-            keymap("fi", ":Lspsaga finder<CR>", "Finder saga window")
+
+            vim.keymap.set({ "n", "v" }, "<leader>ca", function()
+                vim.lsp.buf.code_action()
+            end, { desc = "code action" })
+
+            keymap("gI", function()
+                vim.lsp.buf.implementation()
+            end, "Goto Implementation")
+
             keymap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
             keymap("gr", require("telescope.builtin").lsp_references, "Goto References")
-            keymap("gD", ":Lspsaga goto_definition<CR>", "Goto Definition")
-            keymap("df", ":Lspsaga show_cursor_diagnostics ++normal<CR>", "Open Diagnostic Float")
 
-            keymap("gI", vim.lsp.buf.implementation, "Goto Implementation")
             keymap("<space>fr", '<cmd>lua require("conform").format()<CR>', "Format code")
 
             -- NOTE: `:help K` for why this keymap
-            keymap("<leader>D", vim.lsp.buf.signature_help, "Signature Documentation")
+            keymap("<leader>D", function()
+                vim.lsp.buf.signature_help()
+            end, "Signature Documentation")
 
             -- Create a command `:Format` local to the LSP buffer
             vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)

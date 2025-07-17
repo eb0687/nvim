@@ -8,6 +8,7 @@
 return {
     "nvimdev/lspsaga.nvim",
     event = "LspAttach",
+    enabled = false,
     dependencies = {
         "nvim-treesitter/nvim-treesitter",
         { "nvim-tree/nvim-web-devicons", lazy = true },
