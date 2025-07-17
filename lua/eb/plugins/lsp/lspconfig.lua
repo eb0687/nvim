@@ -393,6 +393,8 @@ return {
         --     root_dir = lspconfig.util.root_pattern(".git", ".marksman.toml"),
         -- })
 
+        -- NOTE: installed rust-analyzer using rustup
+        -- rustup component add rust-analyzer
         lspconfig.rust_analyzer.setup({
             capabilities = capabilities,
             on_attach = on_attach,
