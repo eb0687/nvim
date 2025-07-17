@@ -57,6 +57,7 @@ return {
                 end
 
                 vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc, silent = true })
+                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
             end
 
             -- KEYMAPS
@@ -402,12 +403,17 @@ return {
                         importPrefix = "crate",
                     },
                     cargo = {
+                        buildScripts = {
+                            enable = true,
+                        },
                         allFeatures = true,
                     },
                     checkOnSave = {
                         command = "clippy",
                     },
-                    inlayHints = { locationLinks = false },
+                    inlayHints = {
+                        locationLinks = false,
+                    },
                     diagnostics = {
                         enable = true,
                         experimental = {

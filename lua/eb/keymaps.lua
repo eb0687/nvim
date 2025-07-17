@@ -206,7 +206,7 @@ keymap_silent("x", "<leader>p", '"+P', "Paste from system clipboard")
 
 -- Various
 keymap_silent("n", "<leader>io", ":FileInfo<CR>", "open basic file information")
-keymap_silent("n", "<leader>ih", ":ToggleLineNumbers<CR>", "toggle inlay hints")
+keymap_silent("n", "<leader>ih", ":ToggleInlayHints<CR>", "toggle inlay hints")
 keymap_silent("n", "<leader>n", ":ToggleLineNumbers<CR>", "toggle line numbers")
 keymap_silent("n", "<leader>xx", "<cmd>silent !chmod +x %<CR>", "Make executable")
 keymap_silent("n", "<leader>w", ":set wrap!<CR>", "Toggle wrap")
