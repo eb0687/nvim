@@ -57,7 +57,8 @@ return {
                 end
 
                 vim.keymap.set("n", keys, func, { buffer = bufnr, desc = desc, silent = true })
-                vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+                -- NOTE: if inlay hints on startup is desired uncomment the below line
+                -- vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
             end
 
             -- KEYMAPS
@@ -395,6 +396,12 @@ return {
             on_attach = on_attach,
             settings = {
                 ["rust_analyzer"] = {
+                    imports = {
+                        granularity = {
+                            group = "module",
+                        },
+                        prefix = "self",
+                    },
                     procMacro = {
                         enable = true,
                     },
