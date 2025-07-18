@@ -62,14 +62,14 @@ return {
             end
 
             -- KEYMAPS
-            keymap("[d", function()
+            keymap("]d", function()
                 vim.diagnostic.jump({
                     count = 1,
                     float = false,
                 })
             end, "Go to previous diagnostic message")
 
-            keymap("]d", function()
+            keymap("[d", function()
                 vim.diagnostic.jump({
                     count = -1,
                     float = false,
