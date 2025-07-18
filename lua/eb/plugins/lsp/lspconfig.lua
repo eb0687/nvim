@@ -38,7 +38,7 @@ return {
             virtual_lines = false,
             underline = true,
             virtual_text = {
-                current_line = true,
+                current_line = false,
                 virt_text_pos = "eol",
                 source = "if_many",
             },
@@ -86,7 +86,7 @@ return {
                 vim.diagnostic.open_float({
                     border = "rounded",
                 })
-            end, "Go to next diagnostic message")
+            end, "Open diagnostic in a float")
 
             keymap("<leader>rn", function()
                 vim.lsp.buf.rename()

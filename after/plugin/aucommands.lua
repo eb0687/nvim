@@ -201,20 +201,31 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -------------------------------------------------------------------------------
--- NOTE: not sure what this is probably remove soon
--- local function ra_flycheck()
---     local clients = vim.lsp.get_clients({
---         name = "rust_analyzer",
---     })
---     for _, client in ipairs(clients) do
---         local params = vim.lsp.util.make_text_document_params()
---         client.notify("rust-analyzer/runFlycheck", params)
---     end
--- end
--- vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
---     pattern = "*.rs",
---     callback = function()
---         vim.cmd("w")
---         ra_flycheck()
---     end,
--- })
+
+-- NOTE: https://oneofone.dev/post/neovim-diagnostics-float/
+local group = vim.api.nvim_create_augroup("OoO", {})
+
+local function au(typ, pattern, cmdOrFn)
+    if type(cmdOrFn) == "function" then
+        vim.api.nvim_create_autocmd(typ, { pattern = pattern, callback = cmdOrFn, group = group })
+    else
+        vim.api.nvim_create_autocmd(typ, { pattern = pattern, command = cmdOrFn, group = group })
+    end
+end
+
+au({ "CursorHold", "InsertLeave" }, nil, function()
+    local opts = {
+        focusable = false,
+        scope = "cursor",
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter" },
+    }
+    vim.diagnostic.open_float(nil, { border = "rounded" })
+end)
+
+au("InsertEnter", nil, function()
+    vim.diagnostic.enable(false)
+end)
+
+au("InsertLeave", nil, function()
+    vim.diagnostic.enable(true)
+end)
