@@ -34,8 +34,14 @@ return {
 
         -- Diagnostics
         vim.diagnostic.config({
-            virtual_lines = { current_line = true },
+            -- virtual_lines = { current_line = true },
+            virtual_lines = false,
             underline = true,
+            virtual_text = {
+                current_line = true,
+                virt_text_pos = "eol",
+                source = "if_many",
+            },
         })
 
         -- NOTE: disables the default keymap for nepvim native lsp
