@@ -158,6 +158,7 @@ return {
     {
         "letieu/harpoon-lualine",
         event = "VeryLazy",
+        enabled = false,
         dependencies = {
             {
                 "ThePrimeagen/harpoon",
