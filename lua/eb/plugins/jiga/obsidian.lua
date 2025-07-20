@@ -85,6 +85,7 @@ return {
             },
             completion = {
                 nvim_cmp = false,
+                min_chars = 3,
             },
             -- NOTE: if enabled, this conflicts with the render-markdown plugin
             -- which is used in Avante plugin
