@@ -106,7 +106,7 @@ return {
                 vim.lsp.buf.code_action()
             end, { desc = "code action" })
 
-            keymap("gI", function()
+            keymap("gi", function()
                 vim.lsp.buf.implementation()
             end, "Goto Implementation")
 

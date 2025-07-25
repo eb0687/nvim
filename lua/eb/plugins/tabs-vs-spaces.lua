@@ -28,7 +28,7 @@ return {
             -- highlight = "DiagnosticUnderlineHint",
             highlight = "",
             -- Priority of highight matches.
-            priority = 20,
+            match_priority = 20,
             ignore = {
                 filetypes = {},
                 -- Works for normal buffers by default.

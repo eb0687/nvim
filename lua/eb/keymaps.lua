@@ -177,9 +177,11 @@ keymap_silent("n", "#", "#zz", "jump to previous matching word")
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
+-- NOTE: using the native keybinds introduced in 0.11
+-- https://gpanders.com/blog/whats-new-in-neovim-0-11/#defaults
 -- Quickfix list
-keymap_silent("n", "<leader>j", "<cmd>cnext<CR>zz", "Quickfix next")
-keymap_silent("n", "<leader>k", "<cmd>cprev<CR>zz", "Quickfix prev")
+-- keymap_silent("n", "<leader>j", "<cmd>cnext<CR>zz", "Quickfix next")
+-- keymap_silent("n", "<leader>k", "<cmd>cprev<CR>zz", "Quickfix prev")
 
 -- Grep
 -- keymap_loud("n", "<leader>gg", ":copen | :silent :grep ", "Custom grep")

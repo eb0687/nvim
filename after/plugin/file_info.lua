@@ -11,7 +11,7 @@ local function file_info()
         vim.tbl_map(function(client)
             return client.name
             -- FIX: deprecated buf_get_clients
-        end, vim.tbl_values(vim.lsp.buf_get_clients())),
+        end, vim.tbl_values(vim.lsp.get_clients())),
         ", "
     )
 

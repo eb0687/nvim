@@ -3,7 +3,11 @@
   "LuaSnip": { "branch": "master", "commit": "458560534a73f7f8d7a11a146c801db00b081df0" },
   "auto-session": { "branch": "main", "commit": "ee320d7a59c1dfe83df7c9d58150d9f194690d53" },
   "autolist.nvim": { "branch": "main", "commit": "5f70a5f99e96c8fe3069de042abd2a8ed2deb855" },
+<<<<<<< HEAD
   "avante.nvim": { "branch": "main", "commit": "bd69ae14f6f1f21642e16c16cbd18954f62365aa" },
+=======
+  "avante.nvim": { "branch": "main", "commit": "faa3945428118d503d0115afe93e57a5db219c46" },
+>>>>>>> refs/remotes/origin/main
   "baredot.nvim": { "branch": "master", "commit": "b5409b042d84043c8a897e8732d0f69e174ee499" },
   "blink-cmp-conventional-commits": { "branch": "main", "commit": "e7ce3ddcc6d4044067d6d77ab41d480202e814ad" },
   "blink-cmp-copilot": { "branch": "main", "commit": "439cff78780c033aa23cf061d7315314b347e3c1" },
@@ -46,7 +50,11 @@
   "maximize.nvim": { "branch": "master", "commit": "d688b66344b03ee6e5a32a0a40af85d174490af8" },
   "mini.nvim": { "branch": "main", "commit": "94cae4660a8b2d95dbbd56e1fbc6fcfa2716d152" },
   "mkdnflow.nvim": { "branch": "main", "commit": "d459bd7ce68910272038ed037c028180161fd14d" },
+<<<<<<< HEAD
   "neogit": { "branch": "master", "commit": "99b811a99a195c4d3a627341bb7ccf6a22c4e6ea" },
+=======
+  "neogit": { "branch": "master", "commit": "55410182748755baf5c3944c9825cd082644f1c1" },
+>>>>>>> refs/remotes/origin/main
   "noice.nvim": { "branch": "main", "commit": "0427460c2d7f673ad60eb02b35f5e9926cf67c59" },
   "nui.nvim": { "branch": "main", "commit": "de740991c12411b663994b2860f1a4fd0937c130" },
   "nvim-FeMaco.lua": { "branch": "main", "commit": "96bbf843595dbe865838b3f2484b73557f34700c" },
@@ -71,8 +79,13 @@
   "oil.nvim": { "branch": "master", "commit": "bbad9a76b2617ce1221d49619e4e4b659b3c61fc" },
   "otter.nvim": { "branch": "main", "commit": "622816aac66933352e20e4d5d01993cd270d6fb0" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
+<<<<<<< HEAD
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "97bf4b8ef9298644a29fcd9dd41a0210cf08cac7" },
   "render-markdown.nvim": { "branch": "main", "commit": "5c0e241bdbd208b7ae546009378d6bc93c083ef3" },
+=======
+  "rainbow-delimiters.nvim": { "branch": "master", "commit": "49372aadaaf04d14a50efaa34150c51d5a8047e1" },
+  "render-markdown.nvim": { "branch": "main", "commit": "b540997fbf7ccf3a39ce21162ce8957be2f67e37" },
+>>>>>>> refs/remotes/origin/main
   "screenkey.nvim": { "branch": "main", "commit": "16390931d847b1d5d77098daccac4e55654ac9e2" },
   "showkeys": { "branch": "main", "commit": "cb0a50296f11f1e585acffba8c253b9e8afc1f84" },
   "smear-cursor.nvim": { "branch": "main", "commit": "1a3df9af4ed017fafecd93c6837956914f269472" },
