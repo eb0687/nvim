@@ -148,6 +148,7 @@ return {
                         ["]c"] = { query = "@class.outer", desc = "TS-move: Next class start" },
                         ["]i"] = { query = "@conditional.outer", desc = "TS-move: Next conditional start" },
                         ["]l"] = { query = "@loop.outer", desc = "TS-move: Next loop start" },
+                        ["]a"] = "@parameter.inner",
                     },
                     goto_next_end = {
                         ["]F"] = { query = "@call.outer", desc = "TS-move: Next function call end" },
@@ -162,6 +163,7 @@ return {
                         ["[c"] = { query = "@class.outer", desc = "TS-move: Prev class start" },
                         ["[i"] = { query = "@conditional.outer", desc = "TS-move: Prev conditional start" },
                         ["[l"] = { query = "@loop.outer", desc = "TS-move: Prev loop start" },
+                        ["[a"] = "@parameter.inner",
                     },
                     goto_previous_end = {
                         ["[F"] = { query = "@call.outer", desc = "TS-move: Prev function call end" },
