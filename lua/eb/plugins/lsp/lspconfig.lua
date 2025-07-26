@@ -44,6 +44,8 @@ return {
             },
         })
 
+        vim.diagnostic.open_float({ border = "rounded" })
+
         -- NOTE: disables the default keymap for nepvim native lsp
         vim.keymap.del("n", "grr")
         vim.keymap.del("n", "gra")
