@@ -246,6 +246,7 @@ return {
             includeInlayEnumMemberValueHints = true,
         }
 
+        -- NOTE: installed manually
         lspconfig.ts_ls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
@@ -279,7 +280,6 @@ return {
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
         -- https://github.com/bash-lsp/bash-language-server
         -- NOTE: bashls integrates shellcheck by default
-
         lspconfig.bashls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
@@ -290,20 +290,59 @@ return {
         -- html, typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
         -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#emmet_ls
         -- https://github.com/aca/emmet-ls
-        lspconfig.emmet_ls.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
+        -- lspconfig.emmet_ls.setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        --     filetypes = {
+        --         "html",
+        --         "typescriptreact",
+        --         "javascriptreact",
+        --         "javascript",
+        --         "css",
+        --         "sass",
+        --         "scss",
+        --         "less",
+        --         "svelte",
+        --         "vue",
+        --     },
+        -- })
+
+        -- NOTE: installed manually
+        -- https://github.com/olrtg/emmet-language-server?tab=readme-ov-file
+        lspconfig.emmet_language_server.setup({
             filetypes = {
-                "html",
-                "typescriptreact",
-                "javascriptreact",
-                "javascript",
                 "css",
+                "eruby",
+                "html",
+                "javascript",
+                "javascriptreact",
+                "less",
                 "sass",
                 "scss",
-                "less",
-                "svelte",
-                "vue",
+                "pug",
+                "typescriptreact",
+            },
+            -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
+            -- **Note:** only the options listed in the table are supported.
+            init_options = {
+                ---@type table<string, string>
+                includeLanguages = {},
+                --- @type string[]
+                excludeLanguages = {},
+                --- @type string[]
+                extensionsPath = {},
+                --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
+                preferences = {},
+                --- @type boolean Defaults to `true`
+                showAbbreviationSuggestions = true,
+                --- @type "always" | "never" Defaults to `"always"`
+                showExpandedAbbreviation = "always",
+                --- @type boolean Defaults to `false`
+                showSuggestionsAsSnippets = false,
+                --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
+                syntaxProfiles = {},
+                --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
+                variables = {},
             },
         })
 
