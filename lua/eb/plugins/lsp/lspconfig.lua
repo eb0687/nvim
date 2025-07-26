@@ -40,7 +40,7 @@ return {
             virtual_text = {
                 current_line = false,
                 virt_text_pos = "eol",
-                source = "if_many",
+                source = true,
             },
         })
 
