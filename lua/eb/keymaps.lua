@@ -222,10 +222,11 @@ keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
 -- INSERT MODE --
 -----------------
 
+-- NOTE: using mini.keymap
 -- Escape remap
-keymap_silent("i", "jk", "<Esc>", "Escape")
-keymap_silent("i", "kj", "<Esc>", "Escape")
-keymap_silent("i", "jj", "<Esc>", "Escape")
+-- keymap_silent("i", "jk", "<Esc>", "Escape")
+-- keymap_silent("i", "kj", "<Esc>", "Escape")
+-- keymap_silent("i", "jj", "<Esc>", "Escape")
 -- keymap_silent("i", "<Esc>", function()
 --     vim.cmd("stopinsert")
 -- end, "Escape")

@@ -51,6 +51,7 @@ return {
         vim.keymap.del("n", "gra")
         vim.keymap.del("n", "gri")
         vim.keymap.del("n", "grn")
+        vim.keymap.del("n", "grt")
 
         -- NOTE:
         -- Capabilities required for the visualstudio lsps (css, html, etc)
