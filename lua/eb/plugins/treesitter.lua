@@ -75,9 +75,36 @@ return {
                 -- colors = {}, -- table of hex strings
                 -- termcolors = {} -- table of colour name strings
             },
+            sync_install = false,
+            ignore_install = {},
+            modules = {},
         })
 
         treesitter.setup({
+            auto_install = true,
+            ensure_installed = {
+                "bash",
+                "lua",
+                "python",
+                "vim",
+                "yaml",
+                "markdown",
+                "markdown_inline",
+                "json",
+                "html",
+                "sql",
+                "gitignore",
+                "javascript",
+                "go",
+                "vimdoc",
+                "commonlisp",
+                "regex",
+                "tsx",
+                "css",
+            },
+            ignore_install = {},
+            modules = {},
+            sync_install = false,
             textobjects = {
                 select = {
                     enable = true,
