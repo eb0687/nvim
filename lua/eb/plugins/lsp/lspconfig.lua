@@ -98,6 +98,8 @@ return {
             keymap("K", function()
                 vim.lsp.buf.hover({
                     border = { "", "─", "╮", "│", "╯", "─", "╰", "│" },
+                    max_height = 25,
+                    max_width = 120,
                 })
             end, "Hover documentation")
 
@@ -325,6 +327,7 @@ return {
             },
             -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
             -- **Note:** only the options listed in the table are supported.
+            -- TODO: look up how to set these properly
             init_options = {
                 ---@type table<string, string>
                 includeLanguages = {},
@@ -434,7 +437,7 @@ return {
             capabilities = capabilities,
             on_attach = on_attach,
             cmd = { "graphql-lsp", "server", "-m", "stream" },
-            root_dir = lspconfig.util.root_pattern(".git", ".graphqlrc*", ".graphql.config.*", "graphql.config.*"),
+            root_dir = lspconfig.util.root_pattern(".graphqlrc*", ".graphql.config.*", "graphql.config.*"),
         })
 
         -- lspconfig.marksman.setup({
