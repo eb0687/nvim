@@ -78,9 +78,13 @@ return {
             local flash_treesitter = function()
                 require("flash").treesitter_search()
             end
+            local flash_toggle = function()
+                require("flash").toggle()
+            end
 
-            keymap_silent("n", "<leader>fw", flash_word, "test")
-            keymap_silent("n", "<leader>ft", flash_treesitter, "test")
+            keymap_silent("n", "<leader>fw", flash_word, "Flash word")
+            keymap_silent("n", "<leader>ft", flash_treesitter, "Flash treesitter")
+            keymap_silent("c", "<C-s>", flash_toggle, "Flash toggle")
 
             require("flash").setup(opts)
         end,
