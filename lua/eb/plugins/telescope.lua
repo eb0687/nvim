@@ -45,7 +45,7 @@ return {
         local custom_helpers = require("eb.utils.custom_helpers")
         local hostname = custom_helpers.get_hostname()
         local utils = require("eb.utils.telescope-helpers")
-        local multi_select = utils.multi_select
+        -- local multi_select = utils.multi_select
         local buffer_searcher = utils.buffer_searcher
         local document_symbols_for_selected = utils.document_symbols_for_selected
 
@@ -100,7 +100,7 @@ return {
                         ["<C-p>"] = "preview_scrolling_up",
                         ["<C-t>"] = open_with_trouble,
                         ["<C-a>"] = add_to_trouble,
-                        ["<C-s>"] = multi_select,
+                        -- ["<C-s>"] = multi_select,
                         ["<C-y>"] = document_symbols_for_selected,
                     },
                     n = {

@@ -54,19 +54,19 @@ end
 -- https://github.com/creativecreature/dotfiles/blob/master/nvim/lua/plugins/telescope.lua
 -- NOTE: allow u to select results in a telescope window using the TAB key and
 -- the selections to a quickfix list using the <C-s> key
-function M.multi_select(prompt_bufnr)
-    local picker = action_state.get_current_picker(prompt_bufnr)
-    local num_selections = table.getn(picker:get_multi_selection())
-
-    if num_selections > 1 then
-        -- actions.file_edit throws - context of picker seems to change
-        --actions.file_edit(prompt_bufnr)
-        actions.send_selected_to_qflist(prompt_bufnr)
-        actions.open_qflist(prompt_bufnr)
-    else
-        actions.file_edit(prompt_bufnr)
-    end
-end
+-- function M.multi_select(prompt_bufnr)
+--     local picker = action_state.get_current_picker(prompt_bufnr)
+--     local num_selections = table.getn(picker:get_multi_selection())
+--
+--     if num_selections > 1 then
+--         -- actions.file_edit throws - context of picker seems to change
+--         --actions.file_edit(prompt_bufnr)
+--         actions.send_selected_to_qflist(prompt_bufnr)
+--         actions.open_qflist(prompt_bufnr)
+--     else
+--         actions.file_edit(prompt_bufnr)
+--     end
+-- end
 
 -- https://medium.com/@jogarcia/delete-buffers-on-telescope-21cc4cf61b63
 -- NOTE: delete buffers from telescope buffer list

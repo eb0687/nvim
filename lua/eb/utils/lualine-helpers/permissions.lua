@@ -18,7 +18,10 @@ M.get_permissions = function()
     local rw = vim.opt_local.readonly:get() == true and apply_highlight("MyHighlightReadOnly", "r")
         or apply_highlight("MyHighlightReadOnly", "rw")
     local x = vim.fn.executable(the_file) == 1 and apply_highlight("MyHighlightExecutable", "x") or ""
-    local m = vim.api.nvim_buf_get_option(0, "modified") == true and apply_highlight("MyHighlightModified", "+") or ""
+    -- local m = vim.api.nvim_buf_get_option(0, "modified") == true and apply_highlight("MyHighlightModified", "+") or ""
+    local m = vim.api.nvim_get_option_value("modified", vim.api.keyset.option) == true
+            and apply_highlight("MyHighlightModified", "+")
+        or ""
     return the_file == "" and "" .. m or rw .. x .. m
 end
 
