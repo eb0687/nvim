@@ -62,7 +62,7 @@ function M.multi_select(prompt_bufnr)
         -- actions.file_edit throws - context of picker seems to change
         --actions.file_edit(prompt_bufnr)
         actions.send_selected_to_qflist(prompt_bufnr)
-        actions.open_qflist()
+        actions.open_qflist(prompt_bufnr)
     else
         actions.file_edit(prompt_bufnr)
     end

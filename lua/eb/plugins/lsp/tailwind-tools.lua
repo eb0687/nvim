@@ -13,6 +13,11 @@ return {
     config = function()
         local tailwind = require("tailwind-tools")
         tailwind.setup({
+            server = {
+                override = true,
+                settings = {},
+                capabilities = {},
+            },
             -- your configuration
         })
     end,
