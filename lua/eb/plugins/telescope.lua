@@ -10,7 +10,8 @@ return {
     "nvim-telescope/telescope.nvim",
     event = { "BufReadPre", "BufNewFile" },
     cmd = "Telescope",
-    branch = "0.1.x",
+    -- branch = "0.1.x",
+    branch = "master",
     dependencies = {
         {
             "nvim-tree/nvim-web-devicons",
