@@ -48,6 +48,7 @@ keymap_silent("n", "<leader>q", ":q!<CR>", "Quit Vim")
 -- Yanks
 keymap_silent("n", "Y", "yg$", "Yank to end of line")
 keymap_silent("n", "<leader>yA", ":%yank<CR>", "Yank/Copy entire buffer")
+keymap_silent("n", "<leader><leader>yA", ":%yank +<CR>", "Yank/Copy entire buffer to system clipboard")
 keymap_silent("n", "<leader>yC", ":%yank+<CR>", "Yank/Copy entire buffer to system clipboard")
 keymap_loud("v", "<leader>ym", function()
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "x", false)
