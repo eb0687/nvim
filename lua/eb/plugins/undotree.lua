@@ -6,6 +6,7 @@
 -- https://github.com/mbbill/undotree
 
 -- NOTE: have not used this at all, disabling for now until there is a need to use it
+-- TODO: need to enable and start using this again soon
 
 return {
     "mbbill/undotree",
