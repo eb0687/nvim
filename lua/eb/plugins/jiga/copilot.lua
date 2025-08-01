@@ -10,6 +10,13 @@ return {
         copilot.setup({
             panel = { enabled = false },
             suggestion = { enabled = false },
+            server_opts_overrides = {
+                settings = {
+                    telemetry = {
+                        telemetryLevel = "off",
+                    },
+                },
+            },
         })
     end,
 }
