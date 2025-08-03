@@ -71,16 +71,19 @@ return {
                     mode = "n",
                     desc = "Open file in default app",
                 },
-                ["yap"] = {
+                ["ypa"] = {
                     copy_abs_path,
                     mode = "n",
                     desc = "Copy absolute filepath to system clipboard",
                 },
-                ["yrp"] = {
+                ["ypr"] = {
                     copy_rel_path,
                     mode = "n",
                     desc = "Copy relative filepath to system clipboard",
                 },
+            },
+            lsp_file_methods = {
+                autosave_changes = true,
             },
             view_options = {
                 show_hidden = true,
