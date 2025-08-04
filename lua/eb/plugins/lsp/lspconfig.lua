@@ -85,11 +85,12 @@ return {
                 })
             end, "Go to next diagnostic message")
 
-            keymap("df", function()
-                vim.diagnostic.open_float({
-                    border = "rounded",
-                })
-            end, "Open diagnostic in a float")
+            -- using defaults Ctrl+wd
+            -- keymap("df", function()
+            --     vim.diagnostic.open_float({
+            --         border = "rounded",
+            --     })
+            -- end, "Open diagnostic in a float")
 
             keymap("<leader>rn", function()
                 vim.lsp.buf.rename()
