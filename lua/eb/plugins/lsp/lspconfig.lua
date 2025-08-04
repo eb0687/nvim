@@ -119,7 +119,7 @@ return {
             keymap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
             keymap("gr", require("telescope.builtin").lsp_references, "Goto References")
 
-            keymap("<space>fr", '<cmd>lua require("conform").format()<CR>', "Format code")
+            keymap("<space>lf", '<cmd>lua require("conform").format()<CR>', "Format code")
 
             -- NOTE: `:help K` for why this keymap
             keymap("<leader>D", function()
