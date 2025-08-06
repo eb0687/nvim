@@ -7,9 +7,9 @@ return {
         "JoosepAlviste/nvim-ts-context-commentstring",
     },
     version = "*",
-    -- version = false,
     event = "VeryLazy",
     config = function()
+        -- MINI AI
         -- source: https://github.com/echasnovski/mini.ai?tab=readme-ov-file
         local gen_ai_spec = require("mini.extra").gen_ai_spec
         local ai = require("mini.ai")
@@ -23,6 +23,7 @@ return {
             },
         })
 
+        -- MINI SURROUND
         -- source: https://github.com/echasnovski/mini.surround
         local surround = require("mini.surround")
         surround.setup({
@@ -41,10 +42,12 @@ return {
             },
         })
 
+        -- MINI PAIRS
         -- source: https://github.com/echasnovski/mini.pairs
         local pairs = require("mini.pairs")
         pairs.setup()
 
+        -- MINI COMMENT
         -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-comment.md
         local comment = require("mini.comment")
         comment.setup({
@@ -55,6 +58,7 @@ return {
             },
         })
 
+        -- MINI MOVE
         local move = require("mini.move")
         move.setup({
             -- Module mappings. Use `''` (empty string) to disable one.
@@ -79,6 +83,7 @@ return {
             },
         })
 
+        -- MINI INDENTSCOPE
         local indent = require("mini.indentscope")
         indent.setup({
             -- symbol = "▎",
@@ -88,6 +93,7 @@ return {
             },
         })
 
+        -- MINI CLUE
         local clue = require("mini.clue")
         clue.setup({
             triggers = {
@@ -136,6 +142,7 @@ return {
             },
         })
 
+        -- MINI HI-PATTERNS
         -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
         -- NOTE: look at the examples for custom setup similar to todo-comments
         local hipatterns = require("mini.hipatterns")
@@ -145,16 +152,18 @@ return {
             },
         })
 
+        -- MINI SPLIT-JOIN
         -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-splitjoin.md
         local splitjoin = require("mini.splitjoin")
         splitjoin.setup({})
 
+        -- MINI CURSORWORD
         -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-cursorword.md
         local cursorword = require("mini.cursorword")
         -- cursorword.setup({ delay = 50 })
         cursorword.setup()
 
-        -- Miscellaneous
+        -- MINI MISC
         require("mini.misc").setup({})
         require("mini.misc").setup_restore_cursor()
 
@@ -165,11 +174,8 @@ return {
             MiniMisc.zoom()
         end, "MINI: Zoom in/out buffer")
 
-        -- FIX: disabled for now due to conflicts with keybinds
-        -- local operators = require("mini.operators")
-        -- operators.setup({})
-
-        -- https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-keymap.md
+        -- MINI KEYMAP
+        -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-keymap.md
         local notify_many_keys = function(key)
             local lhs = string.rep(key, 5)
             local action = function()
