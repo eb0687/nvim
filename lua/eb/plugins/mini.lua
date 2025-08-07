@@ -231,6 +231,23 @@ return {
         pick.setup({
             mappings = {
                 choose_marked = "<C-q>",
+                execute = {
+                    char = "<C-e>",
+                    func = function()
+                        local match = MiniPick.get_picker_matches()
+                        if not match then
+                            return
+                        end
+                        local value = type(match.current) == "table" and match.current.value or tostring(match.current)
+                        value = value:gsub("^:+", "")
+                        MiniPick.stop()
+                        vim.schedule(function()
+                            local cmd = ":" .. value
+                            local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
+                            vim.api.nvim_feedkeys(keys, "n", false)
+                        end)
+                    end,
+                },
             },
             options = {
                 content_from_bottom = true,
