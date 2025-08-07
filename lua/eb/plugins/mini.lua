@@ -231,9 +231,15 @@ return {
         pick.setup({
             mappings = {
                 choose_marked = "<C-q>",
+                mark = "<Tab>",
+                move_up = "<C-k>",
+                move_down = "<C-j>",
+                scroll_up = "<C-u>",
+                scroll_down = "<C-d>",
+                toggle_preview = "<C-p>",
             },
             options = {
-                content_from_bottom = true,
+                content_from_bottom = false,
                 use_cache = false,
             },
             window = {

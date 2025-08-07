@@ -101,7 +101,7 @@ return {
         nvim_set_hl(0, "MiniPickPrompt", { bg = "#1D2021", fg = "#E78A4E" })
         nvim_set_hl(0, "MiniPickPromptPrefix", { fg = "#32302F" })
         nvim_set_hl(0, "MiniPickBorder", { fg = "#32302F" })
-        nvim_set_hl(0, "MiniPickBorderText", { bg = "#32302F", fg = "#7DAEA3" })
+        nvim_set_hl(0, "MiniPickBorderText", { bg = "#32302F", fg = "#E78A4E" })
 
         -- Blink
         nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = "#7daea3", bg = "", bold = true, italic = false })
