@@ -246,7 +246,7 @@ return {
                 config = {
                     width = 200,
                     height = 20,
-                    border = "rounded",
+                    border = "bold",
                 },
             },
         })
