@@ -231,23 +231,23 @@ return {
         pick.setup({
             mappings = {
                 choose_marked = "<C-q>",
-                execute = {
-                    char = "<C-e>",
-                    func = function()
-                        local match = MiniPick.get_picker_matches()
-                        if not match then
-                            return
-                        end
-                        local value = type(match.current) == "table" and match.current.value or tostring(match.current)
-                        value = value:gsub("^:+", "")
-                        MiniPick.stop()
-                        vim.schedule(function()
-                            local cmd = ":" .. value
-                            local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
-                            vim.api.nvim_feedkeys(keys, "n", false)
-                        end)
-                    end,
-                },
+                -- execute = {
+                --     char = "<C-e>",
+                --     func = function()
+                --         local match = MiniPick.get_picker_matches()
+                --         if not match then
+                --             return
+                --         end
+                --         local value = type(match.current) == "table" and match.current.value or tostring(match.current)
+                --         value = value:gsub("^:+", "")
+                --         MiniPick.stop()
+                --         vim.schedule(function()
+                --             local cmd = ":" .. value
+                --             local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
+                --             vim.api.nvim_feedkeys(keys, "n", false)
+                --         end)
+                --     end,
+                -- },
             },
             options = {
                 content_from_bottom = true,
@@ -281,6 +281,33 @@ return {
             load_temp_rg(function()
                 pick.builtin.files({ tool = "rg" }, { source = { cwd = "~/" } })
             end)
+        end
+
+        pick.registry.command_history = function()
+            local edit_command = function()
+                local match = MiniPick.get_picker_matches()
+                if not match then
+                    return
+                end
+                local value = type(match.current) == "table" and match.current.value or tostring(match.current)
+                value = value:gsub("^:+", "")
+                MiniPick.stop()
+                vim.schedule(function()
+                    local cmd = ":" .. value
+                    local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
+                    vim.api.nvim_feedkeys(keys, "n", false)
+                end)
+                return true
+            end
+            local opts = {
+                mappings = {
+                    edit_command = {
+                        char = "<C-e>",
+                        func = edit_command,
+                    },
+                },
+            }
+            MiniExtra.pickers.history({ scope = ":" }, opts)
         end
 
         if hostname == "JIGA" then
@@ -328,7 +355,7 @@ return {
         keymap("<leader>fss", ":Pick grep_live<CR>", "Find search buffer")
         keymap("<leader>fsu", ":Pick commands<CR>", "Find search user commands")
         keymap("<leader>fsw", ":Pick grep pattern='<cword>'<CR>", "Find search word under cursor")
-        keymap("<leader>fch", ":Pick history scope=':'<CR>", "Find command history")
+        keymap("<leader>fch", ":Pick command_history<CR>", "Find command history")
         keymap("<leader>fsh", ":Pick history scope='/'<CR>", "Find search history")
         keymap("<leader>fS", ":Pick spellsuggest<CR>", "Spell suggetions")
         keymap(
