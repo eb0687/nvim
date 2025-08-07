@@ -317,6 +317,13 @@ return {
                     pick.builtin.grep({ tool = "rg" }, { source = { cwd = "/mnt/d/the_vault/" } })
                 end)
             end
+
+            pick.registry.reboot_projects = function()
+                local cwd = vim.fn.expand("~/reboot")
+                vim.schedule(function()
+                    pick.builtin.files(nil, { source = { cwd = cwd } })
+                end)
+            end
         elseif hostname == "eb-t490" then
             pick.registry.find_obsidian = function()
                 load_temp_rg(function()
@@ -329,6 +336,8 @@ return {
                     pick.builtin.grep({ tool = "rg" }, { source = { cwd = "~/Documents/the_vault<CR>" } })
                 end)
             end
+
+            -- TODO: add registry function for reboot projects here
         end
 
         local keymap = function(keys, func, desc)
