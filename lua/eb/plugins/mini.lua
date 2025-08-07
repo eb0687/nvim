@@ -234,7 +234,7 @@ return {
             },
             options = {
                 content_from_bottom = true,
-                use_cache = true,
+                use_cache = false,
             },
             window = {
                 config = {
