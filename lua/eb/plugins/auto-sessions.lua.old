@@ -5,7 +5,7 @@ return {
     "rmagatti/auto-session",
     lazy = false,
     dependencies = {
-        "nvim-telescope/telescope.nvim", -- :Telescope session-lens
+        -- "nvim-telescope/telescope.nvim", -- :Telescope session-lens
     },
 
     ---@module "auto-session"

@@ -1,7 +1,7 @@
 return {
     "brianhuster/live-preview.nvim",
     dependencies = {
-        "nvim-telescope/telescope.nvim",
+        "echasnovski/mini.pick",
     },
     config = function()
         local browser_cmd = vim.env.BROWSER_CMD or "xdg-open"

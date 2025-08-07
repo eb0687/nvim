@@ -31,7 +31,7 @@ return {
         local lint_progress = require("eb.utils.lualine-helpers.lint-progress")
         local buffer_count = require("eb.utils.lualine-helpers.buffer-count")
         local copilot_helper = require("eb.utils.lualine-helpers.copilot-helpers")
-        local telescope_helper = require("eb.utils.telescope-helpers")
+        -- local telescope_helper = require("eb.utils.telescope-helpers")
 
         require("lualine").setup({
             sections = {
@@ -104,9 +104,9 @@ return {
                     {
                         buffer_count.count_buffers,
                         cond = min_window_width.min_window_width(80),
-                        on_click = function()
-                            telescope_helper.buffer_searcher()
-                        end,
+                        -- on_click = function()
+                        -- telescope_helper.buffer_searcher()
+                        -- end,
                     },
                     {
                         mason_updates.get_updates,

@@ -116,8 +116,9 @@ return {
                 vim.lsp.buf.implementation()
             end, "Goto Implementation")
 
-            keymap("gd", require("telescope.builtin").lsp_definitions, "Goto Definition")
-            keymap("gr", require("telescope.builtin").lsp_references, "Goto References")
+            keymap("gd", ":Pick lsp scope='definition'<CR>", "Goto Definition")
+            keymap("gr", ":Pick lsp scope='references'<CR>", "Goto References")
+            keymap("ds", ":Pick lsp scope='document_symbol'<CR>", "Goto References")
 
             keymap("<space>lf", '<cmd>lua require("conform").format()<CR>', "Format code")
 

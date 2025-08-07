@@ -3,7 +3,7 @@
 local M = {}
 
 local oil = require("oil")
-local telescope_builtin = require("telescope.builtin")
+-- local telescope_builtin = require("telescope.builtin")
 
 -- toggle between detailed and simple columns in the oil buffer
 -- taken from :help oil-actions for more details
@@ -21,11 +21,11 @@ M.toggle_oil_columns = function()
 end
 
 -- search in the current directory using telescope
-M.telescope_find_cwd = function()
-    telescope_builtin.find_files({
-        cwd = oil.get_current_dir(),
-    })
-end
+-- M.telescope_find_cwd = function()
+--     telescope_builtin.find_files({
+--         cwd = oil.get_current_dir(),
+--     })
+-- end
 
 M.open_file = function()
     -- Get the current file path and remove the first 5 characters (index 6 onwards)

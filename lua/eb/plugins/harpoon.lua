@@ -15,7 +15,6 @@ return {
     event = "VeryLazy",
     dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
     },
     config = function()
         local custom_helpers = require("eb.utils.custom_helpers")

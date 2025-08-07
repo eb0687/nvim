@@ -29,13 +29,13 @@ return {
         keymap_normal("<leader>tq", ":Trouble quickfix toggle focus=true<CR>", "TROUBLE", true, "Toggle quickfix list")
         -- keymap_normal("<leader>ts", ":Trouble symbols toggle focus=true<CR>", "TROUBLE", true, "Toggle symbols list")
         keymap_normal("<leader>tl", ":Trouble loclist toggle focus=true<CR>", "TROUBLE", true, "Toggle symbols list")
-        keymap_normal(
-            "<leader>tt",
-            ":Trouble telescope_files toggle focus=true<CR>",
-            "TROUBLE",
-            true,
-            "Toggle symbols list"
-        )
+        -- keymap_normal(
+        --     "<leader>tt",
+        --     ":Trouble telescope_files toggle focus=true<CR>",
+        --     "TROUBLE",
+        --     true,
+        --     "Toggle symbols list"
+        -- )
         keymap_normal("]t", trouble_next, "TROUBLE", true, "Next trouble")
         keymap_normal("[t", trouble_prev, "TROUBLE", true, "Previous trouble")
     end,

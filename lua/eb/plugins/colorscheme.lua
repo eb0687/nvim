@@ -37,10 +37,13 @@ return {
 
         -- NOTE: Harpoon2
 
-        -- nvim_set_hl(0, "NormalFloat", { bg = "#1D2021" })
-        nvim_set_hl(0, "NormalFloat", { bg = "#32302F" })
-        nvim_set_hl(0, "FloatFooter", { bg = "#32302F" })
-        nvim_set_hl(0, "FloatTitle", { bg = "#32302F", fg = "#E78A4E" })
+        -- TODO: fix highlights for mini pick
+        nvim_set_hl(0, "NormalFloat", { bg = "#1D2021" })
+        nvim_set_hl(0, "FloatTitle", { bg = "#1D2021", fg = "#E78A4E" })
+        nvim_set_hl(0, "FloatFooter", { bg = "#1D2021" })
+        -- nvim_set_hl(0, "NormalFloat", { bg = "#32302F" })
+        -- nvim_set_hl(0, "FloatFooter", { bg = "#32302F" })
+        -- nvim_set_hl(0, "FloatTitle", { bg = "#32302F", fg = "#E78A4E" })
         nvim_set_hl(0, "FloatBorder", { bg = "none", fg = "#7DAEA3" })
 
         -- Flash.nvim
@@ -93,6 +96,12 @@ return {
         vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { underline = true, fg = nil, bg = nil })
         vim.api.nvim_set_hl(0, "MiniCursorword", { underline = false, fg = nil, bg = nil })
         nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = "#84776A" })
+
+        nvim_set_hl(0, "MiniPickNormal", { bg = "" })
+        nvim_set_hl(0, "MiniPickPrompt", { bg = "#32302F", fg = "#E78A4E" })
+        nvim_set_hl(0, "MiniPickPromptPrefix", { fg = "#32302F" })
+        nvim_set_hl(0, "MiniPickBorder", { fg = "#32302F" })
+        nvim_set_hl(0, "MiniPickBorderText", { bg = "#32302F", fg = "#7DAEA3" })
 
         -- Blink
         nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = "#7daea3", bg = "", bold = true, italic = false })

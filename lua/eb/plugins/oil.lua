@@ -11,7 +11,7 @@ return {
         local oil_helpers = require("eb.utils.oil-helpers")
         local keymap_normal = custom_helpers.keymap_normal
         local toggle_oil_columns = oil_helpers.toggle_oil_columns
-        local telescope_find_cwd = oil_helpers.telescope_find_cwd
+        -- local telescope_find_cwd = oil_helpers.telescope_find_cwd
         local open_file = oil_helpers.open_file
         local copy_abs_path = oil_helpers.copy_absolute_path
         local copy_rel_path = oil_helpers.copy_relative_path
@@ -61,11 +61,11 @@ return {
                     mode = "n",
                     desc = "Toggle detailed columns in oil",
                 },
-                ["<leader>ff"] = {
-                    telescope_find_cwd,
-                    mode = "n",
-                    desc = "Find files in the current directory",
-                },
+                -- ["<leader>ff"] = {
+                --     telescope_find_cwd,
+                --     mode = "n",
+                --     desc = "Find files in the current directory",
+                -- },
                 ["<leader>o"] = {
                     open_file,
                     mode = "n",
