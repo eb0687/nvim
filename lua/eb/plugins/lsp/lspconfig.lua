@@ -210,8 +210,10 @@ return {
                         enable = true,
                     },
                     workspace = {
-                        -- library = vim.api.nvim_get_runtime_file("", true),
-                        library = { vim.env.VIMRUNTIME },
+                        library = {
+                            vim.env.VIMRUNTIME,
+                            vim.fn.stdpath("config") .. "/lua",
+                        },
                         checkThirdParty = false,
                     },
                     completion = {
@@ -381,6 +383,7 @@ return {
             cmd = { "sql-language-server", "up", "--method", "stdio" },
             filetypes = { "sql", "mysql" },
             root_dir = function()
+                ---@diagnostic disable-next-line: undefined-field
                 return vim.loop.cwd()
             end,
         })

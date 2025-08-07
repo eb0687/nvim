@@ -189,7 +189,7 @@ return {
         local keymap_silent = custom_helpers.keymap_silent
 
         keymap_silent("n", "<leader>=", function()
-            MiniMisc.zoom()
+            require("mini.misc").zoom()
         end, "MINI: Zoom in/out buffer")
 
         ----------------------------
@@ -254,9 +254,12 @@ return {
         -- Custom find_files
         local load_temp_rg = function(f)
             local rg_env = "RIPGREP_CONFIG_PATH"
+            ---@diagnostic disable-next-line: undefined-field
             local cached_rg_config = vim.uv.os_getenv(rg_env) or ""
+            ---@diagnostic disable-next-line: undefined-field
             vim.uv.os_setenv(rg_env, vim.fn.stdpath("config") .. "/.rg")
             f()
+            ---@diagnostic disable-next-line: undefined-field
             vim.uv.os_setenv(rg_env, cached_rg_config)
         end
 
@@ -275,13 +278,13 @@ return {
         -- SOURCE: https://github.com/echasnovski/mini.nvim/discussions/1926
         pick.registry.command_history = function()
             local edit_command = function()
-                local match = MiniPick.get_picker_matches()
+                local match = pick.get_picker_matches()
                 if not match then
                     return
                 end
                 local value = type(match.current) == "table" and match.current.value or tostring(match.current)
                 value = value:gsub("^:+", "")
-                MiniPick.stop()
+                pick.stop()
                 vim.schedule(function()
                     local cmd = ":" .. value
                     local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
@@ -297,7 +300,7 @@ return {
                     },
                 },
             }
-            MiniExtra.pickers.history({ scope = ":" }, opts)
+            extra.pickers.history({ scope = ":" }, opts)
         end
 
         if hostname == "JIGA" then
@@ -365,13 +368,14 @@ return {
         keymap("<leader>os", ":Pick find_obsidian<CR>", "Find in obsidian vault")
         keymap("<leader>oz", ":Pick grep_osidian<CR>", "Grep in obsidian vault")
         keymap("<leader>fn", function()
-            MiniPick.builtin.files(nil, { source = { cwd = vim.fn.stdpath("config") } })
+            pick.builtin.files(nil, { source = { cwd = vim.fn.stdpath("config") } })
         end, "Find file in nvim config")
 
         ----------------------------
         -- MINI SESSIONS
         ----------------------------
-        require("mini.sessions").setup({})
+        local MiniSessions = require("mini.sessions")
+        MiniSessions.setup({})
         keymap("<leader>ws", function()
             local session_name = vim.fn.input("Session name: ")
             MiniSessions.write(session_name)
