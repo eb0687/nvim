@@ -309,6 +309,7 @@ return {
         keymap("<leader>fg", ":Pick git_files<CR>", "Find files in current git repository")
         keymap("<leader>fe", ":Pick git_files scope='modified'<CR>", "Find modified git files")
         keymap("<leader>fss", ":Pick grep_live<CR>", "Find search buffer")
+        keymap("<leader>fsu", ":Pick commands<CR>", "Find search user commands")
         keymap("<leader>fsw", ":Pick grep pattern='<cword>'<CR>", "Find search word under cursor")
         keymap("<leader>fch", ":Pick history scope=':'<CR>", "Find command history")
         keymap("<leader>fsh", ":Pick history scope='/'<CR>", "Find search history")
