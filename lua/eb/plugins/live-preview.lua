@@ -1,5 +1,6 @@
 return {
     "brianhuster/live-preview.nvim",
+    Lazy = true,
     dependencies = {
         "echasnovski/mini.pick",
     },
