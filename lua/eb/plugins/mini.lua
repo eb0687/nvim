@@ -1,5 +1,4 @@
--- mini-animate.nvim
--- https://github.com/echasnovski/mini.animate
+-- https://github.com/echasnovski/mini.nvim
 
 return {
     "echasnovski/mini.nvim",
@@ -320,8 +319,40 @@ return {
 
             pick.registry.reboot_projects = function()
                 local cwd = vim.fn.expand("~/reboot")
+                local choose = function(item)
+                    vim.schedule(function()
+                        pick.builtin.files(nil, { source = { cwd = item.path } })
+                    end)
+                end
+                return extra.pickers.explorer({ cwd = cwd }, { source = { choose = choose } })
+            end
+
+            pick.registry.dotfiles = function()
+                local git_dir = vim.fn.expand("$HOME/.dotfiles")
+                local work_tree = vim.fn.expand("$HOME")
+
+                if vim.fn.isdirectory(git_dir) == 0 then
+                    vim.notify("Git directory does not exist: " .. git_dir, vim.log.levels.WARN)
+                    return
+                end
+
+                local items = vim.fn.systemlist({
+                    "git",
+                    "--git-dir=" .. git_dir,
+                    "-C",
+                    work_tree,
+                    "ls-files",
+                })
+
                 vim.schedule(function()
-                    pick.builtin.files(nil, { source = { cwd = cwd } })
+                    pick.start({
+                        source = {
+                            items = vim.tbl_map(function(item)
+                                return work_tree .. "/" .. item
+                            end, items),
+                            name = "Dotfiles",
+                        },
+                    })
                 end)
             end
         elseif hostname == "eb-t490" then
