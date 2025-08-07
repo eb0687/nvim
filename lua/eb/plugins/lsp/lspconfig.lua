@@ -92,7 +92,7 @@ return {
             --     })
             -- end, "Open diagnostic in a float")
 
-            keymap("<leader>rn", function()
+            keymap("rn", function()
                 vim.lsp.buf.rename()
             end, "Rename")
 

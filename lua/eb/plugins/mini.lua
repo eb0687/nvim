@@ -251,6 +251,8 @@ return {
             },
         })
 
+        vim.ui.select = pick.ui_select
+
         -- Custom find_files
         local load_temp_rg = function(f)
             local rg_env = "RIPGREP_CONFIG_PATH"
