@@ -11,6 +11,7 @@ return {
 
         -- TODO: probably move this to a utils folder
         local function directory_exists(path)
+            ---@diagnostic disable-next-line: undefined-field
             local stat = vim.loop.fs_stat(path)
             return stat and stat.type == "directory" or false
         end

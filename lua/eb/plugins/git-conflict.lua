@@ -3,7 +3,6 @@ return {
     version = "*",
 
     ---@module "git-conflict"
-    ---@type GitConflictUserConfig
     opts = {
         default_mappings = false,
         default_commands = true,

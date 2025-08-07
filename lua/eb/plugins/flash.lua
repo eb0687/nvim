@@ -11,7 +11,6 @@ return {
         event = "VeryLazy",
 
         ---@module "flash"
-        ---@type Flash.Config
         opts = {
             modes = {
                 char = {
