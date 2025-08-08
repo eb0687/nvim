@@ -1,5 +1,5 @@
 -- NOTE: Toggle autoformat on save
--- source: https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#command-to-toggle-format-on-save
+-- SOURCE: https://github.com/stevearc/conform.nvim/blob/master/doc/recipes.md#command-to-toggle-format-on-save
 
 require("conform").setup({
     format_on_save = function(bufnr)

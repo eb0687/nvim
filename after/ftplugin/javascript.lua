@@ -4,8 +4,8 @@ set.tabstop = 2
 set.shiftwidth = 2
 
 -- NOTE: add auto async/await
--- source: https://gist.github.com/JoosepAlviste/43e03d931db2d273f3a6ad21134b3806
--- source: https://www.youtube.com/watch?v=_m7amJZpQQ8
+-- SOURCE: https://gist.github.com/JoosepAlviste/43e03d931db2d273f3a6ad21134b3806
+-- SOURCE: https://www.youtube.com/watch?v=_m7amJZpQQ8
 
 ---@param types string[] Will return the first node that matches one of these types
 ---@param node TSNode|nil

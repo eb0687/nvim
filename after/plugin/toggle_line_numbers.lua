@@ -1,5 +1,5 @@
 -- NOTE: Toggles line numbers
--- source: https://github.com/pwnwriter/pwnvim/blob/main/lua/modules.lua#L3
+-- SOURCE: https://github.com/pwnwriter/pwnvim/blob/main/lua/modules.lua#L3
 local cmds = { "nu!", "rnu!", "nonu!" }
 local current_index = 1
 

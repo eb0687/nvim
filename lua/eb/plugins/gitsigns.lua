@@ -67,7 +67,7 @@ return {
         keymap_normal("<leader>gd", ":Gitsigns diffthis<CR>", "GITSIGNS", true, "diff this")
 
         -- text objext to select within a git hunk
-        -- source: https://github.com/lewis6991/gitsigns.nvim?tab=readme-ov-file#-features
+        -- SOURCE: https://github.com/lewis6991/gitsigns.nvim?tab=readme-ov-file#-features
         vim.keymap.set({ "o", "x" }, "ih", "<Cmd>Gitsigns select_hunk<CR>")
 
         -- TEST:

@@ -1,5 +1,5 @@
 -- NOTE: this requires installation of tatum to work
--- source: https://github.com/elijah-potter/tatum
+-- SOURCE: https://github.com/elijah-potter/tatum
 -- vim.api.nvim_create_autocmd("FileType", {
 --     pattern = "markdown",
 --     callback = function()

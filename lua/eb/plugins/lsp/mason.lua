@@ -17,7 +17,7 @@ return {
         local mason_tool_installer = require("mason-tool-installer")
 
         -- NOTE: setup calls required for both mason & mason-lspconfig
-        -- Source: https://github.com/williamboman/mason-lspconfig.nvim#setup
+        -- SOURCE: https://github.com/williamboman/mason-lspconfig.nvim#setup
 
         mason.setup({
             ui = {

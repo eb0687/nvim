@@ -11,7 +11,7 @@ return {
         local extra = require("mini.extra")
         ----------------------------
         -- MINI AI
-        -- source: https://github.com/echasnovski/mini.ai?tab=readme-ov-file
+        -- SOURCE: https://github.com/echasnovski/mini.ai?tab=readme-ov-file
         ----------------------------
         local gen_ai_spec = require("mini.extra").gen_ai_spec
         local ai = require("mini.ai")
@@ -27,7 +27,7 @@ return {
 
         ----------------------------
         -- MINI SURROUND
-        -- source: https://github.com/echasnovski/mini.surround
+        -- SOURCE: https://github.com/echasnovski/mini.surround
         ----------------------------
         local surround = require("mini.surround")
         surround.setup({
@@ -48,14 +48,14 @@ return {
 
         ----------------------------
         -- MINI PAIRS
-        -- source: https://github.com/echasnovski/mini.pairs
+        -- SOURCE: https://github.com/echasnovski/mini.pairs
         ----------------------------
         local pairs = require("mini.pairs")
         pairs.setup()
 
         ----------------------------
         -- MINI COMMENT
-        -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-comment.md
+        -- SOURCE: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-comment.md
         ----------------------------
         local comment = require("mini.comment")
         comment.setup({
@@ -156,7 +156,7 @@ return {
 
         ----------------------------
         -- MINI HI-PATTERNS
-        -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
+        -- SOURCE: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
         -- NOTE: look at the examples for custom setup similar to todo-comments
         ----------------------------
         local hipatterns = require("mini.hipatterns")
@@ -179,14 +179,14 @@ return {
 
         ----------------------------
         -- MINI SPLIT-JOIN
-        -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-splitjoin.md
+        -- SOURCE: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-splitjoin.md
         ----------------------------
         local splitjoin = require("mini.splitjoin")
         splitjoin.setup({})
 
         ----------------------------
         -- MINI CURSORWORD
-        -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-cursorword.md
+        -- SOURCE: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-cursorword.md
         ----------------------------
         local cursorword = require("mini.cursorword")
         -- cursorword.setup({ delay = 50 })
@@ -205,7 +205,7 @@ return {
 
         ----------------------------
         -- MINI KEYMAP
-        -- source: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-keymap.md
+        -- SOURCE: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-keymap.md
         ----------------------------
         local notify_many_keys = function(key)
             local lhs = string.rep(key, 5)

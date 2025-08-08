@@ -6,7 +6,7 @@ local function apply_highlight(group, text)
     return "%#" .. group .. "#" .. text
 end
 
--- source: https://github.com/linkarzu/dotfiles-latest/blob/main/neovim/neobean/lua/config/options.lua#L26
+-- SOURCE: https://github.com/linkarzu/dotfiles-latest/blob/main/neovim/neobean/lua/config/options.lua#L26
 -- https://youtu.be/ldfxEda_mzc?t=385
 function M.count_buffers()
     local buffers = vim.fn.execute("ls")

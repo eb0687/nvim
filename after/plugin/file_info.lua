@@ -1,5 +1,5 @@
 -- NOTE: show information about a file
--- source: https://github.com/JoosepAlviste/dotfiles/tree/93f670c9b9d1972a8bc63f94698c4c0eec7c888a/config/nvim/lua/j/file_info
+-- SOURCE: https://github.com/JoosepAlviste/dotfiles/tree/93f670c9b9d1972a8bc63f94698c4c0eec7c888a/config/nvim/lua/j/file_info
 
 -- TODO: add more useful information
 local function file_info()

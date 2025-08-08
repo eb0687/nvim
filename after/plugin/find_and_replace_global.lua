@@ -1,6 +1,6 @@
 -- NOTE: Global find and replace
--- source: https://elanmed.dev/blog/global-find-and-replace-in-neovim
--- source: https://www.youtube.com/watch?v=9JCsPsdeflY
+-- SOURCE: https://elanmed.dev/blog/global-find-and-replace-in-neovim
+-- SOURCE: https://www.youtube.com/watch?v=9JCsPsdeflY
 
 local utils = require("eb.utils.custom_helpers")
 vim.api.nvim_create_user_command("FindAndReplaceGlobal", function(opts)

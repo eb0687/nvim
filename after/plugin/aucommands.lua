@@ -1,4 +1,4 @@
--- source: https://github.com/neovim/neovim/pull/15959
+-- SOURCE: https://github.com/neovim/neovim/pull/15959
 -- TESTING:
 -- local user_command = vim.api.nvim_create_user_command
 -- local input = vim.ui.input
@@ -18,7 +18,7 @@
 
 -------------------------------------------------------------------------------
 -- NOTE: Snapshot
--- source: https://dev.to/vonheikemen/lazynvim-how-to-revert-a-plugin-back-to-a-previous-version-1pdp
+-- SOURCE: https://dev.to/vonheikemen/lazynvim-how-to-revert-a-plugin-back-to-a-previous-version-1pdp
 local lazy_cmds = vim.api.nvim_create_augroup("lazy_cmds", { clear = true })
 local snapshot_dir = vim.fn.stdpath("data") .. "/plugin-snapshot"
 local lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json"
