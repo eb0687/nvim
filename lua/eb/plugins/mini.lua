@@ -8,6 +8,7 @@ return {
     version = "*",
     event = "VeryLazy",
     config = function()
+        local extra = require("mini.extra")
         ----------------------------
         -- MINI AI
         -- source: https://github.com/echasnovski/mini.ai?tab=readme-ov-file
@@ -159,8 +160,13 @@ return {
         -- NOTE: look at the examples for custom setup similar to todo-comments
         ----------------------------
         local hipatterns = require("mini.hipatterns")
+        local hi_words = extra.gen_highlighter.words
         hipatterns.setup({
             highlighters = {
+                fixme = hi_words({ "FIX", "BUG", "ISSUE" }, "MiniHipatternsFixme"),
+                todo = hi_words({ "TODO" }, "MiniHipatternsTodo"),
+                note = hi_words({ "NOTE", "INFO" }, "MiniHipatternsNote"),
+
                 hex_color = hipatterns.gen_highlighter.hex_color(),
             },
         })
@@ -221,8 +227,6 @@ return {
         ----------------------------
         -- MINI PICK
         ----------------------------
-        -- require("mini.extra").setup()
-        local extra = require("mini.extra")
         local pick = require("mini.pick")
         local hostname = custom_helpers.get_hostname()
 

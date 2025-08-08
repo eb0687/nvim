@@ -8,6 +8,7 @@
 return {
     "folke/todo-comments.nvim",
     event = { "BufReadPre", "BufNewFile" },
+    enabled = false,
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
         -- SETUP

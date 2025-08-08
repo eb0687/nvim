@@ -10,7 +10,6 @@ local function file_info()
     local lsp_client_names = table.concat(
         vim.tbl_map(function(client)
             return client.name
-            -- FIX: deprecated buf_get_clients
         end, vim.tbl_values(vim.lsp.get_clients())),
         ", "
     )
