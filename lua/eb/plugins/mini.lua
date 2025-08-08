@@ -255,12 +255,9 @@ return {
         -- Custom find_files
         local load_temp_rg = function(f)
             local rg_env = "RIPGREP_CONFIG_PATH"
-            ---@diagnostic disable-next-line: undefined-field
             local cached_rg_config = vim.uv.os_getenv(rg_env) or ""
-            ---@diagnostic disable-next-line: undefined-field
             vim.uv.os_setenv(rg_env, vim.fn.stdpath("config") .. "/.rg")
             f()
-            ---@diagnostic disable-next-line: undefined-field
             vim.uv.os_setenv(rg_env, cached_rg_config)
         end
 

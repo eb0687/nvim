@@ -9,7 +9,7 @@ return {
         "disrupted/blink-cmp-conventional-commits",
         -- "giuxtaposition/blink-cmp-copilot",
         { "L3MON4D3/LuaSnip", version = "v2.*" },
-        -- "folke/lazydev.nvim",
+        "folke/lazydev.nvim",
         {
             "stevearc/vim-vscode-snippets",
             config = function()
@@ -114,7 +114,7 @@ return {
                 "nerdfont",
                 "conventional_commits",
                 -- "copilot",
-                -- "lazydev",
+                "lazydev",
             },
             providers = {
                 emoji = {
@@ -168,12 +168,12 @@ return {
                 --         return items
                 --     end,
                 -- },
-                -- lazydev = {
-                --     name = "LazyDev",
-                --     module = "lazydev.integrations.blink",
-                --     -- make lazydev completions top priority (see `:h blink.cmp`)
-                --     score_offset = 100,
-                -- },
+                lazydev = {
+                    name = "LazyDev",
+                    module = "lazydev.integrations.blink",
+                    -- make lazydev completions top priority (see `:h blink.cmp`)
+                    score_offset = 100,
+                },
             },
         },
         fuzzy = {

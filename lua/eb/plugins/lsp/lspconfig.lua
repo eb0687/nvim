@@ -209,13 +209,6 @@ return {
                     hint = {
                         enable = true,
                     },
-                    workspace = {
-                        library = {
-                            vim.env.VIMRUNTIME,
-                            vim.fn.stdpath("config") .. "/lua",
-                        },
-                        checkThirdParty = false,
-                    },
                     completion = {
                         callSnippet = "Replace",
                         workspaceWord = true,
