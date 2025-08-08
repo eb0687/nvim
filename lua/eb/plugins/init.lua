@@ -93,4 +93,8 @@ return {
             },
         },
     },
+
+    {
+        "lambdalisue/vim-suda",
+    },
 }

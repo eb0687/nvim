@@ -251,4 +251,7 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
         ra_flycheck()
     end,
 })
+
+-------------------------------------------------------------------------------
+
 return {}
