@@ -304,71 +304,78 @@ return {
             extra.pickers.history({ scope = ":" }, opts)
         end
 
+        local reboot_projects_dir = ""
+        local obsidian_vault = ""
+        local dotfiles_bare_dir = ""
         if hostname == "JIGA" then
-            pick.registry.find_obsidian = function()
-                load_temp_rg(function()
-                    pick.builtin.files({ tool = "rg" }, { source = { cwd = "/mnt/d/the_vault/" } })
-                end)
-            end
-
-            pick.registry.grep_osidian = function()
-                load_temp_rg(function()
-                    pick.builtin.grep({ tool = "rg" }, { source = { cwd = "/mnt/d/the_vault/" } })
-                end)
-            end
-
-            pick.registry.reboot_projects = function()
-                local cwd = vim.fn.expand("~/reboot")
-                local choose = function(item)
-                    vim.schedule(function()
-                        pick.builtin.files(nil, { source = { cwd = item.path } })
-                    end)
-                end
-                return extra.pickers.explorer({ cwd = cwd }, { source = { choose = choose } })
-            end
-
-            pick.registry.dotfiles = function()
-                local git_dir = vim.fn.expand("$HOME/.dotfiles")
-                local work_tree = vim.fn.expand("$HOME")
-
-                if vim.fn.isdirectory(git_dir) == 0 then
-                    vim.notify("Git directory does not exist: " .. git_dir, vim.log.levels.WARN)
-                    return
-                end
-
-                local items = vim.fn.systemlist({
-                    "git",
-                    "--git-dir=" .. git_dir,
-                    "-C",
-                    work_tree,
-                    "ls-files",
-                })
-
-                vim.schedule(function()
-                    pick.start({
-                        source = {
-                            items = vim.tbl_map(function(item)
-                                return work_tree .. "/" .. item
-                            end, items),
-                            name = "Dotfiles",
-                        },
-                    })
-                end)
-            end
+            reboot_projects_dir = "~/reboot/"
+            obsidian_vault = "/mnt/d/the_vault/"
+            dotfiles_bare_dir = "$HOME/.dotfiles"
         elseif hostname == "eb-t490" then
-            pick.registry.find_obsidian = function()
-                load_temp_rg(function()
-                    pick.builtin.files({ tool = "rg" }, { source = { cwd = "~/Documents/the_vault<CR>" } })
+            reboot_projects_dir = "~/scripts/reboot/"
+            obsidian_vault = "~/Documents/the_vault"
+            dotfiles_bare_dir = "$HOME/.cfg"
+        end
+
+        pick.registry.configs = function()
+            local cwd = vim.fn.expand("$HOME/.config")
+            local choose = function(item)
+                vim.schedule(function()
+                    pick.builtin.files(nil, { source = { cwd = item.path } })
                 end)
             end
+            return extra.pickers.explorer({ cwd = cwd }, { source = { choose = choose } })
+        end
 
-            pick.registry.grep_osidian = function()
-                load_temp_rg(function()
-                    pick.builtin.grep({ tool = "rg" }, { source = { cwd = "~/Documents/the_vault<CR>" } })
+        pick.registry.reboot_projects = function()
+            local cwd = vim.fn.expand(reboot_projects_dir)
+            local choose = function(item)
+                vim.schedule(function()
+                    pick.builtin.files(nil, { source = { cwd = item.path } })
                 end)
             end
+            return extra.pickers.explorer({ cwd = cwd }, { source = { choose = choose } })
+        end
 
-            -- TODO: add registry function for reboot projects here
+        pick.registry.find_obsidian = function()
+            load_temp_rg(function()
+                pick.builtin.files({ tool = "rg" }, { source = { cwd = obsidian_vault } })
+            end)
+        end
+
+        pick.registry.grep_obsidian = function()
+            load_temp_rg(function()
+                pick.builtin.grep({ tool = "rg" }, { source = { cwd = obsidian_vault } })
+            end)
+        end
+
+        pick.registry.dotfiles = function()
+            local git_dir = vim.fn.expand(dotfiles_bare_dir)
+            local work_tree = vim.fn.expand("$HOME")
+
+            if vim.fn.isdirectory(git_dir) == 0 then
+                vim.notify("Git directory does not exist: " .. git_dir, vim.log.levels.WARN)
+                return
+            end
+
+            local items = vim.fn.systemlist({
+                "git",
+                "--git-dir=" .. git_dir,
+                "-C",
+                work_tree,
+                "ls-files",
+            })
+
+            vim.schedule(function()
+                pick.start({
+                    source = {
+                        items = vim.tbl_map(function(item)
+                            return work_tree .. "/" .. item
+                        end, items),
+                        name = "Dotfiles",
+                    },
+                })
+            end)
         end
 
         local keymap = function(keys, func, desc)
@@ -408,7 +415,7 @@ return {
         keymap("<leader>fF", ":Pick find_home<CR>", "Find file from home directory")
         keymap("<leader>co", ":Pick list scope='quickfix'<CR>", "Find all items in quickfix list")
         keymap("<leader>os", ":Pick find_obsidian<CR>", "Find in obsidian vault")
-        keymap("<leader>oz", ":Pick grep_osidian<CR>", "Grep in obsidian vault")
+        keymap("<leader>oz", ":Pick grep_obsidian<CR>", "Grep in obsidian vault")
         keymap("<leader>fn", function()
             pick.builtin.files(nil, { source = { cwd = vim.fn.stdpath("config") } })
         end, "Find file in nvim config")
