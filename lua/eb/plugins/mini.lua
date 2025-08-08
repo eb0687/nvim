@@ -166,6 +166,7 @@ return {
                 fixme = hi_words({ "FIX", "BUG", "ISSUE" }, "MiniHipatternsFixme"),
                 todo = hi_words({ "TODO" }, "MiniHipatternsTodo"),
                 note = hi_words({ "NOTE", "INFO" }, "MiniHipatternsNote"),
+                test = hi_words({ "TEST" }, "MiniHipatternsHack"),
 
                 hex_color = hipatterns.gen_highlighter.hex_color(),
             },
