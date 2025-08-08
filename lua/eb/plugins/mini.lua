@@ -163,10 +163,11 @@ return {
         local hi_words = extra.gen_highlighter.words
         hipatterns.setup({
             highlighters = {
-                fixme = hi_words({ "FIX", "BUG", "ISSUE" }, "MiniHipatternsFixme"),
-                todo = hi_words({ "TODO" }, "MiniHipatternsTodo"),
+                todo = { pattern = "%f[%w]()TODO.*", group = "MiniHipatternsTodo" },
+                fixme = { pattern = "%f[%w]()FIXME.*", group = "MiniHipatternsFixme" },
+                test = { pattern = "%f[%w]()TEST.*", group = "MiniHipatternsHack" },
                 note = hi_words({ "NOTE", "INFO" }, "MiniHipatternsNote"),
-                test = hi_words({ "TEST" }, "MiniHipatternsHack"),
+                source = hi_words({ "SOURCE", "source" }, "MiniHipatternsNote"),
 
                 hex_color = hipatterns.gen_highlighter.hex_color(),
             },
@@ -275,6 +276,12 @@ return {
         pick.registry.find_home = function()
             load_temp_rg(function()
                 pick.builtin.files({ tool = "rg" }, { source = { cwd = "~/" } })
+            end)
+        end
+
+        pick.registry.grep_live_smartcase = function()
+            load_temp_rg(function()
+                pick.builtin.grep_live({ tool = "rg" })
             end)
         end
 
@@ -396,7 +403,7 @@ return {
         keymap("<leader>fm", ":Pick marks<CR>", "Find marks")
         keymap("<leader>fg", ":Pick git_files<CR>", "Find files in current git repository")
         keymap("<leader>fe", ":Pick git_files scope='modified'<CR>", "Find modified git files")
-        keymap("<leader>fss", ":Pick grep_live<CR>", "Find search buffer")
+        keymap("<leader>fss", ":Pick grep_live_smartcase<CR>", "Find search buffer")
         keymap("<leader>fsu", ":Pick commands<CR>", "Find search user commands")
         keymap("<leader>fsw", ":Pick grep pattern='<cword>'<CR>", "Find search word under cursor")
         keymap("<leader>fch", ":Pick command_history<CR>", "Find command history")
