@@ -407,7 +407,7 @@ return {
             ":Pick diagnostic scope='all' sort_by='severity'<CR>",
             "Find search diagnostic in all buffers"
         )
-        keymap("<leader>fsb", ":Pick buf_lines<CR>", "Find search buffer")
+        keymap("<leader>fsb", ":Pick buf_lines scope='current' preserve_order=true<CR>", "Find search buffer")
         keymap("<leader>fsr", ":Pick registers<CR>", "Find search registers")
         keymap("<leader>fF", ":Pick find_home<CR>", "Find file from home directory")
         keymap("<leader>co", ":Pick list scope='quickfix'<CR>", "Find all items in quickfix list")
