@@ -50,7 +50,7 @@ local options = {
     termguicolors = true, -- :help termguicolors
     updatetime = 50,
     inccommand = "split", -- show a preview of the substitution in a split buffer
-    winborder = "rounded",
+    winborder = "single",
 }
 
 for k, v in pairs(options) do
