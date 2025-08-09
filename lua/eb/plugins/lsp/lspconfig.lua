@@ -352,6 +352,8 @@ return {
         })
 
         -- json
+        -- NOTE: manually installed via npm
+        -- SOURCE: https://github.com/hrsh7th/vscode-langservers-extracted
         lspconfig.jsonls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
