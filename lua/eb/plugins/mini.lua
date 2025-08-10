@@ -253,7 +253,7 @@ return {
             },
             window = {
                 config = {
-                    width = 200,
+                    width = 100,
                     height = 20,
                     border = "bold",
                 },
@@ -407,7 +407,7 @@ return {
         keymap("<leader>fm", ":Pick marks<CR>", "Find marks")
         keymap("<leader>fg", ":Pick git_files<CR>", "Find files in current git repository")
         keymap("<leader>fe", ":Pick git_files scope='modified'<CR>", "Find modified git files")
-        keymap("<leader>fss", ":Pick grep_live_smartcase<CR>", "Find search buffer")
+        keymap("<leader>fss", ":Pick grep_live_smartcase<CR>", "Grep live search (smartcase)")
         keymap("<leader>fsu", ":Pick commands<CR>", "Find search user commands")
         keymap("<leader>fsw", ":Pick grep pattern='<cword>'<CR>", "Find search word under cursor")
         keymap("<leader>fch", ":Pick command_history<CR>", "Find command history")
