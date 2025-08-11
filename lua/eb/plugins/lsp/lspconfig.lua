@@ -116,7 +116,10 @@ return {
                 vim.lsp.buf.implementation()
             end, "Goto Implementation")
 
-            keymap("gd", ":Pick lsp scope='definition'<CR>", "Goto Definition")
+            -- keymap("gd", ":Pick lsp scope='definition'<CR>", "Goto Definition")
+            keymap("gd", function()
+                vim.lsp.buf.definition()
+            end, "Goto Definition")
             keymap("gr", ":Pick lsp scope='references'<CR>", "Goto References")
             keymap("ds", ":Pick lsp scope='document_symbol'<CR>", "Goto References")
 
