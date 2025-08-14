@@ -4,7 +4,10 @@
 return {
     "stevearc/oil.nvim",
     opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = { {
+        "echasnovski/mini.icons",
+        opts = {},
+    } },
     config = function()
         local oil = require("oil")
         local custom_helpers = require("eb.utils.custom_helpers")

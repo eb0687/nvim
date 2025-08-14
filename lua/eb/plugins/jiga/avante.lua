@@ -4,7 +4,6 @@ return {
     lazy = false,
     version = false,
     dependencies = {
-        "nvim-tree/nvim-web-devicons",
         -- "stevearc/dressing.nvim",
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
