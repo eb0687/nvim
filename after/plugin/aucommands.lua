@@ -19,6 +19,8 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 -------------------------------------------------------------------------------
+vim.api.nvim_create_augroup("ui_enhancements", { clear = true })
+
 -- NOTE: Toggle relative numbers for active panes only
 local excluded_filetypes = {
     "alpha",
@@ -36,6 +38,7 @@ local function should_ignore()
 end
 
 vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FocusGained" }, {
+    group = "ui_enhancements",
     callback = function()
         if not should_ignore() then
             vim.wo.relativenumber = true
@@ -44,6 +47,7 @@ vim.api.nvim_create_autocmd({ "WinEnter", "BufEnter", "FocusGained" }, {
 })
 
 vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "FocusLost" }, {
+    group = "ui_enhancements",
     callback = function()
         if not should_ignore() then
             vim.wo.relativenumber = false
@@ -54,6 +58,7 @@ vim.api.nvim_create_autocmd({ "WinLeave", "BufLeave", "FocusLost" }, {
 -------------------------------------------------------------------------------
 -- NOTE: Disable new line comment
 vim.api.nvim_create_autocmd("BufEnter", {
+    group = "ui_enhancements",
     callback = function()
         vim.opt.formatoptions:remove({ "c", "r", "o" })
     end,
@@ -142,6 +147,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 -------------------------------------------------------------------------------
 -- NOTE: remove messages from commandine after a set interval
 vim.api.nvim_create_autocmd("CmdlineLeave", {
+    group = "ui_enhancements",
     callback = function()
         vim.defer_fn(function()
             vim.cmd("echo ''")
@@ -152,6 +158,7 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
 -------------------------------------------------------------------------------
 -- NOTE: disable line numbers and mini indentscope plugin for specific filetypes
 vim.api.nvim_create_autocmd("FileType", {
+    group = "ui_enhancements",
     pattern = { "man", "help" },
     callback = function()
         vim.wo.number = false
@@ -222,5 +229,18 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 })
 
 -------------------------------------------------------------------------------
+
+-- NOTE: Always open help in vertical split
+
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    group = "ui_enhancements",
+    callback = function()
+        if vim.bo.filetype == "help" then
+            vim.cmd("wincmd L")
+            -- Recalculate scrolloff based on the new window size
+            vim.opt_local.scrolloff = 10
+        end
+    end,
+})
 
 return {}
