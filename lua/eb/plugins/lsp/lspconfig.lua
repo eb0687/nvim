@@ -524,12 +524,27 @@ return {
         -- NOTE: https://simondalvai.org/blog/godot-neovim/
         local port = os.getenv("GDScript_Port") or "6005"
         local cmd = vim.lsp.rpc.connect("127.0.0.1", tonumber(port))
-        lspconfig.gdscript.setup({
-            capabilities = capabilities,
-            on_attach = on_attach,
-            name = "Godot",
-            cmd = cmd,
-            root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
-        })
+        if os.getenv("WSL_DISTRO_NAME") ~= nil then
+            lspconfig.gdscript.setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+                cmd = { "godot-wsl-lsp" },
+            })
+        else
+            lspconfig.gdscript.setup({
+                on_attach = on_attach,
+                capabilities = capabilities,
+                name = "Godot",
+                cmd = cmd,
+                root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
+            })
+        end
+        -- lspconfig.gdscript.setup({
+        --     capabilities = capabilities,
+        --     on_attach = on_attach,
+        --     name = "Godot",
+        --     cmd = cmd,
+        --     root_dir = vim.fs.dirname(vim.fs.find({ "project.godot", ".git" }, { upward = true })[1]),
+        -- })
     end,
 }
