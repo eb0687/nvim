@@ -67,4 +67,26 @@ end
 --     vim.fn.setreg("+", relpath .. entry.name)
 -- end
 
+local function in_godot_project()
+    local cwd = vim.fn.getcwd()
+    local project_file = vim.fn.findfile("project.godot", cwd .. ";")
+    return project_file ~= ""
+end
+
+M.always_hidden = function(name, _)
+    if not in_godot_project() then
+        return false
+    end
+
+    if vim.endswith(name, ".uid") then
+        return true
+    end
+
+    if name == "godothost" then
+        return true
+    end
+
+    return false
+end
+
 return M
