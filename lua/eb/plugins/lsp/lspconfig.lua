@@ -528,9 +528,9 @@ return {
 
         if os.getenv("WSL_DISTRO_NAME") ~= nil then
             lspconfig.gdscript.setup({
+                cmd = { "godot-wsl-lsp", "--experimentalFastPathConversion" },
                 on_attach = on_attach,
                 capabilities = capabilities,
-                cmd = { "godot-wsl-lsp" },
             })
         else
             godot_helper.start_godot_server()
