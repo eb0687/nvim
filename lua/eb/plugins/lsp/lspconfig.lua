@@ -43,7 +43,6 @@ return {
                 source = true,
             },
         })
-
         vim.diagnostic.open_float({ border = "rounded" })
 
         -- NOTE: disables the default keymap for nepvim native lsp
@@ -155,28 +154,21 @@ return {
                     },
                 },
             })
-
-            -- NOTE: hover config, using noice for now
-            -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-            --     vim.lsp.handlers.hover, {
-            --         border = "none",
-            --     }
-            -- )
         end
 
         -- LANGUAGE SERVER CONFIGURATION
 
         -- vim
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#vimls
-        -- https://github.com/iamcco/vim-language-server
+        -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#vimls
+        -- SOURCE: https://github.com/iamcco/vim-language-server
         lspconfig.vimls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
         })
 
         -- ansible
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ansiblels
-        -- https://github.com/ansible/ansible-language-server
+        -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ansiblels
+        -- SOURCE: https://github.com/ansible/ansible-language-server
         -- TODO: ansible lsp is not working, need to fix
         lspconfig.ansiblels.setup({
             on_attach = on_attach,
@@ -187,8 +179,8 @@ return {
         })
 
         -- lua
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
-        -- https://github.com/luals/lua-language-server
+        -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
+        -- SOURCE: https://github.com/luals/lua-language-server
         -- NOTE: i installed lua-ls-server manually and symlinked in to ~/.local/bin
         -- https://github.com/LuaLS/lua-language-server/wiki/Getting-Started
         lspconfig.lua_ls.setup({
@@ -221,8 +213,8 @@ return {
         })
 
         -- pyright
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
-        -- https://github.com/microsoft/pyright
+        -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
+        -- SOURCE: https://github.com/microsoft/pyright
         lspconfig.pyright.setup({
             capabilities = capabilities,
             on_attach = on_attach,
@@ -240,8 +232,8 @@ return {
         })
 
         -- javascript, typescript
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
-        -- https://github.com/typescript-language-server/typescript-language-server
+        -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
+        -- SOURCE: https://github.com/typescript-language-server/typescript-language-server
         local inlayHints = {
             includeInlayParameterNameHints = "all",
             includeInlayParameterNameHintsWhenArgumentMatchesName = false,
@@ -284,8 +276,8 @@ return {
         })
 
         -- bash
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
-        -- https://github.com/bash-lsp/bash-language-server
+        -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
+        -- SOURCE: https://github.com/bash-lsp/bash-language-server
         -- NOTE: bashls integrates shellcheck by default
         lspconfig.bashls.setup({
             on_attach = on_attach,
@@ -294,28 +286,8 @@ return {
             filetypes = { "sh" },
         })
 
-        -- html, typescriptreact, javascriptreact, css, sass, scss, less, svelte, vue
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#emmet_ls
-        -- https://github.com/aca/emmet-ls
-        -- lspconfig.emmet_ls.setup({
-        --     capabilities = capabilities,
-        --     on_attach = on_attach,
-        --     filetypes = {
-        --         "html",
-        --         "typescriptreact",
-        --         "javascriptreact",
-        --         "javascript",
-        --         "css",
-        --         "sass",
-        --         "scss",
-        --         "less",
-        --         "svelte",
-        --         "vue",
-        --     },
-        -- })
-
         -- NOTE: installed manually
-        -- https://github.com/olrtg/emmet-language-server?tab=readme-ov-file
+        -- SOURCE: https://github.com/olrtg/emmet-language-server?tab=readme-ov-file
         lspconfig.emmet_language_server.setup({
             filetypes = {
                 "css",
@@ -330,7 +302,7 @@ return {
                 "typescriptreact",
             },
             -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
-            -- **Note:** only the options listed in the table are supported.
+            -- NOTE: only the options listed in the table are supported.
             -- TODO: look up how to set these properly
             init_options = {
                 ---@type table<string, string>
@@ -364,8 +336,8 @@ return {
         })
 
         -- tailwindcss
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss
-        -- https://github.com/tailwindlabs/tailwindcss-intellisense
+        -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tailwindcss
+        -- SOURCE: https://github.com/tailwindlabs/tailwindcss-intellisense
         -- NOTE: this requires tailwind to be setup properly in the poject directory
         -- lspconfig.tailwindcss.setup({
         --     capabilities = capabilities,
@@ -373,8 +345,8 @@ return {
         -- })
 
         -- sql
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sqlls
-        -- https://github.com/joe-re/sql-language-server
+        -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sqlls
+        -- SOURCE: https://github.com/joe-re/sql-language-server
         lspconfig.sqlls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
@@ -387,7 +359,7 @@ return {
         })
 
         -- golang
-        -- https://github.com/golang/tools/blob/master/gopls/doc/vim.md
+        -- SOURCE: https://github.com/golang/tools/blob/master/gopls/doc/vim.md
         lspconfig.gopls.setup({
             capabilities = capabilities,
             on_attach = on_attach,
@@ -435,7 +407,7 @@ return {
         })
 
         -- graphql
-        -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#graphql
+        -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#graphql
         -- NOTE:
         -- temporary fix for  graphql lsp
         -- SOURCE: https://www.reddit.com/r/neovim/comments/1dfpp3m/for_anyone_whos_trying_to_get_graphql_ls_working/
@@ -447,14 +419,8 @@ return {
             root_dir = lspconfig.util.root_pattern(".graphqlrc*", ".graphql.config.*", "graphql.config.*"),
         })
 
-        -- lspconfig.marksman.setup({
-        --     capabilities = capabilities,
-        --     on_attach = on_attach,
-        --     root_dir = lspconfig.util.root_pattern(".git", ".marksman.toml"),
-        -- })
-
         -- NOTE: installed rust-analyzer using rustup
-        -- rustup component add rust-analyzer
+        -- NOTE: rustup component add rust-analyzer
         lspconfig.rust_analyzer.setup({
             capabilities = capabilities,
             on_attach = on_attach,
@@ -497,6 +463,7 @@ return {
 
         -- harper
         -- SOURCE: https://writewithharper.com/docs/integrations/neovim
+        -- NOTE: disabling for now
         -- lspconfig.harper_ls.setup({
         --     capabilities = capabilities,
         --     on_attach = on_attach,
