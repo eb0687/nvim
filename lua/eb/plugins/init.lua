@@ -78,11 +78,11 @@ return {
         },
     },
 
-    {
-        "mg979/vim-visual-multi",
-        config = function() end,
-    },
-
+    -- {
+    --     "mg979/vim-visual-multi",
+    --     config = function() end,
+    -- },
+    --
     {
         "j-hui/fidget.nvim",
         opts = {
