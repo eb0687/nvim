@@ -54,15 +54,9 @@ return {
         -- Hydra
         nvim_set_hl(0, "HydraPink", { bg = "#EA6962", fg = "#191919", bold = true })
 
-        -- Lspsaga
-        nvim_set_hl(0, "ActionPreviewTitle", { bg = "#32302f", fg = "#89B482" })
-        nvim_set_hl(0, "SagaText", { bg = "#32302f", fg = "#EA6962" })
-        nvim_set_hl(0, "HoverBorder", { bg = "#32302f" })
-        nvim_set_hl(0, "HoverNormal", { bg = "#32302f", fg = "#EA6962" })
-
         -- Muticursors
-        nvim_set_hl(0, "Multicursor", { bg = "#32302F", fg = "#EA6962", default = true })
-        nvim_set_hl(0, "MulticursorMain", { bg = "#32302F", fg = "#EA6962", bold = true, default = true })
+        -- nvim_set_hl(0, "Multicursor", { bg = "#32302F", fg = "#EA6962", default = true })
+        -- nvim_set_hl(0, "MulticursorMain", { bg = "#32302F", fg = "#EA6962", bold = true, default = true })
 
         -- Mini
         -- nvim_set_hl(0, "MiniCursorwordCurrent", { bg = "#84776A", fg = "#000000" })
