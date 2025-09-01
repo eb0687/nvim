@@ -17,7 +17,6 @@
 local custom_helpers = require("eb.utils.custom_helpers")
 local keymap_silent = custom_helpers.keymap_silent
 local keymap_loud = custom_helpers.keymap_loud
-local session_name = custom_helpers.get_project_name()
 
 -- Leader remap
 keymap_silent("", "<Space>", "<Nop>", "Leader")
@@ -28,12 +27,7 @@ vim.g.mapleader = " "
 -----------------
 
 -- Save file
-keymap_silent("n", "<leader>s", function()
-    local MiniSessions = require("mini.sessions")
-    MiniSessions.write(session_name)
-    vim.cmd(":write")
-    vim.notify("Session saved: " .. session_name)
-end, "Save file")
+keymap_silent("n", "<leader>s", ":write<CR>", "Save file")
 
 -- Source file
 -- keymap_loud("n", "<leader><leader>s", "<cmd>source %<CR>", "Source file")

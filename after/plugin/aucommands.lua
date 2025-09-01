@@ -229,7 +229,6 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
 })
 
 -------------------------------------------------------------------------------
-
 -- NOTE: Always open help in vertical split
 
 vim.api.nvim_create_autocmd("BufWinEnter", {
@@ -240,6 +239,20 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
             -- Recalculate scrolloff based on the new window size
             vim.opt_local.scrolloff = 10
         end
+    end,
+})
+
+-------------------------------------------------------------------------------
+-- NOTE: Auto save mini session
+
+local custom_helpers = require("eb.utils.custom_helpers")
+local session_name = custom_helpers.get_project_name()
+local MiniSessions = require("mini.sessions")
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+    group = "ui_enhancements",
+    callback = function()
+        MiniSessions.write(session_name)
     end,
 })
 
