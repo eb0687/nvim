@@ -35,8 +35,6 @@ return {
         -- look up alternative solutions that allow for easier manipulation
         -- of colors
 
-        -- NOTE: Harpoon2
-
         -- TODO: fix highlights for mini pick
         nvim_set_hl(0, "NormalFloat", { bg = "#1D2021" })
         nvim_set_hl(0, "FloatTitle", { bg = "#1D2021", fg = "#E78A4E" })
@@ -56,25 +54,6 @@ return {
         -- Hydra
         nvim_set_hl(0, "HydraPink", { bg = "#EA6962", fg = "#191919", bold = true })
 
-        -- NOTE: disabling the below as nvim-cmp is no longer being used, replaced with blink
-        -- -- CMP
-        -- -- gray
-        -- nvim_set_hl(0, "CmpItemAbbrDeprecated", { bg = "NONE", strikethrough = true, fg = "#808080" })
-        -- -- blue
-        -- nvim_set_hl(0, "CmpItemAbbrMatch", { bg = "NONE", fg = "#E78A4E" })
-        -- nvim_set_hl(0, "CmpItemAbbrMatchFuzzy", { link = "CmpIntemAbbrMatch" })
-        -- -- light blue
-        -- nvim_set_hl(0, "CmpItemKindVariable", { bg = "NONE", fg = "#EA6962" })
-        -- nvim_set_hl(0, "CmpItemKindInterface", { link = "CmpItemKindVariable" })
-        -- nvim_set_hl(0, "CmpItemKindText", { link = "CmpItemKindVariable" })
-        -- -- pink
-        -- nvim_set_hl(0, "CmpItemKindFunction", { bg = "NONE", fg = "#89B482" })
-        -- nvim_set_hl(0, "CmpItemKindMethod", { link = "CmpItemKindFunction" })
-        -- -- front
-        -- nvim_set_hl(0, "CmpItemKindKeyword", { bg = "NONE", fg = "#7DAEA3" })
-        -- nvim_set_hl(0, "CmpItemKindProperty", { link = "CmpItemKindKeyword" })
-        -- nvim_set_hl(0, "CmpItemKindUnit", { link = "CmpItemKindKeyword" })
-
         -- Lspsaga
         nvim_set_hl(0, "ActionPreviewTitle", { bg = "#32302f", fg = "#89B482" })
         nvim_set_hl(0, "SagaText", { bg = "#32302f", fg = "#EA6962" })
@@ -84,12 +63,6 @@ return {
         -- Muticursors
         nvim_set_hl(0, "Multicursor", { bg = "#32302F", fg = "#EA6962", default = true })
         nvim_set_hl(0, "MulticursorMain", { bg = "#32302F", fg = "#EA6962", bold = true, default = true })
-
-        -- NOTE: no longer using barbar
-        -- barbar
-        -- nvim_set_hl(0, "BufferCurrent", { bg = "#252423", fg = "#E78A4E" })
-        -- nvim_set_hl(0, "BufferVisible", { bg = "#252423", fg = "#84776A" })
-        -- nvim_set_hl(0, "BufferInactive", { bg = "#252423", fg = "#84776A" })
 
         -- Mini
         -- nvim_set_hl(0, "MiniCursorwordCurrent", { bg = "#84776A", fg = "#000000" })
@@ -111,6 +84,10 @@ return {
         nvim_set_hl(0, "BlinkCmpDocBorder", { fg = "#7daea3", bg = "", bold = true, italic = false })
         nvim_set_hl(0, "BlinkCmpDoc", { fg = "", bg = "", bold = true, italic = false })
         nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { fg = "#89B482", bg = "", bold = true, italic = false })
+
+        -- Oil-git
+        nvim_set_hl(0, "OilGitModified", { fg = "#7daea3", bg = "", bold = true, italic = true })
+        nvim_set_hl(0, "OilGitAdded", { fg = "#a9b665", bg = "", bold = true, italic = true })
 
         -- Custom
         nvim_set_hl(0, "YankHi", { fg = "#191919", bg = "#d4869b", bold = true, italic = false })

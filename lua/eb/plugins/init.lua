@@ -97,4 +97,8 @@ return {
     {
         "lambdalisue/vim-suda",
     },
+    {
+        "benomahony/oil-git.nvim",
+        dependencies = { "stevearc/oil.nvim" },
+    },
 }
