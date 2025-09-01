@@ -128,4 +128,20 @@ function M.yank_to_register(register)
     )
 end
 
+-------------------------------------------------------------------------------
+-- NOTE: mini sessions helper
+function M.get_project_name()
+    local cwd = vim.fn.getcwd()
+    local parent = vim.fn.fnamemodify(cwd, ":h:t")
+    local project = vim.fn.fnamemodify(cwd, ":t")
+
+    if parent:sub(1, 1) == "." then
+        parent = "_" .. parent:sub(2)
+    end
+
+    return parent .. "_" .. project
+end
+
+-------------------------------------------------------------------------------
+
 return M

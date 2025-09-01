@@ -440,20 +440,9 @@ return {
         local MiniSessions = require("mini.sessions")
         MiniSessions.setup({})
 
-        local function get_project_name()
-            local cwd = vim.fn.getcwd()
-            local parent = vim.fn.fnamemodify(cwd, ":h:t")
-            local project = vim.fn.fnamemodify(cwd, ":t")
-
-            if parent:sub(1, 1) == "." then
-                parent = "_" .. parent:sub(2)
-            end
-
-            return parent .. "_" .. project
-        end
+        local session_name = custom_helpers.get_project_name()
 
         keymap("<leader>ws", function()
-            local session_name = get_project_name()
             MiniSessions.write(session_name)
             vim.notify("Session saved: " .. session_name)
         end, "Write a session")

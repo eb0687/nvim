@@ -17,7 +17,7 @@
 local custom_helpers = require("eb.utils.custom_helpers")
 local keymap_silent = custom_helpers.keymap_silent
 local keymap_loud = custom_helpers.keymap_loud
--- local toggle_flow = custom_helpers.toggle_flow
+local session_name = custom_helpers.get_project_name()
 
 -- Leader remap
 keymap_silent("", "<Space>", "<Nop>", "Leader")
@@ -28,9 +28,12 @@ vim.g.mapleader = " "
 -----------------
 
 -- Save file
--- keymap("n", "<leader>s", ":w<CR>", 'Save file')
--- keymap_silent("n", "<leader>s", ":update<CR>", "Save file")
-keymap_silent("n", "<leader>s", ":write<CR>", "Save file")
+keymap_silent("n", "<leader>s", function()
+    local MiniSessions = require("mini.sessions")
+    MiniSessions.write(session_name)
+    vim.cmd(":write")
+    vim.notify("Session saved: " .. session_name)
+end, "Save file")
 
 -- Source file
 -- keymap_loud("n", "<leader><leader>s", "<cmd>source %<CR>", "Source file")
@@ -223,26 +226,9 @@ keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
 -- INSERT MODE --
 -----------------
 
--- NOTE: using mini.keymap
--- Escape remap
--- keymap_silent("i", "jk", "<Esc>", "Escape")
--- keymap_silent("i", "kj", "<Esc>", "Escape")
--- keymap_silent("i", "jj", "<Esc>", "Escape")
--- keymap_silent("i", "<Esc>", function()
---     vim.cmd("stopinsert")
--- end, "Escape")
-
 -----------------
 -- VISUAL MODE --
 -----------------
-
--- -- Move highlighted text around using J / K
--- keymap_silent("v", "J", ":m '>+1<CR>gv=gv", "Move highlighted text down")
--- keymap_silent("v", "K", ":m '<-2<CR>gv=gv", "Move hightlighted text up")
---
--- -- Indent line using "<" ">", tip: you can repeat the action with "."
--- keymap_silent("v", ">", ">gv", "Indent line -->")
--- keymap_silent("v", "<", "<gv", "Indent line <--")
 
 -- Mutli-line editing
 keymap_silent("v", "<leader>,", "<C-v><S-i>", "Edit multiple lines")
