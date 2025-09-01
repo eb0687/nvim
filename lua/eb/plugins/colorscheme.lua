@@ -85,6 +85,8 @@ return {
         nvim_set_hl(0, "BlinkCmpDoc", { fg = "", bg = "", bold = true, italic = false })
         nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { fg = "#89B482", bg = "", bold = true, italic = false })
 
+        -- TODO: customize this later on as needed
+        -- https://github.com/benomahony/oil-git.nvim
         -- Oil-git
         nvim_set_hl(0, "OilGitModified", { fg = "#7daea3", bg = "", bold = true, italic = true })
         nvim_set_hl(0, "OilGitAdded", { fg = "#a9b665", bg = "", bold = true, italic = true })
