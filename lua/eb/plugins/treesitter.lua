@@ -102,7 +102,7 @@ return {
                 "tsx",
                 "css",
             },
-            ignore_install = {},
+            ignore_install = { "tmux" },
             modules = {},
             sync_install = false,
             textobjects = {
