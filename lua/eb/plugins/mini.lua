@@ -399,10 +399,10 @@ return {
             vim.keymap.set("n", keys, func, { desc = desc })
         end
 
-        keymap("<leader>ff", ":Pick find_files<CR>", "Find files")
+        -- keymap("<leader>ff", ":Pick find_files<CR>", "Find files")
         keymap("<leader>fh", ":Pick help<CR>", "Find help")
         -- keymap("<leader>fb", ":Pick buffers<CR>", "Find open buffers")
-        keymap("<leader>fb", function()
+        keymap("<leader>ff", function()
             require("eb.utils.smart-pick").setup()
             require("eb.utils.smart-pick").picker()
         end, "SmartPick")
