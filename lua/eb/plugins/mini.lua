@@ -401,7 +401,11 @@ return {
 
         keymap("<leader>ff", ":Pick find_files<CR>", "Find files")
         keymap("<leader>fh", ":Pick help<CR>", "Find help")
-        keymap("<leader>fb", ":Pick buffers<CR>", "Find open buffers")
+        -- keymap("<leader>fb", ":Pick buffers<CR>", "Find open buffers")
+        keymap("<leader>fb", function()
+            require("eb.utils.smart-pick").setup()
+            require("eb.utils.smart-pick").picker()
+        end, "SmartPick")
         keymap("<leader>fk", ":Pick keymaps<CR>", "Find keymaps")
         keymap("<leader>fo", ":Pick oldfiles<CR>", "Find old files")
         keymap("<leader>fm", ":Pick marks<CR>", "Find marks")
