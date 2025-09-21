@@ -7,6 +7,8 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 -- TODO: install trouble.nvim using this guide: https://youtu.be/6pAG3BHurdM?t=4307https://youtu.be/6pAG3BHurdM?t=4307
+-- TODO: after updating lspconfig there will be breaking changes, refer to this link for troubleshooting tips
+-- TODO: https://www.reddit.com/r/neovim/comments/1nmh99k/beware_the_old_nvimlspconfig_setup_api_is/
 return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPost", "BufNewFile" },
