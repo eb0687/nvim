@@ -2,14 +2,10 @@
 -- TODO: this is deprecated, need to find an alternative
 return {
     "luckasRanarison/tailwind-tools.nvim",
-    enabled = true,
+    enabled = false,
     event = "VeryLazy",
     name = "tailwind-tools",
     build = ":UpdateRemotePlugins",
-    dependencies = {
-        "nvim-treesitter/nvim-treesitter",
-        "neovim/nvim-lspconfig", -- optional
-    },
     opts = {}, -- your configuration
     config = function()
         local tailwind = require("tailwind-tools")

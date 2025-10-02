@@ -130,19 +130,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -------------------------------------------------------------------------------
 -- NOTE: autosort tailwindclasses on save
-vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.scss" }, -- Replace with the desired filetypes
-    callback = function()
-        local buf_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
-        for _, client in ipairs(buf_clients) do
-            if client.name == "tailwindcss" then
-                vim.cmd("TailwindSort")
-                return
-            end
-        end
-    end,
-    desc = "Automatically sort Tailwind classes on save, if Tailwind LSP is active",
-})
+-- TODO: tailwind-tools is not longer being maintained, need to look for an alternative
+-- vim.api.nvim_create_autocmd("BufWritePost", {
+--     pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.scss" }, -- Replace with the desired filetypes
+--     callback = function()
+--         local buf_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
+--         for _, client in ipairs(buf_clients) do
+--             if client.name == "tailwindcss" then
+--                 vim.cmd("TailwindSort")
+--                 return
+--             end
+--         end
+--     end,
+--     desc = "Automatically sort Tailwind classes on save, if Tailwind LSP is active",
+-- })
 
 -------------------------------------------------------------------------------
 -- NOTE: remove messages from commandine after a set interval

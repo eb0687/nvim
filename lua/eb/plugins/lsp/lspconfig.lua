@@ -14,7 +14,7 @@
 
 return {
     "neovim/nvim-lspconfig",
-    event = { "BufReadPost", "BufNewFile" },
+    event = "VeryLazy",
     dependencies = {
         { "saghen/blink.cmp" },
         { "antosha417/nvim-lsp-file-operations", config = true },
