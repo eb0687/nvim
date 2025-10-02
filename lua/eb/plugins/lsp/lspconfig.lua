@@ -357,7 +357,7 @@ return {
                 "bashls",
                 {
                     cmd = { "bash-language-server", "start" },
-                    filetypes = { "sh" },
+                    filetypes = { "sh", "bash" },
                 },
             },
 
