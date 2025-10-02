@@ -1,6 +1,8 @@
 -- https://github.com/luckasRanarison/tailwind-tools.nvim
+-- TODO: this is deprecated, need to find an alternative
 return {
     "luckasRanarison/tailwind-tools.nvim",
+    enabled = true,
     event = "VeryLazy",
     name = "tailwind-tools",
     build = ":UpdateRemotePlugins",
