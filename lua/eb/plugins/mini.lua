@@ -231,6 +231,13 @@ return {
         map_combo("t", "kj", "<BS><BS><C-\\><C-n>")
 
         ----------------------------
+        -- MINI TRAILSPACE
+        ----------------------------
+
+        local trailspace = require("mini.trailspace")
+        trailspace.setup({})
+
+        ----------------------------
         -- MINI PICK
         ----------------------------
         local pick = require("mini.pick")
