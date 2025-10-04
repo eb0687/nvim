@@ -32,6 +32,6 @@ return {
             else
                 return "<Tab>"
             end
-        end, { expr = true, silent = true })
+        end, { silent = true })
     end,
 }
