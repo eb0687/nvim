@@ -9,7 +9,10 @@ return {
         local copilot = require("copilot")
         copilot.setup({
             panel = { enabled = false },
-            suggestion = { enabled = false },
+            suggestion = {
+                enabled = false,
+                auto_trigger = false,
+            },
             server_opts_overrides = {
                 settings = {
                     telemetry = {
