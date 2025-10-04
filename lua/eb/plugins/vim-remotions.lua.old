@@ -17,8 +17,10 @@ local motions = {
     quickfix = { backward = "[q", forward = "]q" },
     diagnostic = { backward = "[g", forward = "]g" },
 }
+
 return {
     "vds2212/vim-remotions",
+    enabled = false,
     event = { "BufRead", "BufWinEnter", "BufNewFile" },
 
     config = function()

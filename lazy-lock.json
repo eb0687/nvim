@@ -59,7 +59,6 @@
   "tabs-vs-spaces.nvim": { "branch": "main", "commit": "4fbc894fa11b282a0dd5d5a670922abd185ae527" },
   "ts-worksheet-neovim": { "branch": "main", "commit": "965913502fd6a443f9067c7e85c2042877aaddf9" },
   "vim-fugitive": { "branch": "master", "commit": "61b51c09b7c9ce04e821f6cf76ea4f6f903e3cf4" },
-  "vim-remotions": { "branch": "main", "commit": "13543754114a49db4460f3f7533e623a6ee9f4b0" },
   "vim-suda": { "branch": "master", "commit": "9adda7d195222d4e2854efb2a88005a120296c47" },
   "vim-tmux-navigator": { "branch": "master", "commit": "c45243dc1f32ac6bcf6068e5300f3b2b237e576a" },
   "vim-vscode-snippets": { "branch": "master", "commit": "10d8f74e979dea25edd3ad3ef640920fa42d1dcf" },
