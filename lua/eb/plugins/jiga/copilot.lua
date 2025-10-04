@@ -8,10 +8,13 @@ return {
     config = function()
         local copilot = require("copilot")
         copilot.setup({
-            panel = { enabled = false },
-            suggestion = {
+            panel = {
                 enabled = false,
-                auto_trigger = false,
+            },
+            suggestion = {
+                enabled = true,
+                auto_trigger = true,
+                accept = false,
             },
             server_opts_overrides = {
                 settings = {
@@ -21,5 +24,14 @@ return {
                 },
             },
         })
+
+        -- Use Tab to accept copilot suggestion
+        vim.keymap.set("i", "<Tab>", function()
+            if require("copilot.suggestion").is_visible() then
+                return require("copilot.suggestion").accept()
+            else
+                return "<Tab>"
+            end
+        end, { expr = true, silent = true })
     end,
 }
