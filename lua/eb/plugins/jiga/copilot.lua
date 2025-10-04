@@ -16,6 +16,9 @@ return {
                 auto_trigger = true,
                 accept = false,
             },
+            filetypes = {
+                ["*"] = true,
+            },
             server_opts_overrides = {
                 settings = {
                     telemetry = {
