@@ -6,6 +6,3 @@
 
 -- main
 require("eb")
-
--- TEST:
--- print("Hello from ROOT")
