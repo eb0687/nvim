@@ -170,6 +170,10 @@ return {
             -- SOURCE: https://github.com/iamcco/vim-language-server
             { "vimls" },
             { "taplo" },
+            {
+                -- TODO: need to test and configure this properly
+                "biome",
+            },
 
             -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#graphql
             -- NOTE:

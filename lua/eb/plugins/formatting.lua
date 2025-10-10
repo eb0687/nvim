@@ -6,10 +6,15 @@ return {
     ---@module "conform"
     opts = {
         formatters_by_ft = {
-            javascript = { "prettier", "injected" },
-            typescript = { "prettier" },
-            typescriptreact = { "prettier" },
-            javascriptreact = { "prettier" },
+            -- javascript = { "prettier", "injected" },
+            -- typescript = { "prettier" },
+            -- typescriptreact = { "prettier" },
+            -- javascriptreact = { "prettier" },
+            javascript = { "biome", "biome-organize-imports" },
+            javascriptreact = { "biome", "biome-organize-imports" },
+            typescript = { "biome", "biome-organize-imports" },
+            typescriptreact = { "biome", "biome-organize-imports" },
+            -- TODO: biome to replace prettier for css, html, json, yaml, markdown
             css = { "prettier" },
             html = { "prettier" },
             json = { "prettier" },

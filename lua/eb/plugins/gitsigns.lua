@@ -65,6 +65,13 @@ return {
         keymap_normal("<leader>gS", ":Gitsigns stage_buffer<CR>", "GITSIGNS", true, "stage buffer")
         keymap_normal("<leader>gU", ":Gitsigns reset_buffer<CR>", "GITSIGNS", true, "reset buffer")
         keymap_normal("<leader>gd", ":Gitsigns diffthis<CR>", "GITSIGNS", true, "diff this")
+        keymap_normal(
+            "<leader>G",
+            "<cmd>lua require('gitsigns').setqflist('all')<CR>",
+            "GITSIGNS",
+            true,
+            "add all unstaged hunks to qflist"
+        )
 
         -- text objext to select within a git hunk
         -- SOURCE: https://github.com/lewis6991/gitsigns.nvim?tab=readme-ov-file#-features
