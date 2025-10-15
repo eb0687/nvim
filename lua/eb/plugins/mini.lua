@@ -1,5 +1,8 @@
 -- https://github.com/echasnovski/mini.nvim
 
+-- TODO: check this for configuration imporvements
+-- NOTE: https://github.com/nvim-mini/MiniMax/blob/main/configs/nvim-0.11/plugin/30_mini.lua
+
 return {
     "nvim-mini/mini.nvim",
     dependencies = {
