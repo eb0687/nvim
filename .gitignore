@@ -1,3 +1,4 @@
 Session.vim
 $target
 *.png
+node_modules/
