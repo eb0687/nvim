@@ -16,6 +16,7 @@ return {
             -- javascript = { "eslint_d" },
             -- typescript = { "eslint_d" },
             markdown = { "markdownlint" },
+            gitcommit = { "commitlint" },
         }
 
         local ns = require("lint").get_namespace("markdownlint")
