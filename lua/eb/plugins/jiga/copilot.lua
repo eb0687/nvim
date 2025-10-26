@@ -33,8 +33,8 @@ return {
             if require("copilot.suggestion").is_visible() then
                 return require("copilot.suggestion").accept()
             else
-                return "<Tab>"
+                return vim.api.nvim_replace_termcodes("<Tab>", true, true, true)
             end
-        end, { silent = true })
+        end, { silent = true, expr = true })
     end,
 }

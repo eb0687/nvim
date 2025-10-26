@@ -170,6 +170,7 @@ return {
             -- SOURCE: https://github.com/iamcco/vim-language-server
             { "vimls" },
             { "taplo" },
+            { "gh_actions_ls" },
             {
                 -- TODO: need to test and configure this properly
                 "biome",
