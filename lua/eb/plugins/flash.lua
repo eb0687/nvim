@@ -12,6 +12,7 @@ return {
 
         ---@module "flash"
         opts = {
+            labels = "asdfqwerzxcv", -- Limit labels to left side of the keyboard
             modes = {
                 char = {
                     enabled = true,
