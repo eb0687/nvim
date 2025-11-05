@@ -250,7 +250,8 @@ return {
         pick.setup({
             mappings = {
                 choose_marked = "<C-q>",
-                mark = "<Tab>",
+                mark = "<C-a>",
+                mark_all = "<C-x>",
                 move_up = "<C-k>",
                 move_down = "<C-j>",
                 scroll_up = "<C-u>",
