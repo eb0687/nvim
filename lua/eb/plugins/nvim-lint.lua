@@ -39,9 +39,28 @@ return {
             "--", -- Required
         }
 
-        vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-            callback = function()
-                require("lint").try_lint()
+        -- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+        --     callback = function()
+        --         require("lint").try_lint()
+        --     end,
+        -- })
+        vim.api.nvim_create_autocmd("BufWritePost", {
+            callback = function(args)
+                -- Skip linting on commit message or temp files
+                local name = vim.api.nvim_buf_get_name(args.buf)
+                if name:match("COMMIT_EDITMSG") then
+                    return
+                end
+
+                local ok, linter = pcall(require, "lint")
+                if not ok then
+                    return
+                end
+
+                -- Protected call to suppress any runtime error (e.g., no linter found)
+                pcall(function()
+                    linter.try_lint()
+                end)
             end,
         })
     end,
