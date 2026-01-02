@@ -241,6 +241,12 @@ return {
         trailspace.setup({})
 
         ----------------------------
+        -- MINI VISITS
+        ----------------------------
+        local visits = require("mini.visits")
+        visits.setup({})
+
+        ----------------------------
         -- MINI PICK
         ----------------------------
         local pick = require("mini.pick")
@@ -442,6 +448,7 @@ return {
         keymap("<leader>fst", ":Pick hipatterns<CR>", "Find search hipatterns")
         keymap("<leader>fsr", ":Pick registers<CR>", "Find search registers")
         keymap("<leader>fF", ":Pick find_home<CR>", "Find file from home directory")
+        keymap("<leader>fsv", ":Pick visit_paths<CR>", "Find recently visited files")
         keymap("<leader>co", ":Pick list scope='quickfix'<CR>", "Find all items in quickfix list")
         keymap("<leader>os", ":Pick find_obsidian<CR>", "Find in obsidian vault")
         keymap("<leader>oz", ":Pick grep_obsidian<CR>", "Grep in obsidian vault")
