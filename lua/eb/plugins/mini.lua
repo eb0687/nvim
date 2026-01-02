@@ -433,6 +433,7 @@ return {
         keymap("<leader>fsw", ":Pick grep pattern='<cword>'<CR>", "Find search word under cursor")
         keymap("<leader>fch", ":Pick command_history<CR>", "Find command history")
         keymap("<leader>fsh", ":Pick history scope='/'<CR>", "Find search history")
+        keymap("<leader>fsf", ":Pick visit_paths<CR>", "Find recently visited files")
         keymap("<leader>fS", ":Pick spellsuggest<CR>", "Spell suggetions")
         keymap(
             "<leader>fsd",
@@ -448,7 +449,6 @@ return {
         keymap("<leader>fst", ":Pick hipatterns<CR>", "Find search hipatterns")
         keymap("<leader>fsr", ":Pick registers<CR>", "Find search registers")
         keymap("<leader>fF", ":Pick find_home<CR>", "Find file from home directory")
-        keymap("<leader>fsv", ":Pick visit_paths<CR>", "Find recently visited files")
         keymap("<leader>co", ":Pick list scope='quickfix'<CR>", "Find all items in quickfix list")
         keymap("<leader>os", ":Pick find_obsidian<CR>", "Find in obsidian vault")
         keymap("<leader>oz", ":Pick grep_obsidian<CR>", "Grep in obsidian vault")
