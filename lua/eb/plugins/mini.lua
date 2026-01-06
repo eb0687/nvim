@@ -416,6 +416,12 @@ return {
             vim.keymap.set("n", keys, func, { desc = desc })
         end
 
+        -- helper command to invoke smart pick
+        vim.api.nvim_create_user_command("SmartPick", function()
+            require("eb.utils.smart-pick").setup()
+            require("eb.utils.smart-pick").picker()
+        end, {})
+
         -- keymap("<leader>ff", ":Pick find_files<CR>", "Find files")
         keymap("<leader>fh", ":Pick help<CR>", "Find help")
         -- keymap("<leader>fb", ":Pick buffers<CR>", "Find open buffers")
