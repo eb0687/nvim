@@ -29,7 +29,7 @@ return {
         })
 
         -- Use Tab to accept copilot suggestion
-        vim.keymap.set("i", "<Tab>", function()
+        vim.keymap.set("i", "<M-CR>", function()
             if require("copilot.suggestion").is_visible() then
                 return require("copilot.suggestion").accept()
             else
