@@ -195,6 +195,46 @@ return {
         -- cursorword.setup({ delay = 50 })
         cursorword.setup()
 
+        ----------------------------
+        -- MINI STATUSLINE
+        ----------------------------
+        local statusline = require("mini.statusline")
+        vim.api.nvim_set_hl(0, "MiniStatuslineFilenameModified", { fg = "#a9b665" })
+        vim.api.nvim_set_hl(0, "MiniStatuslineFilenameReadonly", { fg = "#ea6962" })
+        vim.api.nvim_set_hl(0, "MiniStatuslineGit", { fg = "#7DAEA3" })
+        vim.api.nvim_set_hl(0, "MiniStatuslineMacro", { fg = "#EA6962" })
+
+        statusline.setup({
+            use_icons = false,
+            content = {
+                active = function()
+                    local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 1000 })
+                    local filename = require("eb.utils.mini-helpers.filename").format_filename()
+                    local git = require("eb.utils.mini-helpers.git").branch_name()
+                    local word_count = require("eb.utils.lualine-helpers.word-count")
+                    local lint_progress = require("eb.utils.lualine-helpers.lint-progress")
+                    local macro = require("eb.utils.mini-helpers.macro").status()
+                    local words = word_count.filetype() and word_count.word_count() or ""
+                    local lint = lint_progress.lint_progress()
+
+                    return statusline.combine_groups({
+                        { hl = mode_hl, strings = { mode } },
+                        { hl = "MiniStatuslineGit", strings = { git } },
+                        {
+                            hl = (vim.bo.readonly or not vim.bo.modifiable) and "MiniStatuslineFilenameReadonly"
+                                or (vim.bo.modified and "MiniStatuslineFilenameModified")
+                                or "MiniStatuslineFilename",
+                            strings = { filename },
+                        },
+                        { strings = { "%=" } },
+                        { strings = { words } },
+                        { hl = "MiniStatuslineMacro", strings = { macro } },
+                        { strings = { lint } },
+                    })
+                end,
+            },
+        })
+
         -- MINI MISC
         require("mini.misc").setup({})
         require("mini.misc").setup_restore_cursor()

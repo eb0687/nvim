@@ -8,6 +8,7 @@
 return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
+    enabled = false,
     config = function()
         -- local cwd = require('eb.utils.lualine-helpers.cwd')
         -- local branch = require("eb.utils.lualine-helpers.git-branch")
