@@ -45,4 +45,5 @@ return {
     macro = { fg = colors.color9, bg = colors.bg },
     lsp = { fg = colors.color5, bg = colors.bg },
     location = { fg = colors.color2, bg = colors.bg },
+    lazy = { fg = colors.color6, bg = colors.bg },
 }

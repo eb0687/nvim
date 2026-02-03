@@ -216,6 +216,7 @@ return {
         vim.api.nvim_set_hl(0, "MiniStatuslineMacro", require("eb.utils.mini-helpers.colors").macro)
         vim.api.nvim_set_hl(0, "MiniStatuslineLocation", require("eb.utils.mini-helpers.colors").location)
         vim.api.nvim_set_hl(0, "MiniStatuslineLsp", require("eb.utils.mini-helpers.colors").lsp)
+        vim.api.nvim_set_hl(0, "MiniStatusLineLazy", require("eb.utils.mini-helpers.colors").lazy)
 
         statusline.setup({
             use_icons = true,
