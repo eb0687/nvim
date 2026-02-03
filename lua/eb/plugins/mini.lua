@@ -265,7 +265,9 @@ return {
             },
         })
 
+        ----------------------------
         -- MINI MISC
+        ----------------------------
         require("mini.misc").setup({})
         require("mini.misc").setup_restore_cursor()
 
