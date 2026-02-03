@@ -253,7 +253,7 @@ return {
                         { strings = { words } },
                         { strings = { "%=" } },
                         { strings = { qf } },
-                        { strings = { lazy_status.updates() } },
+                        { hl = "MiniStatusLineLazy", strings = { lazy_status.updates() } },
                         { strings = { buffer_count } },
                         { hl = "MiniStatuslineLocation", strings = { location } },
                         { hl = "MiniStatuslineLsp", strings = { lsp } },
