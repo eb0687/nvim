@@ -199,23 +199,42 @@ return {
         -- MINI STATUSLINE
         ----------------------------
         local statusline = require("mini.statusline")
-        vim.api.nvim_set_hl(0, "MiniStatuslineFilenameModified", { fg = "#a9b665" })
-        vim.api.nvim_set_hl(0, "MiniStatuslineFilenameReadonly", { fg = "#ea6962" })
-        vim.api.nvim_set_hl(0, "MiniStatuslineGit", { fg = "#7DAEA3" })
-        vim.api.nvim_set_hl(0, "MiniStatuslineMacro", { fg = "#EA6962" })
+        -- TODO: move colors to colorscheme file
+        vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", require("eb.utils.mini-helpers.colors").main.normal)
+        vim.api.nvim_set_hl(0, "MiniStatuslineFilename", require("eb.utils.mini-helpers.colors").filename.normal)
+        vim.api.nvim_set_hl(
+            0,
+            "MiniStatuslineFilenameModified",
+            require("eb.utils.mini-helpers.colors").filename.modified
+        )
+        vim.api.nvim_set_hl(
+            0,
+            "MiniStatuslineFilenameReadonly",
+            require("eb.utils.mini-helpers.colors").filename.read_only
+        )
+        vim.api.nvim_set_hl(0, "MiniStatuslineGit", require("eb.utils.mini-helpers.colors").git)
+        vim.api.nvim_set_hl(0, "MiniStatuslineMacro", require("eb.utils.mini-helpers.colors").macro)
+        vim.api.nvim_set_hl(0, "MiniStatuslineLocation", require("eb.utils.mini-helpers.colors").location)
+        vim.api.nvim_set_hl(0, "MiniStatuslineLsp", require("eb.utils.mini-helpers.colors").lsp)
 
         statusline.setup({
-            use_icons = false,
+            use_icons = true,
             content = {
                 active = function()
                     local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 1000 })
                     local filename = require("eb.utils.mini-helpers.filename").format_filename()
                     local git = require("eb.utils.mini-helpers.git").branch_name()
                     local word_count = require("eb.utils.lualine-helpers.word-count")
-                    local lint_progress = require("eb.utils.lualine-helpers.lint-progress")
                     local macro = require("eb.utils.mini-helpers.macro").status()
                     local words = word_count.filetype() and word_count.word_count() or ""
-                    local lint = lint_progress.lint_progress()
+                    local buffer_count = require("eb.utils.mini-helpers.buffer-count").count_buffers()
+                    local permissions = require("eb.utils.mini-helpers.permissions").get_permissions()
+                    local diff = require("eb.utils.mini-helpers.git-diff").diff_source()
+                    local qf = require("eb.utils.mini-helpers.quickfix").counter()
+                    local lsp = MiniStatusline.section_lsp({ trunc_width = 75 })
+                    local location = MiniStatusline.section_location({ trunc_width = 1000 })
+                    local lazy_status = require("lazy.status")
+                    local diagnostics = require("eb.utils.mini-helpers.diagnostics").status()
 
                     return statusline.combine_groups({
                         { hl = mode_hl, strings = { mode } },
@@ -226,10 +245,18 @@ return {
                                 or "MiniStatuslineFilename",
                             strings = { filename },
                         },
+                        { strings = { diff } },
+                        { strings = { diagnostics } },
+                        { strings = { permissions } },
                         { strings = { "%=" } },
                         { strings = { words } },
+                        { strings = { "%=" } },
+                        { strings = { qf } },
+                        { strings = { lazy_status.updates() } },
+                        { strings = { buffer_count } },
+                        { hl = "MiniStatuslineLocation", strings = { location } },
+                        { hl = "MiniStatuslineLsp", strings = { lsp } },
                         { hl = "MiniStatuslineMacro", strings = { macro } },
-                        { strings = { lint } },
                     })
                 end,
             },
