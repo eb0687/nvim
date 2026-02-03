@@ -6,7 +6,11 @@ vim.api.nvim_set_hl(0, "MiniStatuslineDiagWarn", require("eb.utils.mini-helpers.
 local function apply_highlight(group, text)
     return "%#" .. group .. "#" .. text
 end
-function M.status()
+function M.status(trunc_width)
+    if trunc_width and MiniStatusline.is_truncated(trunc_width) then
+        return ""
+    end
+
     local errors = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.ERROR })
     local warnings = #vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
     if errors == 0 and warnings == 0 then

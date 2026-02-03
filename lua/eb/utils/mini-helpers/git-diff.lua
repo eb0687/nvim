@@ -9,15 +9,22 @@ local function apply_highlight(group, text)
     return "%#" .. group .. "#" .. text
 end
 
-function M.diff_source()
+function M.diff_source(trunc_width)
+    if trunc_width and MiniStatusline.is_truncated(trunc_width) then
+        return ""
+    end
+
     local gitsigns = vim.b.gitsigns_status_dict
+
     if not gitsigns then
         return ""
     end
+
     local parts = {}
     local added = gitsigns.added or 0
     local changed = gitsigns.changed or 0
     local removed = gitsigns.removed or 0
+
     if added > 0 then
         table.insert(parts, apply_highlight("MiniStatuslineDiffAdded", "+" .. added))
     end
@@ -29,4 +36,5 @@ function M.diff_source()
     end
     return table.concat(parts, " ")
 end
+
 return M

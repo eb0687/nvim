@@ -223,19 +223,21 @@ return {
             content = {
                 active = function()
                     local mode, mode_hl = MiniStatusline.section_mode({ trunc_width = 1000 })
+                    local lsp = MiniStatusline.section_lsp({ trunc_width = 140 })
+                    local location = MiniStatusline.section_location({ trunc_width = 1000 })
+                    local word_count = require("eb.utils.mini-helpers.word-count")
+                    local words = word_count.filetype() and word_count.word_count(140) or ""
+                    local diff = require("eb.utils.mini-helpers.git-diff").diff_source(140)
+                    local buffer_count = require("eb.utils.mini-helpers.buffer-count").count_buffers(140)
+                    local diagnostics = require("eb.utils.mini-helpers.diagnostics").status(140)
                     local filename = require("eb.utils.mini-helpers.filename").format_filename()
                     local git = require("eb.utils.mini-helpers.git").branch_name()
-                    local word_count = require("eb.utils.lualine-helpers.word-count")
                     local macro = require("eb.utils.mini-helpers.macro").status()
-                    local words = word_count.filetype() and word_count.word_count() or ""
-                    local buffer_count = require("eb.utils.mini-helpers.buffer-count").count_buffers()
                     local permissions = require("eb.utils.mini-helpers.permissions").get_permissions()
-                    local diff = require("eb.utils.mini-helpers.git-diff").diff_source()
                     local qf = require("eb.utils.mini-helpers.quickfix").counter()
-                    local lsp = MiniStatusline.section_lsp({ trunc_width = 75 })
-                    local location = MiniStatusline.section_location({ trunc_width = 1000 })
                     local lazy_status = require("lazy.status")
-                    local diagnostics = require("eb.utils.mini-helpers.diagnostics").status()
+                    local lazy = MiniStatusline.is_truncated(140) and ""
+                        or (lazy_status.has_updates() and (lazy_status.updates()) or "")
 
                     return statusline.combine_groups({
                         { hl = mode_hl, strings = { mode } },
@@ -253,7 +255,7 @@ return {
                         { strings = { words } },
                         { strings = { "%=" } },
                         { strings = { qf } },
-                        { hl = "MiniStatusLineLazy", strings = { lazy_status.updates() } },
+                        { hl = "MiniStatusLineLazy", strings = { lazy } },
                         { strings = { buffer_count } },
                         { hl = "MiniStatuslineLocation", strings = { location } },
                         { hl = "MiniStatuslineLsp", strings = { lsp } },
