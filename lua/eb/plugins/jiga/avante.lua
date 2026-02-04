@@ -35,6 +35,9 @@ return {
                     width = "block",
                     right_pad = 2,
                 },
+                latex = {
+                    enabled = false,
+                },
             },
             ft = {
                 "markdown",
