@@ -104,9 +104,14 @@ return {
                 })
             end
 
+            local flash_continue = function()
+                require("flash").jump({ continue = true })
+            end
+
             keymap_silent("n", "<leader>fw", flash_word, "Flash word")
             keymap_silent("n", "<leader>ft", flash_treesitter, "Flash treesitter")
             keymap_silent("n", "<leader>fd", flash_diagnostic, "Flash diagnostics")
+            keymap_silent("n", "<leader>fl", flash_continue, "Flash continue last search")
             keymap_silent("c", "<C-s>", flash_toggle, "Flash toggle")
 
             require("flash").setup(opts)
