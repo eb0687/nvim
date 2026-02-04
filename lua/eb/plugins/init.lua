@@ -54,16 +54,6 @@ return {
         end,
     },
 
-    -- NOTE: replaced with blink
-    -- {
-    --     "zbirenbaum/copilot-cmp",
-    --     enabled = false,
-    --     event = "VeryLazy",
-    --     config = function()
-    --         require("copilot_cmp").setup()
-    --     end,
-    -- },
-
     -- https://github.com/sphamba/smear-cursor.nvim
     {
         "sphamba/smear-cursor.nvim",
