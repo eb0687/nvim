@@ -16,6 +16,9 @@ return {
                     enabled = true,
                     font = "15",
                 },
+                tmux = {
+                    enabled = true,
+                },
                 options = {
                     laststatus = 0,
                 },
