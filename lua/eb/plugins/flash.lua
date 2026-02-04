@@ -75,15 +75,38 @@ return {
                     pattern = vim.fn.expand("<cword>"),
                 })
             end
+
             local flash_treesitter = function()
                 require("flash").treesitter_search()
             end
+
             local flash_toggle = function()
                 require("flash").toggle()
             end
 
+            local flash_diagnostic = function()
+                require("flash").jump({
+                    matcher = function(win)
+                        return vim.tbl_map(function(diag)
+                            return {
+                                pos = { diag.lnum + 1, diag.col },
+                                end_pos = { diag.end_lnum + 1, diag.end_col - 1 },
+                            }
+                        end, vim.diagnostic.get(vim.api.nvim_win_get_buf(win)))
+                    end,
+                    action = function(match, state)
+                        vim.api.nvim_win_call(match.win, function()
+                            vim.api.nvim_win_set_cursor(match.win, match.pos)
+                            vim.diagnostic.open_float()
+                        end)
+                        state:restore()
+                    end,
+                })
+            end
+
             keymap_silent("n", "<leader>fw", flash_word, "Flash word")
             keymap_silent("n", "<leader>ft", flash_treesitter, "Flash treesitter")
+            keymap_silent("n", "<leader>fd", flash_diagnostic, "Flash diagnostics")
             keymap_silent("c", "<C-s>", flash_toggle, "Flash toggle")
 
             require("flash").setup(opts)
