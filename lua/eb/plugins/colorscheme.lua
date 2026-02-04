@@ -52,7 +52,7 @@ return {
         vim.api.nvim_set_hl(0, "FlashLabel", { bg = colors.color9, fg = colors.fg1 })
         vim.api.nvim_set_hl(0, "FlashPrompt", { bg = colors.color9, fg = colors.color3 })
         vim.api.nvim_set_hl(0, "FlashPromptIcon", { bg = colors.color9, fg = colors.color3 })
-        vim.api.nvim_set_hl(0, "FlashCurrent", { bg = colors.color9 })
+        vim.api.nvim_set_hl(0, "FlashCurrent", { bg = colors.color5 })
 
         -- Hydra
         vim.api.nvim_set_hl(0, "HydraPink", { bg = colors.color9, fg = colors.bg, bold = true })
