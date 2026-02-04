@@ -125,5 +125,6 @@ return {
 
         vim.api.nvim_set_hl(0, "MyCursorLine", { fg = colors.color3, bg = colors.color7, bold = true, italic = false })
         vim.api.nvim_set_hl(0, "MyBorder", { fg = colors.color7, bg = "" })
+        vim.api.nvim_set_hl(0, "MsgArea", { fg = colors.color2 })
     end,
 }
