@@ -59,7 +59,7 @@ return {
 
         -- Mini Various
         vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { underline = true, fg = nil, bg = nil })
-        vim.api.nvim_set_hl(0, "MiniCursorword", { underline = false, fg = nil, bg = nil })
+        vim.api.nvim_set_hl(0, "MiniCursorword", { underline = true, fg = nil, bg = nil })
         vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = colors.color4 })
 
         -- Mini Pick
