@@ -97,8 +97,8 @@ return {
         vim.api.nvim_set_hl(0, "OilGitAdded", { fg = "#a9b665", bg = "", bold = true, italic = true })
 
         -- Custom
-        vim.api.nvim_set_hl(0, "YankHi", { fg = "#191919", bg = "#d4869b", bold = true, italic = false })
-        vim.api.nvim_set_hl(0, "Visual", { bg = "#d3869b", fg = "#191919" })
+        vim.api.nvim_set_hl(0, "Visual", { bg = "#d8a657", fg = "#191919", bold = true })
+        vim.api.nvim_set_hl(0, "YankHi", { bg = "#d8a657", fg = "#191919", bold = true })
 
         vim.api.nvim_set_hl(0, "MyCursorLine", { fg = "#32302f", bg = "#7daea3", bold = true, italic = false })
         vim.api.nvim_set_hl(0, "MyBorder", { fg = "#7daea3", bg = "" })
