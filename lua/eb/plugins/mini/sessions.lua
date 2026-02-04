@@ -28,7 +28,7 @@ function M.setup()
 
     keymap("<leader>wl", function()
         MiniSessions.select()
-    end, "Select from a list of sessions")
+    end, "Select a session from a list of sessions")
 
     keymap("<leader>wd", function()
         local session_dir = vim.fn.stdpath("data") .. "/session"
@@ -49,7 +49,7 @@ function M.setup()
                 vim.notify("Deleted session: " .. choice)
             end
         end)
-    end, "Select from a list of sessions")
+    end, "Select from a session to delete list of sessions")
 end
 
 return M
