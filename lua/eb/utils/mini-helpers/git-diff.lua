@@ -1,4 +1,5 @@
 -- SOURCE: https://github.com/nvim-lualine/lualine.nvim/wiki/Component-snippets#using-external-source-for-diff
+
 local M = {}
 
 local highlight = require("eb.utils.apply_highlight")

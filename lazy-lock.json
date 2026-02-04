@@ -11,7 +11,6 @@
   "clipboard-image.nvim": { "branch": "main", "commit": "d1550dc26729b7954f95269952e90471b838fa25" },
   "code_runner.nvim": { "branch": "main", "commit": "45dfea066a6110abcbc3cd361457ac3cbaefd68b" },
   "conform.nvim": { "branch": "master", "commit": "c2526f1cde528a66e086ab1668e996d162c75f4f" },
-  "copilot-lualine": { "branch": "main", "commit": "222e90bd8dcdf16ca1efc4e784416afb5f011c31" },
   "copilot.lua": { "branch": "master", "commit": "746cc7aed285cc5fb99034b9c79fd06c56da388d" },
   "deadcolumn.nvim": { "branch": "master", "commit": "92c86f10bfba2717ca2280e2e759b047135d5288" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
