@@ -2,18 +2,10 @@ local M = {}
 
 local fn = vim.fn
 
--- Define highlight groups
-vim.api.nvim_set_hl(0, "MyHighlightLines", { bg = "#1D2021", fg = "#8ec07c" })
-vim.api.nvim_set_hl(0, "MyHighlightWords", { bg = "#1D2021", fg = "#83a598" })
-vim.api.nvim_set_hl(0, "MyHighlightChars", { bg = "#1D2021", fg = "#d3869b" })
-
--- Helper function to apply highlight
-local function apply_highlight(group, text)
-    return "%#" .. group .. "#" .. text
-end
+local highlight = require("eb.utils.apply_highlight")
 
 function M.word_count(trunc_width)
-    if trunc_width and MiniStatusline.is_truncated(trunc_width) then
+    if trunc_width and require("mini.statusline").is_truncated(trunc_width) then
         return ""
     end
 
@@ -21,12 +13,13 @@ function M.word_count(trunc_width)
     local starts = fn.line("v")
     local ends = fn.line(".")
     local lines = starts <= ends and ends - starts + 1 or starts - ends + 1
-    if wc["visual_words"] then -- text is selected in visual mode
-        return apply_highlight("MyHighlightLines", tostring(lines) .. " Lines" .. " / ")
-            .. apply_highlight("MyHighlightWords", wc["visual_words"] .. " Words" .. " / ")
-            .. apply_highlight("MyHighlightChars", wc["visual_chars"] .. " Chars ")
-    else -- all of the document
-        return apply_highlight("MyHighlightWords", wc["words"] .. " Words ")
+    -- Visual mode selection word count
+    if wc["visual_words"] then
+        return highlight.set("MiniStatuslineLineCount", tostring(lines) .. " Lines" .. " / ")
+            .. highlight.set("MiniStatuslineWordCount", wc["visual_words"] .. " Words" .. " / ")
+            .. highlight.set("MiniStatusLineCharCount", wc["visual_chars"] .. " Chars ")
+    else
+        return highlight.set("MiniStatuslineWordCount", wc["words"] .. " Words ")
     end
 end
 

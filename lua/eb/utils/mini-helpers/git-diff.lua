@@ -1,16 +1,10 @@
--- https://github.com/nvim-lualine/lualine.nvim/wiki/Component-snippets#using-external-source-for-diff
+-- SOURCE: https://github.com/nvim-lualine/lualine.nvim/wiki/Component-snippets#using-external-source-for-diff
 local M = {}
 
-vim.api.nvim_set_hl(0, "MiniStatuslineDiffAdded", require("eb.utils.mini-helpers.colors").diff.added)
-vim.api.nvim_set_hl(0, "MiniStatuslineDiffChanged", require("eb.utils.mini-helpers.colors").diff.changed)
-vim.api.nvim_set_hl(0, "MiniStatuslineDiffRemoved", require("eb.utils.mini-helpers.colors").diff.removed)
-
-local function apply_highlight(group, text)
-    return "%#" .. group .. "#" .. text
-end
+local highlight = require("eb.utils.apply_highlight")
 
 function M.diff_source(trunc_width)
-    if trunc_width and MiniStatusline.is_truncated(trunc_width) then
+    if trunc_width and require("mini.statusline").is_truncated(trunc_width) then
         return ""
     end
 
@@ -26,13 +20,13 @@ function M.diff_source(trunc_width)
     local removed = gitsigns.removed or 0
 
     if added > 0 then
-        table.insert(parts, apply_highlight("MiniStatuslineDiffAdded", "+" .. added))
+        table.insert(parts, highlight.set("MiniStatuslineDiffAdded", "+" .. added))
     end
     if changed > 0 then
-        table.insert(parts, apply_highlight("MiniStatuslineDiffChanged", "~" .. changed))
+        table.insert(parts, highlight.set("MiniStatuslineDiffChanged", "~" .. changed))
     end
     if removed > 0 then
-        table.insert(parts, apply_highlight("MiniStatuslineDiffRemoved", "-" .. removed))
+        table.insert(parts, highlight.set("MiniStatuslineDiffRemoved", "-" .. removed))
     end
     return table.concat(parts, " ")
 end

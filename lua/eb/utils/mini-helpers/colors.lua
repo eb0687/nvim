@@ -46,4 +46,14 @@ return {
     lsp = { fg = colors.color5, bg = colors.bg },
     location = { fg = colors.color4, bg = colors.bg },
     lazy = { fg = colors.color6, bg = colors.bg },
+    buffer_count = { bg = colors.bg, fg = colors.color6 },
+    qf = {
+        icon = { bg = colors.bg, fg = colors.color8 },
+        count = { bg = colors.bg, fg = colors.color6 },
+    },
+    count = {
+        lines = { bg = colors.bg, fg = colors.color6 },
+        words = { bg = colors.bg, fg = colors.color5 },
+        chars = { bg = colors.bg, fg = colors.color8 },
+    },
 }

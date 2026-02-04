@@ -1,15 +1,12 @@
+-- SOURCE: https://github.com/linkarzu/dotfiles-latest/blob/main/neovim/neobean/lua/config/options.lua#L26
+-- SOURCE: https://youtu.be/ldfxEda_mzc?t=385
+
 local M = {}
 
-vim.api.nvim_set_hl(0, "BufferHighlightIcon", { bg = "#1D2021", fg = "#8ec07c" })
+local highlight = require("eb.utils.apply_highlight")
 
-local function apply_highlight(group, text)
-    return "%#" .. group .. "#" .. text
-end
-
--- SOURCE: https://github.com/linkarzu/dotfiles-latest/blob/main/neovim/neobean/lua/config/options.lua#L26
--- https://youtu.be/ldfxEda_mzc?t=385
 function M.count_buffers(trunc_width)
-    if trunc_width and MiniStatusline.is_truncated(trunc_width) then
+    if trunc_width and require("mini.statusline").is_truncated(trunc_width) then
         return ""
     end
 
@@ -21,7 +18,7 @@ function M.count_buffers(trunc_width)
             count = count + 1
         end
     end
-    local icon = apply_highlight("BufferHighlightIcon", " ") -- Icon with highlight
+    local icon = highlight.set("MiniStatusLineBufferCount", " ")
     local out = icon .. tostring(count)
     return out
 end

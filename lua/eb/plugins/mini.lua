@@ -199,24 +199,6 @@ return {
         -- MINI STATUSLINE
         ----------------------------
         local statusline = require("mini.statusline")
-        -- TODO: move colors to colorscheme file
-        vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", require("eb.utils.mini-helpers.colors").main.normal)
-        vim.api.nvim_set_hl(0, "MiniStatuslineFilename", require("eb.utils.mini-helpers.colors").filename.normal)
-        vim.api.nvim_set_hl(
-            0,
-            "MiniStatuslineFilenameModified",
-            require("eb.utils.mini-helpers.colors").filename.modified
-        )
-        vim.api.nvim_set_hl(
-            0,
-            "MiniStatuslineFilenameReadonly",
-            require("eb.utils.mini-helpers.colors").filename.read_only
-        )
-        vim.api.nvim_set_hl(0, "MiniStatuslineGit", require("eb.utils.mini-helpers.colors").git)
-        vim.api.nvim_set_hl(0, "MiniStatuslineMacro", require("eb.utils.mini-helpers.colors").macro)
-        vim.api.nvim_set_hl(0, "MiniStatuslineLocation", require("eb.utils.mini-helpers.colors").location)
-        vim.api.nvim_set_hl(0, "MiniStatuslineLsp", require("eb.utils.mini-helpers.colors").lsp)
-        vim.api.nvim_set_hl(0, "MiniStatusLineLazy", require("eb.utils.mini-helpers.colors").lazy)
 
         statusline.setup({
             use_icons = true,

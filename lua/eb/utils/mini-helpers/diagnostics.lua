@@ -1,13 +1,9 @@
 local M = {}
 
-vim.api.nvim_set_hl(0, "MiniStatuslineDiagError", require("eb.utils.mini-helpers.colors").diagnostics.error)
-vim.api.nvim_set_hl(0, "MiniStatuslineDiagWarn", require("eb.utils.mini-helpers.colors").diagnostics.warn)
+local highlight = require("eb.utils.apply_highlight")
 
-local function apply_highlight(group, text)
-    return "%#" .. group .. "#" .. text
-end
 function M.status(trunc_width)
-    if trunc_width and MiniStatusline.is_truncated(trunc_width) then
+    if trunc_width and require("mini.statusline").is_truncated(trunc_width) then
         return ""
     end
 
@@ -18,10 +14,10 @@ function M.status(trunc_width)
     end
     local parts = {}
     if errors > 0 then
-        table.insert(parts, apply_highlight("MiniStatuslineDiagError", "E:" .. errors))
+        table.insert(parts, highlight.set("MiniStatuslineDiagError", "E:" .. errors))
     end
     if warnings > 0 then
-        table.insert(parts, apply_highlight("MiniStatuslineDiagWarn", "W:" .. warnings))
+        table.insert(parts, highlight.set("MiniStatuslineDiagWarn", "W:" .. warnings))
     end
     return table.concat(parts, " ")
 end
