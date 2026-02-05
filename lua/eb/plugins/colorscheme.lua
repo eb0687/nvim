@@ -40,6 +40,7 @@ return {
             color7 = "#d8a657",
             color8 = "#d3869b",
             color9 = "#ea6962",
+            color10 = "#7c6f64",
         }
 
         vim.api.nvim_set_hl(0, "NormalFloat", { bg = "" })
@@ -117,7 +118,7 @@ return {
         -- Oil-git
         vim.api.nvim_set_hl(0, "OilGitModified", { fg = colors.color7, bg = "", bold = true, italic = true })
         vim.api.nvim_set_hl(0, "OilGitAdded", { fg = colors.color6, bg = "", bold = true, italic = true })
-        vim.api.nvim_set_hl(0, "OilGitUntracked", { fg = colors.color4, bg = "", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "OilGitUntracked", { fg = colors.color10, bg = "", bold = true, italic = true })
 
         -- Custom
         vim.api.nvim_set_hl(0, "Visual", { bg = colors.color7, fg = colors.bg, bold = true })
@@ -125,6 +126,6 @@ return {
 
         vim.api.nvim_set_hl(0, "MyCursorLine", { fg = colors.color3, bg = colors.color7, bold = true, italic = false })
         vim.api.nvim_set_hl(0, "MyBorder", { fg = colors.color7, bg = "" })
-        vim.api.nvim_set_hl(0, "MsgArea", { fg = colors.color2 })
+        vim.api.nvim_set_hl(0, "MsgArea", { fg = colors.color10 })
     end,
 }
