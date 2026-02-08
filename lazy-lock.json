@@ -61,5 +61,6 @@
   "vim-suda": { "branch": "master", "commit": "c492741b4679b3cdd4d9e34138209784e061d916" },
   "vim-tmux-navigator": { "branch": "master", "commit": "e41c431a0c7b7388ae7ba341f01a0d217eb3a432" },
   "vim-vscode-snippets": { "branch": "master", "commit": "10d8f74e979dea25edd3ad3ef640920fa42d1dcf" },
+  "wsl-clipboard.nvim": { "branch": "main", "commit": "04f67d7ec8416794663ec3a8ac72deac8e09dcb9" },
   "zen-mode.nvim": { "branch": "main", "commit": "8564ce6d29ec7554eb9df578efa882d33b3c23a7" }
 }

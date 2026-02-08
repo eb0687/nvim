@@ -67,12 +67,6 @@ return {
             hide_target_hack = false,
         },
     },
-
-    -- {
-    --     "mg979/vim-visual-multi",
-    --     config = function() end,
-    -- },
-    --
     {
         "j-hui/fidget.nvim",
         opts = {
@@ -90,5 +84,12 @@ return {
     {
         "benomahony/oil-git.nvim",
         dependencies = { "stevearc/oil.nvim" },
+    },
+    {
+        -- https://github.com/lmgraf/wsl-clipboard.nvim
+        "lmgraf/wsl-clipboard.nvim",
+        opts = {
+            mode = "sync",
+        },
     },
 }

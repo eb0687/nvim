@@ -129,23 +129,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -------------------------------------------------------------------------------
--- NOTE: autosort tailwindclasses on save
--- TODO: tailwind-tools is not longer being maintained, need to look for an alternative
--- vim.api.nvim_create_autocmd("BufWritePost", {
---     pattern = { "*.html", "*.jsx", "*.tsx", "*.css", "*.scss" }, -- Replace with the desired filetypes
---     callback = function()
---         local buf_clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
---         for _, client in ipairs(buf_clients) do
---             if client.name == "tailwindcss" then
---                 vim.cmd("TailwindSort")
---                 return
---             end
---         end
---     end,
---     desc = "Automatically sort Tailwind classes on save, if Tailwind LSP is active",
--- })
-
--------------------------------------------------------------------------------
 -- NOTE: remove messages from commandine after a set interval
 vim.api.nvim_create_autocmd("CmdlineLeave", {
     group = "ui_enhancements",
@@ -176,37 +159,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
         vim.hl.on_yank({ higroup = "YankHi", timeout = 50 })
     end,
 })
-
--------------------------------------------------------------------------------
-
--- NOTE: https://oneofone.dev/post/neovim-diagnostics-float/
--- local group = vim.api.nvim_create_augroup("OoO", {})
---
--- local function au(typ, pattern, cmdOrFn)
---     if type(cmdOrFn) == "function" then
---         vim.api.nvim_create_autocmd(typ, { pattern = pattern, callback = cmdOrFn, group = group })
---     else
---         vim.api.nvim_create_autocmd(typ, { pattern = pattern, command = cmdOrFn, group = group })
---     end
--- end
---
--- au({ "CursorHold", "InsertLeave" }, nil, function()
---     local opts = {
---         focusable = true,
---         scope = "cursor",
---         close_events = { "CursorMoved", "InsertEnter" },
---         border = "rounded",
---     }
---     vim.diagnostic.open_float(nil, opts)
--- end)
---
--- au("InsertEnter", nil, function()
---     vim.diagnostic.enable(false)
--- end)
---
--- au("InsertLeave", nil, function()
---     vim.diagnostic.enable(true)
--- end)
 
 -------------------------------------------------------------------------------
 
@@ -288,43 +240,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
         end
     end,
 })
-
--------------------------------------------------------------------------------
-
--- SOURCE: https://gist.github.com/smnatale/692ac4f256d5f19fbcbb78fe32c87604
-
--- NOTE: ide like highlight when stopping cursor
--- vim.api.nvim_create_autocmd("CursorMoved", {
---     group = vim.api.nvim_create_augroup("LspReferenceHighlight", { clear = true }),
---     desc = "Highlight references under cursor",
---     callback = function()
---         -- NOTE: Only run if the cursor is not in insert mode
---         if vim.fn.mode() ~= "i" then
---             local clients = vim.lsp.get_clients({ bufnr = 0 })
---             local supports_highlight = false
---             for _, client in ipairs(clients) do
---                 if client.server_capabilities.documentHighlightProvider then
---                     supports_highlight = true
---                     break -- Found a supporting client, no need to check others
---                 end
---             end
---
---             -- NOTE: Proceed only if an LSP is active AND supports the feature
---             if supports_highlight then
---                 vim.lsp.buf.clear_references()
---                 vim.lsp.buf.document_highlight()
---             end
---         end
---     end,
--- })
---
--- NOTE: ide like highlight when stopping cursor
--- vim.api.nvim_create_autocmd("CursorMovedI", {
---     group = "LspReferenceHighlight",
---     desc = "Clear highlights when entering insert mode",
---     callback = function()
---         vim.lsp.buf.clear_references()
---     end,
--- })
 
 return {}
