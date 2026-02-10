@@ -120,6 +120,10 @@ return {
         vim.api.nvim_set_hl(0, "OilGitAdded", { fg = colors.color6, bg = "", bold = true, italic = true })
         vim.api.nvim_set_hl(0, "OilGitUntracked", { fg = colors.color10, bg = "", bold = true, italic = true })
 
+        -- Git signs
+        vim.api.nvim_set_hl(0, "GitSignsDeleteInline", { fg = "", bg = "", bold = true, italic = true })
+        vim.api.nvim_set_hl(0, "GitSignsAddInLine", { fg = "", bg = "", bold = true, italic = true })
+
         -- Custom
         vim.api.nvim_set_hl(0, "Visual", { bg = colors.color7, fg = colors.bg, bold = true })
         vim.api.nvim_set_hl(0, "YankHi", { bg = colors.color7, fg = colors.bg, bold = true })
