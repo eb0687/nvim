@@ -137,15 +137,6 @@ return {
                 vim.lsp.buf.signature_help()
             end, "Signature Documentation")
 
-            -- Create a command `:Format` local to the LSP buffer
-            vim.api.nvim_buf_create_user_command(bufnr, "Format", function(_)
-                require("conform").format({
-                    lsp_fallback = true,
-                    async = false,
-                    timeout_ms = 1000,
-                })
-            end, { desc = "Format current buffer with LSP" })
-
             -- Disable tsserver autoformat
             if client.name == "tsserver" then
                 client.server_capabilities.documentFormattingProvider = false
@@ -172,11 +163,25 @@ return {
         vim.api.nvim_create_autocmd("LspAttach", {
             group = lsp_attach_group,
             callback = function(ev)
+                local bufnr = ev.buf
                 local client = vim.lsp.get_client_by_id(ev.data.client_id)
                 if not client then
                     return
                 end
                 on_attach(client, ev.buf)
+
+                if vim.b[bufnr].format_cmd_created then
+                    return
+                end
+                vim.b[bufnr].format_cmd_created = true
+                vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
+                    require("conform").format({
+                        bufnr = bufnr,
+                        lsp_fallback = true,
+                        async = false,
+                        timeout_ms = 1000,
+                    })
+                end, { desc = "Format current buffer with LSP" })
             end,
         })
 
