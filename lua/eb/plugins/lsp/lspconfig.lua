@@ -136,7 +136,7 @@ return {
             end, "Signature Documentation")
 
             -- Disable tsserver autoformat
-            if client.name == "tsserver" then
+            if client.name == "tsserver" or client.name == "ts_ls" then
                 client.server_capabilities.documentFormattingProvider = false
             end
 

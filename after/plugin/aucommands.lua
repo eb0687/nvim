@@ -103,32 +103,6 @@ if get_distro_name() ~= "" then
 end
 
 -------------------------------------------------------------------------------
--- NOTE: autoformat on save
-vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*.*",
-    callback = function()
-        -- List of filetypes to ignore
-        local ignore_filetypes = { "query", "tmux" }
-
-        -- Check if the current buffer's filetype is in the ignore list
-        if vim.tbl_contains(ignore_filetypes, vim.bo.filetype) then
-            return
-        end
-
-        if vim.bo.modified == true then
-            -- vim.cmd("Format")
-            require("conform").format({
-                lsp_fallback = true,
-                async = false,
-                timeout_ms = 1000,
-            })
-        else
-            vim.notify("No changes to save")
-        end
-    end,
-})
-
--------------------------------------------------------------------------------
 -- NOTE: remove messages from commandine after a set interval
 vim.api.nvim_create_autocmd("CmdlineLeave", {
     group = "ui_enhancements",
