@@ -131,7 +131,7 @@ keymap_silent("n", "<leader>BD", ":%bd<CR>", "Delete all buffers")
 -- Tab navigation
 keymap_silent("n", "<leader><tab><tab>", "<cmd>tabnew<CR>", "New tab")
 keymap_silent("n", "<leader><tab>]", "<cmd>tabnext<CR>", "Next tab")
-keymap_silent("n", "<leader><tab>]", "<cmd>tabprevious<CR>", "Previous tab")
+keymap_silent("n", "<leader><tab>[", "<cmd>tabprevious<CR>", "Previous tab")
 keymap_silent("n", "<leader><tab>d", "<cmd>tabclose<CR>", "Close tab")
 
 -- Highlight off
