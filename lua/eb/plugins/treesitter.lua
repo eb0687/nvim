@@ -22,7 +22,7 @@ return {
         -- SETUP
         treesitter.setup({
             -- NOTE: add more languages that you would like tree sitter syntax highlighting for
-            hightlight = {
+            highlight = {
                 enable = true,
                 additional_vim_regex_highlighting = { "markdown" },
                 -- NOTE: list of languages that will be excluded from treesitter syntax highlighting
