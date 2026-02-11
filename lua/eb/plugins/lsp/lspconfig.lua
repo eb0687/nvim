@@ -47,12 +47,31 @@ return {
         })
         vim.diagnostic.open_float({ border = "rounded" })
 
-        -- NOTE: disables the default keymap for nepvim native lsp
+        -- NOTE: disables the default keymap for neovim native lsp
         vim.keymap.del("n", "grr")
         vim.keymap.del("n", "gra")
         vim.keymap.del("n", "gri")
         vim.keymap.del("n", "grn")
         vim.keymap.del("n", "grt")
+
+        -- NOTE: enable LSPs here
+        vim.lsp.enable("lua_ls")
+        vim.lsp.enable("rust_analyzer")
+        vim.lsp.enable("gopls")
+        vim.lsp.enable("cssls")
+        vim.lsp.enable("emmet_language_server")
+        vim.lsp.enable("ts_ls")
+        vim.lsp.enable("bashls")
+        vim.lsp.enable("vimls")
+        vim.lsp.enable("taplo")
+        vim.lsp.enable("gh_actions_ls")
+        vim.lsp.enable("biome")
+        vim.lsp.enable("graphql")
+        vim.lsp.enable("ansiblels")
+        vim.lsp.enable("pyright")
+        -- NOTE: manually installed via npm
+        vim.lsp.enable("jsonls")
+        vim.lsp.enable("sqlls")
 
         -- NOTE: Use an on_attach function to only map the following keys after the language server attaches to the current buffer
         local on_attach = function(client, bufnr)
@@ -81,13 +100,6 @@ return {
                 })
             end, "Go to next diagnostic message")
 
-            -- using defaults Ctrl+wd
-            -- keymap("df", function()
-            --     vim.diagnostic.open_float({
-            --         border = "rounded",
-            --     })
-            -- end, "Open diagnostic in a float")
-
             keymap("rn", function()
                 vim.lsp.buf.rename()
             end, "Rename")
@@ -112,7 +124,6 @@ return {
                 vim.lsp.buf.implementation()
             end, "Goto Implementation")
 
-            -- keymap("gd", ":Pick lsp scope='definition'<CR>", "Goto Definition")
             keymap("gd", function()
                 vim.lsp.buf.definition()
             end, "Goto Definition")
@@ -153,328 +164,21 @@ return {
             })
         end
 
-        -- LANGUAGE SERVER CONFIGURATION
-        local inlayHints = {
-            includeInlayParameterNameHints = "all",
-            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-        }
+        vim.lsp.config("*", {
+            capabilities = capabilities,
+        })
 
-        local lsps = {
-            -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#vimls
-            -- SOURCE: https://github.com/iamcco/vim-language-server
-            { "vimls" },
-            { "taplo" },
-            { "gh_actions_ls" },
-            {
-                -- TODO: need to test and configure this properly
-                "biome",
-            },
-
-            -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/configs.md#graphql
-            -- NOTE:
-            -- temporary fix for  graphql lsp
-            -- SOURCE: https://www.reddit.com/r/neovim/comments/1dfpp3m/for_anyone_whos_trying_to_get_graphql_ls_working/
-            -- SOURCE: https://github.com/graphql/graphiql/issues/3538
-            {
-                "graphql",
-                {
-                    cmd = { "graphql-lsp", "server", "-m", "stream" },
-                    -- root_dir = lspconfig.util.root_pattern(".graphqlrc*", ".graphql.config.*", "graphql.config.*"),
-                    -- TODO: need to test this
-                    root_dir = vim.fs.dirname(vim.fs.find({
-                        ".graphqlrc",
-                        ".graphql.config.*",
-                        "graphql.config.*",
-                    }, { upward = true })[1]),
-                },
-            },
-            {
-                "cssls",
-                {
-                    settings = {
-                        css = {
-                            lint = {
-                                unknownAtRules = "ignore", -- Ignore warnings for unknown @rules
-                            },
-                        },
-                    },
-                },
-            },
-
-            -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#ansiblels
-            -- SOURCE: https://github.com/ansible/ansible-language-server
-            -- TODO: ansible lsp is not working, need to fix
-            {
-                "ansiblels",
-                {
-                    filetypes = { "yaml.ansible" },
-                    single_file_support = false,
-                    -- root_dir = lspconfig.util.root_pattern("roles", "playbooks", "ansible"),
-                },
-            },
-
-            -- NOTE: installed rust-analyzer using rustup
-            -- NOTE: rustup component add rust-analyzer
-            {
-                "rust_analyzer",
-                {
-                    settings = {
-                        ["rust_analyzer"] = {
-                            imports = {
-                                granularity = {
-                                    group = "module",
-                                },
-                                prefix = "self",
-                            },
-                            procMacro = {
-                                enable = true,
-                            },
-                            assist = {
-                                importEnforceGranularity = true,
-                                importPrefix = "crate",
-                            },
-                            cargo = {
-                                buildScripts = {
-                                    enable = true,
-                                },
-                                allFeatures = true,
-                            },
-                            checkOnSave = {
-                                command = "clippy",
-                            },
-                            inlayHints = {
-                                locationLinks = false,
-                            },
-                            diagnostics = {
-                                enable = true,
-                                experimental = {
-                                    enable = true,
-                                },
-                            },
-                        },
-                    },
-                },
-            },
-
-            -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
-            -- SOURCE: https://github.com/luals/lua-language-server
-            -- NOTE: i installed lua-ls-server manually and symlinked in to ~/.local/bin
-            {
-                "lua_ls",
-                {
-                    settings = {
-                        Lua = {
-                            runtime = {
-                                version = "LuaJIT",
-                            },
-                            telemetry = {
-                                enable = false,
-                            },
-                            -- make the language server recognize "vim" global
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                            format = {
-                                enable = false,
-                            },
-                            hint = {
-                                enable = true,
-                            },
-                            completion = {
-                                callSnippet = "Replace",
-                                workspaceWord = true,
-                            },
-                        },
-                    },
-                },
-            },
-
-            -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pyright
-            -- SOURCE: https://github.com/microsoft/pyright
-            {
-                "pyright",
-                {
-                    settings = {
-                        pyright = {
-                            disableOrganizeImports = false,
-                            analysis = {
-                                useLibraryCodeForTypes = true,
-                                autoSearchPaths = true,
-                                diagnosticMode = "workspace",
-                                autoImportCompletions = true,
-                            },
-                        },
-                    },
-                },
-            },
-
-            -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#tsserver
-            -- SOURCE: https://github.com/typescript-language-server/typescript-language-server
-            {
-                "ts_ls",
-                {
-                    filetypes = {
-                        "javascript",
-                        "javascriptreact",
-                        "javascript.jsx",
-                        "typescript",
-                        "typescriptreact",
-                        "typescript.tsx",
-                    },
-                    -- root_dir = lspconfig.util.root_pattern("jsconfig.json", "package.json", "tsconfig.json", ".git"),
-                    -- TODO: need to test this
-                    root_dir = vim.fs.dirname(vim.fs.find({
-                        "jsconfig.json",
-                        "package.json",
-                        "tsconfig.json",
-                        ".git",
-                    }, { upward = true })[1]),
-                    init_options = {
-                        hostInfo = "neovim",
-                    },
-                    single_file_support = true,
-                    settings = {
-                        completions = {
-                            completeFunctionCalls = true,
-                        },
-                        typescript = {
-                            inlayHints = inlayHints,
-                        },
-                        javascript = {
-                            inlayHints = inlayHints,
-                        },
-                    },
-                },
-            },
-
-            -- NOTE: bashls integrates shellcheck by default
-            -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#bashls
-            -- SOURCE: https://github.com/bash-lsp/bash-language-server
-            {
-                "bashls",
-                {
-                    cmd = { "bash-language-server", "start" },
-                    filetypes = { "sh", "bash" },
-                },
-            },
-
-            -- NOTE: installed manually
-            -- SOURCE: https://github.com/olrtg/emmet-language-server?tab=readme-ov-file
-            {
-                "emmet_language_server",
-                {
-                    filetypes = {
-                        "css",
-                        "eruby",
-                        "html",
-                        "javascript",
-                        "javascriptreact",
-                        "less",
-                        "sass",
-                        "scss",
-                        "pug",
-                        "typescriptreact",
-                    },
-                    -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
-                    -- NOTE: only the options listed in the table are supported.
-                    -- TODO: look up how to set these properly
-                    init_options = {
-                        ---@type table<string, string>
-                        includeLanguages = {},
-                        --- @type string[]
-                        excludeLanguages = {},
-                        --- @type string[]
-                        extensionsPath = {},
-                        --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/preferences/)
-                        preferences = {},
-                        --- @type boolean Defaults to `true`
-                        showAbbreviationSuggestions = true,
-                        --- @type "always" | "never" Defaults to `"always"`
-                        showExpandedAbbreviation = "always",
-                        --- @type boolean Defaults to `false`
-                        showSuggestionsAsSnippets = false,
-                        --- @type table<string, any> [Emmet Docs](https://docs.emmet.io/customization/syntax-profiles/)
-                        syntaxProfiles = {},
-                        --- @type table<string, string> [Emmet Docs](https://docs.emmet.io/customization/snippets/#variables)
-                        variables = {},
-                    },
-                },
-            },
-
-            -- NOTE: manually installed via npm
-            -- SOURCE: https://github.com/hrsh7th/vscode-langservers-extracted
-            {
-                "jsonls",
-                {
-                    filetypes = { "json", "jsonc" },
-                },
-            },
-
-            -- SOURCE: https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sqlls
-            -- SOURCE: https://github.com/joe-re/sql-language-server
-            {
-                "sqlls",
-                {
-                    cmd = { "sql-language-server", "up", "--method", "stdio" },
-                    filetypes = { "sql", "mysql" },
-                    root_dir = function()
-                        ---@diagnostic disable-next-line: undefined-field
-                        return vim.loop.cwd()
-                    end,
-                },
-            },
-
-            -- SOURCE: https://github.com/golang/tools/blob/master/gopls/doc/vim.md
-            {
-                "gopls",
-                {
-                    cmd = { "gopls" },
-                    filetypes = { "go", "gomod", "gowork", "gotmpl" },
-                    -- root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-                    root_dir = vim.fs.dirname(vim.fs.find({
-                        "go.work",
-                        "go.mod",
-                        ".git",
-                    }, { upward = true })[1]),
-                    settings = {
-                        gopls = {
-                            -- SOURCE: https://github.com/chrisgrieser/nvim-lsp-endhints?tab=readme-ov-file#how-to-enable-inlay-hints-for-a-language
-                            hints = {
-                                rangeVariableTypes = true,
-                                parameterNames = true,
-                                constantValues = true,
-                                assignVariableTypes = true,
-                                compositeLiteralFields = true,
-                                compositeLiteralTypes = true,
-                                functionTypeParameters = true,
-                            },
-                            completeUnimported = true,
-                            usePlaceholders = false,
-                            analyses = {
-                                unusedparams = true,
-                            },
-                            staticcheck = true,
-                            gofumpt = true,
-                        },
-                    },
-                },
-            },
-        }
-
-        for _, lsp in pairs(lsps) do
-            local name, config = lsp[1], lsp[2]
-            vim.lsp.enable(name)
-            config = config or {}
-            config.on_attach = on_attach
-            config.capabilities = capabilities
-            vim.lsp.config(name, config)
-        end
+        local lsp_attach_group = vim.api.nvim_create_augroup("UserLspAttach", { clear = true })
+        vim.api.nvim_create_autocmd("LspAttach", {
+            group = lsp_attach_group,
+            callback = function(ev)
+                local client = vim.lsp.get_client_by_id(ev.data.client_id)
+                if not client then
+                    return
+                end
+                on_attach(client, ev.buf)
+            end,
+        })
 
         -- SOURCE: https://jli69.github.io/blog/2025/06/28/neovim-with-godot.html
         -- NOTE: For using Godot's debugger look into this link:
