@@ -104,14 +104,15 @@ end
 
 -------------------------------------------------------------------------------
 -- NOTE: remove messages from commandine after a set interval
-vim.api.nvim_create_autocmd("CmdlineLeave", {
-    group = "ui_enhancements",
-    callback = function()
-        vim.defer_fn(function()
-            vim.cmd("echo ''")
-        end, 3000)
-    end,
-})
+-- NOTE: disabling this for now
+-- vim.api.nvim_create_autocmd("CmdlineLeave", {
+--     group = "ui_enhancements",
+--     callback = function()
+--         vim.defer_fn(function()
+--             vim.cmd("echo ''")
+--         end, 3000)
+--     end,
+-- })
 
 -------------------------------------------------------------------------------
 -- NOTE: disable line numbers and mini indentscope plugin for specific filetypes
