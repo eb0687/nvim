@@ -123,11 +123,11 @@ return {
                         },
 
                         ["aa"] = {
-                            query = "@parmater.outer",
+                            query = "@paramater.outer",
                             desc = "TS-goto: Select outer part of an argument/parameter",
                         },
                         ["ia"] = {
-                            query = "@parmater.inner",
+                            query = "@paramater.inner",
                             desc = "TS-goto: Select inner part of an argument/parameter",
                         },
 
