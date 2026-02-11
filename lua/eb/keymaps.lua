@@ -212,8 +212,6 @@ keymap_silent("n", "<leader>n", ":ToggleLineNumbers<CR>", "toggle line numbers")
 keymap_silent("n", "<leader>xx", "<cmd>!chmod +x %<CR>", "Make executable")
 keymap_silent("n", "<leader>w", ":set wrap!<CR>", "Toggle wrap")
 keymap_silent("n", "gx", ":OpenInBrowser<CR>", "Open in web browser")
--- FIX: this needs to be fixed
-keymap_silent("n", "<leader>rw", ":RotateWindows<CR>", "Rotate windows")
 
 -- keymap_silent("n", "<leader>zf", toggle_flow, "toggle flow")
 
