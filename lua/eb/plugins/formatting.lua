@@ -22,12 +22,11 @@ return {
             markdown = { "prettier" },
             lua = { "stylua" },
             python = { "black" },
-            go = { "goimports", "gofumpt", "injected" },
+            go = { "goimports", "gofumpt" },
             bash = { "beautysh", "shellharden" },
             sh = { "beautysh", "shellharden" },
             sql = { "sql_formatter" },
             rust = { "rustfmt" },
-            -- ["*"] = { "injected" },
         },
         format_on_save = {
             lsp_format = "fallback",
@@ -40,15 +39,16 @@ return {
         conform.setup(opts)
 
         -- NOTE: does this work?
+        -- NOTE: disabling this for now, will probably use this https://www.reddit.com/r/neovim/comments/1qrkrsd/introducing_pruner_a_language_agnostic_treesitter/
         -- https://github.com/tjdevries/config.nvim/blob/master/lua/custom/autoformat.lua
-        conform.formatters.injected = {
-            options = {
-                ignore_errors = false,
-                lang_to_formatters = {
-                    sql = { "sql_formatter" },
-                },
-            },
-        }
+        -- conform.formatters.injected = {
+        --     options = {
+        --         ignore_errors = false,
+        --         lang_to_formatters = {
+        --             sql = { "sql_formatter" },
+        --         },
+        --     },
+        -- }
 
         -- BUG: The following keymap does not work
         -- vim.keymap.set({ "n", "v" }, "<leader>fr", function()
