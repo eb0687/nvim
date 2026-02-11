@@ -27,6 +27,7 @@ return {
             sh = { "beautysh", "shellharden" },
             sql = { "sql_formatter" },
             rust = { "rustfmt" },
+            xml = { "xmllint" },
         },
         format_on_save = {
             lsp_format = "fallback",
