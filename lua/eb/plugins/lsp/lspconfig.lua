@@ -44,8 +44,10 @@ return {
                 virt_text_pos = "eol",
                 source = true,
             },
+            float = {
+                border = "rounded",
+            },
         })
-        vim.diagnostic.open_float({ border = "rounded" })
 
         -- NOTE: disables the default keymap for neovim native lsp
         vim.keymap.del("n", "grr")
