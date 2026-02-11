@@ -112,10 +112,6 @@ return {
                 })
             end, "Hover documentation")
 
-            keymap("<leader>ca", function()
-                vim.lsp.buf.code_action()
-            end, "Code action")
-
             vim.keymap.set({ "n", "v" }, "<leader>ca", function()
                 vim.lsp.buf.code_action()
             end, { desc = "code action" })
