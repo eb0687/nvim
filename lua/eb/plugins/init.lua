@@ -85,4 +85,25 @@ return {
         "benomahony/oil-git.nvim",
         dependencies = { "stevearc/oil.nvim" },
     },
+    {
+        "max397574/better-escape.nvim",
+        config = function()
+            require("better_escape").setup({
+                mappings = {
+                    i = {
+                        j = {
+                            -- These can all also be functions
+                            k = "<Esc>",
+                            j = "<Esc>",
+                        },
+                        k = {
+                            -- These can all also be functions
+                            k = "<Esc>",
+                            j = "<Esc>",
+                        },
+                    },
+                },
+            })
+        end,
+    },
 }
