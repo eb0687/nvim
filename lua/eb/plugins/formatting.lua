@@ -30,25 +30,33 @@ return {
         --     async = false,
         --     timeout_ms = 1000,
         -- },
-        format_on_save = function(bufnr)
-            if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-                return
-            end
-
-            local ignore_filetypes = { query = true, tmux = true }
-
-            if ignore_filetypes[vim.bo[bufnr].filetype] then
-                return
-            end
-            return {
-                lsp_format = "fallback",
-                async = false,
-                timeout_ms = 1000,
-            }
-        end,
+        -- format_on_save = function(bufnr)
+        --     if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+        --         return
+        --     end
+        --
+        --     local ignore_filetypes = { query = true, tmux = true }
+        --
+        --     if ignore_filetypes[vim.bo[bufnr].filetype] then
+        --         return
+        --     end
+        --     return {
+        --         lsp_format = "fallback",
+        --         async = false,
+        --         timeout_ms = 1000,
+        --     }
+        -- end,
     },
     config = function(_, opts)
         local conform = require("conform")
         conform.setup(opts)
+
+        -- NOTE: autoformat on save
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*",
+            callback = function(args)
+                require("conform").format({ bufnr = args.buf })
+            end,
+        })
     end,
 }
