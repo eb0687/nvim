@@ -5,6 +5,11 @@ return {
     "stevearc/conform.nvim",
     ---@module "conform"
     opts = {
+        formatters = {
+            rustfmt = {
+                prepend_args = { "--config", "max_width=80" },
+            },
+        },
         formatters_by_ft = {
             javascript = { "biome", "biome-organize-imports" },
             javascriptreact = { "biome", "biome-organize-imports" },
