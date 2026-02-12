@@ -60,3 +60,53 @@ vim.api.nvim_buf_create_user_command(0, "CargoRunRelease", function(opts)
     local cmd_str = "cargo run --release" .. args
     vim.cmd("split | terminal " .. cmd_str)
 end, { nargs = "?", desc = "cargo run --release" })
+
+-- CargoCheck: cargo check
+vim.api.nvim_buf_create_user_command(0, "CargoCheck", function()
+    notify("Running: cargo check")
+    run_cmd({ "cargo", "check", "--message-format=short" }, {
+        cwd = get_crate_root(),
+        on_exit = function(result)
+            if result.code == 0 then
+                notify("cargo check: OK")
+            else
+                notify("cargo check failed:\n" .. (result.stderr or result.stdout), vim.log.levels.WARN)
+            end
+        end,
+    })
+end, { desc = "cargo check" })
+
+-- RustDoc: open docs.rs for word under cursor
+vim.api.nvim_buf_create_user_command(0, "RustDoc", function(opts)
+    local crate = opts.args ~= "" and opts.args or vim.fn.expand("<cword>")
+    local url = "https://docs.rs/" .. crate
+    local is_wsl = vim.env.WSL_DISTRO_NAME ~= nil and vim.env.WSL_DISTRO_NAME ~= ""
+    if is_wsl then
+        -- Prefer wslview in WSL
+        if vim.fn.executable("wslview") == 1 then
+            vim.ui.open(url, { cmd = { "wslview" } })
+        else
+            -- fallback if wslview is missing
+            vim.ui.open(url, { cmd = { "xdg-open" } })
+        end
+    else
+        -- native Linux
+        vim.ui.open(url, { cmd = { "xdg-open" } })
+    end
+    vim.notify("Opening: " .. url)
+end, { nargs = "?", desc = "Open docs.rs for crate" })
+
+-- CargoClean: cargo clean
+vim.api.nvim_buf_create_user_command(0, "CargoClean", function()
+    notify("Running: cargo clean")
+    run_cmd({ "cargo", "clean" }, {
+        cwd = get_crate_root(),
+        on_exit = function(result)
+            if result.code == 0 then
+                notify("cargo clean: completed")
+            else
+                notify("cargo clean failed:\n" .. (result.stderr or result.stdout), vim.log.levels.ERROR)
+            end
+        end,
+    })
+end, { desc = "cargo clean" })
