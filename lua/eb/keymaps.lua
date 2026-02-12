@@ -30,7 +30,6 @@ vim.g.mapleader = " "
 keymap_silent("n", "<leader>s", ":write<CR>", "Save file")
 
 -- Source file
--- keymap_loud("n", "<leader><leader>s", "<cmd>source %<CR>", "Source file")
 keymap_loud("n", "<leader><leader>S", ":.lua<CR>", "Execute lua line")
 keymap_loud("n", "<leader><leader>s", function()
     local current_file = vim.fn.expand("%")
@@ -44,71 +43,10 @@ keymap_silent("n", "<leader>q", ":q!<CR>", "Quit Vim")
 
 -- Yanks
 keymap_silent("n", "Y", "yg$", "Yank to end of line")
-keymap_silent("n", "<leader>yA", ":%yank<CR>", "Yank/Copy entire buffer")
-keymap_silent("n", "<leader><leader>yA", ":%yank +<CR>", "Yank/Copy entire buffer to system clipboard")
-keymap_silent("n", "<leader>yC", ":%yank+<CR>", "Yank/Copy entire buffer to system clipboard")
-keymap_loud("v", "<leader>ym", function()
-    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Esc>", true, false, true), "x", false)
-
-    local start_line = vim.fn.line("'<")
-    local end_line = vim.fn.line("'>")
-
-    local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
-
-    if #lines == 0 then
-        vim.notify("No lines selected!", vim.log.levels.WARN)
-        return
-    end
-
-    local code_block = table.concat(lines, "\n")
-    local filetype = vim.bo.filetype
-    local markdown = string.format("```%s\n%s\n```", filetype, code_block)
-
-    vim.fn.setreg("+", markdown)
-    vim.notify("Copied selected lines as markdown code block", vim.log.levels.INFO)
-end, "Yank file as markdown code block")
 
 -- Yank/paste with system clipboard
-keymap_silent({ "n", "x" }, "<leader>yy", '"+y', "Yank/Copy to system clipboard")
-keymap_silent("n", "<leader>pp", '"+p', "Paste from system clipboard")
-
--- Registers
-keymap_loud("v", "<leader>ya", function()
-    custom_helpers.yank_to_register("a")
-end, "Yank selection to register 'a")
-
-keymap_loud("v", "<leader>ys", function()
-    custom_helpers.yank_to_register("s")
-end, "Yank selection to register 's")
-
-keymap_loud("v", "<leader>yd", function()
-    custom_helpers.yank_to_register("d")
-end, "Yank selection to register 'd")
-
-keymap_loud("v", "<leader>yf", function()
-    custom_helpers.yank_to_register("f")
-end, "Yank selection to register 'f")
-
--- TODO: refactor this
-keymap_loud("n", "<leader>pa", function()
-    vim.cmd('normal! "ap')
-    vim.notify("Pasted from register 'a'", vim.log.levels.INFO, { title = "Paste" })
-end, "Paste from register 'a'")
-
-keymap_loud("n", "<leader>ps", function()
-    vim.cmd('normal! "sp')
-    vim.notify("Pasted from register 's'", vim.log.levels.INFO, { title = "Paste" })
-end, "Paste from register 's'")
-
-keymap_loud("n", "<leader>pd", function()
-    vim.cmd('normal! "dp')
-    vim.notify("Pasted from register 'd'", vim.log.levels.INFO, { title = "Paste" })
-end, "Paste from register 'd'")
-
-keymap_loud("n", "<leader>pf", function()
-    vim.cmd('normal! "fp')
-    vim.notify("Pasted from register 'f'", vim.log.levels.INFO, { title = "Paste" })
-end, "Paste from register 'f'")
+keymap_silent({ "n", "x" }, "<leader>y", '"+y', "Yank/Copy to system clipboard")
+keymap_silent("n", "<leader>p", '"+p', "Paste from system clipboard")
 
 -- Create splits
 keymap_silent("n", "<leader>h", ":split<CR>", "Horizontal split")
@@ -133,9 +71,6 @@ keymap_silent("n", "<leader><tab><tab>", "<cmd>tabnew<CR>", "New tab")
 keymap_silent("n", "<leader><tab>]", "<cmd>tabnext<CR>", "Next tab")
 keymap_silent("n", "<leader><tab>[", "<cmd>tabprevious<CR>", "Previous tab")
 keymap_silent("n", "<leader><tab>d", "<cmd>tabclose<CR>", "Close tab")
-
--- Highlight off
-keymap_silent("n", "<leader>ho", ":noh<CR>", "Highlight off")
 
 -- Search & Replace
 keymap_silent("n", "n", "nzzzv", "Go to next search")
@@ -175,12 +110,6 @@ keymap_silent("n", "#", "#zz", "jump to previous matching word")
 vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
--- NOTE: using the native keybinds introduced in 0.11
--- https://gpanders.com/blog/whats-new-in-neovim-0-11/#defaults
--- Quickfix list
--- keymap_silent("n", "<leader>j", "<cmd>cnext<CR>zz", "Quickfix next")
--- keymap_silent("n", "<leader>k", "<cmd>cprev<CR>zz", "Quickfix prev")
-
 -- Grep
 -- keymap_loud("n", "<leader>gg", ":copen | :silent :grep ", "Custom grep")
 keymap_loud("n", "<leader>gg", ":Grep ", "Custom grep")
@@ -212,8 +141,6 @@ keymap_silent("n", "<leader>n", ":ToggleLineNumbers<CR>", "toggle line numbers")
 keymap_silent("n", "<leader>xx", "<cmd>!chmod +x %<CR>", "Make executable")
 keymap_silent("n", "<leader>w", ":set wrap!<CR>", "Toggle wrap")
 keymap_silent("n", "gx", ":OpenInBrowser<CR>", "Open in web browser")
-
--- keymap_silent("n", "<leader>zf", toggle_flow, "toggle flow")
 
 -----------------
 -- INSERT MODE --

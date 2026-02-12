@@ -85,11 +85,4 @@ return {
         "benomahony/oil-git.nvim",
         dependencies = { "stevearc/oil.nvim" },
     },
-    {
-        -- https://github.com/lmgraf/wsl-clipboard.nvim
-        "lmgraf/wsl-clipboard.nvim",
-        opts = {
-            mode = "sync",
-        },
-    },
 }
