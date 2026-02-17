@@ -192,11 +192,18 @@ function M.setup()
     keymap("<leader>fe", ":Pick git_files scope='modified'<CR>", "Find modified git files")
     keymap("<leader>fss", ":Pick grep_live_smartcase<CR>", "Grep live search (smartcase)")
     keymap("<leader>fsu", ":Pick commands<CR>", "Find search user commands")
-    keymap("<leader>fsw", ":Pick grep pattern='<cword>'<CR>", "Find search word under cursor")
+    keymap("<leader>fsw", function()
+        require("mini.pick").builtin.grep({
+            globs = { vim.fn.expand("%:t") },
+            pattern = vim.fn.expand("<cword>"),
+        })
+    end, "Find search word under cursor (current buffer only)")
+    keymap("<leader>fsW", ":Pick grep pattern='<cword>'<CR>", "Find search word under cursor")
     keymap("<leader>fch", ":Pick command_history<CR>", "Find command history")
     keymap("<leader>fsh", ":Pick history scope='/'<CR>", "Find search history")
     keymap("<leader>fsf", ":Pick visit_paths<CR>", "Find recently visited files")
     keymap("<leader>fS", ":Pick spellsuggest<CR>", "Spell suggetions")
+    keymap("<leader>fsy", ":Pick lsp scope='document_symbol'<CR>", "Document symbols")
     keymap(
         "<leader>fsd",
         ":Pick diagnostic scope='current' sort_by='severity'<CR>",
