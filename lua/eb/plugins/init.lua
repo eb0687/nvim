@@ -86,22 +86,20 @@ return {
         dependencies = { "stevearc/oil.nvim" },
     },
     {
-        "max397574/better-escape.nvim",
-        enabled = false,
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
         config = function()
-            require("better_escape").setup({
-                mappings = {
-                    i = {
-                        j = {
-                            -- These can all also be functions
-                            k = "<Esc>",
-                            j = "<Esc>",
-                        },
-                        k = {
-                            -- These can all also be functions
-                            k = "<Esc>",
-                            j = "<Esc>",
-                        },
+            require("catppuccin").setup({
+                color_overrides = {
+                    macchiato = {
+                        mantle = "#181926",
+                    },
+                },
+                integrations = {
+                    mini = {
+                        enabled = true,
+                        indentscope_color = "teal",
                     },
                 },
             })
