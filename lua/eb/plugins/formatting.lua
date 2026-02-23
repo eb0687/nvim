@@ -21,6 +21,7 @@ return {
             json = { "prettier" },
             yaml = { "prettier" },
             markdown = { "prettier" },
+            jsonc = { "prettier" },
             lua = { "stylua" },
             python = { "black" },
             go = { "goimports", "gofumpt" },
