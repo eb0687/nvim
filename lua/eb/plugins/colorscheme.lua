@@ -29,48 +29,53 @@ return {
         vim.cmd([[colorscheme gruvbox-material]])
 
         local colors = {
-            fg1 = "#282828",
-            color2 = "#504945",
-            fg2 = "#ddc7a1",
             bg = "#1D2021",
-            color3 = "#32302f",
-            color4 = "#a89984",
-            color5 = "#7daea3",
-            color6 = "#a9b665",
-            color7 = "#d8a657",
-            color8 = "#d3869b",
-            color9 = "#ea6962",
-            color10 = "#7c6f64",
+            bg1 = "#282828",
+            bg2 = "#504945",
+
+            fg0 = "#ebdbb2",
+
+            red = "#ea6962",
+            orange = "#e78a4e",
+            yellow = "#d8a657",
+            green = "#a9b665",
+            aqua = "#89b482",
+            blue = "#7daea3",
+            purple = "#d3869b",
+
+            grey0 = "#a89984",
+            grey1 = "#928374",
+            grey2 = "#7c6f64",
         }
 
         local function set_custom_highlights()
             vim.api.nvim_set_hl(0, "NormalFloat", { bg = "" })
-            vim.api.nvim_set_hl(0, "FloatTitle", { bg = colors.bg, fg = colors.color7 })
+            vim.api.nvim_set_hl(0, "FloatTitle", { bg = colors.bg, fg = colors.yellow })
             vim.api.nvim_set_hl(0, "FloatFooter", { bg = "" })
-            vim.api.nvim_set_hl(0, "FloatBorder", { bg = "", fg = colors.color4 })
+            vim.api.nvim_set_hl(0, "FloatBorder", { bg = "", fg = colors.grey0 })
 
             -- Flash.nvim
-            vim.api.nvim_set_hl(0, "FlashBackdrop", { bg = colors.bg, fg = colors.color2 })
-            vim.api.nvim_set_hl(0, "FlashLabel", { bg = colors.color9, fg = colors.fg1 })
-            vim.api.nvim_set_hl(0, "FlashPrompt", { bg = colors.color9, fg = colors.color3 })
-            vim.api.nvim_set_hl(0, "FlashPromptIcon", { bg = colors.color9, fg = colors.color3 })
-            vim.api.nvim_set_hl(0, "FlashCurrent", { bg = colors.color5 })
+            vim.api.nvim_set_hl(0, "FlashBackdrop", { bg = colors.bg, fg = colors.bg2 })
+            vim.api.nvim_set_hl(0, "FlashLabel", { bg = colors.red, fg = colors.bg1 })
+            vim.api.nvim_set_hl(0, "FlashPrompt", { bg = colors.red, fg = colors.bg })
+            vim.api.nvim_set_hl(0, "FlashPromptIcon", { bg = colors.red, fg = colors.bg })
+            vim.api.nvim_set_hl(0, "FlashCurrent", { bg = colors.blue })
 
             -- Hydra
-            vim.api.nvim_set_hl(0, "HydraPink", { bg = colors.color9, fg = colors.bg, bold = true })
+            vim.api.nvim_set_hl(0, "HydraPink", { bg = colors.red, fg = colors.bg, bold = true })
 
             -- Mini Various
             vim.api.nvim_set_hl(0, "MiniCursorwordCurrent", { underline = true, fg = nil, bg = nil })
             vim.api.nvim_set_hl(0, "MiniCursorword", { underline = true, fg = nil, bg = nil })
-            vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = colors.color4 })
+            vim.api.nvim_set_hl(0, "MiniIndentscopeSymbol", { fg = colors.grey0 })
 
             -- Mini Pick
             local statuline_colors = require("eb.utils.mini-helpers.colors")
             vim.api.nvim_set_hl(0, "MiniPickNormal", { bg = "" })
-            vim.api.nvim_set_hl(0, "MiniPickPrompt", { bg = colors.color2, fg = colors.color7 })
-            vim.api.nvim_set_hl(0, "MiniPickPromptPrefix", { fg = colors.color2 })
-            vim.api.nvim_set_hl(0, "MiniPickBorder", { fg = colors.color2 })
-            vim.api.nvim_set_hl(0, "MiniPickBorderText", { bg = colors.color2, fg = colors.color7 })
+            vim.api.nvim_set_hl(0, "MiniPickPrompt", { bg = colors.bg2, fg = colors.yellow })
+            vim.api.nvim_set_hl(0, "MiniPickPromptPrefix", { fg = colors.bg2 })
+            vim.api.nvim_set_hl(0, "MiniPickBorder", { fg = colors.bg2 })
+            vim.api.nvim_set_hl(0, "MiniPickBorderText", { bg = colors.bg2, fg = colors.yellow })
 
             -- Mini Statusline
             vim.api.nvim_set_hl(0, "MiniStatuslineModeNormal", statuline_colors.main.normal)
@@ -98,44 +103,40 @@ return {
             vim.api.nvim_set_hl(0, "MiniStatusLineCharCount", statuline_colors.count.chars)
 
             -- Blink
-            vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = colors.color5, bg = "", bold = true, italic = false })
+            vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { fg = colors.blue, bg = "", bold = true, italic = false })
             vim.api.nvim_set_hl(0, "BlinkCmpMenu", { fg = "", bg = "", bold = true, italic = false })
             vim.api.nvim_set_hl(0, "BlinkCmpSource", { fg = "", bg = "", bold = true, italic = false })
             vim.api.nvim_set_hl(
                 0,
                 "BlinkCmpMenuSelection",
-                { fg = colors.color3, bg = colors.color5, bold = true, italic = false }
+                { fg = colors.bg, bg = colors.blue, bold = true, italic = false }
             )
-            vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = colors.color5, bg = "", bold = true, italic = false })
+            vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { fg = colors.blue, bg = "", bold = true, italic = false })
             vim.api.nvim_set_hl(0, "BlinkCmpDoc", { fg = "", bg = "", bold = true, italic = false })
             vim.api.nvim_set_hl(
                 0,
                 "BlinkCmpSignatureHelpBorder",
-                { fg = colors.color6, bg = "", bold = true, italic = false }
+                { fg = colors.green, bg = "", bold = true, italic = false }
             )
 
             -- TODO: customize this later on as needed
             -- https://github.com/benomahony/oil-git.nvim
             -- Oil-git
-            vim.api.nvim_set_hl(0, "OilGitModified", { fg = colors.color7, bg = "", bold = true, italic = true })
-            vim.api.nvim_set_hl(0, "OilGitAdded", { fg = colors.color6, bg = "", bold = true, italic = true })
-            vim.api.nvim_set_hl(0, "OilGitUntracked", { fg = colors.color10, bg = "", bold = true, italic = true })
+            vim.api.nvim_set_hl(0, "OilGitModified", { fg = colors.yellow, bg = "", bold = true, italic = true })
+            vim.api.nvim_set_hl(0, "OilGitAdded", { fg = colors.green, bg = "", bold = true, italic = true })
+            vim.api.nvim_set_hl(0, "OilGitUntracked", { fg = colors.grey2, bg = "", bold = true, italic = true })
 
             -- Git signs
             vim.api.nvim_set_hl(0, "GitSignsDeleteInline", { fg = "", bg = "", bold = true, italic = true })
             vim.api.nvim_set_hl(0, "GitSignsAddInLine", { fg = "", bg = "", bold = true, italic = true })
 
             -- Custom
-            vim.api.nvim_set_hl(0, "Visual", { bg = colors.color7, fg = colors.bg, bold = true })
-            vim.api.nvim_set_hl(0, "YankHi", { bg = colors.color7, fg = colors.bg, bold = true })
+            vim.api.nvim_set_hl(0, "Visual", { bg = colors.yellow, fg = colors.bg, bold = true })
+            vim.api.nvim_set_hl(0, "YankHi", { bg = colors.yellow, fg = colors.bg, bold = true })
 
-            vim.api.nvim_set_hl(
-                0,
-                "MyCursorLine",
-                { fg = colors.color3, bg = colors.color7, bold = true, italic = false }
-            )
-            vim.api.nvim_set_hl(0, "MyBorder", { fg = colors.color7, bg = "" })
-            vim.api.nvim_set_hl(0, "MsgArea", { fg = colors.color10 })
+            vim.api.nvim_set_hl(0, "MyCursorLine", { fg = colors.bg, bg = colors.yellow, bold = true, italic = false })
+            vim.api.nvim_set_hl(0, "MyBorder", { fg = colors.yellow, bg = "" })
+            vim.api.nvim_set_hl(0, "MsgArea", { fg = colors.grey2 })
         end
 
         set_custom_highlights()
