@@ -91,6 +91,7 @@ return {
         priority = 1000,
         config = function()
             require("catppuccin").setup({
+                auto_integrations = true,
                 color_overrides = {
                     macchiato = {
                         mantle = "#181926",
@@ -99,9 +100,66 @@ return {
                 integrations = {
                     mini = {
                         enabled = true,
-                        indentscope_color = "teal",
+                        indentscope_color = "Overlay1",
                     },
                 },
+                custom_highlights = function(colors)
+                    return {
+                        NormalFloat = { bg = "" },
+                        FloatTitle = { bg = "", fg = colors.yellow },
+                        FloatFooter = { bg = "" },
+                        FloatBorder = { bg = "", fg = colors.surface2 },
+                        -- Mini Various
+                        MiniCursorwordCurrent = { underline = true, fg = "", bg = "" },
+                        MiniCursorword = { underline = true, fg = "", bg = "" },
+                        -- Mini Pick
+                        MiniPickNormal = { bg = "" },
+                        MiniPickPrompt = { bg = colors.base, fg = colors.peach },
+                        MiniPickPromptPrefix = { bg = colors.base, fg = colors.peach },
+                        MiniPickBorderText = { bg = colors.base, fg = colors.peach },
+                        -- Mini StatusLine
+                        MiniStatuslineModeNormal = { bg = colors.mantle, fg = colors.surface2 },
+                        MiniStatuslineFilename = { bg = colors.mantle, fg = colors.surface2 },
+                        MiniStatuslineFilenameModified = { bg = colors.mantle, fg = colors.green },
+                        MiniStatuslineFilenameReadonly = { bg = colors.mantle, fg = colors.red },
+                        MiniStatuslineGit = { bg = colors.mantle, fg = colors.blue },
+                        MiniStatuslineMacro = { bg = colors.mantle, fg = colors.red },
+                        MiniStatuslineLocation = { bg = colors.mantle, fg = colors.surface2 },
+                        MiniStatuslineLsp = { bg = colors.mantle, fg = colors.blue },
+                        MiniStatusLineLazy = { bg = colors.mantle, fg = colors.green },
+                        MiniStatuslineBufferCount = { bg = colors.mantle, fg = colors.green },
+                        MiniStatuslineDiagError = { bg = colors.mantle, fg = colors.red },
+                        MiniStatuslineDiagWarn = { bg = colors.mantle, fg = colors.yellow },
+                        MiniStatuslineDiffAdded = { bg = colors.mantle, fg = colors.green },
+                        MiniStatuslineDiffChanged = { bg = colors.mantle, fg = colors.mauve },
+                        MiniStatuslineDiffRemoved = { bg = colors.mantle, fg = colors.red },
+                        MiniStatuslineReadonly = { bg = colors.mantle, fg = colors.red },
+                        MiniStatuslineExecutable = { bg = colors.mantle, fg = colors.mauve },
+                        MiniStatuslineModified = { bg = colors.mantle, fg = colors.yellow },
+                        MiniStatuslineQfIcon = { bg = colors.mantle, fg = colors.mauve },
+                        MiniStatuslineQfCount = { bg = colors.mantle, fg = colors.green },
+                        MiniStatuslineLineCount = { bg = colors.mantle, fg = colors.teal },
+                        MiniStatuslineWordCount = { bg = colors.mantle, fg = colors.blue },
+                        MiniStatuslineCharCount = { bg = colors.mantle, fg = colors.mauve },
+                        -- Blink
+                        BlinkCmpMenuBorder = { bg = "", fg = colors.teal, bold = true },
+                        BlinkCmpMenu = { bg = "", fg = "", bold = true },
+                        BlinkCmpSource = { bg = "", fg = "", bold = true },
+                        BlinkCmpMenuSelection = { bg = colors.teal, fg = colors.mantle, bold = true },
+                        BlinkCmpDocBorder = { bg = "", fg = colors.teal, bold = true },
+                        BlinkCmpSignatureHelpBorder = { bg = "", fg = colors.teal, bold = true },
+                        -- Oil-Git
+                        OilGitAdded = { bg = "", fg = colors.green, bold = true },
+                        OilGitModified = { bg = "", fg = colors.yellow, bold = true },
+                        OilGitUntracked = { bg = "", fg = colors.surface1, bold = true },
+                        -- Custom
+                        Visual = { bg = colors.yellow, fg = colors.mantle, bold = true },
+                        YankHi = { bg = colors.yellow, fg = colors.mantle, bold = true },
+                        MyCursorLine = { bg = colors.yellow, fg = colors.mantle, bold = true },
+                        MyBorder = { bg = "", fg = colors.yellow },
+                        MsgArea = { fg = colors.surface2 },
+                    }
+                end,
             })
         end,
     },
