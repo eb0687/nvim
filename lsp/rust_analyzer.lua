@@ -5,35 +5,33 @@ return {
     cmd = { "rust-analyzer" },
     filetypes = { "rust" },
     settings = {
-        ["rust_analyzer"] = {
-            imports = {
-                granularity = {
-                    group = "module",
-                },
-                prefix = "self",
-            },
-            procMacro = {
-                enable = true,
-            },
-            assist = {
-                importEnforceGranularity = true,
-                importPrefix = "crate",
-            },
-            cargo = {
-                buildScripts = {
+        ["rust-analyzer"] = {
+            lens = {
+                debug = {
                     enable = true,
                 },
-                allFeatures = true,
-            },
-            checkOnSave = {
-                command = "clippy",
-            },
-            inlayHints = {
-                locationLinks = false,
-            },
-            diagnostics = {
                 enable = true,
-                experimental = {
+                implementations = {
+                    enable = true,
+                },
+                references = {
+                    adt = {
+                        enable = true,
+                    },
+                    enumVariant = {
+                        enable = true,
+                    },
+                    method = {
+                        enable = true,
+                    },
+                    trait = {
+                        enable = true,
+                    },
+                },
+                run = {
+                    enable = true,
+                },
+                updateTest = {
                     enable = true,
                 },
             },
