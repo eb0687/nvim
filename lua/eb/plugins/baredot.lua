@@ -2,7 +2,8 @@
 -- https://github.com/ejrichards/baredot.nvim
 
 return {
-    "ejrichards/baredot.nvim",
+    -- "ejrichards/baredot.nvim",
+    "https://plugins.ejri.dev/baredot.nvim",
 
     config = function()
         local baredot = require("baredot")
