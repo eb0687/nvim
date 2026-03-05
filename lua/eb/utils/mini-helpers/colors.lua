@@ -62,4 +62,8 @@ return {
         words = { bg = colors.bg, fg = colors.blue },
         chars = { bg = colors.bg, fg = colors.purple },
     },
+    submode_r = {
+        submode_on = { bg = colors.purple, fg = colors.bg },
+        submode_off = { fg = colors.grey0, bg = colors.bg },
+    },
 }
