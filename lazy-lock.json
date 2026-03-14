@@ -1,7 +1,7 @@
 {
   "LuaSnip": { "branch": "master", "commit": "5a1e39223db9a0498024a77b8441169d260c8c25" },
   "autolist.nvim": { "branch": "main", "commit": "5f70a5f99e96c8fe3069de042abd2a8ed2deb855" },
-  "baredot.nvim": { "branch": "master", "commit": "150b50d5d78ea35b2b78a7ce53e46356dd0932b7" },
+  "baredot.nvim": { "branch": "master", "commit": "3335f7b975fc9c30927d12e472ccc1035bb9f701" },
   "blink-cmp-conventional-commits": { "branch": "main", "commit": "faa45344aab97aa33ece53938c4c3379760e61bd" },
   "blink-cmp-copilot": { "branch": "main", "commit": "439cff78780c033aa23cf061d7315314b347e3c1" },
   "blink-emoji.nvim": { "branch": "master", "commit": "066013e4c98a9318408ee3f1ca2dbcb6fa3e4c06" },
@@ -55,6 +55,7 @@
   "render-markdown.nvim": { "branch": "main", "commit": "e3c18ddd27a853f85a6f513a864cf4f2982b9f26" },
   "smear-cursor.nvim": { "branch": "main", "commit": "c85bdbb25db096fbcf616bc4e1357bd61fe2c199" },
   "sniprun": { "branch": "master", "commit": "973acfe83cff35d13b95369a5606c47565b824fb" },
+  "submode.nvim": { "branch": "main", "commit": "d3cd2ceed6e2379caba6ec2e75dc50a9a832be63" },
   "tabs-vs-spaces.nvim": { "branch": "main", "commit": "4fbc894fa11b282a0dd5d5a670922abd185ae527" },
   "ts-worksheet-neovim": { "branch": "main", "commit": "965913502fd6a443f9067c7e85c2042877aaddf9" },
   "vim-fugitive": { "branch": "master", "commit": "3b753cf8c6a4dcde6edee8827d464ba9b8c4a6f0" },
