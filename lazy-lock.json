@@ -19,6 +19,7 @@
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
   "git-conflict.nvim": { "branch": "main", "commit": "4bbfdd92d547d2862a75b4e80afaf30e73f7bbb4" },
   "gitsigns.nvim": { "branch": "main", "commit": "7c4faa3540d0781a28588cafbd4dd187a28ac6e3" },
+  "gotmpl.nvim": { "branch": "main", "commit": "7c50c61a1f726d5733df7d8cc6f0dd9324661206" },
   "gruvbox-material": { "branch": "master", "commit": "790afe9dd085aa04eccd1da3626c5fa05c620e53" },
   "harpoon": { "branch": "harpoon2", "commit": "87b1a3506211538f460786c23f98ec63ad9af4e5" },
   "i3config.vim": { "branch": "master", "commit": "5c753c56c033d3b17e5005a67cdb9653bbb88ba7" },

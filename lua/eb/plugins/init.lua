@@ -85,6 +85,7 @@ return {
         "benomahony/oil-git.nvim",
         dependencies = { "stevearc/oil.nvim" },
     },
+    { "ngynkvn/gotmpl.nvim", opts = {} },
     {
         "catppuccin/nvim",
         name = "catppuccin",

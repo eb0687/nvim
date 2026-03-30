@@ -30,6 +30,7 @@ return {
             sql = { "sql_formatter" },
             rust = { "rustfmt" },
             xml = { "xmllint" },
+            templ = { "templ" },
         },
         -- format_on_save = {
         --     lsp_format = "fallback",

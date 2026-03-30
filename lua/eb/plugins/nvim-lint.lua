@@ -12,7 +12,7 @@ return {
             ansible = { "ansible_lint" },
             bash = { "shellcheck" },
             python = { "pylint" },
-            html = { "markuplint" },
+            -- html = { "markuplint" },
             -- javascript = { "eslint_d" },
             -- typescript = { "eslint_d" },
             markdown = { "markdownlint" },
