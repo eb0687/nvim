@@ -26,7 +26,11 @@ return {
         enabled = function()
             return vim.g.blink_cmp
         end,
-        keymap = { preset = "enter" },
+        keymap = {
+            preset = "enter",
+            ["<C-j>"] = { "scroll_documentation_down" },
+            ["<C-k>"] = { "scroll_documentation_up" },
+        },
         appearance = {
             nerd_font_variant = "mono",
             kind_icons = {
