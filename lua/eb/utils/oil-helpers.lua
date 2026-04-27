@@ -3,7 +3,6 @@
 local M = {}
 
 local oil = require("oil")
--- local telescope_builtin = require("telescope.builtin")
 
 -- toggle between detailed and simple columns in the oil buffer
 -- taken from :help oil-actions for more details
@@ -19,13 +18,6 @@ M.toggle_oil_columns = function()
     end
     state.is_detailed = not state.is_detailed
 end
-
--- search in the current directory using telescope
--- M.telescope_find_cwd = function()
---     telescope_builtin.find_files({
---         cwd = oil.get_current_dir(),
---     })
--- end
 
 M.open_file = function()
     -- Get the current file path and remove the first 5 characters (index 6 onwards)
@@ -54,18 +46,6 @@ M.copy_relative_path = function()
     vim.fn.setreg("+", yanked_path)
     vim.notify("Yanked relative path: " .. yanked_path, vim.log.levels.INFO)
 end
-
--- M.copy_relative_path = function()
---     local entry = oil.get_cursor_entry()
---     local dir = oil.get_current_dir()
---
---     if not entry or not dir then
---         return
---     end
---
---     local relpath = vim.fn.fnamemodify(dir, ":.")
---     vim.fn.setreg("+", relpath .. entry.name)
--- end
 
 local function in_godot_project()
     local cwd = vim.fn.getcwd()
