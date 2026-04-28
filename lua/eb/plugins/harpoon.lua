@@ -19,6 +19,7 @@ return {
     config = function()
         local custom_helpers = require("eb.utils.custom_helpers")
         local keymap_normal = custom_helpers.keymap_normal
+        local oil = require("oil")
 
         local toggle_opts = {
             border = {
@@ -46,6 +47,17 @@ return {
                 excluded_filetypes = { "harpoon", "alpha", "dashboard", "gitcommit" },
                 key = function()
                     return vim.loop.cwd()
+                end,
+            },
+            -- https://github.com/khalil-chermiti/dotfiles/blob/main/nvim/.config/nvim-minimal/after/plugin/harpoon.lua
+            default = {
+                select = function(list_item, _, _)
+                    local path = list_item.value
+                    if vim.fn.isdirectory(path) == 1 then
+                        require("oil").open(path)
+                    else
+                        vim.cmd("edit " .. path)
+                    end
                 end,
             },
         })
@@ -93,5 +105,17 @@ return {
         keymap_normal("<C-p>", function()
             harpoon:list():prev()
         end, "HARPOON", true, "Previous buffer in harpoon list")
+
+        -- Add oil dir to harpoon list
+        keymap_normal("<leader>ha", function()
+            local dir = oil.get_current_dir()
+            if dir then
+                harpoon:list():add({
+                    value = dir,
+                })
+            else
+                harpoon:list():add()
+            end
+        end, "HARPOON", true, "Add current oil directory to harpoon list")
     end,
 }
