@@ -90,7 +90,22 @@ return {
             },
             view_options = {
                 show_hidden = true,
-                is_always_hidden = oil_helpers.always_hidden,
+                -- is_always_hidden = oil_helpers.always_hidden,
+                is_always_hidden = function(name, _)
+                    local godot_patterns = {
+                        "%.uid[/]?$", -- .uid files
+                        "%.import[/]?$", -- .import files
+                        "^%.godot[/]?$", -- .godot directory
+                        "^%.mono[/]?$", -- .mono directory
+                        "godot.*%.tmp$", -- godot temp files
+                    }
+                    for _, pat in ipairs(godot_patterns) do
+                        if name:match(pat) then
+                            return true
+                        end
+                    end
+                    return false
+                end,
             },
             win_options = {
                 wrap = true,

@@ -187,30 +187,30 @@ return {
         -- SOURCE: https://jli69.github.io/blog/2025/06/28/neovim-with-godot.html
         -- NOTE: For using Godot's debugger look into this link:
         -- NOTE: https://simondalvai.org/blog/godot-neovim/
-        local port = os.getenv("GDScript_Port") or "6005"
-        local cmd = vim.lsp.rpc.connect("127.0.0.1", tonumber(port))
-        local godot_helper = require("eb.utils.godot_helper")
-
-        if os.getenv("WSL_DISTRO_NAME") ~= nil then
-            vim.lsp.config("gdscript", {
-                cmd = { "godot-wsl-lsp", "--experimentalFastPathConversion" },
-                on_attach = on_attach,
-                capabilities = capabilities,
-            })
-            vim.lsp.enable("gdscript")
-        else
-            godot_helper.start_godot_server()
-            vim.lsp.config("gdscript", {
-                on_attach = on_attach,
-                capabilities = capabilities,
-                name = "Godot",
-                cmd = cmd,
-                root_dir = vim.fs.dirname(vim.fs.find({
-                    "project.godot",
-                    ".git",
-                }, { upward = true })[1]),
-            })
-            vim.lsp.enable("gdscript")
-        end
+        -- local port = os.getenv("GDScript_Port") or "6005"
+        -- local cmd = vim.lsp.rpc.connect("127.0.0.1", tonumber(port))
+        -- local godot_helper = require("eb.utils.godot_helper")
+        --
+        -- if os.getenv("WSL_DISTRO_NAME") ~= nil then
+        --     vim.lsp.config("gdscript", {
+        --         cmd = { "godot-wsl-lsp", "--experimentalFastPathConversion" },
+        --         on_attach = on_attach,
+        --         capabilities = capabilities,
+        --     })
+        --     vim.lsp.enable("gdscript")
+        -- else
+        --     godot_helper.start_godot_server()
+        --     vim.lsp.config("gdscript", {
+        --         on_attach = on_attach,
+        --         capabilities = capabilities,
+        --         name = "Godot",
+        --         cmd = cmd,
+        --         root_dir = vim.fs.dirname(vim.fs.find({
+        --             "project.godot",
+        --             ".git",
+        --         }, { upward = true })[1]),
+        --     })
+        --     vim.lsp.enable("gdscript")
+        -- end
     end,
 }
