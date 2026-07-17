@@ -11,7 +11,7 @@ return {
         lint.linters_by_ft = {
             ansible = { "ansible_lint" },
             bash = { "shellcheck" },
-            python = { "pylint" },
+            -- python = { "pylint" },
             -- html = { "markuplint" },
             -- javascript = { "eslint_d" },
             -- typescript = { "eslint_d" },
