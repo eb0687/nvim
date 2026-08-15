@@ -32,6 +32,7 @@ return {
             xml = { "xmllint" },
             templ = { "templ" },
             gdscript = { "gdformat" },
+            nix = { "nixfmt" },
         },
     },
     config = function(_, opts)

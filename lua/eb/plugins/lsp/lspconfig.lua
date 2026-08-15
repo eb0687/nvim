@@ -75,6 +75,7 @@ return {
         vim.lsp.enable("jsonls")
         vim.lsp.enable("sqlls")
         vim.lsp.enable("hyprls")
+        vim.lsp.enable("nixd")
 
         -- NOTE: Use an on_attach function to only map the following keys after the language server attaches to the current buffer
         local on_attach = function(client, bufnr)
