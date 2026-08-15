@@ -9,7 +9,7 @@ return {
         local lint = require("lint")
         -- vim.env.ESLINT_D_PPID = vim.fn.getpid()
         lint.linters_by_ft = {
-            ansible = { "ansible_lint" },
+            ["yaml.ansible"] = { "ansible_lint" },
             bash = { "shellcheck" },
             -- python = { "pylint" },
             -- html = { "markuplint" },
