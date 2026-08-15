@@ -43,6 +43,47 @@ return {
             end
         end
 
+        local obsidian_cli = vim.fn.expand("~/.local/bin/obsidian")
+
+        vim.api.nvim_create_user_command("ObsidianMove", function(opts)
+            local source_path = vim.api.nvim_buf_get_name(0)
+            local vault_path = vim.fn.fnamemodify(vim.fn.expand(get_obsidian_dir()), ":p")
+            local relative_source = vim.fs.relpath(vault_path, source_path)
+
+            if source_path == "" or relative_source == nil then
+                vim.notify("Current buffer is not inside the Obsidian vault", vim.log.levels.ERROR)
+                return
+            end
+
+            if vim.bo.modified then
+                vim.cmd.write()
+            end
+
+            -- An omitted destination moves the note to the vault root unchanged.
+            local destination = opts.args ~= "" and opts.args or vim.fn.fnamemodify(relative_source, ":t")
+            local destination_path = vault_path .. destination
+
+            vim.system({
+                obsidian_cli,
+                "move",
+                "path=" .. relative_source,
+                "to=" .. destination,
+            }, {}, function(result)
+                vim.schedule(function()
+                    if result.code ~= 0 then
+                        vim.notify("Obsidian move failed: " .. result.stderr, vim.log.levels.ERROR)
+                        return
+                    end
+
+                    vim.cmd.edit(vim.fn.fnameescape(destination_path))
+                    vim.notify("Moved note to " .. destination)
+                end)
+            end)
+        end, {
+            nargs = "?",
+            desc = "Move and rename the current Obsidian note",
+        })
+
         -- NOTE: this function opens hyperlinks in web browsers
         local follow_url = function(url)
             vim.fn.jobstart({
