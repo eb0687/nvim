@@ -63,7 +63,6 @@ return {
             ":Obsidian template<CR>",
             "OBSIDIAN",
             true,
-            -- this will insert the template under the cursor position
             "Convert note template and remove leading white space"
         )
 
