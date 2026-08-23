@@ -133,16 +133,24 @@ return {
             ui = {
                 enable = false,
             },
+            mappings = {
+                ["gf"] = {
+                    action = function()
+                        return require("obsidian").util.gf_passthrough()
+                    end,
+                    opts = { noremap = false, expr = true, buffer = true },
+                },
+            },
         })
 
         -- keymap_normal("gf", ":ObsidianFollowLink<CR>", "OBSIDIAN", true, "follow Obsidian link")
-        keymap_normal("gf", function()
-            if require("obsidian").util.cursor_on_markdown_link() then
-                return "<cmd>ObsidianFollowLink<CR>"
-            else
-                return "gf"
-            end
-        end, "OBSIDIAN", true, "follow Obsidian link")
+        -- keymap_normal("gf", function()
+        --     if require("obsidian").util.cursor_on_markdown_link() then
+        --         return "<cmd>ObsidianFollowLink<CR>"
+        --     else
+        --         return "gf"
+        --     end
+        -- end, "OBSIDIAN", true, "follow Obsidian link")
         keymap_normal("<leader>oo", ":ObsidianOpen ", "OBSIDIAN", true, "Open note in Obsidian (optional args)")
         keymap_normal("<leader>on", ":ObsidianNew ", "OBSIDIAN", true, "Create new note in Obsidian (optional args)")
         keymap_normal("<leader>oq", ":ObsidianQuickSwitch<CR>", "OBSIDIAN", true, "Quickly switch between notes")
