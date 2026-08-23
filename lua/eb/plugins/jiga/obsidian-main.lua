@@ -52,7 +52,6 @@ return {
                     local fm = require("obsidian.builtin").frontmatter(note)
                     fm.id = nil
                     fm.aliases = nil
-                    fm.tags = nil
                     return fm
                 end,
             },
@@ -106,5 +105,15 @@ return {
             true,
             "Open the current note inside the Obsidian app"
         )
+
+        vim.api.nvim_create_autocmd("User", {
+            pattern = "ObsidianNoteWritePost",
+            callback = function(ev)
+                require("conform").format({
+                    bufnr = ev.buf,
+                    formatters = { "prettier", "injected" },
+                })
+            end,
+        })
     end,
 }
