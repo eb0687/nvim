@@ -1,3 +1,4 @@
+-- NOTE: defaults are here: https://github.com/obsidian-nvim/obsidian.nvim/blob/main/lua/obsidian/config/default.lua
 return {
     "obsidian-nvim/obsidian.nvim",
     -- version = "*", -- use latest release, remove to use latest commit
@@ -17,7 +18,10 @@ return {
             },
             link = {
                 style = "markdown",
+                auto_update = true,
             },
+            note_id_func = require("obsidian.builtin").title_id,
+            ---@diagnostic disable-next-line: missing-fields
             templates = {
                 folder = "templates",
                 date_format = "%Y-%m-%d (%a)",
@@ -27,7 +31,10 @@ return {
             picker = {
                 name = "mini.pick",
             },
-            unique_note = { format = "${title}-${date}-${time}" },
+            unique_note = {
+                format = require("obsidian.builtin").zettel_id,
+                template = "templates/quicknotes-template.md",
+            },
             ui = {
                 enable = false,
             },
@@ -39,6 +46,15 @@ return {
             },
             footer = {
                 enabled = false,
+            },
+            frontmatter = {
+                func = function(note)
+                    local fm = require("obsidian.builtin").frontmatter(note)
+                    fm.id = nil
+                    fm.aliases = nil
+                    fm.tags = nil
+                    return fm
+                end,
             },
         })
 
@@ -59,14 +75,37 @@ return {
             "Strip date from note title & replace dashes with spaces"
         )
 
-        keymap_normal("<leader>oq", ":Obsidian quick_switch<CR>", "OBSIDIAN", true, "Quickly switch between notes")
-        keymap_normal("<leader>odd", ":!rm '%:p'<CR>:bd<CR>", "OBSIDIAN", true, "Delete note from inbox")
         keymap_visual(
             "<leader>ol",
-            ":ObsidianLinkNew",
+            ":Obsidian link_new<CR>",
             "OBSIDIAN",
             true,
-            "Create a new note and link to a visual selection (optional args)"
+            "Create a new note from a visual selection"
+        )
+
+        keymap_normal(
+            "<leader>oq",
+            ":Obsidian quick_switch<CR>",
+            "OBSIDIAN",
+            true,
+            "Quickly switch between notes using the picker"
+        )
+
+        -- TODO: make this safer by prompting the user to confirm deletion of the note
+        keymap_normal(
+            "<leader>odd",
+            ":!rm '%:p'<CR>:bd<CR>",
+            "OBSIDIAN",
+            true,
+            "Delete a note from the obisidian inbox"
+        )
+
+        keymap_normal(
+            "<leader>oo",
+            ":Obsidian open<CR>",
+            "OBSIDIAN",
+            true,
+            "Open the current note inside the Obsidian app"
         )
     end,
 }
