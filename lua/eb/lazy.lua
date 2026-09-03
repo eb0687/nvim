@@ -59,3 +59,5 @@ else
         { import = "eb.plugins.cmp" }, -- lsp configs managed by lazy
     }, opts)
 end
+
+require("eb.theme").apply()

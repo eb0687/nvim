@@ -26,8 +26,6 @@ return {
             let g:gruvbox_material_show_eob = 0
         ]])
 
-        vim.cmd([[colorscheme gruvbox-material]])
-
         local colors = {
             bg = "#1D2021",
             bg1 = "#282828",
@@ -139,7 +137,6 @@ return {
             vim.api.nvim_set_hl(0, "MsgArea", { fg = colors.grey2 })
         end
 
-        set_custom_highlights()
         vim.api.nvim_create_autocmd("ColorScheme", {
             pattern = "gruvbox-material",
             callback = function()
