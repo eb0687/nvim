@@ -19,6 +19,7 @@ return {
             on_highlights = function(hl, c)
                 ---@cast c FlexokiColors
                 -- Mini Statusline
+                hl.MiniStatuslineFilename = { fg = c.paper }
                 hl.MiniStatuslineFilenameModified = { fg = c.green }
                 hl.MiniStatuslineFilenameReadonly = { fg = c.red }
                 hl.MiniStatuslineGit = { fg = c.blue1 }
