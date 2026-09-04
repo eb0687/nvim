@@ -5,15 +5,6 @@ return {
     -- https://github.com/christoomey/vim-tmux-navigator
     "christoomey/vim-tmux-navigator",
 
-    -- https://github.com/mboughaba/i3config.vim
-    -- TODO: kinda buggy, need to look for an alternative to this
-    {
-        "mboughaba/i3config.vim",
-        ft = {
-            "i3config",
-        },
-    },
-
     -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
@@ -56,18 +47,19 @@ return {
     },
 
     -- https://github.com/sphamba/smear-cursor.nvim
-    {
-        "sphamba/smear-cursor.nvim",
-        event = "VeryLazy",
-        opts = {
-            smear_between_buffers = true,
-            legacy_computing_symbols_support = false,
-            stiffness = 0.8,
-            trailing_stiffness = 0.5,
-            distance_stop_animating = 0.5,
-            hide_target_hack = false,
-        },
-    },
+    -- {
+    --     "sphamba/smear-cursor.nvim",
+    --     event = "VeryLazy",
+    --     enabled = false,
+    --     opts = {
+    --         smear_between_buffers = true,
+    --         legacy_computing_symbols_support = false,
+    --         stiffness = 0.8,
+    --         trailing_stiffness = 0.5,
+    --         distance_stop_animating = 0.5,
+    --         hide_target_hack = false,
+    --     },
+    -- },
     {
         "j-hui/fidget.nvim",
         opts = {
