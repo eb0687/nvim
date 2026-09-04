@@ -27,6 +27,8 @@ return {
                     "regex",
                     "tsx",
                     "css",
+                    "yaml",
+                    "rust",
                 }
 
                 local already_installed = require("nvim-treesitter.config").get_installed()
