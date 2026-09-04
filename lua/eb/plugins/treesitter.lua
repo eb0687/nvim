@@ -28,6 +28,7 @@ return {
                     "tsx",
                     "css",
                 }
+
                 local already_installed = require("nvim-treesitter.config").get_installed()
                 local parsers_to_install = vim.iter(ensure_installed)
                     :filter(function(parser)
@@ -35,6 +36,33 @@ return {
                     end)
                     :totable()
                 require("nvim-treesitter").install(parsers_to_install)
+
+                -- NOTE: tree-sitter incremental selection from Nasser
+                vim.keymap.set("n", "<C-space>", function()
+                    -- press v to enter visual mode
+                    vim.cmd("normal! v")
+                    if vim.treesitter.get_parser(nil, nil, { error = false }) then
+                        require("vim.treesitter._select").select_parent(vim.v.count1)
+                    else
+                        vim.lsp.buf.selection_range(vim.v.count1)
+                    end
+                end, { desc = "Select parent (outer) node" })
+
+                vim.keymap.set({ "x", "o" }, "<C-space>", function()
+                    if vim.treesitter.get_parser(nil, nil, { error = false }) then
+                        require("vim.treesitter._select").select_parent(vim.v.count1)
+                    else
+                        vim.lsp.buf.selection_range(vim.v.count1)
+                    end
+                end, { desc = "Select parent (outer) node" })
+
+                vim.keymap.set({ "x", "o" }, "in", function()
+                    if vim.treesitter.get_parser(nil, nil, { error = false }) then
+                        require("vim.treesitter._select").select_child(vim.v.count1)
+                    else
+                        vim.lsp.buf.selection_range(-vim.v.count1)
+                    end
+                end, { desc = "Select child (inner) node" })
             end,
         })
     end,
