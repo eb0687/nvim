@@ -3,7 +3,7 @@
 
 -- TODO: add more useful information
 local function file_info()
-    local filename = vim.fn.expand("%"):gsub(vim.pesc(vim.loop.cwd()), "."):gsub(vim.pesc(vim.fn.expand("$HOME")), "~")
+    local filename = vim.fn.expand("%"):gsub(vim.pesc(vim.uv.cwd()), "."):gsub(vim.pesc(vim.fn.expand("$HOME")), "~")
 
     local type = vim.bo.ft
     local branch = vim.b.gitsigns_head
