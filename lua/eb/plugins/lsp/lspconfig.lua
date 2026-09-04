@@ -1,16 +1,4 @@
---  _                            __ _
--- | |___ _ __   ___ ___  _ __  / _(_) __ _
--- | / __| '_ \ / __/ _ \| '_ \| |_| |/ _` |
--- | \__ \ |_) | (_| (_) | | | |  _| | (_| |
--- |_|___/ .__/ \___\___/|_| |_|_| |_|\__, |
---       |_|                          |___/
 -- https://github.com/neovim/nvim-lspconfig
-
--- TODO: install trouble.nvim using this guide: https://youtu.be/6pAG3BHurdM?t=4307https://youtu.be/6pAG3BHurdM?t=4307
--- TODO: after updating lspconfig there will be breaking changes, refer to this link for troubleshooting tips
--- TODO: https://www.reddit.com/r/neovim/comments/1nmh99k/beware_the_old_nvimlspconfig_setup_api_is/
--- TODO: https://xnacly.me/posts/2025/neovim-lsp-changes/
--- TODO: check the vim.lsp.config in the docs
 
 return {
     "neovim/nvim-lspconfig",
@@ -55,6 +43,7 @@ return {
         vim.keymap.del("n", "gri")
         vim.keymap.del("n", "grn")
         vim.keymap.del("n", "grt")
+        vim.keymap.del("n", "grx")
 
         -- NOTE: enable LSPs here
         vim.lsp.enable("lua_ls")
@@ -80,6 +69,20 @@ return {
 
         -- NOTE: Use an on_attach function to only map the following keys after the language server attaches to the current buffer
         local on_attach = function(client, bufnr)
+            if client.name == "terraformls" then
+                vim.lsp.semantic_tokens.enable(false, {
+                    bufnr = bufnr,
+                    client_id = client.id,
+                })
+
+                vim.schedule(function()
+                    vim.lsp.codelens.enable(false, {
+                        bufnr = bufnr,
+                        client_id = client.id,
+                    })
+                end)
+            end
+
             local keymap = function(keys, func, desc)
                 if desc then
                     desc = "LSP: " .. desc
