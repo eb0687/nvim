@@ -1,12 +1,6 @@
---             _                             _
---  _ ____   _(_)_ __ ___         ___  _ __ | |_ ___
--- | '_ \ \ / / | '_ ` _ \ _____ / _ \| '_ \| __/ __|
--- | | | \ V /| | | | | | |_____| (_) | |_) | |_\__ \
--- |_| |_|\_/ |_|_| |_| |_|      \___/| .__/ \__|___/
---                                    |_|
-
 -- :help options
 
+---@type vim.Option
 local options = {
     wrap = false, -- disables word wrapping
     fileencoding = "utf-8", -- the encoding written to the file
@@ -28,7 +22,6 @@ local options = {
     pumheight = 10, -- pop up menu height
     ttimeoutlen = 50, -- delay when changing from insert to normal mode
     timeoutlen = 500, -- time in milliseconds to wait for a mapped sequence to complete.
-    foldmethod = "marker", -- :help foldmethod
     foldmarker = "[[[,]]]", -- :help foldmarker
     hidden = true, -- :help hidden
     showtabline = 0, -- specifies when the line with tab page labels will be displayed
@@ -51,6 +44,12 @@ local options = {
     updatetime = 50,
     inccommand = "split", -- show a preview of the substitution in a split buffer
     winborder = "single",
+    foldmethod = "expr",
+    foldexpr = "v:lua.vim.treesitter.foldexpr()",
+    foldcolumn = "0",
+    foldlevel = 99,
+    foldnestmax = 9,
+    foldtext = "",
 }
 
 for k, v in pairs(options) do
@@ -60,14 +59,6 @@ end
 --
 vim.opt.iskeyword:append("-") -- uses "-" to connect words when using vim motions
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-
--- NASSER fold
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-vim.opt.foldcolumn = "0"
-vim.opt.foldlevel = 99
-vim.opt.foldnestmax = 9
-vim.opt.foldtext = ""
 
 -- vim syntax
 local cmd = vim.cmd

@@ -8,7 +8,7 @@ return {
     config = function()
         local baredot = require("baredot")
 
-        -- TODO: probably update this for compatibility with my vms on proxmox
+        -- TODO: need to figure out a good way to migrate to framework cleanly
 
         -- TODO: probably move this to a utils folder
         local function directory_exists(path)

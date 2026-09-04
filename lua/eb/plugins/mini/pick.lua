@@ -90,6 +90,7 @@ function M.setup()
         extra.pickers.history({ scope = ":" }, opts)
     end
 
+    -- NOTE: Figure out how to migrate this to framework as well
     local reboot_projects_dir = ""
     local obsidian_vault = ""
     local dotfiles_bare_dir = ""
