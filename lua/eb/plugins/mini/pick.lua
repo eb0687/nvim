@@ -19,6 +19,7 @@ function M.setup()
             scroll_up = "<C-u>",
             scroll_down = "<C-d>",
             toggle_preview = "<C-p>",
+            delete_left = "<C-b>",
         },
         options = {
             content_from_bottom = false,
