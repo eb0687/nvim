@@ -1,10 +1,3 @@
---  _
--- | | _____ _   _ _ __ ___   __ _ _ __  ___
--- | |/ / _ \ | | | '_ ` _ \ / _` | '_ \/ __|
--- |   <  __/ |_| | | | | | | (_| | |_) \__ \
--- |_|\_\___|\__, |_| |_| |_|\__,_| .__/|___/
---           |___/                |_|
-
 -- NOTE:
 -- Modes
 -- normal_mode = "n",
@@ -60,8 +53,6 @@ keymap_silent("n", "<C-A-Up>", ":resize +3<CR>", "Vertical resize (+)")
 keymap_silent("n", "<C-A-Down>", ":resize -3<CR>", "Vertical resize (-)")
 
 -- Buffer navigation
--- keymap_silent("n", "<TAB>", ":bnext<CR>", "Next buffer")
--- keymap_silent("n", "<S-TAB>", ":bprevious<CR>", "Previous buffer")
 keymap_silent("n", "<leader>bd", ":bdelete<CR>", "Delete focused buffer")
 keymap_silent("n", "<leader>bD", ":%bd|e#<CR>", "Delete all except for focused buffer")
 keymap_silent("n", "<leader>BD", ":%bd<CR>", "Delete all buffers")
@@ -111,7 +102,6 @@ vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = tr
 vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Grep
--- keymap_loud("n", "<leader>gg", ":copen | :silent :grep ", "Custom grep")
 keymap_loud("n", "<leader>gg", ":Grep ", "Custom grep")
 keymap_loud("n", "<leader>gw", ":GrepCursorWord<CR>", "Grep for word under cursor")
 
@@ -161,7 +151,6 @@ keymap_silent("n", "p", function()
     vim.cmd("put")
     vim.api.nvim_win_set_cursor(0, { row + 1, col })
 end, "New paste")
--- keymap("v", "<leader>p", "\"_dP", opts)
 
 -- Increment and Decrement numbers
 -- Inspired by: https://www.youtube.com/shorts/kkcHypEr5y8
