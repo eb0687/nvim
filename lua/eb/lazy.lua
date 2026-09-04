@@ -1,9 +1,3 @@
---   _                              _
---  | | __ _ _____   _   _ ____   _(_)_ __ ___
---  | |/ _` |_  / | | | | '_ \ \ / / | '_ ` _ \
---  | | (_| |/ /| |_| |_| | | \ V /| | | | | | |
---  |_|\__,_/___|\__, (_)_| |_|\_/ |_|_| |_| |_|
---               |___/
 -- https://github.com/folke/lazy.nvim
 
 -- Bootstrap. This will install lazy.nvim if not available
@@ -20,7 +14,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- these options are passed into the lazy setup function below
 local opts = {
     install = {
         colorscheme = { "gruvbox-material" },
@@ -37,31 +30,8 @@ local opts = {
     },
 }
 
--- local utils = require("eb.utils.custom_helpers")
--- local hostname = utils.get_hostname()
-
--- if hostname == "JIGA" then
---     require("lazy").setup({
---         { import = "eb.plugins" }, -- plugins configs managed by lazy
---         { import = "eb.plugins.lsp" }, -- lsp configs managed by lazy
---         { import = "eb.plugins.jiga" }, -- lsp configs managed by lazy
---     }, opts)
--- elseif hostname == "eb-t490" then
---     require("lazy").setup({
---         { import = "eb.plugins" }, -- plugins configs managed by lazy
---         { import = "eb.plugins.lsp" }, -- lsp configs managed by lazy
---         { import = "eb.plugins.jiga" }, -- lsp configs managed by lazy
---     }, opts)
--- else
---     require("lazy").setup({
---         { import = "eb.plugins" }, -- plugins configs managed by lazy
---         { import = "eb.plugins.lsp" }, -- lsp configs managed by lazy
---         { import = "eb.plugins.cmp" }, -- lsp configs managed by lazy
---     }, opts)
--- end
-
 require("lazy").setup({
     { import = "eb.plugins" },
     { import = "eb.plugins.lsp" },
-})
+}, opts)
 require("eb.theme").apply()
