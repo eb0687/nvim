@@ -71,8 +71,6 @@ cmd([[
     " healthcheck
     command! Health checkhealth
 
-    autocmd FileType * silent! :TSEnable highlight
-
     let g:suda#prompt = 'Enter password. (If fingerprint enabled, use reader)'
 ]])
 
