@@ -1,8 +1,8 @@
 return {
     "codethread/qmk.nvim",
-    filetype = "keymap",
+    ft = "keymap",
     enabled = true,
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     opts = {
         name = "corne",
         variant = "zmk",
