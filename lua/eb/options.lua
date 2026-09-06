@@ -81,3 +81,6 @@ local g = vim.g
 g.loaded_ruby_provider = 0
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
+
+-- NOTE: https://neovim.io/doc/user/lua/#ui2
+require("vim._core.ui2").enable()

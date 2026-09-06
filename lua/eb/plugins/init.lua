@@ -113,7 +113,7 @@ return {
                         MiniPickPromptPrefix = { bg = colors.base, fg = colors.peach },
                         MiniPickBorderText = { bg = colors.base, fg = colors.peach },
                         -- Mini StatusLine
-                        MiniStatuslineModeNormal = { bg = colors.mantle, fg = colors.surface2 },
+                        MiniStatuslineModeNormal = { bg = colors.mantle, fg = colors.flamingo },
                         MiniStatuslineFilename = { bg = colors.mantle, fg = colors.surface2 },
                         MiniStatuslineFilenameModified = { bg = colors.mantle, fg = colors.green },
                         MiniStatuslineFilenameReadonly = { bg = colors.mantle, fg = colors.red },

@@ -52,7 +52,7 @@ return {
             vim.api.nvim_set_hl(0, "FloatFooter", { bg = "" })
             vim.api.nvim_set_hl(0, "FloatBorder", { bg = "", fg = colors.grey0 })
 
-            vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.aqua, bold = true })
+            vim.api.nvim_set_hl(0, "CursorLineNr", { fg = colors.grey0, bold = true })
 
             -- Flash.nvim
             vim.api.nvim_set_hl(0, "FlashBackdrop", { bg = colors.bg, fg = colors.bg2 })

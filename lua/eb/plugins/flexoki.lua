@@ -18,8 +18,9 @@ return {
         require("flexoki").setup({
             on_highlights = function(hl, c)
                 ---@cast c FlexokiColors
-                hl.CursorLineNr = { fg = c.teal, bold = true }
+                hl.CursorLineNr = { fg = c.purple, bold = true }
                 -- Mini Statusline
+                hl.MiniStatuslineModeNormal = { fg = c.purple }
                 hl.MiniStatuslineFilename = { fg = c.paper }
                 hl.MiniStatuslineFilenameModified = { fg = c.green }
                 hl.MiniStatuslineFilenameReadonly = { fg = c.red }

@@ -216,4 +216,14 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
+---
+
+local marks_fix_group = vim.api.nvim_create_augroup("marks-fix-hl", {})
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+    group = marks_fix_group,
+    callback = function()
+        vim.api.nvim_set_hl(0, "MarkSignNumHL", {})
+    end,
+})
+
 return {}
