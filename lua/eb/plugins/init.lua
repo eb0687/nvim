@@ -103,6 +103,7 @@ return {
                         FloatTitle = { bg = "", fg = colors.yellow },
                         FloatFooter = { bg = "" },
                         FloatBorder = { bg = "", fg = colors.surface2 },
+                        CursorLineNr = { bg = "", fg = colors.flamingo, bold = true },
                         -- Mini Various
                         MiniCursorwordCurrent = { underline = true, fg = "", bg = "" },
                         MiniCursorword = { underline = true, fg = "", bg = "" },

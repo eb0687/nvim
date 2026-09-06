@@ -50,6 +50,8 @@ local options = {
     foldlevel = 99,
     foldnestmax = 9,
     foldtext = "",
+    cursorline = true,
+    cursorlineopt = "number",
 }
 
 for k, v in pairs(options) do
