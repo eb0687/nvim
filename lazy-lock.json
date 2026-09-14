@@ -56,7 +56,7 @@
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "qmk.nvim": { "branch": "main", "commit": "3c804c1480991e4837514900b22b9358cfd64fa1" },
   "rainbow-delimiters.nvim": { "branch": "master", "commit": "3a0fc08dd39e8bf034a4cfef3f2845bd5f565a2e" },
-  "render-markdown.nvim": { "branch": "main", "commit": "4286b83f505f3c0e2ca04763a77c9dda0d732340" },
+  "render-markdown.nvim": { "branch": "main", "commit": "a778444a73080301a50c4a6f58c90d7e094dd59e" },
   "sniprun": { "branch": "master", "commit": "647995168a0682b359dfbf49bd3b0e8b9f2026dc" },
   "submode.nvim": { "branch": "main", "commit": "d3cd2ceed6e2379caba6ec2e75dc50a9a832be63" },
   "tabs-vs-spaces.nvim": { "branch": "main", "commit": "4fbc894fa11b282a0dd5d5a670922abd185ae527" },
