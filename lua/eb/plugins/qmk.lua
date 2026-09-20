@@ -1,6 +1,6 @@
 return {
     "codethread/qmk.nvim",
-    ft = "keymap",
+    ft = "dts",
     enabled = true,
     -- event = "VeryLazy",
     opts = {
