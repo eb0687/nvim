@@ -66,6 +66,7 @@ return {
         vim.lsp.enable("hyprls")
         vim.lsp.enable("nixd")
         vim.lsp.enable("terraformls")
+        vim.lsp.enable("docker_language_server")
 
         -- NOTE: Use an on_attach function to only map the following keys after the language server attaches to the current buffer
         local on_attach = function(client, bufnr)
