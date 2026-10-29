@@ -59,6 +59,7 @@ return {
         vim.lsp.enable("biome")
         vim.lsp.enable("graphql")
         vim.lsp.enable("ansiblels")
+        vim.lsp.enable("yamlls")
         vim.lsp.enable("pyright")
         -- NOTE: manually installed via npm
         vim.lsp.enable("jsonls")
